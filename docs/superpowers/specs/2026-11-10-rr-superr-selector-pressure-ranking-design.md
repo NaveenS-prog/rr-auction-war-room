@@ -136,18 +136,22 @@ During architectural brainstorming, three design alternatives were evaluated:
 1. **Python Core Pipeline**:
    - Modular scripts in `src/`:
      - `src/data_loader.py`: CSV ingestion and match state feature engineering.
-     - `src/win_prob.py`: Win expectancy and Leverage Index calculation.
-     - `src/metrics.py`: TSR, TER, Dot%, WPA, and Bayes shrinkage.
-     - `src/rankings.py`: Generating Top 10 Batters and Top 10 Bowlers with full statistical breakdown.
-2. **Corporate Whitepaper (PDF)**:
-   - Executive Summary
-   - Formal Mathematical Definitions ($P(\text{Win})$, $LI$, $TSR$, $TER$, Bayesian Shrinkage)
-   - Methodology Visuals: Win Probability Curves, Leverage Distribution, Metric Scatter Plots
-   - Top 10 Batters Dossier (individual breakdown cards, pressure stats vs baseline)
-   - Top 10 Bowlers Dossier (individual breakdown cards, death over leverage stats)
-   - Sensitivity, Reliability & Limitation Analysis
-3. **Executive Slide Summary (Deck)**:
-   - 15–20 slide high-impact deck summarizing key insights for Kumar Sangakkara & Giles Lindsay.
+     - `src/win_prob.py`: Win expectancy and Leverage Index calculation across both innings.
+     - `src/metrics.py`: True Strike Rate, True Economy, Dot% impact, WPA, and Empirical Bayes shrinkage.
+     - `src/rankings.py`: Generating Top 10 Batters and Top 10 Bowlers with full statistical breakdown and Unstop dropdown validation.
+2. **Primary Submission Deliverable (Single PDF Upload on Unstop)**:
+   - **Executive Methodology Deck (15–20 Page Landscape Corporate PDF)**:
+     - Formatted specifically for fast, high-impact executive consumption by Kumar Sangakkara & Giles Lindsay.
+     - Slide 1: Cover & Mission Brief (Rajasthan Royals War Room).
+     - Slide 2: Executive Summary & The Core Pressure Thesis.
+     - Slides 3–4: Mathematical Framework (Unified Win Expectancy $P(\text{Win})$, Leverage Index $LI$, and Pressure States).
+     - Slides 5–6: Performance Measurement Formulas ($TSR, TER$, Run-Value Equivalence, Dual-Axis $70/30$ Composite).
+     - Slide 7: Statistical Control (Competition Weighting & Empirical Bayes Shrinkage).
+     - Slides 8–9: **Top 10 Batters Under Pressure** (Rankings table + Top Performer Breakdown Cards).
+     - Slides 10–11: **Top 10 Bowlers Under Pressure** (Rankings table + Top Performer Breakdown Cards).
+     - Slides 12–13: Visual Evidence (Win Probability Swings, $LI$ Distribution, Baseline vs Pressure Scatter).
+     - Slide 14: Model Reliability, Cross-Match Consistency & Uncertainty/Bootstrap Sensitivity.
+     - Slide 15: Strategic War Room Summary for IPL 2027 Auction & Appendix.
 
 ---
 
