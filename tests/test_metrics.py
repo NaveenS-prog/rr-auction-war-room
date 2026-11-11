@@ -263,3 +263,56 @@ def test_missing_names_and_wides():
     assert df_bowlers.iloc[0]["player_name"] == "888"
     assert df_bowlers.iloc[0]["n_balls_overall"] == 2  # 2 balls bowled (wide included)
 
+
+def test_missing_batting_order_nan_handling():
+    """Verify missing/all-NaN batting_order does not raise ValueError and defaults to 4."""
+    phase_pars = compute_phase_par_rates(pd.DataFrame())
+    df = pd.DataFrame([
+        {
+            "match_id": 1, "innings": 1, "overid": 10, "phase": "Middle",
+            "striker_id": 555, "striker_name": "Unknown Order Batter",
+            "batting_order": np.nan,
+            "bowler_id": 666, "bowler_name": "Test Bowler",
+            "runs": 2, "bowler_runs_conceded": 2,
+            "is_bowler_wicket": False, "is_dot": False, "delta_wpa": 0.02,
+            "leverage_index": 1.1, "is_high_pressure": False, "comp_weight": 1.0
+        },
+        {
+            "match_id": 1, "innings": 1, "overid": 10, "phase": "Middle",
+            "striker_id": 555, "striker_name": "Unknown Order Batter",
+            "batting_order": None,
+            "bowler_id": 666, "bowler_name": "Test Bowler",
+            "runs": 1, "bowler_runs_conceded": 1,
+            "is_bowler_wicket": False, "is_dot": False, "delta_wpa": 0.01,
+            "leverage_index": 1.1, "is_high_pressure": False, "comp_weight": 1.0
+        }
+    ])
+    df_batters, df_bowlers = calculate_player_raw_metrics(df, phase_pars)
+    assert not df_batters.empty
+    assert df_batters.iloc[0]["primary_batting_pos"] == 4
+    assert df_batters.iloc[0]["top7_appearance_pct"] == pytest.approx(1.0)
+
+
+def test_phase_par_rates_wides_exclusion():
+    """Verify that league par SR excludes wides from denominator while par ER includes all balls."""
+    df = pd.DataFrame([
+        {
+            "match_id": 1, "overid": 3, "phase": "Powerplay",
+            "runs": 0, "bowler_runs_conceded": 1, "extras_type": "wides",
+            "is_dot": False, "is_four": False, "is_six": False
+        },
+        {
+            "match_id": 1, "overid": 3, "phase": "Powerplay",
+            "runs": 4, "bowler_runs_conceded": 4, "extras_type": None,
+            "is_dot": False, "is_four": True, "is_six": False
+        }
+    ])
+    pars = compute_phase_par_rates(df)
+    # Total balls = 2, non-wide balls = 1, bat runs = 4, bowl runs = 5
+    # RPB = 4 / 1 = 4.0 -> par_sr = 400.0
+    # Par ER = (5 / 2) * 6.0 = 15.0
+    assert pars["Powerplay"]["runs_per_ball"] == pytest.approx(4.0)
+    assert pars["Powerplay"]["par_sr"] == pytest.approx(400.0)
+    assert pars["Powerplay"]["par_er"] == pytest.approx(15.0)
+
+

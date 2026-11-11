@@ -139,6 +139,19 @@ def compute_phase_par_rates(df: pd.DataFrame) -> Dict[str, Dict[str, float]]:
     else:
         is_dot = pd.Series(False, index=df_work.index)
 
+    # Identify wide deliveries
+    if "is_wide" in df_work.columns:
+        is_wide = df_work["is_wide"].fillna(False).astype(bool)
+    elif "extras_type" in df_work.columns:
+        is_wide = (
+            df_work["extras_type"]
+            .astype(str)
+            .str.lower()
+            .str.contains("wide", na=False)
+        )
+    else:
+        is_wide = pd.Series(False, index=df_work.index)
+
     # Identify boundaries (fours and sixes)
     is_four = df_work.get("is_four", pd.Series(False, index=df_work.index)).fillna(False).astype(bool)
     is_six = df_work.get("is_six", pd.Series(False, index=df_work.index)).fillna(False).astype(bool)
@@ -153,6 +166,7 @@ def compute_phase_par_rates(df: pd.DataFrame) -> Dict[str, Dict[str, float]]:
         bowl_runs = bat_runs
 
     df_work["_is_dot"] = is_dot
+    df_work["_is_wide"] = is_wide
     df_work["_is_boundary"] = is_boundary
     df_work["_bat_runs"] = bat_runs
     df_work["_bowl_runs"] = bowl_runs
@@ -163,14 +177,27 @@ def compute_phase_par_rates(df: pd.DataFrame) -> Dict[str, Dict[str, float]]:
         if n_balls == 0:
             continue
 
-        tot_bat_runs = float(phase_subset["_bat_runs"].sum())
+        # Exclude wide deliveries when computing batting par rates
+        non_wide_subset = phase_subset[~phase_subset["_is_wide"]]
+        n_bat_balls = len(non_wide_subset)
+
+        tot_bat_runs = (
+            float(non_wide_subset["_bat_runs"].sum())
+            if n_bat_balls > 0
+            else float(phase_subset["_bat_runs"].sum())
+        )
         tot_bowl_runs = float(phase_subset["_bowl_runs"].sum())
         dots = float(phase_subset["_is_dot"].sum())
         boundaries = float(phase_subset["_is_boundary"].sum())
 
-        rpb = tot_bat_runs / n_balls
-        par_sr = rpb * 100.0
-        # If bowler runs conceded exists, bowler par ER is based on bowl_runs, else bat_runs * 6
+        if n_bat_balls > 0:
+            rpb = tot_bat_runs / n_bat_balls
+            par_sr = rpb * 100.0
+        else:
+            rpb = tot_bat_runs / n_balls
+            par_sr = rpb * 100.0
+
+        # Bowler par ER is based on all deliveries (tot_bowl_runs / n_balls * 6.0)
         par_er = (tot_bowl_runs / n_balls) * 6.0
         dot_pct = dots / n_balls
         boundary_pct = boundaries / n_balls
@@ -274,8 +301,11 @@ def calculate_player_raw_metrics(
 
 def _aggregate_batters(df_work: pd.DataFrame) -> pd.DataFrame:
     """Aggregates batting performance across overall and pressure contexts."""
-    # Exclude wide deliveries from balls faced by the striker if extras_type exists
-    if "extras_type" in df_work.columns:
+    # Exclude wide deliveries from balls faced by the striker
+    if "is_wide" in df_work.columns:
+        is_wide = df_work["is_wide"].fillna(False).astype(bool)
+        df_bat = df_work[~is_wide].copy()
+    elif "extras_type" in df_work.columns:
         is_wide = (
             df_work["extras_type"]
             .astype(str)
@@ -332,9 +362,9 @@ def _aggregate_batters(df_work: pd.DataFrame) -> pd.DataFrame:
 
     # Batting order and top 7 role sanity
     if "batting_order" in df_bat.columns:
-        orders = df_bat["batting_order"].fillna(4).astype(float)
+        df_bat = df_bat.assign(_order=df_bat["batting_order"].fillna(4).astype(float))
         primary_pos = (
-            df_bat.groupby("striker_id")["batting_order"]
+            df_bat.groupby("striker_id")["_order"]
             .median()
             .round()
             .astype(int)
@@ -344,7 +374,7 @@ def _aggregate_batters(df_work: pd.DataFrame) -> pd.DataFrame:
         avail_sub = [c for c in subset_cols if c in df_bat.columns]
         if len(avail_sub) >= 2:
             match_inn = df_bat.drop_duplicates(subset=avail_sub)
-            top7_match = match_inn[match_inn["batting_order"] <= 7]
+            top7_match = match_inn[match_inn["_order"] <= 7]
             top7_count = top7_match.groupby("striker_id").size()
             total_inn = match_inn.groupby("striker_id").size()
             top7_pct = (top7_count / total_inn).fillna(0.0)
