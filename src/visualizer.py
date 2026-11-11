@@ -24,30 +24,31 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-# Rajasthan Royals Color Palette & Styling Constants
-RR_NAVY_DARK = "#0b1a30"
-RR_CARD_BG = "#102442"
-RR_PINK = "#ea1a7f"
-RR_GOLD = "#d4af37"
-RR_CYAN = "#00c8ff"
-RR_TEXT_LIGHT = "#f8fafc"
-RR_TEXT_MUTED = "#94a3b8"
-RR_GRID = "#223b61"
+# Rajasthan Royals Clean Executive Color Palette & Styling Constants (White & Royal Pink / Navy)
+RR_NAVY_DARK = "#ffffff"       # Clean pure white figure background
+RR_CARD_BG = "#ffffff"         # Clean pure white axes surface
+RR_PINK = "#ea1a7f"            # Rajasthan Royals Signature Royal Pink
+RR_NAVY = "#001d48"            # Rajasthan Royals Deep Royal Navy
+RR_GOLD = "#b8860b"            # Deep Gold / Champagne (high contrast)
+RR_CYAN = "#0284c7"            # Deep Sky / Cyan Blue (high contrast)
+RR_TEXT_LIGHT = "#0f172a"      # Deep Slate-900 (ultra-crisp, maximum contrast)
+RR_TEXT_MUTED = "#64748b"      # Slate-500 for secondary metadata
+RR_GRID = "#e2e8f0"            # Slate-200 subtle hairline grid
 DPI = 300
 
 
 def _apply_rr_theme(ax: plt.Axes, title: str, subtitle: Optional[str] = None) -> None:
-    """Applies Rajasthan Royals war room aesthetic to a matplotlib axes."""
+    """Applies Rajasthan Royals clean executive aesthetic to a matplotlib axes."""
     ax.set_facecolor(RR_CARD_BG)
-    ax.grid(True, linestyle="--", linewidth=0.6, color=RR_GRID, alpha=0.5, zorder=1)
+    ax.grid(True, linestyle="--", linewidth=0.7, color=RR_GRID, alpha=0.9, zorder=1)
     for spine in ax.spines.values():
-        spine.set_color(RR_GRID)
+        spine.set_color("#cbd5e1")
         spine.set_linewidth(1.0)
-    ax.tick_params(colors=RR_TEXT_MUTED, labelsize=9)
+    ax.tick_params(colors=RR_TEXT_MUTED, labelsize=9.5)
 
     if title:
         title_text = f"{title}\n" if subtitle else title
-        ax.set_title(title_text, color=RR_TEXT_LIGHT, fontsize=12, fontweight="bold", pad=12, loc="left")
+        ax.set_title(title_text, color=RR_NAVY, fontsize=12.5, fontweight="bold", pad=12, loc="left")
         if subtitle:
             ax.text(
                 0.0,
@@ -55,7 +56,7 @@ def _apply_rr_theme(ax: plt.Axes, title: str, subtitle: Optional[str] = None) ->
                 subtitle,
                 transform=ax.transAxes,
                 color=RR_TEXT_MUTED,
-                fontsize=9,
+                fontsize=9.5,
                 fontstyle="italic",
             )
 
@@ -78,7 +79,7 @@ def plot_win_probability_curves(df_balls: pd.DataFrame, output_path: str) -> str
     # Neutral 50% Baseline
     ax.axhline(0.50, color=RR_GOLD, linestyle=":", linewidth=1.5, alpha=0.7, label="Neutral Expectancy (50%)", zorder=2)
 
-    palette = [RR_PINK, RR_CYAN, RR_GOLD, "#a78bfa", "#34d399"]
+    palette = [RR_PINK, RR_NAVY, RR_CYAN, "#7c3aed", "#059669"]
 
     if not df_balls.empty and "win_prob" in df_balls.columns:
         # Determine whether multiple matches are present
@@ -576,7 +577,7 @@ def plot_top_players_radar(
         facecolor=RR_NAVY_DARK,
     )
 
-    player_colors = [RR_GOLD, RR_PINK, RR_CYAN]
+    player_colors = [RR_PINK, RR_NAVY, RR_CYAN]
 
     # --- 1. Batters Radar ---
     categories_bat = [
