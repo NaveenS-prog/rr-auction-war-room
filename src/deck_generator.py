@@ -216,7 +216,7 @@ def _draw_figure_asset(
             c.setStrokeColor(C_CARD_BORDER)
             c.roundRect(x, y, w, h, 6, fill=1, stroke=1)
             pad = 6.0
-            c.drawImage(fig_path, x + pad, y + pad, width=w - 2 * pad, height=h - 2 * pad, preserveAspectRatio=True)
+            c.drawImage(fig_path, x + pad, y + pad, width=w - 2 * pad, height=h - 2 * pad, preserveAspectRatio=True, mask="auto")
             image_drawn = True
         except Exception:
             image_drawn = False
