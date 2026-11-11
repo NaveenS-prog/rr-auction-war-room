@@ -6,7 +6,8 @@ Unified two-innings analytical engine:
    to win expectancy via logistic CDF against historical venue par distribution.
 2. Innings 2: Calibrated logistic classifier predicting chase victory from
    (runs_required, balls_remaining_innings, cum_wickets_innings, required_run_rate).
-3. Ball-by-ball Win Probability Added (delta_wpa = P_t - P_{t-1}).
+3. Ball-by-ball Win Probability Added (delta_wpa = P_t - P_{t-1}) anchored to true
+   pre-innings baseline P_0 = P(S_0).
 4. Leverage Index (LI = expected_swing / tournament_mean_swing) and high pressure
    classification (is_high_pressure = LI >= 1.50).
 """
@@ -116,7 +117,11 @@ def _predict_inn1_win_prob(
     scale_arr = np.full(len(balls_rem), global_scale, dtype=float)
 
     if venue_keys is not None:
-        v_keys_list = venue_keys.tolist() if isinstance(venue_keys, pd.Series) else list(venue_keys)
+        v_keys_list = (
+            venue_keys.tolist()
+            if isinstance(venue_keys, pd.Series)
+            else list(venue_keys)
+        )
         for i, vk in enumerate(v_keys_list):
             if vk in venue_map:
                 m, s = venue_map[vk]
@@ -204,8 +209,54 @@ def _predict_all_win_prob(
     return win_prob
 
 
-def _compute_expected_swings(
+def _compute_pre_innings_p0(
     df: pd.DataFrame, models: Dict[str, Any]
+) -> pd.Series:
+    """Computes true pre-innings baseline win probability P0 = P(S0) for the first ball of each innings.
+
+    For Innings 1: S0 = (scheduled_balls, 0 wickets, 0 runs, venue)
+    For Innings 2: S0 = (target_runs, scheduled_balls, 0 wickets, (target_runs / scheduled_balls) * 6)
+    """
+    grp = df.groupby(["match_id", "innings"])
+    first_idx = grp.head(1).index
+    p0 = pd.Series(0.50, index=first_idx, dtype=float)
+
+    venue_key_col = (
+        "venue_id"
+        if "venue_id" in df.columns
+        else ("venue_country" if "venue_country" in df.columns else None)
+    )
+    v_keys = df[venue_key_col] if venue_key_col else None
+
+    # Innings 1
+    inn1_first = df.loc[first_idx][df.loc[first_idx]["innings"] == 1]
+    if not inn1_first.empty:
+        b_sched1 = (inn1_first["balls_remaining_innings"] + 1).to_numpy()
+        w_0 = np.zeros(len(inn1_first), dtype=int)
+        r_0 = np.zeros(len(inn1_first), dtype=int)
+        vk_1 = v_keys.loc[inn1_first.index] if v_keys is not None else None
+        p0.loc[inn1_first.index] = _predict_inn1_win_prob(
+            b_sched1, w_0, r_0, vk_1, models
+        )
+
+    # Innings 2
+    inn2_first = df.loc[first_idx][df.loc[first_idx]["innings"] == 2]
+    if not inn2_first.empty:
+        req_0 = inn2_first["target_runs"].to_numpy()
+        b_sched2 = np.maximum(1, (inn2_first["balls_remaining_innings"] + 1).to_numpy())
+        w_0_inn2 = np.zeros(len(inn2_first), dtype=int)
+        rrr_0 = (req_0 / b_sched2) * 6.0
+        p0.loc[inn2_first.index] = _predict_inn2_win_prob(
+            req_0, b_sched2, w_0_inn2, rrr_0, models
+        )
+
+    return p0
+
+
+def _compute_expected_swings(
+    df: pd.DataFrame,
+    models: Dict[str, Any],
+    win_prob_prev: Optional[pd.Series] = None,
 ) -> pd.Series:
     """Computes delivery-level expected win probability swing E[|Delta WPA(S_t)|]."""
     n = len(df)
@@ -238,8 +289,18 @@ def _compute_expected_swings(
     runs_req_pre = grp["runs_required"].shift(1)
     runs_req_pre = runs_req_pre.fillna(df["target_runs"]).to_numpy()
 
-    # Win prob before delivery
-    win_prob_pre = grp["win_prob"].shift(1).fillna(0.50).to_numpy() if "win_prob" in df.columns else np.full(n, 0.50)
+    # Win prob before delivery: use win_prob_prev if provided, else compute with P0 anchor
+    if win_prob_prev is not None:
+        win_prob_pre = win_prob_prev.to_numpy()
+    elif "win_prob" in df.columns:
+        p0 = _compute_pre_innings_p0(df, models)
+        win_prob_pre = grp["win_prob"].shift(1).fillna(p0).to_numpy()
+    else:
+        p0 = _compute_pre_innings_p0(df, models)
+        all_wp = _predict_all_win_prob(df, models)
+        df_temp = df.copy()
+        df_temp["win_prob"] = all_wp
+        win_prob_pre = df_temp.groupby(["match_id", "innings"])["win_prob"].shift(1).fillna(p0).to_numpy()
 
     inn = df["innings"].to_numpy()
     inn1_mask = inn == 1
@@ -434,7 +495,7 @@ def train_win_prob_models(df: pd.DataFrame) -> Dict[str, Any]:
     pipe2.fit(X2, y2)
 
     # Baseline tournament average swing for Leverage Index scaling
-    mean_swing = 0.045
+    mean_swing = 0.022
 
     models = {
         "inn1_model": reg1,
@@ -450,7 +511,15 @@ def train_win_prob_models(df: pd.DataFrame) -> Dict[str, Any]:
     if not df.empty and len(df) >= 20:
         sample_df = df.head(min(5000, len(df))).copy()
         sample_df["win_prob"] = _predict_all_win_prob(sample_df, models)
-        swings = _compute_expected_swings(sample_df, models)
+        p0_sample = _compute_pre_innings_p0(sample_df, models)
+        sample_win_prob_prev = (
+            sample_df.groupby(["match_id", "innings"])["win_prob"]
+            .shift(1)
+            .fillna(p0_sample)
+        )
+        swings = _compute_expected_swings(
+            sample_df, models, win_prob_prev=sample_win_prob_prev
+        )
         m_swing = float(swings.mean())
         if not np.isnan(m_swing) and m_swing > 0.005:
             models["mean_swing"] = m_swing
@@ -475,7 +544,7 @@ def compute_win_probability_and_leverage(
     pd.DataFrame
         DataFrame with added columns:
         - `win_prob`: Batting team's estimated win probability in [0.01, 0.99].
-        - `delta_wpa`: Delivery swing = P_t - P_{t-1}.
+        - `delta_wpa`: Delivery swing = P_t - P_{t-1} anchored to P_0 = P(S_0).
         - `leverage_index`: Ratio of expected swing to tournament mean swing.
         - `is_high_pressure`: Boolean flag True if leverage_index >= 1.50.
     """
@@ -491,15 +560,18 @@ def compute_win_probability_and_leverage(
     # 1. Compute Win Probability for all deliveries
     res["win_prob"] = _predict_all_win_prob(res, models)
 
-    # 2. Delivery Outcome Win Probability Added (Delta WPA)
+    # 2. Compute pre-innings baseline win probability P0 = P(S0) for first ball of each innings
+    p0 = _compute_pre_innings_p0(res, models)
+
+    # 3. Delivery Outcome Win Probability Added (Delta WPA)
     # Group by (match_id, innings) to prevent cross-match/cross-innings leakage
     grp = res.groupby(["match_id", "innings"])
-    win_prob_prev = grp["win_prob"].shift(1).fillna(0.50)
+    win_prob_prev = grp["win_prob"].shift(1).fillna(p0)
     res["delta_wpa"] = res["win_prob"] - win_prob_prev
 
-    # 3. Leverage Index (LI)
-    expected_swing = _compute_expected_swings(res, models)
-    mean_swing = models.get("mean_swing", 0.045)
+    # 4. Leverage Index (LI)
+    expected_swing = _compute_expected_swings(res, models, win_prob_prev=win_prob_prev)
+    mean_swing = models.get("mean_swing", 0.022)
     if mean_swing is None or mean_swing <= 1e-6:
         mean_swing = float(expected_swing.mean())
         if np.isnan(mean_swing) or mean_swing <= 1e-6:

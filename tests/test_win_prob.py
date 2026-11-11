@@ -238,3 +238,55 @@ def test_win_prob_on_real_data_sample():
     assert ((res["win_prob"] >= 0.01) & (res["win_prob"] <= 0.99)).all()
     assert (res["leverage_index"] >= 0.0).all()
 
+
+
+def test_chase_ball1_baseline_anchor_no_artificial_spike():
+    # Verify that chasing an extreme target (215 runs) does not artificially spike Ball 1 LI
+    rows = []
+    for b in range(1, 13):
+        rows.append({
+            "match_id": 4001,
+            "innings": 2,
+            "overid": (b - 1) // 6 + 1,
+            "over_ball_num": (b - 1) % 6 + 1,
+            "balls_remaining_innings": 120 - b,
+            "cum_runs_innings": b,
+            "cum_wickets_innings": 0,
+            "phase": "Powerplay",
+            "runs": 1,
+            "is_bowler_wicket": False,
+            "comp_weight": 1.0,
+            "target_runs": 215,
+            "runs_required": 215 - b,
+            "required_run_rate": ((215 - b) / (120 - b)) * 6.0,
+            "venue_country": "India",
+            "home_team_id": 1,
+            "away_team_id": 2,
+            "win_team_id": 1,
+        })
+    df = pd.DataFrame(rows)
+    models = train_win_prob_models(df)
+    res = compute_win_probability_and_leverage(df, models)
+
+    # Ball 1 delta_wpa should be a small swing (not |0.02 - 0.50| = 0.48)
+    ball1_delta = abs(res.loc[0, "delta_wpa"])
+    assert ball1_delta < 0.10, f"Ball 1 delta_wpa={ball1_delta} is too large (artificial spike)"
+
+    # Ball 1 LI should not explode (must be <= 3.0, not 15+)
+    ball1_li = res.loc[0, "leverage_index"]
+    assert ball1_li < 3.0, f"Ball 1 LI={ball1_li} exploded"
+
+
+def test_over1_vs_over20_leverage_progression_real_data():
+    from src.data_loader import load_and_process_deliveries
+    df = load_and_process_deliveries("/home/naveen/Data/Projects/RR Hackathon", sample_matches=30)
+    models = train_win_prob_models(df)
+    res = compute_win_probability_and_leverage(df, models)
+
+    inn2 = res[res["innings"] == 2]
+    over1_li = inn2.loc[inn2["overid"] == 1, "leverage_index"].mean()
+    over20_li = inn2.loc[inn2["overid"] == 20, "leverage_index"].mean()
+
+    # Over 1 should be realistic (~0.7 to 1.3), and Over 20 should be significantly higher
+    assert 0.7 <= over1_li <= 1.3, f"Over 1 LI={over1_li} is unrealistic"
+    assert over20_li > over1_li, f"Over 20 LI={over20_li} should be higher than Over 1 LI={over1_li}"
