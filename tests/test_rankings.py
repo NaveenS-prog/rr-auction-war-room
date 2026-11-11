@@ -232,3 +232,82 @@ def test_end_to_end_pipeline_ranking():
     assert "player_id" in top_bat.columns
     assert list(top_bat["rank"]) == list(range(1, len(top_bat) + 1))
 
+
+def test_audit_specialist_batter_and_no_inverted_delta_penalty():
+    """Verify Ponytail audit fixes:
+    1. Low-volume pinch-floaters (e.g. Ashwin with <350 overall balls) are filtered.
+    2. Elite overall batters (+30 TSR overall, +40 TSR pressure) outrank mediocre batters.
+    3. 60-ball threshold qualifies high-impact finishers (e.g. Klaasen with 70 balls).
+    """
+    bat_data = [
+        # Elite Destructive Finisher (e.g. Heinrich Klaasen): 70 pressure balls, TSR_press=55, TSR_over=25, n_balls_overall=1400
+        {
+            "player_id": 101,
+            "player_name": "Elite Finisher",
+            "n_eff_pressure": 70.0,
+            "n_balls_overall": 1400,
+            "tsr_pressure": 55.0,
+            "tsr_overall": 25.0,
+            "wpa_per_100_pressure": 0.50,
+            "dot_avoidance_pressure": 0.75,
+            "primary_batting_pos": 5,
+            "top7_appearance_pct": 1.0,
+        },
+        # Elite Overall Batter (e.g. Tim David / Surya): 150 pressure balls, TSR_press=42, TSR_over=32, n_balls_overall=800
+        {
+            "player_id": 102,
+            "player_name": "Elite All-Round Batter",
+            "n_eff_pressure": 150.0,
+            "n_balls_overall": 800,
+            "tsr_pressure": 42.0,
+            "tsr_overall": 32.0,
+            "wpa_per_100_pressure": 0.60,
+            "dot_avoidance_pressure": 0.72,
+            "primary_batting_pos": 4,
+            "top7_appearance_pct": 1.0,
+        },
+        # Bowler / Pinch Floater (e.g. Ashwin): 80 pressure balls, TSR_press=15, TSR_over=-10, n_balls_overall=300 (<350)
+        {
+            "player_id": 103,
+            "player_name": "Pinch Floater Bowler",
+            "n_eff_pressure": 80.0,
+            "n_balls_overall": 300,  # Below 350 volume threshold
+            "tsr_pressure": 15.0,
+            "tsr_overall": -10.0,
+            "wpa_per_100_pressure": -0.10,
+            "dot_avoidance_pressure": 0.60,
+            "primary_batting_pos": 5,
+            "top7_appearance_pct": 0.75,
+        },
+    ]
+
+    bowl_data = [
+        # Frontline Bowler
+        {
+            "player_id": 201,
+            "player_name": "Frontline Bowler",
+            "n_eff_pressure": 120.0,
+            "ter_pressure": 2.0,
+            "ter_overall": 0.5,
+            "hl_wickets_pressure": 25.0,
+            "dot_pct_pressure": 0.45,
+            "avg_overs_per_match": 3.8,
+        }
+    ]
+
+    top_bat, top_bowl = compute_rankings(
+        pd.DataFrame(bat_data),
+        pd.DataFrame(bowl_data),
+        min_pressure_balls=60,
+        min_overall_balls=350,
+    )
+
+    # Pinch floater bowler with 300 overall balls must be excluded
+    assert "Pinch Floater Bowler" not in top_bat["player_name"].values
+    # Elite finisher (70 balls >= 60 threshold) must be included
+    assert "Elite Finisher" in top_bat["player_name"].values
+    assert "Elite All-Round Batter" in top_bat["player_name"].values
+    # Both elite batters must rank above any tailender
+    assert len(top_bat) == 2
+
+

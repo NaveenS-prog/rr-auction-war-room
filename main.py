@@ -72,7 +72,7 @@ def parse_arguments() -> argparse.Namespace:
         "--min-pressure-balls",
         type=int,
         default=None,
-        help="Minimum effective pressure balls required for ranking eligibility (defaults to 75 for full runs)",
+        help="Minimum effective pressure balls required for ranking eligibility (defaults to 60 for full runs)",
     )
     parser.add_argument(
         "--prior-m",
@@ -332,7 +332,7 @@ def main() -> int:
         # Dynamically scale qualification volume for sample/test runs
         min_balls = max(1, min(10, int(args.sample * 0.5)))
     else:
-        min_balls = 75
+        min_balls = 60
 
     t0 = time.time()
     top_batters, top_bowlers = compute_rankings(

@@ -9,7 +9,7 @@ Generates a 16-page landscape (16:9 ratio, 1152x648 pt) corporate presentation d
   3. Mathematical Framework: Unified Two-Innings Win Expectancy P(Win)
   4. Quantifying Situational Stakes: Leverage Index (LI >= 1.50)
   5. Performance Formulations: True Strike Rate (TSR) & True Economy Rate (TER)
-  6. The Dual-Axis Engine: 70% High-Pressure Absolute + 30% Baseline Delta
+  6. The Dual-Axis Engine: 80% High-Pressure Absolute + 20% Baseline Delta
   7. Statistical Control: Competition Quality Weights & Empirical Bayes Shrinkage (M=30)
   8. Top 10 Batters Under Pressure: Full Roster & Composite Score Table
   9. Top 3 Batters Spotlight: Individual Tactical Profile Cards
@@ -347,10 +347,10 @@ def _render_slide_1(c: canvas.Canvas) -> None:
     x3 = x2 + card_w + 15
     _draw_card(c, x3, card_y, card_w, card_h, title="STATISTICAL RIGOR", badge="M=30 SHRUNK")
     items3 = [
-        ("Dual-Axis Scoring: ", "70% Absolute Output + 30% Baseline Delta."),
+        ("Dual-Axis Scoring: ", "80% Absolute Output + 20% Baseline Delta."),
         ("Empirical Bayes: ", "Shrinkage with M=30 balls eliminates noise."),
         ("Competition Weights: ", "IPL (1.00), T20I (0.95), BBL (0.85), PSL/CPL (0.80)."),
-        ("Volume Gate: ", "Strict N_eff >= 30 balls qualification threshold."),
+        ("Volume Gate: ", "Strict N_eff >= 60 balls qualification threshold."),
     ]
     _draw_bullet_list(c, x3 + 10, card_y + card_h - 50, items3, line_spacing=45.0)
 
@@ -406,7 +406,7 @@ def _render_slide_2(c: canvas.Canvas) -> None:
         ("Unified Win Expectancy: ", "Continuous ball-by-ball P(Win) engine calibrated across 120,000+ tournament balls."),
         ("The Clutch Zone: ", "Deliveries with LI >= 1.50 isolate high-stakes inflection points (~18% of total balls)."),
         ("Context-Adjusted Pars: ", "True Strike Rate (TSR) and True Economy Rate (TER) normalized for phase, venue, and score."),
-        ("Dual-Axis Scoring: ", "70% high-pressure absolute output + 30% personal baseline delta to identify the 'Clutch Gene'."),
+        ("Dual-Axis Scoring: ", "80% high-pressure absolute output + 20% personal baseline delta to identify the 'Clutch Gene'."),
     ]
     _draw_bullet_list(c, x2 + 10, card_y + card_h - 50, items2, line_spacing=60.0)
 
@@ -660,10 +660,10 @@ def _render_slide_5(c: canvas.Canvas) -> None:
 
 
 def _render_slide_6(c: canvas.Canvas) -> None:
-    """Slide 6: The Dual-Axis Evaluation Engine (70% Absolute + 30% Baseline Delta)."""
+    """Slide 6: The Dual-Axis Evaluation Engine (80% Absolute + 20% Baseline Delta)."""
     _draw_header(
         c,
-        title="The Dual-Axis Engine: 70% High-Pressure Absolute + 30% Baseline Delta",
+        title="The Dual-Axis Engine: 80% High-Pressure Absolute + 20% Baseline Delta",
         subtitle="Unifying world-class absolute performance with positive personal baseline elevation",
         slide_num=6,
     )
@@ -676,7 +676,7 @@ def _render_slide_6(c: canvas.Canvas) -> None:
     _draw_card(c, fx, fy, fw, fh, title="DUAL-AXIS SCORING COMPOSITION FORMULATION", badge="ENGINE")
     c.setFont("Courier-Bold", 11)
     c.setFillColor(C_GOLD)
-    c.drawString(fx + 20, fy + fh - 48, "Score_raw = 0.70 * Z(HP_Index) + 0.30 * Z(Delta_Score)")
+    c.drawString(fx + 20, fy + fh - 48, "Score_raw = 0.80 * Z(HP_Index) + 0.20 * Z(Delta_Score)")
 
     c.setFont("Helvetica", 8.5)
     c.setFillColor(C_LIGHT_GRAY)
@@ -1624,10 +1624,10 @@ def _render_slide_16(
 
     param_items = [
         ("Clutch Threshold: ", "LI >= 1.50 (Top ~18% delivery volume)."),
-        ("Dual-Axis Weights: ", "alpha = 0.70 (Absolute HP), beta = 0.30 (Delta)."),
+        ("Dual-Axis Weights: ", "alpha = 0.80 (Absolute HP), beta = 0.20 (Delta)."),
         ("Shrinkage Prior: ", "M = 30 balls prior weight (Empirical Bayes)."),
         ("Competition Tiers: ", "IPL 1.00, T20I 0.95, BBL 0.85, PSL/CPL 0.80."),
-        ("Volume Gate: ", "N_eff >= 30 balls under high leverage."),
+        ("Volume Gate: ", "N_eff >= 60 balls under high leverage."),
     ]
     _draw_bullet_list(c, x2 + 10, card_y + card_h - 80, param_items, line_spacing=70.0, bullet_color=C_GOLD)
 
@@ -1714,7 +1714,7 @@ def build_executive_deck(
     _render_slide_5(c)
     c.showPage()
 
-    # Slide 6: The Dual-Axis Evaluation Engine (70% Absolute + 30% Baseline Delta)
+    # Slide 6: The Dual-Axis Evaluation Engine (80% Absolute + 20% Baseline Delta)
     _render_slide_6(c)
     c.showPage()
 

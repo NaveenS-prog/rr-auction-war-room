@@ -1,0 +1,9 @@
+*.zip
+*.csv
+*.pdf
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+reports/
+

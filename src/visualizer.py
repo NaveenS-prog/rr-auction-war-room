@@ -610,22 +610,24 @@ def plot_top_players_radar(
         pad=18,
     )
 
-    df_bat = top_batters.head(3).copy() if not top_batters.empty else pd.DataFrame()
-    if not df_bat.empty:
-        # Extract and normalize dimensions
-        m1 = _normalize_metric(df_bat.get("tsr_pressure", pd.Series(range(len(df_bat)))))
-        m2 = _normalize_metric(df_bat.get("wpa_per_100_pressure", df_bat.get("composite_score", pd.Series(range(len(df_bat))))))
-        m3 = _normalize_metric(df_bat.get("dot_avoidance_pressure", pd.Series([0.65] * len(df_bat))))
-        m4 = _normalize_metric(df_bat.get("delta_score", df_bat.get("tsr_pressure", pd.Series(range(len(df_bat))))))
-        m5 = _normalize_metric(df_bat.get("n_eff_pressure", df_bat.get("composite_score", pd.Series(range(len(df_bat))))))
+    # Normalize across the full Top 10 benchmark cohort to maintain absolute scale context
+    df_bat_ref = top_batters.head(10).copy() if not top_batters.empty else pd.DataFrame()
+    if not df_bat_ref.empty:
+        # Extract and normalize dimensions against top 10 benchmarks
+        m1_all = _normalize_metric(df_bat_ref.get("tsr_pressure", pd.Series(range(len(df_bat_ref)))))
+        m2_all = _normalize_metric(df_bat_ref.get("wpa_per_100_pressure", df_bat_ref.get("composite_score", pd.Series(range(len(df_bat_ref))))))
+        m3_all = _normalize_metric(df_bat_ref.get("dot_avoidance_pressure", pd.Series([0.65] * len(df_bat_ref))))
+        m4_all = _normalize_metric(df_bat_ref.get("delta_score", df_bat_ref.get("tsr_pressure", pd.Series(range(len(df_bat_ref))))))
+        m5_all = _normalize_metric(df_bat_ref.get("n_eff_pressure", df_bat_ref.get("composite_score", pd.Series(range(len(df_bat_ref))))))
 
+        df_bat = df_bat_ref.head(3).copy()
         for i in range(len(df_bat)):
             row_vals = [
-                float(m1.iloc[i]),
-                float(m2.iloc[i]),
-                float(m3.iloc[i]),
-                float(m4.iloc[i]),
-                float(m5.iloc[i]),
+                float(m1_all.iloc[i]),
+                float(m2_all.iloc[i]),
+                float(m3_all.iloc[i]),
+                float(m4_all.iloc[i]),
+                float(m5_all.iloc[i]),
             ]
             row_vals_closed = row_vals + row_vals[:1]
             color = player_colors[i % len(player_colors)]
@@ -685,22 +687,24 @@ def plot_top_players_radar(
         pad=18,
     )
 
-    df_bowl = top_bowlers.head(3).copy() if not top_bowlers.empty else pd.DataFrame()
-    if not df_bowl.empty:
-        # Extract and normalize dimensions
-        b1 = _normalize_metric(df_bowl.get("ter_pressure", pd.Series(range(len(df_bowl)))))
-        b2 = _normalize_metric(df_bowl.get("hl_wickets_pressure", df_bowl.get("composite_score", pd.Series(range(len(df_bowl))))))
-        b3 = _normalize_metric(df_bowl.get("dot_pct_pressure", pd.Series([0.40] * len(df_bowl))))
-        b4 = _normalize_metric(df_bowl.get("delta_score", df_bowl.get("ter_pressure", pd.Series(range(len(df_bowl))))))
-        b5 = _normalize_metric(df_bowl.get("n_eff_pressure", df_bowl.get("composite_score", pd.Series(range(len(df_bowl))))))
+    # Normalize across the full Top 10 benchmark cohort to maintain absolute scale context
+    df_bowl_ref = top_bowlers.head(10).copy() if not top_bowlers.empty else pd.DataFrame()
+    if not df_bowl_ref.empty:
+        # Extract and normalize dimensions against top 10 benchmarks
+        b1_all = _normalize_metric(df_bowl_ref.get("ter_pressure", pd.Series(range(len(df_bowl_ref)))))
+        b2_all = _normalize_metric(df_bowl_ref.get("hl_wickets_pressure", df_bowl_ref.get("composite_score", pd.Series(range(len(df_bowl_ref))))))
+        b3_all = _normalize_metric(df_bowl_ref.get("dot_pct_pressure", pd.Series([0.40] * len(df_bowl_ref))))
+        b4_all = _normalize_metric(df_bowl_ref.get("delta_score", df_bowl_ref.get("ter_pressure", pd.Series(range(len(df_bowl_ref))))))
+        b5_all = _normalize_metric(df_bowl_ref.get("n_eff_pressure", df_bowl_ref.get("composite_score", pd.Series(range(len(df_bowl_ref))))))
 
+        df_bowl = df_bowl_ref.head(3).copy()
         for i in range(len(df_bowl)):
             row_vals = [
-                float(b1.iloc[i]),
-                float(b2.iloc[i]),
-                float(b3.iloc[i]),
-                float(b4.iloc[i]),
-                float(b5.iloc[i]),
+                float(b1_all.iloc[i]),
+                float(b2_all.iloc[i]),
+                float(b3_all.iloc[i]),
+                float(b4_all.iloc[i]),
+                float(b5_all.iloc[i]),
             ]
             row_vals_closed = row_vals + row_vals[:1]
             color = player_colors[i % len(player_colors)]
