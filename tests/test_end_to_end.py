@@ -30,21 +30,26 @@ def test_full_pipeline_cli(tmp_path):
     if not os.path.exists(python_bin):
         python_bin = sys.executable
 
-    # Run main pipeline on 20-match sample
-    cmd = [python_bin, "main.py", "--sample", "20"]
+    test_out = str(tmp_path / "test_reports")
+    # Run main pipeline on 20-match sample with isolated test output dir
+    cmd = [python_bin, "main.py", "--sample", "20", "--output-dir", test_out]
     res = subprocess.run(cmd, cwd=REPO_ROOT, capture_output=True, text=True)
 
     assert res.returncode == 0, f"Pipeline execution failed:\nSTDOUT:\n{res.stdout}\nSTDERR:\n{res.stderr}"
-    assert os.path.exists("reports/Methodology_Report_SupeRR_Selector_Season_2.pdf")
-    assert os.path.exists("reports/unstop_dropdown_rankings.csv")
-    assert os.path.exists("reports/unstop_dropdown_rankings.json")
+    pdf_path = os.path.join(test_out, "Methodology_Report_SupeRR_Selector_Season_2.pdf")
+    csv_path = os.path.join(test_out, "unstop_dropdown_rankings.csv")
+    json_path = os.path.join(test_out, "unstop_dropdown_rankings.json")
+
+    assert os.path.exists(pdf_path)
+    assert os.path.exists(csv_path)
+    assert os.path.exists(json_path)
 
     # Verify PDF non-empty
-    pdf_size = os.path.getsize("reports/Methodology_Report_SupeRR_Selector_Season_2.pdf")
+    pdf_size = os.path.getsize(pdf_path)
     assert pdf_size > 10000, f"Generated PDF is unexpectedly small ({pdf_size} bytes)"
 
     # Verify JSON content
-    with open("reports/unstop_dropdown_rankings.json", "r") as f:
+    with open(json_path, "r") as f:
         data = json.load(f)
     assert "batters" in data
     assert "bowlers" in data
@@ -52,7 +57,7 @@ def test_full_pipeline_cli(tmp_path):
     assert len(data["bowlers"]) == 10
 
     # Verify CSV content
-    df_csv = pd.read_csv("reports/unstop_dropdown_rankings.csv")
+    df_csv = pd.read_csv(csv_path)
     assert "discipline" in df_csv.columns
     assert "rank" in df_csv.columns
     assert "player_id" in df_csv.columns
@@ -68,8 +73,8 @@ def test_full_pipeline_cli(tmp_path):
         "fig4_bowlers_baseline_vs_pressure.png",
         "fig5_top_players_radar.png",
     ]:
-        fig_path = os.path.join("reports", "figures", fig_name)
-        assert os.path.exists(fig_path), f"Expected figure not found: {fig_path}"
+        fig_file = os.path.join(test_out, "figures", fig_name)
+        assert os.path.exists(fig_file), f"Expected figure not found: {fig_file}"
 
     # Verify terminal output includes rankings
     assert "Top 10 Batters" in res.stdout or "TOP 10 BATTERS" in res.stdout
