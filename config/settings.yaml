@@ -17,7 +17,9 @@ eligibility:
   exclude_teams:
     - "Pakistan"
     - "Pakistan A"
-  exclusion_reason: "IPL Auction Ineligibility: In accordance with BCCI and Indian Premier League player eligibility regulations, players representing Pakistan are ineligible for the IPL Player Auction."
+  exclude_player_ids:
+    - 1318 # Andre Russell (Retired)
+  exclusion_reason: "IPL Auction Ineligibility: BCCI regulatory policy (Pakistan national players) and official player retirement (Andre Russell retired from active IPL competition)."
 
 ranking:
   pressure_percentile: 80.0

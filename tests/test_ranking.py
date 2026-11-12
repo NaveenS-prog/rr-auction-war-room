@@ -75,3 +75,34 @@ def test_ranking_engine_pakistan_auction_exclusion():
     assert pak_row["is_eligible"] == False
     assert pak_row["is_auction_eligible"] == False
     assert "IPL Auction Ineligibility" in pak_row["ineligibility_reason"]
+
+def test_ranking_engine_russell_retirement_exclusion():
+    ratings = FittedRatings(
+        player_ids=[1318, 7544],
+        normal_ability_mean=np.array([0.5, 0.5]),
+        pressure_ability_mean=np.array([2.5, 2.0]),
+        pressure_uplift_mean=np.array([2.0, 1.5]),
+        conservative_score=np.array([2.00, 1.60]),
+        prob_positive_uplift=np.array([0.99, 0.95]),
+        player_stats=pd.DataFrame([
+            {"player_id": 1318, "total_balls": 200, "pressure_balls": 80, "normal_balls": 120}, # Andre Russell
+            {"player_id": 7544, "total_balls": 200, "pressure_balls": 80, "normal_balls": 120}  # Venkatesh Iyer
+        ])
+    )
+    match_counts = pd.DataFrame([
+        {"player_id": 1318, "pressure_matches": 15},
+        {"player_id": 7544, "pressure_matches": 15}
+    ])
+    player_meta = pd.DataFrame([
+        {"player_id": 1318, "player_name": "Andre Russell", "team_name": "Kolkata Knight Riders"},
+        {"player_id": 7544, "player_name": "Venkatesh Iyer", "team_name": "Kolkata Knight Riders"}
+    ])
+    engine = RankingEngine()
+    leaderboard = engine.generate_leaderboard(ratings, match_counts, player_meta)
+    top_10 = engine.get_top_10(leaderboard)
+    assert len(top_10) == 1
+    assert top_10.iloc[0]["player_id"] == 7544
+    assert top_10.iloc[0]["player_name"] == "Venkatesh Iyer"
+    russell_row = leaderboard[leaderboard["player_id"] == 1318].iloc[0]
+    assert russell_row["is_eligible"] == False
+    assert russell_row["is_auction_eligible"] == False

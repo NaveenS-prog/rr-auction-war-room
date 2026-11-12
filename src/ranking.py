@@ -11,7 +11,8 @@ class RankingEngine:
             "min_pressure_balls": 40,
             "min_pressure_matches": 8,
             "exclude_teams": ["Pakistan", "Pakistan A"],
-            "exclusion_reason": "IPL Auction Ineligibility: BCCI regulatory policy restrictions",
+            "exclude_player_ids": [1318],  # Andre Russell (Retired)
+            "exclusion_reason": "IPL Auction Ineligibility: BCCI regulatory policy restrictions and player retirement declarations",
         }
 
     def generate_leaderboard(
@@ -66,7 +67,7 @@ class RankingEngine:
             "IPL Auction Ineligibility: BCCI regulatory policy restrictions"
         )
 
-        # Identify players who have represented excluded teams/nations
+        # Identify players who have represented excluded teams/nations or retired players
         excluded_pids = set()
         if exclude_teams and not player_meta.empty and "team_name" in player_meta.columns:
             pat = "|".join([re.escape(t) for t in exclude_teams])
@@ -74,6 +75,10 @@ class RankingEngine:
             if "team_id" in player_meta.columns:
                 mask_team = mask_team | player_meta["team_id"].isin([25, 341])
             excluded_pids = set(player_meta.loc[mask_team, "player_id"].dropna().astype(int))
+
+        # Add explicit excluded player IDs (e.g. retired from IPL like Andre Russell 1318)
+        custom_excluded_ids = set(int(x) for x in self.eligibility.get("exclude_player_ids", []))
+        excluded_pids = excluded_pids | custom_excluded_ids
 
         stats["is_auction_eligible"] = ~stats["player_id"].isin(excluded_pids)
         stats["ineligibility_reason"] = np.where(

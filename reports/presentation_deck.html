@@ -333,9 +333,9 @@
               </div>
             </div>
             <div style="background: #ECFDF5; padding: 12px; border-radius: 4px; border-left: 4px solid var(--success);">
-              <div style="font-weight: 800; color: var(--success); font-size: 15px;">100% Auction-Eligible Roster Alignment</div>
+              <div style="font-weight: 800; color: var(--success); font-size: 15px;">100% Actionable & Auction-Eligible Roster Alignment</div>
               <div style="font-size: 12.5px; color: var(--text-muted); margin-top: 2px;">
-                Enforced BCCI regulatory exclusion of Pakistani players, promoting actionable targets <strong>Kuldeep Yadav (#8)</strong>, <strong>Matheesha Pathirana (#9)</strong>, and <strong>Harshal Patel (#10)</strong>.
+                Enforced BCCI regulatory exclusion of Pakistani players and player retirement exclusion (<strong>Andre Russell</strong>), promoting actionable targets <strong>Kuldeep Yadav (#8)</strong>, <strong>Matheesha Pathirana (#9)</strong>, <strong>Harshal Patel (#10)</strong> for bowlers, and <strong>Venkatesh Iyer (#10)</strong> for batters.
               </div>
             </div>
           </div>
@@ -420,18 +420,19 @@
       </div>
     </section>
 
-    <!-- PAGE 2: IPL Auction Policy Filter -->
+    <!-- PAGE 2: IPL Auction Policy & Retirement Filter -->
     <section class="page-view" id="page-2">
       <div class="bi-panel" style="border-left: 6px solid #DC2626; background: #FFF5F5;">
         <div class="panel-header" style="border-bottom-color: #FED7D7;">
-          <div class="panel-title" style="color: #9B1C1C;">⚖️ BCCI / IPL Regulatory Auction Eligibility Filter</div>
+          <div class="panel-title" style="color: #9B1C1C;">⚖️ BCCI / IPL Regulatory Auction Eligibility & Retirement Filter</div>
           <span class="tag tag-red">Official Policy Compliance</span>
         </div>
         <p style="color: #742A2A; font-size: 14.5px; line-height: 1.7; margin-bottom: 14px;">
-          Under official BCCI directives and Indian Premier League player eligibility rules, players representing the Pakistan national team (or domestic Pakistan boards) are ineligible to participate in the IPL Player Auction or enter franchise squads.
+          <strong>1. BCCI Regulatory Directive</strong>: Under official BCCI directives and IPL guidelines, players representing the Pakistan national team (or domestic Pakistan boards) are ineligible to participate in the IPL Player Auction or enter franchise squads.<br>
+          <strong>2. Player Retirement Declarations</strong>: Players who have officially retired from active IPL competition (such as <strong>Andre Russell</strong>, Player ID <code>1318</code>) are excluded from active acquisition pools.
         </p>
         <div style="background: #FFFFFF; padding: 14px; border-radius: 4px; border: 1px solid #FEB2B2; font-size: 13px; color: #4A5568;">
-          <strong>Audited Strategy Decision</strong>: Recommending ineligible players in a franchise auction preparation deck provides zero strategic utility to the War Room. We separate match-context calculations from auction selection.
+          <strong>Audited Strategy Decision</strong>: Recommending ineligible or retired players in a franchise auction preparation deck provides zero strategic utility to the War Room. We separate match-context calculations from auction selection.
         </div>
       </div>
 
@@ -441,9 +442,9 @@
             <div class="panel-title">1. Baseline Retention (Data Integrity)</div>
           </div>
           <p style="color: var(--text-muted); font-size: 13px; line-height: 1.7;">
-            Deliveries involving Pakistani players during international tournaments are <strong>fully retained</strong> in our historical database (200,999 balls).
+            Deliveries involving Pakistani and retired players during tournament matches are <strong>fully retained</strong> in our historical database (200,999 balls).
             <br><br>
-            This preserves unbiased opponent difficulty ratings, league-wide par run rates (Model A), and win-probability swings (Model B). Removing them from raw data would distort tournament baselines.
+            This preserves unbiased opponent difficulty ratings, league-wide par run rates (Model A), and win-probability swings (Model B). Removing them from raw delivery physics would distort tournament baselines.
           </p>
         </div>
 
@@ -452,9 +453,11 @@
             <div class="panel-title">2. Selection Pool Exclusion (Auction Execution)</div>
           </div>
           <p style="color: var(--text-muted); font-size: 13px; line-height: 1.7;">
-            When generating the final Top 10 leaderboards and Unstop dropdown selections, Pakistani players are strictly filtered.
+            When generating final Top 10 leaderboards and Unstop dropdown selections, ineligible and retired players are strictly filtered.
             <br><br>
             <strong>Impact on Bowlers List</strong>: Abrar Ahmed, Haris Rauf, and Abbas Afridi were excluded, promoting proven auction-eligible stars <strong>Kuldeep Yadav (#8)</strong>, <strong>Matheesha Pathirana (#9)</strong>, and <strong>Harshal Patel (#10)</strong>.
+            <br><br>
+            <strong>Impact on Batters List</strong>: Andre Russell's retirement exclusion elevates Tilak Varma (#7), Marcus Stoinis (#8), Heinrich Klaasen (#9), and promotes clutch title-winner <strong>Venkatesh Iyer (#10)</strong> into the elite 10.
           </p>
         </div>
       </div>
@@ -626,19 +629,6 @@
               </tr>
               <tr>
                 <td><span class="rank-pill">7</span></td>
-                <td><strong>Andre Russell</strong></td>
-                <td><code>1318</code></td>
-                <td>Kolkata Knight Riders</td>
-                <td><strong>+0.058</strong></td>
-                <td>+0.299</td>
-                <td>+0.150</td>
-                <td><span class="tag tag-pink">+0.149</span></td>
-                <td>86.6%</td>
-                <td>363</td>
-                <td>30</td>
-              </tr>
-              <tr>
-                <td><span class="rank-pill">8</span></td>
                 <td><strong>Namboori Tilak Varma</strong></td>
                 <td><code>7897</code></td>
                 <td>Mumbai Indians</td>
@@ -651,7 +641,7 @@
                 <td>54</td>
               </tr>
               <tr>
-                <td><span class="rank-pill">9</span></td>
+                <td><span class="rank-pill">8</span></td>
                 <td><strong>Marcus Stoinis</strong></td>
                 <td><code>2639</code></td>
                 <td>Australia</td>
@@ -664,7 +654,7 @@
                 <td>38</td>
               </tr>
               <tr>
-                <td><span class="rank-pill">10</span></td>
+                <td><span class="rank-pill">9</span></td>
                 <td><strong>Heinrich Klaasen</strong></td>
                 <td><code>4260</code></td>
                 <td>South Africa</td>
@@ -675,6 +665,19 @@
                 <td>41.6%</td>
                 <td>438</td>
                 <td>29</td>
+              </tr>
+              <tr>
+                <td><span class="rank-pill">10</span></td>
+                <td><strong>Venkatesh Iyer</strong></td>
+                <td><code>7544</code></td>
+                <td>India / KKR</td>
+                <td><strong>-0.010</strong></td>
+                <td>+0.234</td>
+                <td>+0.043</td>
+                <td><span class="tag tag-pink">+0.191</span></td>
+                <td>88.0%</td>
+                <td>234</td>
+                <td>17</td>
               </tr>
             </tbody>
           </table>

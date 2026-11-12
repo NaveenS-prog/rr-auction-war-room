@@ -2,7 +2,7 @@
   "metadata": {
     "competition": "Rajasthan Royals SupeRR Selector Season 2",
     "model_architecture": "4-Stage GBDT Expectations + Leverage Spread + Hierarchical Bayes (Q0.10 Conservative)",
-    "timestamp": "2026-11-12 06:53:49Z",
+    "timestamp": "2026-11-12 10:11:37Z",
     "status": "VERIFIED_COMPLIANT"
   },
   "batters": {

@@ -258,12 +258,13 @@ Speaker Notes:
 ---
 
 <!-- Slide 4: Regulatory Auction Eligibility (Policy Filter) -->
-<h2>IPL Auction Eligibility & Regulatory Policy Filter</h2>
+<h2>IPL Auction Eligibility & Player Status Filter</h2>
 
 <div class="feature-box" style="border-left-color: var(--color-rr-pink); background: #FFF1F2; margin-bottom: 20px;">
-  <h3 style="color: #9F1239; margin-top: 0;">Mandatory Policy Rule: BCCI & IPL Auction Guidelines</h3>
-  <p style="font-size: 16px; margin: 4px 0; color: #4C0519;">
-    Players representing the Pakistan national team (or domestic Pakistan boards) are ineligible to participate in the IPL Player Auction or enter franchise squads.
+  <h3 style="color: #9F1239; margin-top: 0;">Mandatory Policy Rules: BCCI Guidelines & Player Retirement Audits</h3>
+  <p style="font-size: 15px; margin: 4px 0; color: #4C0519;">
+    <strong>1. Regulatory Exclusion</strong>: Players representing the Pakistan national team (or domestic boards) are ineligible for the IPL Player Auction.<br>
+    <strong>2. Player Retirement Exclusion</strong>: Players who have officially retired from active IPL competition (such as <strong>Andre Russell</strong>, Player ID <code>1318</code>) are excluded from active acquisition pools.
   </p>
 </div>
 
@@ -271,25 +272,25 @@ Speaker Notes:
   <div class="feature-box">
     <h3>Baseline Retention Policy</h3>
     <p style="font-size: 14.5px;">
-      <strong>Deliveries retained for unbiased baselines</strong>: All historical match deliveries involving Pakistani players are kept in the dataset to calculate uncorrupted, league-wide match context (Model A) and win probability leverage (Model B).
+      <strong>Deliveries retained for unbiased baselines</strong>: All historical match deliveries involving Pakistani and retired players are kept in the dataset to calculate uncorrupted, league-wide match context (Model A) and win probability leverage (Model B).
     </p>
   </div>
   <div class="feature-box">
     <h3>Actionable Auction Roster</h3>
     <p style="font-size: 14.5px;">
-      <strong>Zero wasted auction capital</strong>: Pakistani players are strictly filtered from the final ranking leaderboards. Every player recommended in our submission is 100% actionable and available to be bid on by Rajasthan Royals.
+      <strong>Zero wasted auction capital</strong>: Ineligible and retired players are strictly filtered from the final leaderboards. Every recommended player is 100% actionable and available to be bid on by Rajasthan Royals.
     </p>
   </div>
 </div>
 
 <div style="margin-top: 16px; padding: 12px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px;">
-  <strong>Promoted Domestic & Overseas Stars:</strong> With this policy enforced, proven auction-eligible stars like <strong>Kuldeep Yadav</strong> (#8), <strong>Matheesha Pathirana</strong> (#9), and <strong>Harshal Patel</strong> (#10) rightfully claim their spots in the Top 10.
+  <strong>Promoted Actionable Stars:</strong> With these policies enforced, proven stars like <strong>Kuldeep Yadav</strong> (#8), <strong>Matheesha Pathirana</strong> (#9), and <strong>Harshal Patel</strong> (#10) for bowlers, plus clutch title-winner <strong>Venkatesh Iyer</strong> (#10) for batters, rightfully claim Top 10 honors.
 </div>
 
 <!--
 Speaker Notes:
-- Address the auction eligibility upfront: The hackathon is about shaping RR's auction strategy.
-- Recommending players who cannot be purchased wastes precious analysis time.
+- Address the auction eligibility and player status upfront: The hackathon is about shaping RR's auction strategy.
+- Recommending retired or ineligible players wastes precious war room capital.
 - Our dual approach: retain their data for accurate opponent baselines, but exclude them from squad recommendations.
 -->
 
@@ -437,17 +438,6 @@ Speaker Notes:
     </tr>
     <tr>
       <td>#7</td>
-      <td><strong>Andre Russell</strong></td>
-      <td>KKR</td>
-      <td><strong>+0.058</strong></td>
-      <td>+0.299</td>
-      <td>+0.150</td>
-      <td>+0.149</td>
-      <td>86.6%</td>
-      <td>363</td>
-    </tr>
-    <tr>
-      <td>#8</td>
       <td><strong>Tilak Varma</strong></td>
       <td>Mumbai Indians</td>
       <td><strong>+0.028</strong></td>
@@ -458,7 +448,7 @@ Speaker Notes:
       <td>745</td>
     </tr>
     <tr>
-      <td>#9</td>
+      <td>#8</td>
       <td><strong>Marcus Stoinis</strong></td>
       <td>Australia</td>
       <td><strong>+0.020</strong></td>
@@ -469,7 +459,7 @@ Speaker Notes:
       <td>448</td>
     </tr>
     <tr>
-      <td>#10</td>
+      <td>#9</td>
       <td><strong>Heinrich Klaasen</strong></td>
       <td>South Africa</td>
       <td><strong>+0.009</strong></td>
@@ -478,6 +468,17 @@ Speaker Notes:
       <td>-0.036</td>
       <td>41.6%</td>
       <td>438</td>
+    </tr>
+    <tr>
+      <td>#10</td>
+      <td><strong>Venkatesh Iyer</strong></td>
+      <td>India / KKR</td>
+      <td><strong>-0.010</strong></td>
+      <td>+0.234</td>
+      <td>+0.043</td>
+      <td>+0.191</td>
+      <td>88.0%</td>
+      <td>234</td>
     </tr>
   </tbody>
 </table>
@@ -508,11 +509,11 @@ Speaker Notes:
 
   <div class="feature-box" style="border-left-color: var(--color-rr-blue);">
     <h3>The Death Finishers & Power Enforcers</h3>
-    <p style="font-size: 14.5px;"><strong>Tim David (#4), Andre Russell (#7), Heinrich Klaasen (#10)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Tim David (#4), Marcus Stoinis (#8), Heinrich Klaasen (#9), Venkatesh Iyer (#10)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
-      <li>Operate against the highest bowling pressure (death overs 16–20).</li>
-      <li>Elite normal baselines ($+0.24$ to $+0.31$ above par) mean they already score at blistering strike rates.</li>
-      <li>Boundary-per-ball rates exceed 24% under extreme pressure.</li>
+      <li>Operate against the highest bowling pressure (death overs 16–20 and high-leverage chases).</li>
+      <li>Elite normal baselines ($+0.20$ to $+0.31$ above par) mean they score at blistering strike rates naturally.</li>
+      <li>Venkatesh Iyer (+0.191 uplift, 88.0% certainty) offers left-handed clutch aggression and title-winning composure.</li>
     </ul>
     <span class="tag tag-blue">War Room Target: High-ceiling match-closers</span>
   </div>
@@ -529,7 +530,7 @@ Speaker Notes:
 Speaker Notes:
 - Point out the two distinct ways to succeed under pressure:
   1. The Anchor-Elevator who absorbs pressure and elevates (Gaikwad, Gill).
-  2. The Enforcer whose sheer baseline power overwhelms pressure (David, Russell, Klaasen).
+  2. The Enforcer whose sheer baseline power or clutch uplift overwhelms pressure (David, Stoinis, Klaasen, Venkatesh Iyer).
 -->
 
 ---
