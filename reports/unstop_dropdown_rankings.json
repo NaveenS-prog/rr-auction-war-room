@@ -2,7 +2,7 @@
   "metadata": {
     "competition": "Rajasthan Royals SupeRR Selector Season 2",
     "model_architecture": "4-Stage GBDT Expectations + Leverage Spread + Hierarchical Bayes (Q0.10 Conservative)",
-    "timestamp": "2026-11-12 10:11:37Z",
+    "timestamp": "2026-11-12 10:39:33Z",
     "status": "VERIFIED_COMPLIANT"
   },
   "batters": {
@@ -86,6 +86,19 @@
     },
     "7": {
       "rank": 7,
+      "player_id": 1318,
+      "player_name": "Andre Russell",
+      "team_name": "Kolkata Knight Riders",
+      "conservative_score": 0.058,
+      "pressure_ability_mean": 0.2993,
+      "normal_ability_mean": 0.1503,
+      "pressure_uplift_mean": 0.149,
+      "prob_positive_uplift": 0.866,
+      "pressure_balls": 363,
+      "pressure_matches": 30
+    },
+    "8": {
+      "rank": 8,
       "player_id": 7897,
       "player_name": "Namboori Tilak Varma",
       "team_name": "Mumbai Indians",
@@ -97,8 +110,8 @@
       "pressure_balls": 745,
       "pressure_matches": 54
     },
-    "8": {
-      "rank": 8,
+    "9": {
+      "rank": 9,
       "player_id": 2639,
       "player_name": "Marcus Stoinis",
       "team_name": "Australia",
@@ -110,8 +123,8 @@
       "pressure_balls": 448,
       "pressure_matches": 38
     },
-    "9": {
-      "rank": 9,
+    "10": {
+      "rank": 10,
       "player_id": 4260,
       "player_name": "Heinrich Klaasen",
       "team_name": "South Africa",
@@ -122,19 +135,6 @@
       "prob_positive_uplift": 0.416,
       "pressure_balls": 438,
       "pressure_matches": 29
-    },
-    "10": {
-      "rank": 10,
-      "player_id": 7544,
-      "player_name": "Venkatesh Iyer",
-      "team_name": "India",
-      "conservative_score": -0.0103,
-      "pressure_ability_mean": 0.234,
-      "normal_ability_mean": 0.0427,
-      "pressure_uplift_mean": 0.1913,
-      "prob_positive_uplift": 0.88,
-      "pressure_balls": 234,
-      "pressure_matches": 17
     }
   },
   "bowlers": {
@@ -179,6 +179,32 @@
     },
     "4": {
       "rank": 4,
+      "player_id": 5979,
+      "player_name": "Abrar Ahmed",
+      "team_name": "Pakistan",
+      "conservative_score": 0.2136,
+      "pressure_ability_mean": 0.5504,
+      "normal_ability_mean": 0.1794,
+      "pressure_uplift_mean": 0.371,
+      "prob_positive_uplift": 0.942,
+      "pressure_balls": 125,
+      "pressure_matches": 13
+    },
+    "5": {
+      "rank": 5,
+      "player_id": 7364,
+      "player_name": "Haris Rauf",
+      "team_name": "Pakistan",
+      "conservative_score": 0.2131,
+      "pressure_ability_mean": 0.4493,
+      "normal_ability_mean": 0.0594,
+      "pressure_uplift_mean": 0.3899,
+      "prob_positive_uplift": 0.992,
+      "pressure_balls": 276,
+      "pressure_matches": 23
+    },
+    "6": {
+      "rank": 6,
       "player_id": 3720,
       "player_name": "Craig Young",
       "team_name": "Ireland",
@@ -190,8 +216,21 @@
       "pressure_balls": 120,
       "pressure_matches": 13
     },
-    "5": {
-      "rank": 5,
+    "7": {
+      "rank": 7,
+      "player_id": 7699,
+      "player_name": "Abbas Afridi",
+      "team_name": "Pakistan",
+      "conservative_score": 0.1717,
+      "pressure_ability_mean": 0.5213,
+      "normal_ability_mean": 0.2535,
+      "pressure_uplift_mean": 0.2678,
+      "prob_positive_uplift": 0.858,
+      "pressure_balls": 114,
+      "pressure_matches": 15
+    },
+    "8": {
+      "rank": 8,
       "player_id": 7920,
       "player_name": "Nathan Ellis",
       "team_name": "Punjab Kings",
@@ -203,8 +242,8 @@
       "pressure_balls": 223,
       "pressure_matches": 21
     },
-    "6": {
-      "rank": 6,
+    "9": {
+      "rank": 9,
       "player_id": 781,
       "player_name": "Sunil Narine",
       "team_name": "Kolkata Knight Riders",
@@ -216,8 +255,8 @@
       "pressure_balls": 273,
       "pressure_matches": 26
     },
-    "7": {
-      "rank": 7,
+    "10": {
+      "rank": 10,
       "player_id": 4900,
       "player_name": "Wanindu Hasaranga",
       "team_name": "Sri Lanka",
@@ -228,45 +267,6 @@
       "prob_positive_uplift": 0.94,
       "pressure_balls": 429,
       "pressure_matches": 39
-    },
-    "8": {
-      "rank": 8,
-      "player_id": 3644,
-      "player_name": "Kuldeep Yadav",
-      "team_name": "India",
-      "conservative_score": 0.0822,
-      "pressure_ability_mean": 0.2829,
-      "normal_ability_mean": 0.0938,
-      "pressure_uplift_mean": 0.1891,
-      "prob_positive_uplift": 0.898,
-      "pressure_balls": 404,
-      "pressure_matches": 40
-    },
-    "9": {
-      "rank": 9,
-      "player_id": 8661,
-      "player_name": "Matheesha Pathirana",
-      "team_name": "Chennai Super Kings",
-      "conservative_score": 0.0428,
-      "pressure_ability_mean": 0.2549,
-      "normal_ability_mean": 0.102,
-      "pressure_uplift_mean": 0.1529,
-      "prob_positive_uplift": 0.866,
-      "pressure_balls": 400,
-      "pressure_matches": 24
-    },
-    "10": {
-      "rank": 10,
-      "player_id": 2261,
-      "player_name": "Harshal Patel",
-      "team_name": "India",
-      "conservative_score": 0.0239,
-      "pressure_ability_mean": 0.2297,
-      "normal_ability_mean": -0.1054,
-      "pressure_uplift_mean": 0.3351,
-      "prob_positive_uplift": 0.99,
-      "pressure_balls": 433,
-      "pressure_matches": 35
     }
   }
 }

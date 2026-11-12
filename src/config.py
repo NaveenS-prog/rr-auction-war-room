@@ -51,9 +51,9 @@ def load_config(config_path: str = "config/settings.yaml") -> PipelineConfig:
             "min_total_balls": int(eligibility_cfg.get("min_total_balls", 100)),
             "min_pressure_balls": int(eligibility_cfg.get("min_pressure_balls", 40)),
             "min_pressure_matches": int(eligibility_cfg.get("min_pressure_matches", 8)),
-            "exclude_teams": list(eligibility_cfg.get("exclude_teams", ["Pakistan", "Pakistan A"])),
-            "exclude_player_ids": list(eligibility_cfg.get("exclude_player_ids", [1318])),
-            "exclusion_reason": str(eligibility_cfg.get("exclusion_reason", "IPL Auction Ineligibility: BCCI regulatory policy restrictions and IPL retirement declarations")),
+            "exclude_teams": list(eligibility_cfg.get("exclude_teams", [])),
+            "exclude_player_ids": list(eligibility_cfg.get("exclude_player_ids", [])),
+            "exclusion_reason": str(eligibility_cfg.get("exclusion_reason", "")),
         },
         ranking={
             "pressure_percentile": float(ranking_cfg.get("pressure_percentile", 80.0)),

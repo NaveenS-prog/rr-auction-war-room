@@ -114,12 +114,8 @@ Rankings are ordered by the **10th percentile of posterior pressure ability**:
 $$S_i = Q_{{0.10}}(\\text{{Pressure ability}}_i)$$
 This conservative lower bound favors players who are proven, reliable, and high-volume over erratic performers.
 
-### 3.4 IPL Auction Eligibility, Regulatory Policy & Retirement Exclusions
-In accordance with official BCCI regulations and Indian Premier League eligibility guidelines governing the IPL Player Auction:
-1. **BCCI / Geopolitical Regulations**: Players representing the Pakistan national team (or domestic Pakistan entities) are ineligible to participate in the IPL auction or enter IPL franchise squads.
-2. **Player Retirement Declarations**: Players who have formally retired from active IPL competition (such as Andre Russell, Player ID `1318`) are excluded from active franchise acquisition targets.
-
-While deliveries involving these players are fully retained in our dataset to compute unbiased, league-wide situation baselines (Model A) and win-probability leverage swings (Model B), they are strictly filtered from the final auction selection pool and Top 10 leaderboards. This regulatory and practical exclusion ensures that every player ranked in our final submission is 100% legally eligible, active, and actionable for Rajasthan Royals' auction war room.
+### 3.4 Universal Global Evaluation & Pure Merit Principle
+Our evaluation system prioritizes universal data-driven merit across world T20 cricket without administrative filtering or premature assumptions regarding franchise auction eligibility or league retirement status. Every player who meets our rigorous statistical volume criteria (including international stars across all ICC member nations and seasoned veterans like Andre Russell) is evaluated on a completely equal, objective footing. This guarantees an uncorrupted, league-wide benchmark of genuine pressure mastery.
 
 ---
 

@@ -6,13 +6,13 @@ from src.models.player_ratings import FittedRatings
 
 class RankingEngine:
     def __init__(self, eligibility: Optional[Dict[str, Any]] = None):
-        self.eligibility = eligibility or {
+        self.eligibility = eligibility if eligibility is not None else {
             "min_total_balls": 100,
             "min_pressure_balls": 40,
             "min_pressure_matches": 8,
-            "exclude_teams": ["Pakistan", "Pakistan A"],
-            "exclude_player_ids": [1318],  # Andre Russell (Retired)
-            "exclusion_reason": "IPL Auction Ineligibility: BCCI regulatory policy restrictions and player retirement declarations",
+            "exclude_teams": [],
+            "exclude_player_ids": [],
+            "exclusion_reason": "",
         }
 
     def generate_leaderboard(

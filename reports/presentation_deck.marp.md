@@ -257,41 +257,40 @@ Speaker Notes:
 
 ---
 
-<!-- Slide 4: Regulatory Auction Eligibility (Policy Filter) -->
-<h2>IPL Auction Eligibility & Player Status Filter</h2>
+<!-- Slide 4: Universal Global Evaluation (Pure Merit Principle) -->
+<h2>Universal Global Evaluation: Pure Merit & Complete Inclusion</h2>
 
-<div class="feature-box" style="border-left-color: var(--color-rr-pink); background: #FFF1F2; margin-bottom: 20px;">
-  <h3 style="color: #9F1239; margin-top: 0;">Mandatory Policy Rules: BCCI Guidelines & Player Retirement Audits</h3>
-  <p style="font-size: 15px; margin: 4px 0; color: #4C0519;">
-    <strong>1. Regulatory Exclusion</strong>: Players representing the Pakistan national team (or domestic boards) are ineligible for the IPL Player Auction.<br>
-    <strong>2. Player Retirement Exclusion</strong>: Players who have officially retired from active IPL competition (such as <strong>Andre Russell</strong>, Player ID <code>1318</code>) are excluded from active acquisition pools.
+<div class="feature-box" style="border-left-color: var(--color-rr-pink); background: #EFF6FF; margin-bottom: 20px;">
+  <h3 style="color: var(--color-rr-blue); margin-top: 0;">Unconstrained Global Evaluation Principle</h3>
+  <p style="font-size: 15px; margin: 4px 0; color: #1E293B;">
+    To identify the absolute best pressure performers in world T20 cricket, our evaluation engine imposes <strong>zero administrative or geopolitical filtering</strong>. Every player across all international teams and leagues (including Pakistani stars and seasoned legends like Andre Russell) is evaluated on pure merit and statistical significance ($N_{\text{press}} \ge 40$, Matches $\ge 8$).
   </p>
 </div>
 
 <div class="grid-2">
   <div class="feature-box">
-    <h3>Baseline Retention Policy</h3>
+    <h3>Complete Global Benchmark</h3>
     <p style="font-size: 14.5px;">
-      <strong>Deliveries retained for unbiased baselines</strong>: All historical match deliveries involving Pakistani and retired players are kept in the dataset to calculate uncorrupted, league-wide match context (Model A) and win probability leverage (Model B).
+      <strong>Unbiased Player Ecosystem</strong>: Evaluating all international specialists (including Abrar Ahmed, Haris Rauf, and Abbas Afridi) ensures the benchmark reflects true world-class execution across all formats and bowling styles.
     </p>
   </div>
   <div class="feature-box">
-    <h3>Actionable Auction Roster</h3>
+    <h3>Data-Driven Integrity</h3>
     <p style="font-size: 14.5px;">
-      <strong>Zero wasted auction capital</strong>: Ineligible and retired players are strictly filtered from the final leaderboards. Every recommended player is 100% actionable and available to be bid on by Rajasthan Royals.
+      <strong>Zero Selective Bias</strong>: Rankings reflect pure Bayesian posterior pressure ability ($Q_{0.10}$), providing Rajasthan Royals leadership with the true, uncorrupted ceiling of world T20 pressure talent.
     </p>
   </div>
 </div>
 
 <div style="margin-top: 16px; padding: 12px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px;">
-  <strong>Promoted Actionable Stars:</strong> With these policies enforced, proven stars like <strong>Kuldeep Yadav</strong> (#8), <strong>Matheesha Pathirana</strong> (#9), and <strong>Harshal Patel</strong> (#10) for bowlers, plus clutch title-winner <strong>Venkatesh Iyer</strong> (#10) for batters, rightfully claim Top 10 honors.
+  <strong>Global Roster Impact:</strong> With pure merit enforced, <strong>Andre Russell</strong> (#7) anchors the Top 10 Batters, while elite wicket-takers <strong>Abrar Ahmed</strong> (#4), <strong>Haris Rauf</strong> (#5), and <strong>Abbas Afridi</strong> (#7) claim Top 10 Bowler honors.
 </div>
 
 <!--
 Speaker Notes:
-- Address the auction eligibility and player status upfront: The hackathon is about shaping RR's auction strategy.
-- Recommending retired or ineligible players wastes precious war room capital.
-- Our dual approach: retain their data for accurate opponent baselines, but exclude them from squad recommendations.
+- We evaluate the absolute global ceiling of pressure cricket without administrative or auction constraints.
+- Pure merit and statistical reliability define who excels when the match is on the line.
+- This gives the coaches an uncorrupted benchmark of world T20 talent.
 -->
 
 ---
@@ -438,6 +437,17 @@ Speaker Notes:
     </tr>
     <tr>
       <td>#7</td>
+      <td><strong>Andre Russell</strong></td>
+      <td>KKR</td>
+      <td><strong>+0.058</strong></td>
+      <td>+0.299</td>
+      <td>+0.150</td>
+      <td>+0.149</td>
+      <td>86.6%</td>
+      <td>363</td>
+    </tr>
+    <tr>
+      <td>#8</td>
       <td><strong>Tilak Varma</strong></td>
       <td>Mumbai Indians</td>
       <td><strong>+0.028</strong></td>
@@ -448,7 +458,7 @@ Speaker Notes:
       <td>745</td>
     </tr>
     <tr>
-      <td>#8</td>
+      <td>#9</td>
       <td><strong>Marcus Stoinis</strong></td>
       <td>Australia</td>
       <td><strong>+0.020</strong></td>
@@ -459,7 +469,7 @@ Speaker Notes:
       <td>448</td>
     </tr>
     <tr>
-      <td>#9</td>
+      <td>#10</td>
       <td><strong>Heinrich Klaasen</strong></td>
       <td>South Africa</td>
       <td><strong>+0.009</strong></td>
@@ -468,17 +478,6 @@ Speaker Notes:
       <td>-0.036</td>
       <td>41.6%</td>
       <td>438</td>
-    </tr>
-    <tr>
-      <td>#10</td>
-      <td><strong>Venkatesh Iyer</strong></td>
-      <td>India / KKR</td>
-      <td><strong>-0.010</strong></td>
-      <td>+0.234</td>
-      <td>+0.043</td>
-      <td>+0.191</td>
-      <td>88.0%</td>
-      <td>234</td>
     </tr>
   </tbody>
 </table>
@@ -509,11 +508,11 @@ Speaker Notes:
 
   <div class="feature-box" style="border-left-color: var(--color-rr-blue);">
     <h3>The Death Finishers & Power Enforcers</h3>
-    <p style="font-size: 14.5px;"><strong>Tim David (#4), Marcus Stoinis (#8), Heinrich Klaasen (#9), Venkatesh Iyer (#10)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Tim David (#4), Andre Russell (#7), Heinrich Klaasen (#10)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
       <li>Operate against the highest bowling pressure (death overs 16–20 and high-leverage chases).</li>
-      <li>Elite normal baselines ($+0.20$ to $+0.31$ above par) mean they score at blistering strike rates naturally.</li>
-      <li>Venkatesh Iyer (+0.191 uplift, 88.0% certainty) offers left-handed clutch aggression and title-winning composure.</li>
+      <li>Elite normal baselines ($+0.15$ to $+0.31$ above par) mean they score at blistering strike rates naturally.</li>
+      <li>Andre Russell (+0.149 uplift, 86.6% certainty across 363 pressure balls) remains the gold standard for pure boundary striking under extreme leverage.</li>
     </ul>
     <span class="tag tag-blue">War Room Target: High-ceiling match-closers</span>
   </div>
@@ -530,13 +529,13 @@ Speaker Notes:
 Speaker Notes:
 - Point out the two distinct ways to succeed under pressure:
   1. The Anchor-Elevator who absorbs pressure and elevates (Gaikwad, Gill).
-  2. The Enforcer whose sheer baseline power or clutch uplift overwhelms pressure (David, Stoinis, Klaasen, Venkatesh Iyer).
+  2. The Enforcer whose sheer baseline power overwhelms pressure (David, Russell, Klaasen).
 -->
 
 ---
 
-<!-- Slide 8: Top 10 Bowlers Leaderboard (100% Auction Eligible) -->
-<h2>Top 10 Bowlers Under Pressure (100% Auction Eligible)</h2>
+<!-- Slide 8: Top 10 Bowlers Leaderboard (Universal Global Ranking) -->
+<h2>Top 10 Bowlers Under Pressure (Universal Global Ranking)</h2>
 
 <table>
   <thead>
@@ -588,6 +587,28 @@ Speaker Notes:
     </tr>
     <tr>
       <td>#4</td>
+      <td><strong>Abrar Ahmed</strong></td>
+      <td>Pakistan</td>
+      <td><strong>+0.214</strong></td>
+      <td>+0.550</td>
+      <td>+0.179</td>
+      <td>+0.371</td>
+      <td>94.2%</td>
+      <td>125</td>
+    </tr>
+    <tr>
+      <td>#5</td>
+      <td><strong>Haris Rauf</strong></td>
+      <td>Pakistan</td>
+      <td><strong>+0.213</strong></td>
+      <td>+0.449</td>
+      <td>+0.059</td>
+      <td>+0.390</td>
+      <td>99.2%</td>
+      <td>276</td>
+    </tr>
+    <tr>
+      <td>#6</td>
       <td><strong>Craig Young</strong></td>
       <td>Ireland</td>
       <td><strong>+0.197</strong></td>
@@ -598,7 +619,18 @@ Speaker Notes:
       <td>120</td>
     </tr>
     <tr>
-      <td>#5</td>
+      <td>#7</td>
+      <td><strong>Abbas Afridi</strong></td>
+      <td>Pakistan</td>
+      <td><strong>+0.172</strong></td>
+      <td>+0.521</td>
+      <td>+0.253</td>
+      <td>+0.268</td>
+      <td>85.8%</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <td>#8</td>
       <td><strong>Nathan Ellis</strong></td>
       <td>Punjab Kings</td>
       <td><strong>+0.147</strong></td>
@@ -609,7 +641,7 @@ Speaker Notes:
       <td>223</td>
     </tr>
     <tr>
-      <td>#6</td>
+      <td>#9</td>
       <td><strong>Sunil Narine</strong></td>
       <td>KKR</td>
       <td><strong>+0.139</strong></td>
@@ -620,7 +652,7 @@ Speaker Notes:
       <td>273</td>
     </tr>
     <tr>
-      <td>#7</td>
+      <td>#10</td>
       <td><strong>Wanindu Hasaranga</strong></td>
       <td>Sri Lanka</td>
       <td><strong>+0.137</strong></td>
@@ -630,52 +662,19 @@ Speaker Notes:
       <td>94.0%</td>
       <td>429</td>
     </tr>
-    <tr>
-      <td>#8</td>
-      <td><strong>Kuldeep Yadav</strong></td>
-      <td>Delhi Capitals</td>
-      <td><strong>+0.082</strong></td>
-      <td>+0.283</td>
-      <td>+0.094</td>
-      <td>+0.189</td>
-      <td>89.8%</td>
-      <td>404</td>
-    </tr>
-    <tr>
-      <td>#9</td>
-      <td><strong>Matheesha Pathirana</strong></td>
-      <td>CSK</td>
-      <td><strong>+0.043</strong></td>
-      <td>+0.255</td>
-      <td>+0.102</td>
-      <td>+0.153</td>
-      <td>86.6%</td>
-      <td>400</td>
-    </tr>
-    <tr>
-      <td>#10</td>
-      <td><strong>Harshal Patel</strong></td>
-      <td>Punjab Kings</td>
-      <td><strong>+0.024</strong></td>
-      <td>+0.230</td>
-      <td>-0.105</td>
-      <td>+0.335</td>
-      <td>99.0%</td>
-      <td>433</td>
-    </tr>
   </tbody>
 </table>
 
 <!--
 Speaker Notes:
 - Jasprit Bumrah is the undisputed #1 pressure bowler on the planet (+0.361 score, 100% positive uplift certainty over 404 pressure balls).
-- With Pakistani players filtered, Kuldeep Yadav, Matheesha Pathirana, and Harshal Patel earn rightful places.
-- Pathirana and Harshal both absorbed over 400 pressure balls at the death with proven wicket-taking ability.
+- Sean Abbott (+0.239) and Mitchell Starc (+0.231) deliver elite strike power.
+- Global evaluation restores premier express pace and mystery spin: Abrar Ahmed (#4), Haris Rauf (#5), and Abbas Afridi (#7).
 -->
 
 ---
 
-<!-- Slide 9: Bowler Clustering & Role Taxonomy -->
+<!-- Slide 9: Bowler Clustering & Release Archetypes -->
 <h2>Bowler Clustering & Release Archetypes</h2>
 <p style="color: var(--color-text-muted); margin-top: -6px;">
   Clustering top bowlers by execution zone, release mechanics, and phase deployment.
@@ -683,10 +682,10 @@ Speaker Notes:
 
 <div class="grid-2">
   <div class="feature-box" style="border-left-color: var(--color-rr-pink);">
-    <h3>Cluster 1: Death Yorker & Sling Specialists</h3>
-    <p style="font-size: 14.5px;"><strong>Jasprit Bumrah (#1), Matheesha Pathirana (#9), Nathan Ellis (#5)</strong></p>
+    <h3>Cluster 1: Death Yorker & Skiddy Pace</h3>
+    <p style="font-size: 14.5px;"><strong>Jasprit Bumrah (#1), Haris Rauf (#5), Nathan Ellis (#8)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
-      <li>Low release angles and extreme trajectory disruption.</li>
+      <li>Low release angles, 145+ kph express pace, and pinpoint trajectory disruption.</li>
       <li>Execute toe-crushing yorkers and wide line discipline under pressure.</li>
       <li>Concede 2.4 runs/over below phase par in overs 18–20.</li>
     </ul>
@@ -695,9 +694,9 @@ Speaker Notes:
 
   <div class="feature-box" style="border-left-color: var(--color-rr-blue);">
     <h3>Cluster 2: Express Strike & Powerplay Enforcers</h3>
-    <p style="font-size: 14.5px;"><strong>Mitchell Starc (#3), Sean Abbott (#2), Craig Young (#4)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Sean Abbott (#2), Mitchell Starc (#3), Craig Young (#6)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
-      <li>High-pace, hard-length delivery release with seam movement.</li>
+      <li>High-pace, hard-length delivery release with seam and swing movement.</li>
       <li>Target stumps and pads to trigger early collapses ($+0.50$ to $+0.85$ uplift).</li>
       <li>Double-strike capability in must-win tournament knockouts.</li>
     </ul>
@@ -706,31 +705,31 @@ Speaker Notes:
 
   <div class="feature-box" style="border-left-color: #6366F1;">
     <h3>Cluster 3: Mystery Spin & Middle Clamps</h3>
-    <p style="font-size: 14.5px;"><strong>Sunil Narine (#6), Wanindu Hasaranga (#7), Kuldeep Yadav (#8)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Abrar Ahmed (#4), Sunil Narine (#9), Wanindu Hasaranga (#10)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
       <li>Concealed wrist/finger spin releases with minimal trajectory deviation.</li>
       <li>Suppress boundary flow during critical overs 9–15.</li>
-      <li>Over 400 pressure balls each with consistent sub-par economy.</li>
+      <li>Sub-par economy under pressure with elite wicket-taking threat.</li>
     </ul>
     <span class="tag" style="background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE;">Role: Middle Squeeze & Choke</span>
   </div>
 
   <div class="feature-box" style="border-left-color: #F59E0B;">
     <h3>Cluster 4: Deceptive Changeup Cutters</h3>
-    <p style="font-size: 14.5px;"><strong>Harshal Patel (#10)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Abbas Afridi (#7)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
-      <li>Wide-line slower-ball dippers and off-cutter variations.</li>
-      <li>Forces mistimed aerial shots at the boundary.</li>
-      <li>433 pressure balls, +0.335 uplift, Purple Cap winning pedigree.</li>
+      <li>Back-of-the-hand slower balls and off-cutter variations under pressure.</li>
+      <li>Forces mistimed aerial shots with a +0.268 clutch uplift across 114 pressure balls.</li>
+      <li>Provides high-leverage changeup contrast against express pace.</li>
     </ul>
-    <span class="tag" style="background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A;">Role: Death Wicket Aggregator</span>
+    <span class="tag" style="background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A;">Role: Deceptive Changeup Specialist</span>
   </div>
 </div>
 
 <!--
 Speaker Notes:
-- Giles and Kumar will love this clustering: It tells them how to build a complementary 5-man bowling attack.
-- You pair Bumrah/Pathirana at the death with a middle-overs clamp like Narine/Kuldeep and an early strike bowler like Starc.
+- Giles and Kumar will love this clustering: It demonstrates how to assemble a balanced 5-man attack.
+- Pair Bumrah/Rauf at the death with a middle-overs mystery squeeze (Abrar/Narine) and an early strike weapon like Starc/Abbott.
 -->
 
 ---
