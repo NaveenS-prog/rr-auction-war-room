@@ -201,13 +201,13 @@ Speaker Notes:
 ---
 
 <!-- Slide 3: 4-Stage Probabilistic Architecture -->
-<h2>The 4-Stage Probabilistic Model Architecture</h2>
+<h2>The 4-Stage Quantitative Framework</h2>
 
 <div class="grid-2">
   <div class="feature-box" style="border-left-color: var(--color-rr-pink);">
-    <h3>Stage 1: Context Baselines (Model A)</h3>
+    <h3>Stage 1: Match Context Baselines</h3>
     <p style="font-size: 14.5px; margin: 4px 0;">
-      Calibrated <code>HistGradientBoosting</code> models predict expected runs, dismissal probability, bowler runs conceded, and wicket probability per legal ball.
+      Calibrated situation models predict expected runs, dismissal probability, bowler runs conceded, and wicket probability per legal ball.
     </p>
     <div style="font-family: monospace; font-size: 13px; color: var(--color-text-muted); background: #FFF; padding: 6px; border: 1px solid var(--color-border); border-radius: 4px;">
       E[Runs | BallsRem, WktsRem, CRR, RRR, Phase]
@@ -215,7 +215,7 @@ Speaker Notes:
   </div>
 
   <div class="feature-box" style="border-left-color: var(--color-rr-blue);">
-    <h3>Stage 2: Leverage Spread (Model B)</h3>
+    <h3>Stage 2: Leverage Volatility</h3>
     <p style="font-size: 14.5px; margin: 4px 0;">
       Dynamic outcome volatility across legal delivery transitions:
       $$L(s) = \sqrt{\sum_o P(o \mid s) [p(s_o) - \bar{p}(s)]^2} \times \text{urgency}$$
@@ -236,7 +236,7 @@ Speaker Notes:
   </div>
 
   <div class="feature-box" style="border-left-color: var(--color-rr-pink);">
-    <h3>Stage 4: Hierarchical Bayesian Model C</h3>
+    <h3>Stage 4: Bayesian Uncertainty Calibration</h3>
     <p style="font-size: 14.5px; margin: 4px 0;">
       Partial pooling decomposes player ability into normal baseline ($a_i$) and pressure deviation ($d_i$):
     </p>
@@ -340,19 +340,19 @@ Speaker Notes:
 </div>
 
 <p style="font-size: 14px; color: var(--color-text-muted); margin-top: 14px;">
-  <strong>Model Insight</strong>: In the Death phase, each dot ball avoided is worth +0.38 win-probability swing; each boundary conceded increases loss expectancy by up to 14%.
+  <strong>Analytics Insight</strong>: In the Death phase, each dot ball avoided is worth +0.38 win-probability swing; each boundary conceded increases loss expectancy by up to 14%.
 </p>
 
 <!--
 Speaker Notes:
 - Notice the stark contrast in par economy from 7.50 in the Powerplay to nearly 10.0 in the Death overs.
-- Our Model A conditions continuously, so a death delivery in a chase of 14 RRR is judged fairly compared to a chase of 8 RRR.
+- Our dynamic baseline engine conditions continuously on match context, so a death delivery in a chase of 14 RRR is judged fairly compared to a chase of 8 RRR.
 -->
 
 ---
 
 <!-- Slide 6: Top 10 Batters Leaderboard -->
-<h2>Top 10 Batters Under Pressure (Model C Conservative Ranking)</h2>
+<h2>Top 10 Batters Under Pressure (Conservative Reliability Ranking)</h2>
 
 <table>
   <thead>
@@ -741,10 +741,10 @@ Speaker Notes:
   <div class="feature-box" style="border-left-color: var(--color-rr-pink);">
     <h3>Out-of-Sample Holdout Testing</h3>
     <p style="font-size: 14.5px; margin: 6px 0;">
-      Model C was evaluated on held-out subsequent pressure deliveries with zero data leakage:
+      Our Bayesian reliability framework was evaluated on held-out subsequent pressure deliveries with zero data leakage:
     </p>
     <ul style="font-size: 15px; padding-left: 20px;">
-      <li><strong>Model C Pressure RMSE</strong>: <code>1.3635</code></li>
+      <li><strong>Holdout Test RMSE</strong>: <code>1.3635</code></li>
       <li><strong>Career Baseline RMSE</strong>: <code>1.7622</code></li>
       <li><strong>Forecasting Error Reduction</strong>: <span style="color: #059669; font-weight: bold;">-22.6%</span></li>
       <li><strong>Test-Set Pearson Correlation ($r$)</strong>: <code>0.6579</code></li>
@@ -807,11 +807,11 @@ Speaker Notes:
   </div>
 
   <div class="feature-box" style="border-top: 4px solid var(--color-rr-blue); border-left: none;">
-    <h3 style="color: var(--color-rr-blue);">Directive 2: High-Ceiling International Value</h3>
+    <h3 style="color: var(--color-rr-blue);">Directive 2: High-Ceiling International Strike & Spin</h3>
     <p style="font-size: 14px;">
-      Acquire <strong>Craig Young</strong> as a high-efficiency overseas pace option (+0.504 uplift, score +0.197). Overlooked by rival franchises due to Ireland pedigree, offering high ROI.
+      Target <strong>Wanindu Hasaranga</strong> (#5, +0.215 uplift) for middle spin strangulation or <strong>Haris Rauf</strong> (#2, +0.390 uplift) for express pace. Both deliver verified repeatability in high-pressure tournaments.
     </p>
-    <span class="tag tag-blue">Budget Priority: High ROI / Low Cost</span>
+    <span class="tag tag-blue">Budget Priority: Proven Strike Weapon</span>
   </div>
 
   <div class="feature-box" style="border-top: 4px solid #10B981; border-left: none;">
@@ -834,7 +834,7 @@ Speaker Notes:
 Speaker Notes:
 - Summarize actionable auction advice:
   1. Ellis/Pathirana for death-overs closure.
-  2. Craig Young as an arbitrage play.
+  2. Hasaranga/Rauf as high-ceiling tournament strike options.
   3. Tilak/Patidar to stabilize the middle order.
 -->
 

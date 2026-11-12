@@ -55,10 +55,10 @@ def generate_methodology_report(
 ## Executive Summary
 This report presents an objective, context-adjusted, and uncertainty-penalized evaluation system to identify the most reliable players under high pressure in T20 cricket (IPL and T20Is from 2022 onwards). Rather than relying on unadjusted career averages or raw clutch moments, our system employs a principled four-stage probabilistic architecture:
 
-1. **Context-Expected Baselines (Model A)**: Calibrated gradient-boosted trees estimating situation-expected runs off bat, striker dismissal probability, bowler runs conceded, and bowler-credited wicket probability.
-2. **Win-Probability Leverage Spread (Model B)**: Dynamic measurement of outcome-conditioned win probability swings ($L(s)$), separating high-pressure deliveries from routine or dead-rubber phases.
+1. **Dynamic Match-State Baselines**: Calibrated situation expectations estimating runs off bat, dismissal probability, conceded runs, and wicket probability per legal ball.
+2. **Win-Probability Leverage Volatility**: Dynamic measurement of outcome-conditioned win probability swings ($L(s)$), separating high-pressure deliveries from routine or dead-rubber phases.
 3. **Run-Equivalent Contribution Valuation**: Translating runs, boundaries, dots, and wickets into unified run-equivalent margins ($V^{{bat}}$, $V^{{bowl}}$) with situation-dependent wicket values.
-4. **Hierarchical Empirical Bayes Shrinkage (Model C)**: Estimating player normal ability ($\\\\mu + a_i$) and pressure response ($\\\\beta + d_i$) with partial pooling, penalizing small-sample noise through a 10th percentile conservative score ($S_i = Q_{{0.10}}$).
+4. **Hierarchical Empirical Bayes Reliability Engine**: Estimating player normal baseline ability ($\\\\mu + a_i$) and pressure response ($\\\\beta + d_i$) with partial pooling, penalizing small-sample noise through a 10th percentile conservative score ($S_i = Q_{{0.10}}$).
 
 ---
 
@@ -95,7 +95,7 @@ $$V^{{\\text{{bowl}}}}_b = r^{{\\text{{economy}}}}_b + c(s_b) \\cdot r^{{\\text{
 
 ## 3. Fair Comparisons & Eligibility
 ### 3.1 Hierarchical Partial Pooling
-Sparse samples in high-pressure match situations risk promoting noisy outliers. Model C structures player ability as:
+Sparse samples in high-pressure match situations risk promoting noisy outliers. Our Bayesian reliability model structures player ability as:
 $$V_b = \\mu + a_i + (\\beta + d_i) H_b + \\epsilon_b$$
 - $\\mu$: Population mean
 - $a_i \\sim \\mathcal{{N}}(0, \\sigma_a^2)$: Player baseline ability
@@ -134,10 +134,10 @@ Our evaluation system prioritizes universal data-driven merit across world T20 c
 
 ## 5. Reliability and Limitations
 ### 5.1 Predictive Holdout Evaluation
-To verify that our pressure ratings capture genuine repeatable skill rather than retrospective noise, we evaluated Model C predictions on held-out subsequent pressure situations:
-- **Model C Pressure RMSE**: `{rmse_c:.4f}` vs. **Career Baseline RMSE**: `{rmse_norm:.4f}`
+To verify that our pressure ratings capture genuine repeatable skill rather than retrospective noise, we evaluated our Bayesian framework on held-out subsequent pressure situations:
+- **Bayesian Rating Holdout RMSE**: `{rmse_c:.4f}` vs. **Career Baseline RMSE**: `{rmse_norm:.4f}`
 - **Test-Set Correlation ($r$)**: `{corr:.4f}`
-Model C achieves a noticeable reduction in prediction error on future pressure deliveries compared to unadjusted averages.
+Our Bayesian framework achieves a noticeable reduction in prediction error on future pressure deliveries compared to unadjusted averages.
 
 ### 5.2 Sensitivity & Stability Tests
 Top-10 selection stability was tested across parameter variations:
