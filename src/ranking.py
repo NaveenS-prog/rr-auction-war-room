@@ -4,6 +4,48 @@ import numpy as np
 import pandas as pd
 from src.models.player_ratings import FittedRatings
 
+INTERNATIONAL_TEAMS = {
+    "Afghanistan", "Australia", "Bangladesh", "Canada", "England",
+    "Hong Kong", "India", "Ireland", "Japan", "Kuwait", "Nepal",
+    "Netherlands", "New Zealand", "Oman", "Pakistan", "Scotland",
+    "Singapore", "South Africa", "Sri Lanka", "United Arab Emirates",
+    "United States Of America", "West Indies", "Zimbabwe",
+    "Afghanistan A", "Bangladesh A", "India A", "Pakistan A", "Sri Lanka A"
+}
+
+IPL_TEAMS = {
+    "Chennai Super Kings", "Delhi Capitals", "Gujarat Titans",
+    "Kolkata Knight Riders", "Lucknow Super Giants", "Mumbai Indians",
+    "Punjab Kings", "Rajasthan Royals", "Royal Challengers Bengaluru",
+    "Sunrisers Hyderabad", "RCB", "CSK", "MI", "KKR", "DC", "GT", "LSG", "PBKS", "SRH", "RR"
+}
+
+OVERSEAS_OVERRIDES = {
+    35: "Australia",       # Nathan Bracken
+    88: "South Africa",   # Faf du Plessis
+    161: "West Indies",   # Dwayne Bravo
+    781: "West Indies",   # Sunil Narine
+    820: "Australia",     # Nathan Coulter Nile
+    1045: "Namibia",      # David Wiese
+    1600: "England",      # Benny Howell
+    2531: "England",      # Joe Root
+    3144: "England",      # Tom Curran
+    3299: "Australia",    # Andrew Tye
+    3967: "England",      # Tom Kohler-Cadmore
+    7095: "South Africa", # Gideon Peters
+    8763: "South Africa", # Duan Jansen
+}
+
+def resolve_player_nationality(pid: int, teams: list) -> str:
+    for t in teams:
+        if t in INTERNATIONAL_TEAMS:
+            return t[:-2] if t.endswith(" A") else t
+    if pid in OVERSEAS_OVERRIDES:
+        return OVERSEAS_OVERRIDES[pid]
+    if any(t in IPL_TEAMS for t in teams):
+        return "India"
+    return str(teams[0]) if len(teams) > 0 else "Unknown"
+
 class RankingEngine:
     def __init__(self, eligibility: Optional[Dict[str, Any]] = None):
         self.eligibility = eligibility if eligibility is not None else {
@@ -44,11 +86,21 @@ class RankingEngine:
             stats["pressure_matches"] = 0
         stats["pressure_matches"] = stats["pressure_matches"].fillna(0).astype(int)
         
-        # Merge player metadata
+        # Merge player metadata and resolve nationality
         if not player_meta.empty and "player_id" in player_meta.columns:
             meta_dedup = player_meta.drop_duplicates(subset=["player_id"])
-            cols_to_use = [c for c in ["player_id", "player_name", "team_name"] if c in meta_dedup.columns]
+            cols_to_use = [c for c in ["player_id", "player_name"] if c in meta_dedup.columns]
             stats = stats.merge(meta_dedup[cols_to_use], on="player_id", how="left")
+            
+            # Resolve nationality across all teams represented by each player
+            if "team_name" in player_meta.columns:
+                nat_map = {}
+                for pid, grp in player_meta.groupby("player_id"):
+                    t_list = grp["team_name"].dropna().unique().tolist()
+                    nat_map[int(pid)] = resolve_player_nationality(int(pid), t_list)
+                stats["team_name"] = stats["player_id"].map(nat_map).fillna("Unknown")
+            else:
+                stats["team_name"] = "Unknown"
         else:
             stats["player_name"] = "Player " + stats["player_id"].astype(str)
             stats["team_name"] = "Unknown"
@@ -56,6 +108,7 @@ class RankingEngine:
         # Fill missing names
         stats["player_name"] = stats["player_name"].fillna("Player " + stats["player_id"].astype(str))
         stats["team_name"] = stats["team_name"].fillna("Unknown")
+        stats["nationality"] = stats["team_name"]
             
         # Eligibility filtering
         min_tot = self.eligibility.get("min_total_balls", 100)

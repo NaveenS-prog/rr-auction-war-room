@@ -52,11 +52,13 @@ $$V_b = \mu + a_i + (\beta + d_i) H_b + \epsilon_b$$
 
 Players with limited pressure exposure are shrunk toward the population prior, preventing false positives.
 
-### 3.2 Eligibility Thresholds
-To ensure stability and repeatability across competitions (IPL and T20Is):
+### 3.2 High-Volume Repeatability Eligibility Thresholds
+To ensure multi-season stability and eliminate small-sample noise or environmental anomalies across competitions:
 1. **Minimum total exposure**: $\ge 100$ legal deliveries.
-2. **Minimum pressure exposure**: $\ge 40$ high-pressure deliveries.
-3. **Minimum pressure matches**: $\ge 8$ distinct matches with pressure situations.
+2. **Minimum pressure exposure**: $\ge 150$ high-pressure deliveries ($L(s) \ge Q_{0.80}$).
+3. **Minimum pressure matches**: $\ge 15$ distinct matches with pressure situations.
+
+This robust volume threshold filters out small-sample bilateral outliers, ensuring that every ranked player has proven, repeatable sample depth across high-stakes franchise and international tournaments.
 
 ### 3.3 Conservative Uncertainty Scoring
 Rankings are ordered by the **10th percentile of posterior pressure ability**:
@@ -71,32 +73,32 @@ Our evaluation system prioritizes universal data-driven merit across world T20 c
 ## 4. Evidence for Top 10
 
 ### 4.1 Top 10 Batters Under Pressure
-| rank | player_id | player_name | team_name | conservative_score | pressure_ability_mean | normal_ability_mean | pressure_uplift_mean | prob_positive_uplift | pressure_balls | pressure_matches |
+| rank | player_id | player_name | nationality | conservative_score | pressure_ability_mean | normal_ability_mean | pressure_uplift_mean | prob_positive_uplift | pressure_balls | pressure_matches |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 6059 | Ruturaj Gaikwad | India | 0.22 | 0.47 | 0.04 | 0.43 | 0.99 | 250 | 16 |
 | 2 | 1699 | Suryakumar Yadav | India | 0.19 | 0.37 | 0.26 | 0.11 | 0.80 | 533 | 46 |
-| 3 | 6288 | Shubman Gill | Gujarat Titans | 0.15 | 0.41 | 0.14 | 0.27 | 0.94 | 204 | 18 |
-| 4 | 6396 | Tim David | Mumbai Indians | 0.09 | 0.31 | 0.31 | 0.00 | 0.51 | 439 | 44 |
+| 3 | 6288 | Shubman Gill | India | 0.15 | 0.41 | 0.14 | 0.27 | 0.94 | 204 | 18 |
+| 4 | 6396 | Tim David | Australia | 0.09 | 0.31 | 0.31 | 0.00 | 0.51 | 439 | 44 |
 | 5 | 4117 | Ishan Kishan | India | 0.08 | 0.29 | 0.01 | 0.29 | 0.95 | 245 | 22 |
-| 6 | 5039 | Rajat Patidar | Royal Challengers Bengaluru | 0.06 | 0.31 | 0.19 | 0.12 | 0.78 | 249 | 20 |
-| 7 | 1318 | Andre Russell | Kolkata Knight Riders | 0.06 | 0.30 | 0.15 | 0.15 | 0.87 | 363 | 30 |
-| 8 | 7897 | Namboori Tilak Varma | Mumbai Indians | 0.03 | 0.17 | 0.11 | 0.06 | 0.75 | 745 | 54 |
+| 6 | 5039 | Rajat Patidar | India | 0.06 | 0.31 | 0.19 | 0.12 | 0.78 | 249 | 20 |
+| 7 | 1318 | Andre Russell | West Indies | 0.06 | 0.30 | 0.15 | 0.15 | 0.87 | 363 | 30 |
+| 8 | 7897 | Namboori Tilak Varma | India | 0.03 | 0.17 | 0.11 | 0.06 | 0.75 | 745 | 54 |
 | 9 | 2639 | Marcus Stoinis | Australia | 0.02 | 0.24 | 0.04 | 0.20 | 0.95 | 448 | 38 |
 | 10 | 4260 | Heinrich Klaasen | South Africa | 0.01 | 0.21 | 0.24 | -0.04 | 0.42 | 438 | 29 |
 
 ### 4.2 Top 10 Bowlers Under Pressure
-| rank | player_id | player_name | team_name | conservative_score | pressure_ability_mean | normal_ability_mean | pressure_uplift_mean | prob_positive_uplift | pressure_balls | pressure_matches |
+| rank | player_id | player_name | nationality | conservative_score | pressure_ability_mean | normal_ability_mean | pressure_uplift_mean | prob_positive_uplift | pressure_balls | pressure_matches |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 2933 | Jasprit Bumrah | Mumbai Indians | 0.36 | 0.56 | 0.12 | 0.44 | 1.00 | 404 | 35 |
+| 1 | 2933 | Jasprit Bumrah | India | 0.36 | 0.56 | 0.12 | 0.44 | 1.00 | 404 | 35 |
 | 2 | 7364 | Haris Rauf | Pakistan | 0.21 | 0.45 | 0.06 | 0.39 | 0.99 | 276 | 23 |
-| 3 | 7920 | Nathan Ellis | Punjab Kings | 0.15 | 0.40 | 0.07 | 0.33 | 0.96 | 223 | 21 |
-| 4 | 781 | Sunil Narine | Kolkata Knight Riders | 0.14 | 0.38 | 0.16 | 0.21 | 0.90 | 273 | 26 |
+| 3 | 7920 | Nathan Ellis | Australia | 0.15 | 0.40 | 0.07 | 0.33 | 0.96 | 223 | 21 |
+| 4 | 781 | Sunil Narine | West Indies | 0.14 | 0.38 | 0.16 | 0.21 | 0.90 | 273 | 26 |
 | 5 | 4900 | Wanindu Hasaranga | Sri Lanka | 0.14 | 0.32 | 0.11 | 0.21 | 0.94 | 429 | 39 |
 | 6 | 3644 | Kuldeep Yadav | India | 0.08 | 0.28 | 0.09 | 0.19 | 0.90 | 404 | 40 |
-| 7 | 8661 | Matheesha Pathirana | Chennai Super Kings | 0.04 | 0.25 | 0.10 | 0.15 | 0.87 | 400 | 24 |
+| 7 | 8661 | Matheesha Pathirana | Sri Lanka | 0.04 | 0.25 | 0.10 | 0.15 | 0.87 | 400 | 24 |
 | 8 | 2261 | Harshal Patel | India | 0.02 | 0.23 | -0.11 | 0.34 | 0.99 | 433 | 35 |
 | 9 | 7503 | Ravi Bishnoi | India | 0.02 | 0.20 | 0.02 | 0.18 | 0.91 | 369 | 34 |
-| 10 | 4373 | Mustafizur Rahman | Delhi Capitals | 0.01 | 0.22 | 0.07 | 0.15 | 0.90 | 499 | 41 |
+| 10 | 4373 | Mustafizur Rahman | Bangladesh | 0.01 | 0.22 | 0.07 | 0.15 | 0.90 | 499 | 41 |
 
 ---
 

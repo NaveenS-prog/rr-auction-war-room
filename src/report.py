@@ -25,7 +25,8 @@ def generate_methodology_report(
     # 2. Format Markdown Tables
     def make_md_table(df: pd.DataFrame, cols: list) -> str:
         lines = []
-        header = "| " + " | ".join(cols) + " |"
+        cols_display = [("nationality" if c == "team_name" else c) for c in cols]
+        header = "| " + " | ".join(cols_display) + " |"
         sep = "| " + " | ".join(["---"] * len(cols)) + " |"
         lines.append(header)
         lines.append(sep)

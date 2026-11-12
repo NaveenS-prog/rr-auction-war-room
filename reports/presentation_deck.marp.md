@@ -359,7 +359,7 @@ Speaker Notes:
     <tr>
       <th>Rank</th>
       <th>Player Name</th>
-      <th>Team</th>
+      <th>Nationality</th>
       <th>Score ($Q_{0.10}$)</th>
       <th>Pressure Ability</th>
       <th>Normal Ability</th>
@@ -394,7 +394,7 @@ Speaker Notes:
     <tr>
       <td>#3</td>
       <td><strong>Shubman Gill</strong></td>
-      <td>Gujarat Titans</td>
+      <td>India</td>
       <td><strong>+0.153</strong></td>
       <td>+0.408</td>
       <td>+0.137</td>
@@ -405,7 +405,7 @@ Speaker Notes:
     <tr>
       <td>#4</td>
       <td><strong>Tim David</strong></td>
-      <td>Mumbai Indians</td>
+      <td>Australia</td>
       <td><strong>+0.093</strong></td>
       <td>+0.307</td>
       <td>+0.306</td>
@@ -427,7 +427,7 @@ Speaker Notes:
     <tr>
       <td>#6</td>
       <td><strong>Rajat Patidar</strong></td>
-      <td>RCB</td>
+      <td>India</td>
       <td><strong>+0.063</strong></td>
       <td>+0.314</td>
       <td>+0.192</td>
@@ -438,7 +438,7 @@ Speaker Notes:
     <tr>
       <td>#7</td>
       <td><strong>Andre Russell</strong></td>
-      <td>KKR</td>
+      <td>West Indies</td>
       <td><strong>+0.058</strong></td>
       <td>+0.299</td>
       <td>+0.150</td>
@@ -449,7 +449,7 @@ Speaker Notes:
     <tr>
       <td>#8</td>
       <td><strong>Tilak Varma</strong></td>
-      <td>Mumbai Indians</td>
+      <td>India</td>
       <td><strong>+0.028</strong></td>
       <td>+0.173</td>
       <td>+0.109</td>
@@ -542,7 +542,7 @@ Speaker Notes:
     <tr>
       <th>Rank</th>
       <th>Player Name</th>
-      <th>Team</th>
+      <th>Nationality</th>
       <th>Score ($Q_{0.10}$)</th>
       <th>Pressure Ability</th>
       <th>Normal Ability</th>
@@ -555,7 +555,7 @@ Speaker Notes:
     <tr class="highlight-row">
       <td>#1</td>
       <td><strong>Jasprit Bumrah</strong></td>
-      <td>Mumbai Indians</td>
+      <td>India</td>
       <td><strong>+0.361</strong></td>
       <td>+0.557</td>
       <td>+0.120</td>
@@ -577,7 +577,7 @@ Speaker Notes:
     <tr>
       <td>#3</td>
       <td><strong>Nathan Ellis</strong></td>
-      <td>Punjab Kings</td>
+      <td>Australia</td>
       <td><strong>+0.147</strong></td>
       <td>+0.403</td>
       <td>+0.071</td>
@@ -588,7 +588,7 @@ Speaker Notes:
     <tr>
       <td>#4</td>
       <td><strong>Sunil Narine</strong></td>
-      <td>KKR</td>
+      <td>West Indies</td>
       <td><strong>+0.139</strong></td>
       <td>+0.377</td>
       <td>+0.162</td>
@@ -610,7 +610,7 @@ Speaker Notes:
     <tr>
       <td>#6</td>
       <td><strong>Kuldeep Yadav</strong></td>
-      <td>Delhi Capitals</td>
+      <td>India</td>
       <td><strong>+0.082</strong></td>
       <td>+0.283</td>
       <td>+0.094</td>
@@ -621,7 +621,7 @@ Speaker Notes:
     <tr>
       <td>#7</td>
       <td><strong>Matheesha Pathirana</strong></td>
-      <td>CSK</td>
+      <td>Sri Lanka</td>
       <td><strong>+0.043</strong></td>
       <td>+0.255</td>
       <td>+0.102</td>
@@ -632,7 +632,7 @@ Speaker Notes:
     <tr>
       <td>#8</td>
       <td><strong>Harshal Patel</strong></td>
-      <td>Punjab Kings</td>
+      <td>India</td>
       <td><strong>+0.024</strong></td>
       <td>+0.230</td>
       <td>-0.105</td>
@@ -643,7 +643,7 @@ Speaker Notes:
     <tr>
       <td>#9</td>
       <td><strong>Ravi Bishnoi</strong></td>
-      <td>LSG</td>
+      <td>India</td>
       <td><strong>+0.016</strong></td>
       <td>+0.200</td>
       <td>+0.021</td>
@@ -654,7 +654,7 @@ Speaker Notes:
     <tr>
       <td>#10</td>
       <td><strong>Mustafizur Rahman</strong></td>
-      <td>CSK</td>
+      <td>Bangladesh</td>
       <td><strong>+0.013</strong></td>
       <td>+0.220</td>
       <td>+0.066</td>

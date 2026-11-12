@@ -238,11 +238,12 @@ def print_executive_summary(
     # 1. Top 10 Batters Table
     print(" TOP 10 BATTERS UNDER PRESSURE (Conservative Q0.10 Hierarchical Score)")
     print(sub_sep)
-    print(f"{'Rank':<5} {'Player Name':<22} {'ID':<8} {'Score(Q10)':<11} {'Pressure':<10} {'Normal':<9} {'Uplift(Δ)':<10} {'P(Δ>0)':<8} {'Balls':<7} {'Matches':<8}")
+    print(f"{'Rank':<5} {'Player Name':<22} {'Nationality':<14} {'ID':<8} {'Score(Q10)':<11} {'Pressure':<10} {'Normal':<9} {'Uplift(Δ)':<10} {'P(Δ>0)':<8} {'Balls':<7} {'Matches':<8}")
     print(sub_sep)
     for _, r in top_batters.iterrows():
         rank = int(r.get("rank", 0))
         name = str(r.get("player_name", ""))[:20]
+        nat = str(r.get("team_name", "Unknown"))[:12]
         pid = int(r.get("player_id", 0))
         cons = float(r.get("conservative_score", 0.0))
         p_mean = float(r.get("pressure_ability_mean", 0.0))
@@ -251,17 +252,18 @@ def print_executive_summary(
         prob = float(r.get("prob_positive_uplift", 0.0))
         p_balls = int(r.get("pressure_balls", 0))
         p_mat = int(r.get("pressure_matches", 0))
-        print(f" #{rank:<3} {name:<22} {pid:<8} {cons:>+8.3f}    {p_mean:>+7.3f}   {n_mean:>+7.3f}   {uplift:>+7.3f}   {prob*100:>5.1f}%  {p_balls:>5}   {p_mat:>5}")
+        print(f" #{rank:<3} {name:<22} {nat:<14} {pid:<8} {cons:>+8.3f}    {p_mean:>+7.3f}   {n_mean:>+7.3f}   {uplift:>+7.3f}   {prob*100:>5.1f}%  {p_balls:>5}   {p_mat:>5}")
 
     print("\n" + sub_sep)
     # 2. Top 10 Bowlers Table
     print(" TOP 10 BOWLERS UNDER PRESSURE (Conservative Q0.10 Hierarchical Score)")
     print(sub_sep)
-    print(f"{'Rank':<5} {'Player Name':<22} {'ID':<8} {'Score(Q10)':<11} {'Pressure':<10} {'Normal':<9} {'Uplift(Δ)':<10} {'P(Δ>0)':<8} {'Balls':<7} {'Matches':<8}")
+    print(f"{'Rank':<5} {'Player Name':<22} {'Nationality':<14} {'ID':<8} {'Score(Q10)':<11} {'Pressure':<10} {'Normal':<9} {'Uplift(Δ)':<10} {'P(Δ>0)':<8} {'Balls':<7} {'Matches':<8}")
     print(sub_sep)
     for _, r in top_bowlers.iterrows():
         rank = int(r.get("rank", 0))
         name = str(r.get("player_name", ""))[:20]
+        nat = str(r.get("team_name", "Unknown"))[:12]
         pid = int(r.get("player_id", 0))
         cons = float(r.get("conservative_score", 0.0))
         p_mean = float(r.get("pressure_ability_mean", 0.0))
@@ -270,7 +272,7 @@ def print_executive_summary(
         prob = float(r.get("prob_positive_uplift", 0.0))
         p_balls = int(r.get("pressure_balls", 0))
         p_mat = int(r.get("pressure_matches", 0))
-        print(f" #{rank:<3} {name:<22} {pid:<8} {cons:>+8.3f}    {p_mean:>+7.3f}   {n_mean:>+7.3f}   {uplift:>+7.3f}   {prob*100:>5.1f}%  {p_balls:>5}   {p_mat:>5}")
+        print(f" #{rank:<3} {name:<22} {nat:<14} {pid:<8} {cons:>+8.3f}    {p_mean:>+7.3f}   {n_mean:>+7.3f}   {uplift:>+7.3f}   {prob*100:>5.1f}%  {p_balls:>5}   {p_mat:>5}")
 
     print("\n" + sub_sep)
     # 3. Unstop Validation Summary

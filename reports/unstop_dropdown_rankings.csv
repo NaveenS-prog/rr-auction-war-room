@@ -1,21 +1,21 @@
 discipline,rank,player_id,player_name,team_name,conservative_score,pressure_ability_mean,normal_ability_mean,pressure_uplift_mean,prob_positive_uplift,pressure_balls,pressure_matches
 Batter,1,6059,Ruturaj Gaikwad,India,0.2208,0.4655,0.0375,0.428,0.994,250,16
 Batter,2,1699,Suryakumar Yadav,India,0.1897,0.3661,0.2588,0.1074,0.798,533,46
-Batter,3,6288,Shubman Gill,Gujarat Titans,0.153,0.4083,0.1367,0.2716,0.938,204,18
-Batter,4,6396,Tim David,Mumbai Indians,0.0928,0.3066,0.3059,0.0007,0.508,439,44
+Batter,3,6288,Shubman Gill,India,0.153,0.4083,0.1367,0.2716,0.938,204,18
+Batter,4,6396,Tim David,Australia,0.0928,0.3066,0.3059,0.0007,0.508,439,44
 Batter,5,4117,Ishan Kishan,India,0.0814,0.2911,0.0056,0.2855,0.954,245,22
-Batter,6,5039,Rajat Patidar,Royal Challengers Bengaluru,0.0632,0.314,0.1918,0.1221,0.78,249,20
-Batter,7,1318,Andre Russell,Kolkata Knight Riders,0.058,0.2993,0.1503,0.149,0.866,363,30
-Batter,8,7897,Namboori Tilak Varma,Mumbai Indians,0.0283,0.1731,0.1095,0.0637,0.754,745,54
+Batter,6,5039,Rajat Patidar,India,0.0632,0.314,0.1918,0.1221,0.78,249,20
+Batter,7,1318,Andre Russell,West Indies,0.058,0.2993,0.1503,0.149,0.866,363,30
+Batter,8,7897,Namboori Tilak Varma,India,0.0283,0.1731,0.1095,0.0637,0.754,745,54
 Batter,9,2639,Marcus Stoinis,Australia,0.0199,0.2432,0.0417,0.2015,0.948,448,38
 Batter,10,4260,Heinrich Klaasen,South Africa,0.0085,0.2069,0.243,-0.0361,0.416,438,29
-Bowler,1,2933,Jasprit Bumrah,Mumbai Indians,0.3607,0.5575,0.1204,0.4371,1.0,404,35
+Bowler,1,2933,Jasprit Bumrah,India,0.3607,0.5575,0.1204,0.4371,1.0,404,35
 Bowler,2,7364,Haris Rauf,Pakistan,0.2131,0.4493,0.0594,0.3899,0.992,276,23
-Bowler,3,7920,Nathan Ellis,Punjab Kings,0.1473,0.4026,0.0711,0.3315,0.962,223,21
-Bowler,4,781,Sunil Narine,Kolkata Knight Riders,0.139,0.3769,0.1619,0.215,0.898,273,26
+Bowler,3,7920,Nathan Ellis,Australia,0.1473,0.4026,0.0711,0.3315,0.962,223,21
+Bowler,4,781,Sunil Narine,West Indies,0.139,0.3769,0.1619,0.215,0.898,273,26
 Bowler,5,4900,Wanindu Hasaranga,Sri Lanka,0.137,0.3245,0.1098,0.2147,0.94,429,39
 Bowler,6,3644,Kuldeep Yadav,India,0.0822,0.2829,0.0938,0.1891,0.898,404,40
-Bowler,7,8661,Matheesha Pathirana,Chennai Super Kings,0.0428,0.2549,0.102,0.1529,0.866,400,24
+Bowler,7,8661,Matheesha Pathirana,Sri Lanka,0.0428,0.2549,0.102,0.1529,0.866,400,24
 Bowler,8,2261,Harshal Patel,India,0.0239,0.2297,-0.1054,0.3351,0.99,433,35
 Bowler,9,7503,Ravi Bishnoi,India,0.0156,0.1999,0.0207,0.1792,0.91,369,34
-Bowler,10,4373,Mustafizur Rahman,Delhi Capitals,0.0127,0.2198,0.0661,0.1537,0.902,499,41
+Bowler,10,4373,Mustafizur Rahman,Bangladesh,0.0127,0.2198,0.0661,0.1537,0.902,499,41
