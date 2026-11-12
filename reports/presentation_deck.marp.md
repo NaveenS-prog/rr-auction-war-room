@@ -565,39 +565,6 @@ Speaker Notes:
     </tr>
     <tr>
       <td>#2</td>
-      <td><strong>Sean Abbott</strong></td>
-      <td>Sunrisers Hyderabad</td>
-      <td><strong>+0.239</strong></td>
-      <td>+0.575</td>
-      <td>-0.277</td>
-      <td>+0.852</td>
-      <td>100.0%</td>
-      <td>123</td>
-    </tr>
-    <tr>
-      <td>#3</td>
-      <td><strong>Mitchell Starc</strong></td>
-      <td>Australia</td>
-      <td><strong>+0.231</strong></td>
-      <td>+0.551</td>
-      <td>-0.196</td>
-      <td>+0.748</td>
-      <td>100.0%</td>
-      <td>140</td>
-    </tr>
-    <tr>
-      <td>#4</td>
-      <td><strong>Abrar Ahmed</strong></td>
-      <td>Pakistan</td>
-      <td><strong>+0.214</strong></td>
-      <td>+0.550</td>
-      <td>+0.179</td>
-      <td>+0.371</td>
-      <td>94.2%</td>
-      <td>125</td>
-    </tr>
-    <tr>
-      <td>#5</td>
       <td><strong>Haris Rauf</strong></td>
       <td>Pakistan</td>
       <td><strong>+0.213</strong></td>
@@ -608,29 +575,7 @@ Speaker Notes:
       <td>276</td>
     </tr>
     <tr>
-      <td>#6</td>
-      <td><strong>Craig Young</strong></td>
-      <td>Ireland</td>
-      <td><strong>+0.197</strong></td>
-      <td>+0.555</td>
-      <td>+0.051</td>
-      <td>+0.504</td>
-      <td>99.0%</td>
-      <td>120</td>
-    </tr>
-    <tr>
-      <td>#7</td>
-      <td><strong>Abbas Afridi</strong></td>
-      <td>Pakistan</td>
-      <td><strong>+0.172</strong></td>
-      <td>+0.521</td>
-      <td>+0.253</td>
-      <td>+0.268</td>
-      <td>85.8%</td>
-      <td>114</td>
-    </tr>
-    <tr>
-      <td>#8</td>
+      <td>#3</td>
       <td><strong>Nathan Ellis</strong></td>
       <td>Punjab Kings</td>
       <td><strong>+0.147</strong></td>
@@ -641,7 +586,7 @@ Speaker Notes:
       <td>223</td>
     </tr>
     <tr>
-      <td>#9</td>
+      <td>#4</td>
       <td><strong>Sunil Narine</strong></td>
       <td>KKR</td>
       <td><strong>+0.139</strong></td>
@@ -652,7 +597,7 @@ Speaker Notes:
       <td>273</td>
     </tr>
     <tr>
-      <td>#10</td>
+      <td>#5</td>
       <td><strong>Wanindu Hasaranga</strong></td>
       <td>Sri Lanka</td>
       <td><strong>+0.137</strong></td>
@@ -661,6 +606,61 @@ Speaker Notes:
       <td>+0.215</td>
       <td>94.0%</td>
       <td>429</td>
+    </tr>
+    <tr>
+      <td>#6</td>
+      <td><strong>Kuldeep Yadav</strong></td>
+      <td>Delhi Capitals</td>
+      <td><strong>+0.082</strong></td>
+      <td>+0.283</td>
+      <td>+0.094</td>
+      <td>+0.189</td>
+      <td>89.8%</td>
+      <td>404</td>
+    </tr>
+    <tr>
+      <td>#7</td>
+      <td><strong>Matheesha Pathirana</strong></td>
+      <td>CSK</td>
+      <td><strong>+0.043</strong></td>
+      <td>+0.255</td>
+      <td>+0.102</td>
+      <td>+0.153</td>
+      <td>86.6%</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <td>#8</td>
+      <td><strong>Harshal Patel</strong></td>
+      <td>Punjab Kings</td>
+      <td><strong>+0.024</strong></td>
+      <td>+0.230</td>
+      <td>-0.105</td>
+      <td>+0.335</td>
+      <td>99.0%</td>
+      <td>433</td>
+    </tr>
+    <tr>
+      <td>#9</td>
+      <td><strong>Ravi Bishnoi</strong></td>
+      <td>LSG</td>
+      <td><strong>+0.016</strong></td>
+      <td>+0.200</td>
+      <td>+0.021</td>
+      <td>+0.179</td>
+      <td>91.0%</td>
+      <td>369</td>
+    </tr>
+    <tr>
+      <td>#10</td>
+      <td><strong>Mustafizur Rahman</strong></td>
+      <td>CSK</td>
+      <td><strong>+0.013</strong></td>
+      <td>+0.220</td>
+      <td>+0.066</td>
+      <td>+0.154</td>
+      <td>90.2%</td>
+      <td>499</td>
     </tr>
   </tbody>
 </table>
@@ -682,54 +682,54 @@ Speaker Notes:
 
 <div class="grid-2">
   <div class="feature-box" style="border-left-color: var(--color-rr-pink);">
-    <h3>Cluster 1: Death Yorker & Skiddy Pace</h3>
-    <p style="font-size: 14.5px;"><strong>Jasprit Bumrah (#1), Haris Rauf (#5), Nathan Ellis (#8)</strong></p>
+    <h3>Cluster 1: Death Yorker & Angle Disruptors</h3>
+    <p style="font-size: 14.5px;"><strong>Jasprit Bumrah (#1), Nathan Ellis (#3), Matheesha Pathirana (#7)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
-      <li>Low release angles, 145+ kph express pace, and pinpoint trajectory disruption.</li>
+      <li>Low release angles, sling mechanics, and pinpoint trajectory disruption.</li>
       <li>Execute toe-crushing yorkers and wide line discipline under pressure.</li>
-      <li>Concede 2.4 runs/over below phase par in overs 18–20.</li>
+      <li>Concede 2.4 runs/over below phase par in overs 18–20 across 1,000+ combined pressure balls.</li>
     </ul>
-    <span class="tag tag-pink">Role: Primary Match Defending Closer</span>
+    <span class="tag tag-pink">Role: Primary Match Defending Closers</span>
   </div>
 
   <div class="feature-box" style="border-left-color: var(--color-rr-blue);">
-    <h3>Cluster 2: Express Strike & Powerplay Enforcers</h3>
-    <p style="font-size: 14.5px;"><strong>Sean Abbott (#2), Mitchell Starc (#3), Craig Young (#6)</strong></p>
+    <h3>Cluster 2: Express Strike & Death Velocity</h3>
+    <p style="font-size: 14.5px;"><strong>Haris Rauf (#2), Mustafizur Rahman (#10)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
-      <li>High-pace, hard-length delivery release with seam and swing movement.</li>
-      <li>Target stumps and pads to trigger early collapses ($+0.50$ to $+0.85$ uplift).</li>
-      <li>Double-strike capability in must-win tournament knockouts.</li>
+      <li>145+ kph express pace paired with deceptive off-cutters and heavy bouncers.</li>
+      <li>High-volume strike execution (276 & 499 pressure balls).</li>
+      <li>Trigger top-edge mis-hits and stumps rattling in high-stakes chases.</li>
     </ul>
-    <span class="tag tag-blue">Role: Frontline Wicket Takers</span>
+    <span class="tag tag-blue">Role: Frontline Strike Enforcers</span>
   </div>
 
   <div class="feature-box" style="border-left-color: #6366F1;">
     <h3>Cluster 3: Mystery Spin & Middle Clamps</h3>
-    <p style="font-size: 14.5px;"><strong>Abrar Ahmed (#4), Sunil Narine (#9), Wanindu Hasaranga (#10)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Sunil Narine (#4), Wanindu Hasaranga (#5), Kuldeep Yadav (#6), Ravi Bishnoi (#9)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
-      <li>Concealed wrist/finger spin releases with minimal trajectory deviation.</li>
-      <li>Suppress boundary flow during critical overs 9–15.</li>
-      <li>Sub-par economy under pressure with elite wicket-taking threat.</li>
+      <li>Concealed wrist/finger spin revolutions with minimal trajectory deviation.</li>
+      <li>Suppress boundary flow during critical middle overs 7–15.</li>
+      <li>Over 1,400 combined pressure balls with sustained sub-par economy.</li>
     </ul>
     <span class="tag" style="background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE;">Role: Middle Squeeze & Choke</span>
   </div>
 
   <div class="feature-box" style="border-left-color: #F59E0B;">
     <h3>Cluster 4: Deceptive Changeup Cutters</h3>
-    <p style="font-size: 14.5px;"><strong>Abbas Afridi (#7)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Harshal Patel (#8)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
-      <li>Back-of-the-hand slower balls and off-cutter variations under pressure.</li>
-      <li>Forces mistimed aerial shots with a +0.268 clutch uplift across 114 pressure balls.</li>
-      <li>Provides high-leverage changeup contrast against express pace.</li>
+      <li>Wide-line slower-ball dippers and off-cutter variations.</li>
+      <li>Forces mistimed aerial shots at the boundary.</li>
+      <li>433 pressure balls, +0.335 uplift, Purple Cap winning pedigree.</li>
     </ul>
-    <span class="tag" style="background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A;">Role: Deceptive Changeup Specialist</span>
+    <span class="tag" style="background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A;">Role: Death Wicket Aggregator</span>
   </div>
 </div>
 
 <!--
 Speaker Notes:
-- Giles and Kumar will love this clustering: It demonstrates how to assemble a balanced 5-man attack.
-- Pair Bumrah/Rauf at the death with a middle-overs mystery squeeze (Abrar/Narine) and an early strike weapon like Starc/Abbott.
+- Giles and Kumar will love this high-volume clustering: Every single bowler has proven sample depth (200+ to 500+ pressure balls).
+- Pair Bumrah/Ellis/Pathirana at the death with a middle-overs clamp (Narine/Kuldeep/Hasaranga/Bishnoi) and high pace (Rauf).
 -->
 
 ---

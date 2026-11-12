@@ -103,11 +103,13 @@ $$V_b = \\mu + a_i + (\\beta + d_i) H_b + \\epsilon_b$$
 
 Players with limited pressure exposure are shrunk toward the population prior, preventing false positives.
 
-### 3.2 Eligibility Thresholds
-To ensure stability and repeatability across competitions (IPL and T20Is):
+### 3.2 High-Volume Repeatability Eligibility Thresholds
+To ensure multi-season stability and eliminate small-sample noise or environmental anomalies across competitions:
 1. **Minimum total exposure**: $\\ge 100$ legal deliveries.
-2. **Minimum pressure exposure**: $\\ge 40$ high-pressure deliveries.
-3. **Minimum pressure matches**: $\\ge 8$ distinct matches with pressure situations.
+2. **Minimum pressure exposure**: $\\ge 150$ high-pressure deliveries ($L(s) \\ge Q_{{0.80}}$).
+3. **Minimum pressure matches**: $\\ge 15$ distinct matches with pressure situations.
+
+This robust volume threshold filters out small-sample bilateral outliers, ensuring that every ranked player has proven, repeatable sample depth across high-stakes franchise and international tournaments.
 
 ### 3.3 Conservative Uncertainty Scoring
 Rankings are ordered by the **10th percentile of posterior pressure ability**:

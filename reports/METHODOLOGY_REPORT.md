@@ -88,15 +88,15 @@ Our evaluation system prioritizes universal data-driven merit across world T20 c
 | rank | player_id | player_name | team_name | conservative_score | pressure_ability_mean | normal_ability_mean | pressure_uplift_mean | prob_positive_uplift | pressure_balls | pressure_matches |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 2933 | Jasprit Bumrah | Mumbai Indians | 0.36 | 0.56 | 0.12 | 0.44 | 1.00 | 404 | 35 |
-| 2 | 1389 | Sean Abbott | Sunrisers Hyderabad | 0.24 | 0.57 | -0.28 | 0.85 | 1.00 | 123 | 13 |
-| 3 | 829 | Mitchell Starc | Australia | 0.23 | 0.55 | -0.20 | 0.75 | 1.00 | 140 | 15 |
-| 4 | 5979 | Abrar Ahmed | Pakistan | 0.21 | 0.55 | 0.18 | 0.37 | 0.94 | 125 | 13 |
-| 5 | 7364 | Haris Rauf | Pakistan | 0.21 | 0.45 | 0.06 | 0.39 | 0.99 | 276 | 23 |
-| 6 | 3720 | Craig Young | Ireland | 0.20 | 0.55 | 0.05 | 0.50 | 0.99 | 120 | 13 |
-| 7 | 7699 | Abbas Afridi | Pakistan | 0.17 | 0.52 | 0.25 | 0.27 | 0.86 | 114 | 15 |
-| 8 | 7920 | Nathan Ellis | Punjab Kings | 0.15 | 0.40 | 0.07 | 0.33 | 0.96 | 223 | 21 |
-| 9 | 781 | Sunil Narine | Kolkata Knight Riders | 0.14 | 0.38 | 0.16 | 0.21 | 0.90 | 273 | 26 |
-| 10 | 4900 | Wanindu Hasaranga | Sri Lanka | 0.14 | 0.32 | 0.11 | 0.21 | 0.94 | 429 | 39 |
+| 2 | 7364 | Haris Rauf | Pakistan | 0.21 | 0.45 | 0.06 | 0.39 | 0.99 | 276 | 23 |
+| 3 | 7920 | Nathan Ellis | Punjab Kings | 0.15 | 0.40 | 0.07 | 0.33 | 0.96 | 223 | 21 |
+| 4 | 781 | Sunil Narine | Kolkata Knight Riders | 0.14 | 0.38 | 0.16 | 0.21 | 0.90 | 273 | 26 |
+| 5 | 4900 | Wanindu Hasaranga | Sri Lanka | 0.14 | 0.32 | 0.11 | 0.21 | 0.94 | 429 | 39 |
+| 6 | 3644 | Kuldeep Yadav | India | 0.08 | 0.28 | 0.09 | 0.19 | 0.90 | 404 | 40 |
+| 7 | 8661 | Matheesha Pathirana | Chennai Super Kings | 0.04 | 0.25 | 0.10 | 0.15 | 0.87 | 400 | 24 |
+| 8 | 2261 | Harshal Patel | India | 0.02 | 0.23 | -0.11 | 0.34 | 0.99 | 433 | 35 |
+| 9 | 7503 | Ravi Bishnoi | India | 0.02 | 0.20 | 0.02 | 0.18 | 0.91 | 369 | 34 |
+| 10 | 4373 | Mustafizur Rahman | Delhi Capitals | 0.01 | 0.22 | 0.07 | 0.15 | 0.90 | 499 | 41 |
 
 ---
 

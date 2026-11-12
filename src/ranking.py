@@ -8,8 +8,8 @@ class RankingEngine:
     def __init__(self, eligibility: Optional[Dict[str, Any]] = None):
         self.eligibility = eligibility if eligibility is not None else {
             "min_total_balls": 100,
-            "min_pressure_balls": 40,
-            "min_pressure_matches": 8,
+            "min_pressure_balls": 150,
+            "min_pressure_matches": 15,
             "exclude_teams": [],
             "exclude_player_ids": [],
             "exclusion_reason": "",

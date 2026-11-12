@@ -48,14 +48,14 @@ def test_ranking_engine_default_unconstrained_eligibility():
         conservative_score=np.array([2.00, 1.60]),
         prob_positive_uplift=np.array([0.99, 0.95]),
         player_stats=pd.DataFrame([
-            {"player_id": 1, "total_balls": 200, "pressure_balls": 80, "normal_balls": 120}, # Pakistani player
-            {"player_id": 1318, "total_balls": 200, "pressure_balls": 80, "normal_balls": 120}  # Russell
+            {"player_id": 1, "total_balls": 250, "pressure_balls": 160, "normal_balls": 90}, # Pakistani player
+            {"player_id": 1318, "total_balls": 250, "pressure_balls": 160, "normal_balls": 90}  # Russell
         ])
     )
     
     match_counts = pd.DataFrame([
-        {"player_id": 1, "pressure_matches": 15},
-        {"player_id": 1318, "pressure_matches": 15}
+        {"player_id": 1, "pressure_matches": 16},
+        {"player_id": 1318, "pressure_matches": 16}
     ])
     
     player_meta = pd.DataFrame([
