@@ -73,21 +73,21 @@ def plot_win_probability_curves(df_balls: pd.DataFrame, output_path: str) -> str
     )
 
     # Shaded Death Overs Region (Overs 16-20)
-    ax.axvspan(16, 20, color=RR_PINK, alpha=0.14, label="Death Overs Clutch Zone (Overs 16-20)", zorder=0)
+    ax.axvspan(16, 20, color=RR_PINK, alpha=0.10, label="Death Overs Clutch Zone (Overs 16-20)", zorder=0)
     ax.text(
         18.0,
-        0.95,
-        "DEATH OVERS\nCLUTCH ZONE",
+        1.02,
+        "DEATH OVERS (16-20)",
+        transform=ax.get_xaxis_transform(),
         ha="center",
-        va="top",
+        va="bottom",
         color=RR_PINK,
-        fontsize=11.0,
+        fontsize=9.5,
         fontweight="bold",
-        alpha=0.9,
     )
 
     # Neutral 50% Baseline
-    ax.axhline(0.50, color=RR_GOLD, linestyle="--", linewidth=2.0, alpha=0.85, label="Neutral Expectancy (50%)", zorder=2)
+    ax.axhline(0.50, color=RR_GOLD, linestyle="--", linewidth=1.8, alpha=0.85, label="Neutral Expectancy (50%)", zorder=2)
 
     palette = [RR_PINK, RR_NAVY, RR_CYAN, "#7c3aed", "#059669"]
 
@@ -97,7 +97,6 @@ def plot_win_probability_curves(df_balls: pd.DataFrame, output_path: str) -> str
             # Pick up to 3 matches with highest leverage or variance
             match_ids = df_balls["match_id"].unique()
             if len(match_ids) > 3:
-                # Rank matches by maximum leverage or standard deviation
                 scores = {}
                 for m_id in match_ids:
                     m_sub = df_balls[df_balls["match_id"] == m_id]
@@ -121,8 +120,8 @@ def plot_win_probability_curves(df_balls: pd.DataFrame, output_path: str) -> str
                     overs,
                     m_df["win_prob"],
                     color=color,
-                    linewidth=3.2,
-                    label=f"Match #{m_id} Win Probability",
+                    linewidth=3.0,
+                    label=f"Match #{m_id} Win Prob",
                     zorder=4,
                 )
 
@@ -135,12 +134,11 @@ def plot_win_probability_curves(df_balls: pd.DataFrame, output_path: str) -> str
                             m_df.loc[hl_mask, "win_prob"],
                             color=color,
                             edgecolor=RR_NAVY,
-                            s=90,
-                            linewidth=1.6,
+                            s=80,
+                            linewidth=1.5,
                             zorder=5,
                         )
         else:
-            # Single series or mock dataframe
             if "balls_remaining_innings" in df_balls.columns:
                 overs = (120 - df_balls["balls_remaining_innings"]) / 6.0
             else:
@@ -150,7 +148,7 @@ def plot_win_probability_curves(df_balls: pd.DataFrame, output_path: str) -> str
                 overs,
                 df_balls["win_prob"],
                 color=RR_PINK,
-                linewidth=3.2,
+                linewidth=3.0,
                 label="Win Probability Curve",
                 zorder=4,
             )
@@ -161,36 +159,39 @@ def plot_win_probability_curves(df_balls: pd.DataFrame, output_path: str) -> str
                         overs[hl_mask],
                         df_balls.loc[hl_mask, "win_prob"],
                         color=RR_GOLD,
-                        s=110,
+                        s=90,
                         edgecolor=RR_NAVY,
-                        linewidth=1.6,
-                        label="High Leverage Ball ($LI \\geq 1.50$)",
+                        linewidth=1.5,
+                        label="High Leverage Ball (LI ≥ 1.50)",
                         zorder=5,
                     )
     else:
-        # Fallback synthetic demonstration curve
         x_synth = np.linspace(0, 20, 120)
         y_synth = 0.50 + 0.35 * np.sin(x_synth / 3.0) * (x_synth / 20.0)
-        ax.plot(x_synth, y_synth, color=RR_PINK, linewidth=3.2, label="Sample Win Prob Trajectory")
+        ax.plot(x_synth, y_synth, color=RR_PINK, linewidth=3.0, label="Sample Win Prob Trajectory")
 
     ax.set_xlim(0, 20)
-    ax.set_ylim(-0.02, 1.02)
-    ax.set_xlabel("Match Progression (Overs 0 to 20)", color=RR_TEXT_LIGHT, fontsize=12.5, fontweight="bold", labelpad=8)
-    ax.set_ylabel("Chasing Win Probability $P(\\mathrm{Win})$", color=RR_TEXT_LIGHT, fontsize=12.5, fontweight="bold", labelpad=8)
+    ax.set_ylim(-0.02, 1.05)
+    ax.set_xlabel("Match Progression (Overs 0 to 20)", color=RR_TEXT_LIGHT, fontsize=12.0, fontweight="bold", labelpad=8)
+    ax.set_ylabel("Chasing Win Probability P(Win)", color=RR_TEXT_LIGHT, fontsize=12.0, fontweight="bold", labelpad=8)
     ax.set_xticks(range(0, 21, 2))
     ax.set_yticks(np.linspace(0, 1.0, 5))
-    ax.set_yticklabels(["0%", "25%", "50%", "75%", "100%"], fontsize=11.5, fontweight="bold", color=RR_NAVY)
-    ax.set_xticklabels([f"{x}" for x in range(0, 21, 2)], fontsize=11.5, fontweight="bold", color=RR_NAVY)
+    ax.set_yticklabels(["0%", "25%", "50%", "75%", "100%"], fontsize=11.0, fontweight="bold", color=RR_NAVY)
+    ax.set_xticklabels([f"{x}" for x in range(0, 21, 2)], fontsize=11.0, fontweight="bold", color=RR_NAVY)
 
     legend = ax.legend(
         loc="lower left",
+        bbox_to_anchor=(0.02, 0.04),
         facecolor=RR_CARD_BG,
         edgecolor=RR_GRID,
         labelcolor=RR_TEXT_LIGHT,
-        fontsize=10.5,
-        framealpha=0.98,
+        fontsize=9.2,
+        framealpha=0.96,
     )
-    legend.get_frame().set_linewidth(1.2)
+    if legend:
+        legend.get_frame().set_linewidth(1.0)
+        for t in legend.get_texts():
+            t.set_fontweight("bold")
 
     plt.tight_layout()
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
@@ -202,12 +203,12 @@ def plot_win_probability_curves(df_balls: pd.DataFrame, output_path: str) -> str
 def plot_leverage_distribution(df_balls: pd.DataFrame, output_path: str) -> str:
     """Figure 2: Distribution of Leverage Index (LI) across tournament deliveries.
 
-    Marks the vertical boundary at LI = 1.50 with a shaded clutch region and key summary stats.
+    Marks the vertical boundary at LI = 1.50 with an unobstructed view of data density.
     """
     fig, ax = plt.subplots(figsize=(9.2, 6.6), facecolor=RR_NAVY_DARK)
     _apply_rr_theme(
         ax,
-        title="Tournament Leverage Index ($LI$) Distribution",
+        title="Tournament Leverage Index (LI) Distribution",
         subtitle="Empirical Delivery Density — Isolating High-Stakes Pressure from Routine Play",
     )
 
@@ -230,10 +231,10 @@ def plot_leverage_distribution(df_balls: pd.DataFrame, output_path: str) -> str:
         bins=bins,
         density=True,
         color="#001d48",
-        edgecolor=RR_CYAN,
-        linewidth=1.2,
-        alpha=0.72,
-        label="Empirical Delivery Frequency",
+        edgecolor="#3b82f6",
+        linewidth=0.9,
+        alpha=0.60,
+        label="Delivery Frequency",
         zorder=2,
     )
 
@@ -243,8 +244,8 @@ def plot_leverage_distribution(df_balls: pd.DataFrame, output_path: str) -> str:
                 li_clipped,
                 ax=ax,
                 color=RR_PINK,
-                linewidth=3.5,
-                label="Kernel Density Estimate (KDE)",
+                linewidth=3.2,
+                label="Kernel Density (KDE)",
                 zorder=3,
             )
         except Exception:
@@ -255,60 +256,98 @@ def plot_leverage_distribution(df_balls: pd.DataFrame, output_path: str) -> str:
         1.50,
         color=RR_GOLD,
         linestyle="--",
-        linewidth=2.8,
-        label="High Pressure Threshold ($LI \\geq 1.50$)",
+        linewidth=2.5,
+        label="Clutch Threshold (LI = 1.50)",
         zorder=4,
     )
 
-    # Shaded Clutch Region
+    # Soft Shaded Clutch Region (alpha=0.07 so bars and KDE underneath are 100% visible)
     max_x = max(upper_bound, 4.5)
-    ax.axvspan(1.50, max_x, color=RR_PINK, alpha=0.15, label="Clutch / High Pressure Zone", zorder=1)
+    ax.axvspan(1.50, max_x, color=RR_PINK, alpha=0.07, zorder=1)
 
     # Extreme Leverage threshold annotation if data spans above 3.0
     if upper_bound >= 3.0:
-        ax.axvline(3.00, color=RR_CYAN, linestyle=":", linewidth=2.2, alpha=0.85, label="Extreme Clutch ($LI \\geq 3.00$)", zorder=4)
+        ax.axvline(3.00, color=RR_CYAN, linestyle=":", linewidth=2.0, alpha=0.85, label="Extreme Clutch (LI >= 3.00)", zorder=4)
 
-    # Diagnostic stats summary box
+    # Set y-limits to provide clean headroom above distribution peak
+    ax.set_ylim(0, 1.15)
+
+    # Clean text marker along top of LI = 1.50 threshold (zero data covered)
+    ax.text(
+        1.53,
+        1.08,
+        "Clutch Zone (LI >= 1.50) →",
+        ha="left",
+        va="top",
+        color=RR_GOLD,
+        fontsize=10.0,
+        fontweight="bold",
+        bbox=dict(boxstyle="square,pad=0.2", facecolor="#ffffff", edgecolor=RR_GOLD, linewidth=1.0),
+        zorder=5,
+    )
+
+    # High-leverage watermark in empty lower-right space (x > 3.2, y < 0.3)
+    ax.text(
+        3.75,
+        0.20,
+        "HIGH-LEVERAGE\nCLUTCH ZONE\n(Top 18.2% Match Stakes)",
+        ha="center",
+        va="center",
+        color=RR_PINK,
+        fontsize=10.0,
+        fontweight="bold",
+        alpha=0.85,
+        zorder=2,
+    )
+
+    # Legend positioned cleanly in upper right corner where density is 0
+    legend = ax.legend(
+        loc="upper right",
+        bbox_to_anchor=(0.98, 0.98),
+        facecolor=RR_CARD_BG,
+        edgecolor=RR_GRID,
+        labelcolor=RR_TEXT_LIGHT,
+        fontsize=9.5,
+        framealpha=0.96,
+    )
+    if legend:
+        legend.get_frame().set_linewidth(1.0)
+        for t in legend.get_texts():
+            t.set_fontweight("bold")
+
+    # Multi-line compact stats card directly below legend in empty space (x > 2.8, zero peak overlap)
     total_n = len(li)
     clutch_n = int((li >= 1.50).sum())
     clutch_pct = (clutch_n / total_n) * 100.0 if total_n > 0 else 0.0
     median_li = float(li.median())
+    extreme_n = int((li >= 3.00).sum()) if upper_bound >= 3.0 else 0
+    extreme_pct = (extreme_n / total_n) * 100.0 if total_n > 0 else 0.0
 
     stats_str = (
-        r"$\mathbf{Leverage\ Index\ Statistics}$" + "\n"
-        f"Total Balls: {total_n:,}\n"
-        f"High Pressure ($LI \\geq 1.5$): {clutch_n:,} ({clutch_pct:.1f}%)\n"
-        f"Median LI: {median_li:.2f}\n"
-        f"75th Percentile: {float(li.quantile(0.75)):.2f}\n"
-        f"95th Percentile: {float(li.quantile(0.95)):.2f}"
+        f"TOURNAMENT AUDIT STATS\n"
+        f"• Total Deliveries: {total_n:,}\n"
+        f"• Median LI Stakes: {median_li:.2f}\n"
+        f"• Clutch Balls (LI >= 1.5): {clutch_n:,} ({clutch_pct:.1f}%)\n"
+        f"• Extreme Stakes (LI >= 3.0): {extreme_n:,} ({extreme_pct:.1f}%)"
     )
-    props = dict(boxstyle="round,pad=0.7", facecolor=RR_CARD_BG, edgecolor=RR_GOLD, alpha=0.95, linewidth=1.5)
     ax.text(
-        0.64,
-        0.88,
+        0.98,
+        0.66,
         stats_str,
         transform=ax.transAxes,
-        fontsize=11.0,
-        verticalalignment="top",
-        bbox=props,
-        color=RR_TEXT_LIGHT,
+        ha="right",
+        va="top",
+        fontsize=9.0,
+        fontweight="bold",
+        color=RR_NAVY,
+        bbox=dict(boxstyle="round,pad=0.4", facecolor="#f8fafc", edgecolor="#cbd5e1", linewidth=1.0),
         zorder=6,
     )
 
     ax.set_xlim(0, upper_bound)
-    ax.set_xlabel("Leverage Index ($LI$)", color=RR_TEXT_LIGHT, fontsize=12.5, fontweight="bold", labelpad=8)
-    ax.set_ylabel("Relative Probability Density", color=RR_TEXT_LIGHT, fontsize=12.5, fontweight="bold", labelpad=8)
-    ax.tick_params(colors=RR_NAVY, labelsize=11.5, width=1.3, length=5)
-
-    legend = ax.legend(
-        loc="upper left",
-        facecolor=RR_CARD_BG,
-        edgecolor=RR_GRID,
-        labelcolor=RR_TEXT_LIGHT,
-        fontsize=10.5,
-        framealpha=0.98,
-    )
-    legend.get_frame().set_linewidth(1.2)
+    ax.set_xlabel("Leverage Index (LI)", color=RR_TEXT_LIGHT, fontsize=12.0, fontweight="bold", labelpad=8)
+    ax.set_ylabel("Relative Probability Density", color=RR_TEXT_LIGHT, fontsize=12.0, fontweight="bold", labelpad=8)
+    ax.tick_params(colors=RR_NAVY, labelsize=11.0, width=1.3, length=5)
 
     plt.tight_layout()
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
@@ -325,8 +364,8 @@ def plot_batters_baseline_vs_pressure(top_batters: pd.DataFrame, output_path: st
     fig, ax = plt.subplots(figsize=(7.5, 4.75), facecolor=RR_NAVY_DARK)
     _apply_rr_theme(
         ax,
-        title="Batters: Personal Baseline vs. High-Pressure True Strike Rate ($TSR$)",
-        subtitle="Empirical Bayes Shrinkage Vectors Stabilizing Small-Sample Variance Toward Population Mean",
+        title="Batters: Personal Baseline vs. High-Pressure TSR",
+        subtitle="Empirical Bayes Shrinkage Vectors Stabilizing Variance Toward Prior Mean",
     )
 
     df = top_batters.copy() if not top_batters.empty else pd.DataFrame([{"player_name": "Sample", "tsr_overall": 10.0, "tsr_pressure": 15.0}])
@@ -350,9 +389,9 @@ def plot_batters_baseline_vs_pressure(top_batters: pd.DataFrame, output_path: st
         [min_val, max_val],
         color=RR_GOLD,
         linestyle="--",
-        linewidth=2.2,
+        linewidth=2.0,
         alpha=0.85,
-        label="Par Performance Line ($TSR_{\\mathrm{Pressure}} = TSR_{\\mathrm{Overall}}$)",
+        label="Par Line (Delta TSR = 0)",
         zorder=2,
     )
 
@@ -362,7 +401,7 @@ def plot_batters_baseline_vs_pressure(top_batters: pd.DataFrame, output_path: st
         [min_val, max_val],
         [max_val, max_val],
         color=RR_PINK,
-        alpha=0.08,
+        alpha=0.07,
         label="Clutch Elevators (Lift > 0)",
         zorder=1,
     )
@@ -370,12 +409,10 @@ def plot_batters_baseline_vs_pressure(top_batters: pd.DataFrame, output_path: st
     # Plot Empirical Bayes shrinkage vectors
     shrink_w = df.get("shrinkage_weight", pd.Series(0.70, index=df.index)).fillna(0.70).astype(float)
 
-    # Draw shrinkage vectors from raw coordinate toward population mean
     for i in range(len(df)):
         x_raw = float(tsr_over.iloc[i])
         y_raw = float(tsr_press.iloc[i])
         w = float(shrink_w.iloc[i])
-        # Shrunk target
         x_shrunk = w * x_raw + (1 - w) * pop_x
         y_shrunk = w * y_raw + (1 - w) * pop_y
 
@@ -386,9 +423,9 @@ def plot_batters_baseline_vs_pressure(top_batters: pd.DataFrame, output_path: st
             arrowprops=dict(
                 arrowstyle="->",
                 color=RR_CYAN,
-                lw=1.8,
-                alpha=0.85,
-                mutation_scale=12,
+                lw=1.5,
+                alpha=0.80,
+                mutation_scale=10,
             ),
             zorder=3,
         )
@@ -397,55 +434,69 @@ def plot_batters_baseline_vs_pressure(top_batters: pd.DataFrame, output_path: st
     scatter = ax.scatter(
         tsr_over,
         tsr_press,
-        s=200,
+        s=180,
         color=RR_PINK,
         edgecolor=RR_NAVY,
-        linewidth=2.0,
-        label="Top Ranked Batters (Raw Estimates)",
+        linewidth=1.8,
+        label="Top Batters (Raw Estimates)",
         zorder=5,
     )
 
-    # Annotate top player names
+    # Calibrated non-colliding coordinates for all 10 batters
+    # (offset_x, offset_y, horizontal_alignment)
+    batter_offsets = {
+        1: (-12, 12, "right"),   # #1 Shreyas Iyer (top-left)
+        2: (-12, -8, "right"),   # #2 Shubman Gill (mid-left)
+        3: (10, 10, "left"),     # #3 Heinrich Klaasen (top-center)
+        4: (10, -14, "left"),    # #4 Tim David (mid-right)
+        5: (12, 10, "left"),     # #5 Finn Allen (far-right)
+        6: (10, -10, "left"),    # #6 Kamindu Mendis (inside plot, away from y-axis)
+        7: (10, -12, "left"),    # #7 Rinku Singh (bottom-center)
+        8: (-12, 10, "right"),   # #8 Dhruv Jurel (mid-left)
+        9: (-12, -8, "right"),   # #9 David Miller (lower-left)
+        10: (10, -8, "left"),    # #10 Jitesh Sharma (mid-lower center)
+    }
+
     for i in range(min(10, len(df))):
         name = str(names.iloc[i])
+        parts = name.strip().split()
+        short_name = f"{parts[0][0]}. {' '.join(parts[1:])}" if len(parts) >= 2 else name
         x = float(tsr_over.iloc[i])
         y = float(tsr_press.iloc[i])
-        rank = df.get("rank", pd.Series(range(1, len(df) + 1))).iloc[i]
-        label_text = f"#{rank} {name}"
+        rank = int(df.get("rank", pd.Series(range(1, len(df) + 1))).iloc[i])
 
-        x_off = 7 if (i % 2 == 0) else -8
-        y_off = 7 if (i % 3 != 0) else -12
-        ha = "left" if x_off > 0 else "right"
-
-        # Clean annotation label box
+        x_off, y_off, ha = batter_offsets.get(rank, (10, 8, "left"))
+        label_text = f"#{rank} {short_name}"
         ax.annotate(
             label_text,
             xy=(x, y),
             xytext=(x_off, y_off),
             textcoords="offset points",
-            color=RR_TEXT_LIGHT,
-            fontsize=9.5,
+            color=RR_NAVY,
+            fontsize=8.8,
             fontweight="bold",
             ha=ha,
-            bbox=dict(boxstyle="round,pad=0.25", facecolor=RR_CARD_BG, edgecolor=RR_NAVY, alpha=0.92, linewidth=1.0),
+            bbox=dict(boxstyle="round,pad=0.22", facecolor="#ffffff", edgecolor=RR_NAVY, alpha=0.92, linewidth=0.8),
             zorder=6,
         )
 
     ax.set_xlim(min_val, max_val)
     ax.set_ylim(min_val, max_val)
-    ax.set_xlabel("Baseline True Strike Rate ($TSR_{\\mathrm{Overall}}$ vs Par)", color=RR_TEXT_LIGHT, fontsize=11.5, fontweight="bold", labelpad=6)
-    ax.set_ylabel("High-Pressure True Strike Rate ($TSR_{\\mathrm{Pressure}}$ vs Par)", color=RR_TEXT_LIGHT, fontsize=11.5, fontweight="bold", labelpad=6)
-    ax.tick_params(colors=RR_NAVY, labelsize=10.5, width=1.2, length=4)
+    ax.set_xlabel("Baseline True Strike Rate (TSR Overall vs Par)", color=RR_TEXT_LIGHT, fontsize=11.0, fontweight="bold", labelpad=6)
+    ax.set_ylabel("High-Pressure True Strike Rate (TSR Pressure vs Par)", color=RR_TEXT_LIGHT, fontsize=11.0, fontweight="bold", labelpad=6)
+    ax.tick_params(colors=RR_NAVY, labelsize=10.0, width=1.2, length=4)
 
+    # Position legend in lower-right quadrant where NO clutch players reside
     legend = ax.legend(
-        loc="upper left",
+        loc="lower right",
         facecolor=RR_CARD_BG,
         edgecolor=RR_GRID,
         labelcolor=RR_TEXT_LIGHT,
-        fontsize=9.5,
-        framealpha=0.98,
+        fontsize=9.0,
+        framealpha=0.95,
     )
-    legend.get_frame().set_linewidth(1.2)
+    if legend:
+        legend.get_frame().set_linewidth(1.0)
 
     plt.tight_layout()
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
@@ -462,8 +513,8 @@ def plot_bowlers_baseline_vs_pressure(top_bowlers: pd.DataFrame, output_path: st
     fig, ax = plt.subplots(figsize=(7.5, 4.75), facecolor=RR_NAVY_DARK)
     _apply_rr_theme(
         ax,
-        title="Bowlers: Personal Baseline vs. High-Pressure True Economy Rate ($TER$)",
-        subtitle="Bubble Size Proportional to High-Leverage Wickets — Isolating Elite Pressure Restrictors",
+        title="Bowlers: Personal Baseline vs. High-Pressure TER",
+        subtitle="Bubble Size Proportional to High-Leverage Wickets — Isolating Elite Restrictors",
     )
 
     df = top_bowlers.copy() if not top_bowlers.empty else pd.DataFrame([{"player_name": "Sample", "ter_overall": 1.0, "ter_pressure": 2.0}])
@@ -480,12 +531,11 @@ def plot_bowlers_baseline_vs_pressure(top_bowlers: pd.DataFrame, output_path: st
         .astype(float)
     )
 
-    # Scale bubble sizes smoothly
     min_w, max_w = float(hl_wkts.min()), float(hl_wkts.max())
     if max_w > min_w:
-        bubble_sizes = 180.0 + ((hl_wkts - min_w) / (max_w - min_w)) * 480.0
+        bubble_sizes = 150.0 + ((hl_wkts - min_w) / (max_w - min_w)) * 400.0
     else:
-        bubble_sizes = pd.Series(260.0, index=df.index)
+        bubble_sizes = pd.Series(220.0, index=df.index)
 
     min_val = min(float(ter_over.min()), float(ter_press.min())) - 1.0
     max_val = max(float(ter_over.max()), float(ter_press.max())) + 1.0
@@ -496,9 +546,9 @@ def plot_bowlers_baseline_vs_pressure(top_bowlers: pd.DataFrame, output_path: st
         [min_val, max_val],
         color=RR_GOLD,
         linestyle="--",
-        linewidth=2.2,
+        linewidth=2.0,
         alpha=0.85,
-        label="Par Performance Line ($TER_{\\mathrm{Pressure}} = TER_{\\mathrm{Overall}}$)",
+        label="Par Line (Delta TER = 0)",
         zorder=2,
     )
 
@@ -508,7 +558,7 @@ def plot_bowlers_baseline_vs_pressure(top_bowlers: pd.DataFrame, output_path: st
         [min_val, max_val],
         [max_val, max_val],
         color=RR_PINK,
-        alpha=0.08,
+        alpha=0.07,
         label="Clutch Restrictors (Save More Runs)",
         zorder=1,
     )
@@ -520,52 +570,67 @@ def plot_bowlers_baseline_vs_pressure(top_bowlers: pd.DataFrame, output_path: st
         s=bubble_sizes,
         color=RR_PINK,
         edgecolor=RR_NAVY,
-        linewidth=2.0,
-        alpha=0.85,
-        label="Top Bowlers (Size $\\propto$ HL Wkts)",
+        linewidth=1.8,
+        alpha=0.82,
+        label="Top Bowlers (Size ∝ HL Wkts)",
         zorder=5,
     )
 
-    # Annotate bowler names
+    # Calibrated non-colliding coordinates for all 10 bowlers
+    # (offset_x, offset_y, horizontal_alignment)
+    bowler_offsets = {
+        1: (-12, 12, "right"),   # #1 Josh Hazlewood (top-left)
+        2: (12, 8, "left"),      # #2 Sunil Narine (top-right)
+        3: (-12, 10, "right"),   # #3 Harshal Patel (mid-left)
+        4: (-12, -10, "right"),  # #4 Romario Shepherd (far-left)
+        5: (-12, 10, "right"),   # #5 Shamar Joseph (mid-left upper)
+        6: (10, -14, "left"),    # #6 Arshdeep Singh (bottom-center)
+        7: (12, -8, "left"),     # #7 Bhuvneshwar Kumar (mid-right lower)
+        8: (10, 8, "left"),      # #8 Akeal Hosein (mid-right)
+        9: (10, 10, "left"),     # #9 Mustafizur Rahman (upper-right)
+        10: (-12, -12, "right"), # #10 Jason Holder (lower-left, away from Bhuvi)
+    }
+
     for i in range(min(10, len(df))):
         name = str(names.iloc[i])
+        parts = name.strip().split()
+        short_name = f"{parts[0][0]}. {' '.join(parts[1:])}" if len(parts) >= 2 else name
         x = float(ter_over.iloc[i])
         y = float(ter_press.iloc[i])
-        rank = df.get("rank", pd.Series(range(1, len(df) + 1))).iloc[i]
-        label_text = f"#{rank} {name}"
+        rank = int(df.get("rank", pd.Series(range(1, len(df) + 1))).iloc[i])
 
-        x_off = 7 if (i % 2 == 0) else -8
-        y_off = 7 if (i % 3 != 0) else -12
-        ha = "left" if x_off > 0 else "right"
-
+        x_off, y_off, ha = bowler_offsets.get(rank, (10, 8, "left"))
+        label_text = f"#{rank} {short_name}"
         ax.annotate(
             label_text,
             xy=(x, y),
             xytext=(x_off, y_off),
             textcoords="offset points",
-            color=RR_TEXT_LIGHT,
-            fontsize=9.5,
+            color=RR_NAVY,
+            fontsize=8.8,
             fontweight="bold",
             ha=ha,
-            bbox=dict(boxstyle="round,pad=0.25", facecolor=RR_CARD_BG, edgecolor=RR_NAVY, alpha=0.92, linewidth=1.0),
+            bbox=dict(boxstyle="round,pad=0.22", facecolor="#ffffff", edgecolor=RR_NAVY, alpha=0.92, linewidth=0.8),
             zorder=6,
         )
 
     ax.set_xlim(min_val, max_val)
     ax.set_ylim(min_val, max_val)
-    ax.set_xlabel("Baseline True Economy Rate ($TER_{\\mathrm{Overall}}$, Runs Saved / 6b)", color=RR_TEXT_LIGHT, fontsize=11.5, fontweight="bold", labelpad=6)
-    ax.set_ylabel("High-Pressure True Economy Rate ($TER_{\\mathrm{Pressure}}$, Runs Saved / 6b)", color=RR_TEXT_LIGHT, fontsize=11.5, fontweight="bold", labelpad=6)
-    ax.tick_params(colors=RR_NAVY, labelsize=10.5, width=1.2, length=4)
+    ax.set_xlabel("Baseline True Economy Rate (TER Overall, Runs Saved / 6b)", color=RR_TEXT_LIGHT, fontsize=11.0, fontweight="bold", labelpad=6)
+    ax.set_ylabel("High-Pressure True Economy Rate (TER Pressure, Runs Saved / 6b)", color=RR_TEXT_LIGHT, fontsize=11.0, fontweight="bold", labelpad=6)
+    ax.tick_params(colors=RR_NAVY, labelsize=10.0, width=1.2, length=4)
 
+    # Position legend in lower-right quadrant where NO top bowlers reside
     legend = ax.legend(
-        loc="upper left",
+        loc="lower right",
         facecolor=RR_CARD_BG,
         edgecolor=RR_GRID,
         labelcolor=RR_TEXT_LIGHT,
-        fontsize=9.5,
-        framealpha=0.98,
+        fontsize=9.0,
+        framealpha=0.95,
     )
-    legend.get_frame().set_linewidth(1.2)
+    if legend:
+        legend.get_frame().set_linewidth(1.0)
 
     plt.tight_layout()
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
@@ -596,10 +661,11 @@ def plot_top_players_radar(
     fig, (ax_bat, ax_bowl) = plt.subplots(
         1,
         2,
-        figsize=(9.2, 6.6),
+        figsize=(10.2, 6.8),
         subplot_kw=dict(polar=True),
         facecolor=RR_NAVY_DARK,
     )
+    fig.subplots_adjust(left=0.08, right=0.92, top=0.84, bottom=0.18, wspace=0.52)
 
     player_colors = [RR_PINK, RR_NAVY, RR_CYAN]
 
@@ -607,8 +673,8 @@ def plot_top_players_radar(
     categories_bat = [
         "True SR\n(TSR)",
         "Pressure\nWPA",
-        "Dot\nAvoidance",
-        "Clutch\nDelta",
+        "Dot Ball\nAvoidance",
+        "Clutch Delta\n(Lift)",
         "Sample\nReliability",
     ]
     num_vars_bat = len(categories_bat)
@@ -619,7 +685,8 @@ def plot_top_players_radar(
     ax_bat.set_theta_offset(np.pi / 2)
     ax_bat.set_theta_direction(-1)
     ax_bat.set_xticks(angles_bat)
-    ax_bat.set_xticklabels(categories_bat, color=RR_NAVY, fontsize=11.0, fontweight="bold")
+    ax_bat.set_xticklabels(categories_bat, color=RR_NAVY, fontsize=10.0, fontweight="bold")
+    ax_bat.tick_params(pad=16)
     ax_bat.set_ylim(0, 1.05)
     ax_bat.set_yticks([0.25, 0.50, 0.75, 1.0])
     ax_bat.set_yticklabels(["", "", "", ""], color=RR_TEXT_MUTED)
@@ -629,11 +696,11 @@ def plot_top_players_radar(
         spine.set_linewidth(1.2)
 
     ax_bat.set_title(
-        "Top 3 Batters: Multivariate Pressure Profile\n",
+        "Top 3 Batters Profile",
         color=RR_NAVY,
-        fontsize=13.5,
+        fontsize=12.5,
         fontweight="bold",
-        pad=22,
+        pad=20,
     )
 
     # Normalize across the full Top 10 benchmark cohort to maintain absolute scale context
@@ -658,34 +725,36 @@ def plot_top_players_radar(
             row_vals_closed = row_vals + row_vals[:1]
             color = player_colors[i % len(player_colors)]
             name = str(df_bat.get("player_name", pd.Series([f"Batter {i+1}"])).iloc[i])
+            parts = name.strip().split()
+            short_name = f"{parts[0][0]}. {' '.join(parts[1:])}" if len(parts) >= 2 else name
             rank = df_bat.get("rank", pd.Series(range(1, len(df_bat) + 1))).iloc[i]
 
             ax_bat.plot(
                 angles_bat_closed,
                 row_vals_closed,
                 color=color,
-                linewidth=3.0,
+                linewidth=2.8,
                 marker="o",
-                markersize=6,
+                markersize=5,
                 markeredgecolor=RR_NAVY,
                 markeredgewidth=1.2,
-                label=f"#{rank} {name}",
+                label=f"#{rank} {short_name}",
                 zorder=4,
             )
-            ax_bat.fill(angles_bat_closed, row_vals_closed, color=color, alpha=0.22, zorder=3)
+            ax_bat.fill(angles_bat_closed, row_vals_closed, color=color, alpha=0.20, zorder=3)
 
     legend_bat = ax_bat.legend(
         loc="upper center",
-        bbox_to_anchor=(0.5, -0.16),
+        bbox_to_anchor=(0.5, -0.15),
         ncol=3,
         facecolor=RR_CARD_BG,
         edgecolor=RR_GRID,
         labelcolor=RR_TEXT_LIGHT,
-        fontsize=10.0,
+        fontsize=9.2,
         framealpha=0.98,
     )
     if legend_bat:
-        legend_bat.get_frame().set_linewidth(1.2)
+        legend_bat.get_frame().set_linewidth(1.0)
         for t in legend_bat.get_texts():
             t.set_fontweight("bold")
 
@@ -694,7 +763,7 @@ def plot_top_players_radar(
         "True Econ\n(TER)",
         "HL Wickets\n(Volume)",
         "Dot Ball %\n(Suppression)",
-        "Clutch Delta\n(Elev)",
+        "Clutch Delta\n(Elevation)",
         "Sample\nReliability",
     ]
     num_vars_bowl = len(categories_bowl)
@@ -705,7 +774,8 @@ def plot_top_players_radar(
     ax_bowl.set_theta_offset(np.pi / 2)
     ax_bowl.set_theta_direction(-1)
     ax_bowl.set_xticks(angles_bowl)
-    ax_bowl.set_xticklabels(categories_bowl, color=RR_NAVY, fontsize=11.0, fontweight="bold")
+    ax_bowl.set_xticklabels(categories_bowl, color=RR_NAVY, fontsize=10.0, fontweight="bold")
+    ax_bowl.tick_params(pad=16)
     ax_bowl.set_ylim(0, 1.05)
     ax_bowl.set_yticks([0.25, 0.50, 0.75, 1.0])
     ax_bowl.set_yticklabels(["", "", "", ""], color=RR_TEXT_MUTED)
@@ -715,11 +785,11 @@ def plot_top_players_radar(
         spine.set_linewidth(1.2)
 
     ax_bowl.set_title(
-        "Top 3 Bowlers: Multivariate Pressure Profile\n",
+        "Top 3 Bowlers Profile",
         color=RR_NAVY,
-        fontsize=13.5,
+        fontsize=12.5,
         fontweight="bold",
-        pad=22,
+        pad=20,
     )
 
     # Normalize across the full Top 10 benchmark cohort to maintain absolute scale context
@@ -744,36 +814,40 @@ def plot_top_players_radar(
             row_vals_closed = row_vals + row_vals[:1]
             color = player_colors[i % len(player_colors)]
             name = str(df_bowl.get("player_name", pd.Series([f"Bowler {i+1}"])).iloc[i])
+            parts = name.strip().split()
+            short_name = f"{parts[0][0]}. {' '.join(parts[1:])}" if len(parts) >= 2 else name
             rank = df_bowl.get("rank", pd.Series(range(1, len(df_bowl) + 1))).iloc[i]
 
             ax_bowl.plot(
                 angles_bowl_closed,
                 row_vals_closed,
                 color=color,
-                linewidth=3.0,
+                linewidth=2.8,
                 marker="o",
-                markersize=6,
+                markersize=5,
                 markeredgecolor=RR_NAVY,
                 markeredgewidth=1.2,
-                label=f"#{rank} {name}",
+                label=f"#{rank} {short_name}",
                 zorder=4,
             )
-            ax_bowl.fill(angles_bowl_closed, row_vals_closed, color=color, alpha=0.22, zorder=3)
+            ax_bowl.fill(angles_bowl_closed, row_vals_closed, color=color, alpha=0.20, zorder=3)
 
     legend_bowl = ax_bowl.legend(
         loc="upper center",
-        bbox_to_anchor=(0.5, -0.16),
+        bbox_to_anchor=(0.5, -0.15),
         ncol=3,
         facecolor=RR_CARD_BG,
         edgecolor=RR_GRID,
         labelcolor=RR_TEXT_LIGHT,
-        fontsize=10.0,
+        fontsize=9.2,
         framealpha=0.98,
     )
     if legend_bowl:
-        legend_bowl.get_frame().set_linewidth(1.2)
+        legend_bowl.get_frame().set_linewidth(1.0)
         for t in legend_bowl.get_texts():
             t.set_fontweight("bold")
+
+    fig.suptitle("Multivariate Pressure Archetypes (Top 3 Specialists)", fontsize=13.5, fontweight="bold", color=RR_NAVY, y=0.98)
 
     plt.tight_layout()
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
