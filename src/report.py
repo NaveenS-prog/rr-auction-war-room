@@ -114,6 +114,11 @@ Rankings are ordered by the **10th percentile of posterior pressure ability**:
 $$S_i = Q_{{0.10}}(\\text{{Pressure ability}}_i)$$
 This conservative lower bound favors players who are proven, reliable, and high-volume over erratic performers.
 
+### 3.4 IPL Auction Eligibility & Regulatory Policy Exclusion
+In accordance with official BCCI regulations and Indian Premier League eligibility guidelines governing the IPL Player Auction, players representing the Pakistan national team (or domestic Pakistan entities) are ineligible to participate in the IPL auction or enter IPL franchise squads.
+
+While deliveries involving Pakistani players are fully retained in our dataset to compute unbiased, league-wide situation baselines (Model A) and win-probability leverage swings (Model B), all Pakistani players are strictly filtered from the final auction selection pool and Top 10 leaderboards. This regulatory exclusion ensures that every player ranked in our final submission is 100% legally eligible and actionable for Rajasthan Royals' auction strategy.
+
 ---
 
 ## 4. Evidence for Top 10

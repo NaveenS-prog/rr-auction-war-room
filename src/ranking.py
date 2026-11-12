@@ -1,14 +1,17 @@
-from typing import Dict, Optional
+import re
+from typing import Any, Dict, Optional
 import numpy as np
 import pandas as pd
 from src.models.player_ratings import FittedRatings
 
 class RankingEngine:
-    def __init__(self, eligibility: Optional[Dict[str, int]] = None):
+    def __init__(self, eligibility: Optional[Dict[str, Any]] = None):
         self.eligibility = eligibility or {
             "min_total_balls": 100,
             "min_pressure_balls": 40,
-            "min_pressure_matches": 8
+            "min_pressure_matches": 8,
+            "exclude_teams": ["Pakistan", "Pakistan A"],
+            "exclusion_reason": "IPL Auction Ineligibility: BCCI regulatory policy restrictions",
         }
 
     def generate_leaderboard(
@@ -57,11 +60,33 @@ class RankingEngine:
         min_tot = self.eligibility.get("min_total_balls", 100)
         min_press = self.eligibility.get("min_pressure_balls", 40)
         min_matches = self.eligibility.get("min_pressure_matches", 8)
+        exclude_teams = self.eligibility.get("exclude_teams", ["Pakistan", "Pakistan A"])
+        exclusion_reason = self.eligibility.get(
+            "exclusion_reason",
+            "IPL Auction Ineligibility: BCCI regulatory policy restrictions"
+        )
+
+        # Identify players who have represented excluded teams/nations
+        excluded_pids = set()
+        if exclude_teams and not player_meta.empty and "team_name" in player_meta.columns:
+            pat = "|".join([re.escape(t) for t in exclude_teams])
+            mask_team = player_meta["team_name"].str.contains(pat, case=False, na=False)
+            if "team_id" in player_meta.columns:
+                mask_team = mask_team | player_meta["team_id"].isin([25, 341])
+            excluded_pids = set(player_meta.loc[mask_team, "player_id"].dropna().astype(int))
+
+        stats["is_auction_eligible"] = ~stats["player_id"].isin(excluded_pids)
+        stats["ineligibility_reason"] = np.where(
+            ~stats["is_auction_eligible"],
+            exclusion_reason,
+            ""
+        )
         
         stats["is_eligible"] = (
             (stats["total_balls"] >= min_tot) &
             (stats["pressure_balls"] >= min_press) &
-            (stats["pressure_matches"] >= min_matches)
+            (stats["pressure_matches"] >= min_matches) &
+            stats["is_auction_eligible"]
         )
         
         # Sorting: Eligible first, sorted by conservative_score descending

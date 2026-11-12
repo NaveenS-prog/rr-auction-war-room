@@ -11,10 +11,12 @@ class PipelineConfig:
     reports_dir: Path
     split_ratios: Dict[str, float] = field(default_factory=lambda: {"train": 0.6, "val": 0.2, "test": 0.2})
     n_folds: int = 3
-    eligibility: Dict[str, int] = field(default_factory=lambda: {
+    eligibility: Dict[str, Any] = field(default_factory=lambda: {
         "min_total_balls": 100,
         "min_pressure_balls": 40,
-        "min_pressure_matches": 8
+        "min_pressure_matches": 8,
+        "exclude_teams": ["Pakistan", "Pakistan A"],
+        "exclusion_reason": "IPL Auction Ineligibility: BCCI regulatory policy restrictions",
     })
     ranking: Dict[str, float] = field(default_factory=lambda: {
         "pressure_percentile": 80.0,
@@ -48,7 +50,9 @@ def load_config(config_path: str = "config/settings.yaml") -> PipelineConfig:
         eligibility={
             "min_total_balls": int(eligibility_cfg.get("min_total_balls", 100)),
             "min_pressure_balls": int(eligibility_cfg.get("min_pressure_balls", 40)),
-            "min_pressure_matches": int(eligibility_cfg.get("min_pressure_matches", 8))
+            "min_pressure_matches": int(eligibility_cfg.get("min_pressure_matches", 8)),
+            "exclude_teams": list(eligibility_cfg.get("exclude_teams", ["Pakistan", "Pakistan A"])),
+            "exclusion_reason": str(eligibility_cfg.get("exclusion_reason", "IPL Auction Ineligibility: BCCI regulatory policy restrictions")),
         },
         ranking={
             "pressure_percentile": float(ranking_cfg.get("pressure_percentile", 80.0)),
