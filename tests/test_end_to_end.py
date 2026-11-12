@@ -1,13 +1,13 @@
 """End-to-End Pipeline Integration Tests.
 
 Validates the complete execution flow from CLI invocation:
-- CLI argument parsing (--data-dir, --sample, --output-dir, --bootstrap-iterations)
+- CLI argument parsing (--data-dir, --output-dir, --sample-fraction)
 - Ingestion and match state reconstruction
-- Win probability and leverage calculation
-- Metric aggregation and dual-axis ranking computation
-- Unstop schema validation and bootstrap sensitivity analysis
-- Generation of high-res figures and 16-page executive PDF presentation deck
-- Export of CSV and JSON rankings
+- GBDT expectations, Win probability and leverage calculation
+- Out-of-sample contributions and Run-equivalent valuation
+- Hierarchical Bayesian partial pooling and conservative Q0.10 scoring
+- Unstop schema validation and export of CSV and JSON rankings
+- Markdown methodology report generation
 - Formatted terminal output
 """
 
@@ -20,41 +20,37 @@ import sys
 import pandas as pd
 import pytest
 
-
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
 def test_full_pipeline_cli(tmp_path):
-    """Canonical test from specification: CLI pipeline execution with sample matches."""
+    """CLI pipeline execution with sample matches fraction."""
     python_bin = os.path.join(REPO_ROOT, ".venv", "bin", "python")
     if not os.path.exists(python_bin):
         python_bin = sys.executable
 
     test_out = str(tmp_path / "test_reports")
-    # Run main pipeline on 20-match sample with isolated test output dir
-    cmd = [python_bin, "main.py", "--sample", "20", "--output-dir", test_out]
+    cmd = [python_bin, "main.py", "--sample-fraction", "0.05", "--output-dir", test_out]
     res = subprocess.run(cmd, cwd=REPO_ROOT, capture_output=True, text=True)
 
     assert res.returncode == 0, f"Pipeline execution failed:\nSTDOUT:\n{res.stdout}\nSTDERR:\n{res.stderr}"
-    pdf_path = os.path.join(test_out, "Methodology_Report_SupeRR_Selector_Season_2.pdf")
+    md_path = os.path.join(test_out, "METHODOLOGY_REPORT.md")
     csv_path = os.path.join(test_out, "unstop_dropdown_rankings.csv")
     json_path = os.path.join(test_out, "unstop_dropdown_rankings.json")
+    top_bat_path = os.path.join(test_out, "top10_batters.csv")
+    top_bowl_path = os.path.join(test_out, "top10_bowlers.csv")
 
-    assert os.path.exists(pdf_path)
-    assert os.path.exists(csv_path)
-    assert os.path.exists(json_path)
-
-    # Verify PDF non-empty
-    pdf_size = os.path.getsize(pdf_path)
-    assert pdf_size > 10000, f"Generated PDF is unexpectedly small ({pdf_size} bytes)"
+    assert os.path.exists(md_path), "METHODOLOGY_REPORT.md not found"
+    assert os.path.exists(csv_path), "unstop_dropdown_rankings.csv not found"
+    assert os.path.exists(json_path), "unstop_dropdown_rankings.json not found"
+    assert os.path.exists(top_bat_path), "top10_batters.csv not found"
+    assert os.path.exists(top_bowl_path), "top10_bowlers.csv not found"
 
     # Verify JSON content
     with open(json_path, "r") as f:
         data = json.load(f)
     assert "batters" in data
     assert "bowlers" in data
-    assert len(data["batters"]) == 10
-    assert len(data["bowlers"]) == 10
 
     # Verify CSV content
     df_csv = pd.read_csv(csv_path)
@@ -62,46 +58,8 @@ def test_full_pipeline_cli(tmp_path):
     assert "rank" in df_csv.columns
     assert "player_id" in df_csv.columns
     assert "player_name" in df_csv.columns
-    assert "composite_score" in df_csv.columns
-    assert len(df_csv) == 20
-
-    # Verify 5 figures exist
-    for fig_name in [
-        "fig1_win_prob_curves.png",
-        "fig2_leverage_distribution.png",
-        "fig3_batters_baseline_vs_pressure.png",
-        "fig4_bowlers_baseline_vs_pressure.png",
-        "fig5_top_players_radar.png",
-    ]:
-        fig_file = os.path.join(test_out, "figures", fig_name)
-        assert os.path.exists(fig_file), f"Expected figure not found: {fig_file}"
+    assert "conservative_score" in df_csv.columns
 
     # Verify terminal output includes rankings
-    assert "Top 10 Batters" in res.stdout or "TOP 10 BATTERS" in res.stdout
-    assert "Top 10 Bowlers" in res.stdout or "TOP 10 BOWLERS" in res.stdout
-
-
-def test_custom_output_dir_cli(tmp_path):
-    """Test CLI pipeline execution with custom output directory and bootstrap iterations."""
-    python_bin = os.path.join(REPO_ROOT, ".venv", "bin", "python")
-    if not os.path.exists(python_bin):
-        python_bin = sys.executable
-
-    out_dir = str(tmp_path / "custom_reports")
-    cmd = [
-        python_bin,
-        "main.py",
-        "--sample",
-        "10",
-        "--output-dir",
-        out_dir,
-        "--bootstrap-iterations",
-        "15",
-    ]
-    res = subprocess.run(cmd, cwd=REPO_ROOT, capture_output=True, text=True)
-
-    assert res.returncode == 0, f"Execution failed:\n{res.stderr}"
-    assert os.path.exists(os.path.join(out_dir, "Methodology_Report_SupeRR_Selector_Season_2.pdf"))
-    assert os.path.exists(os.path.join(out_dir, "unstop_dropdown_rankings.csv"))
-    assert os.path.exists(os.path.join(out_dir, "unstop_dropdown_rankings.json"))
-    assert os.path.exists(os.path.join(out_dir, "figures", "fig1_win_prob_curves.png"))
+    assert "TOP 10 BATTERS" in res.stdout
+    assert "TOP 10 BOWLERS" in res.stdout

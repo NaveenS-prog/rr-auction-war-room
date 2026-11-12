@@ -1,84 +1,87 @@
 #!/usr/bin/env python3
-"""Rajasthan Royals SupeRR Selector Season 2 - End-to-End Pipeline.
+"""Rajasthan Royals SupeRR Selector Season 2 - Elite Pressure Ranking Pipeline.
 
-Executes the complete pressure performance ranking system:
-1. Ingestion: Load matches and reconstruct delivery match states.
-2. Win Probability & Leverage Index: Train dual-innings expectancy models,
-   compute ball-by-ball Delta WPA, and classify high-pressure balls (LI >= 1.50).
-3. Phase Benchmarks & Metrics: Compute phase par rates and aggregate raw performance
-   metrics for batters and bowlers across overall and pressure contexts.
-4. Dual-Axis Composite Scoring & Shrinkage: Standardize high-pressure performance
-   and personal clutch deltas (70/30), apply Empirical Bayes Shrinkage (M=30),
-   and filter by role and volume eligibility to determine the Top 10 Batters and Bowlers.
-5. Unstop Schema Validation & Sensitivity Analysis: Verify zero duplicate player IDs,
-   cross-reference canonical IDs against official tournament mapping, and compute
-   empirical 95% bootstrap confidence intervals for rank and score stability.
-6. Visualization & Reporting: Generate 5 publication-grade 300 DPI figures and compile
-   the 16-page landscape corporate presentation deck (Methodology_Report_SupeRR_Selector_Season_2.pdf).
-7. Dropdown Selections Export: Save exact Rank 1-10 selections to CSV and JSON formats.
-8. Terminal Summary: Output structured rankings tables and verification status.
+State-of-the-Art Probabilistic Architecture:
+1. Canonical Delivery Reconstruction: Accurately parses legal balls, extras, wickets,
+   and chase state.
+2. Data Validation & Reconciliation: Verifies scorecard integrity across tournament matches.
+3. Chronological Splits & Temporal Folds: Strict out-of-sample holdout without data leakage.
+4. Model A (Situation Expectations): Calibrated Gradient-Boosted Trees predicting expected runs,
+   dismissal probabilities, conceded runs, and bowler credited wickets.
+5. Model B (Win-Probability Leverage Spread): Outcome volatility L(s) across legal transitions
+   with late-overs urgency weighting (top 20% high-pressure cutoff).
+6. Run-Equivalent Valuation: Synthesizes scoring + dismissal survival and bowling economy + wickets
+   into unified run-equivalent margins (V_bat, V_bowl).
+7. Model C (Hierarchical Bayesian Partial Pooling): MCMC posterior sampling of normal ability
+   (mu + a_i) and pressure response (beta + d_i).
+8. Conservative Q0.10 Ranking: Strictly orders players by the 10th percentile of posterior
+   pressure ability to penalize small-sample variance.
+9. Unstop Compliance & Reporting: Validates 0 duplicates and official tournament IDs, exporting
+   dropdown selections to CSV and JSON, and generating a transparent methodology report.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import logging
 import os
+from pathlib import Path
 import sys
 import time
 from typing import Any, Dict, Optional, Tuple
 
+import numpy as np
 import pandas as pd
 
-from src.data_loader import load_and_process_deliveries
-from src.deck_generator import build_executive_deck
-from src.metrics import calculate_player_raw_metrics, compute_phase_par_rates
-from src.rankings import compute_rankings
-from src.validation import compute_bootstrap_sensitivity, validate_unstop_compliance
-from src.visualizer import generate_all_figures
+from src.config import load_config, PipelineConfig
+from src.canonical_data import reconstruct_canonical_deliveries
+from src.validate import run_data_validation
+from src.make_splits import generate_chronological_splits
+from src.contributions import generate_out_of_sample_contributions
+from src.models.player_ratings import HierarchicalPlayerModel
+from src.ranking import RankingEngine
+from src.evaluate import evaluate_predictive_validity, run_sensitivity_analysis
+from src.report import generate_methodology_report
+from src.validation import validate_unstop_compliance
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logger = logging.getLogger("rr-pipeline")
 
 
 def parse_arguments() -> argparse.Namespace:
-    """Parses command-line arguments for the pipeline execution."""
     parser = argparse.ArgumentParser(
-        description="Rajasthan Royals SupeRR Selector Season 2 - End-to-End Pressure Ranking Pipeline",
+        description="Rajasthan Royals SupeRR Selector Season 2 - Elite Pressure Ranking Pipeline",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument(
+        "--config",
+        type=str,
+        default="config/settings.yaml",
+        help="Path to YAML configuration file",
     )
     parser.add_argument(
         "--data-dir",
         type=str,
-        default=".",
-        help="Directory containing tournament CSV files (matches.csv, ball_by_ball.csv, competitions.csv, etc.)",
-    )
-    parser.add_argument(
-        "--sample",
-        type=int,
         default=None,
-        help="Optional limit on number of matches to process (for rapid verification/testing)",
+        help="Directory containing tournament CSV files (defaults to config raw_dir)",
     )
     parser.add_argument(
         "--output-dir",
         type=str,
-        default="reports",
-        help="Target directory where PDF report, figures, and dropdown exports will be written",
-    )
-    parser.add_argument(
-        "--bootstrap-iterations",
-        type=int,
-        default=100,
-        help="Number of bootstrap resampling iterations for ranking sensitivity analysis (default: 100)",
-    )
-    parser.add_argument(
-        "--min-pressure-balls",
-        type=int,
         default=None,
-        help="Minimum effective pressure balls required for ranking eligibility (defaults to 60 for full runs)",
+        help="Target reports directory (defaults to config reports_dir)",
     )
     parser.add_argument(
-        "--prior-m",
+        "--sample-fraction",
         type=float,
-        default=30.0,
-        help="Empirical Bayes prior sample size weight M (default: 30.0 balls)",
+        default=1.0,
+        help="Fraction of matches to sample (for rapid testing/debugging)",
+    )
+    parser.add_argument(
+        "--skip-validation",
+        action="store_true",
+        help="Skip raw data scorecard reconciliation",
     )
     return parser.parse_args()
 
@@ -87,326 +90,375 @@ def export_dropdown_rankings(
     top_batters: pd.DataFrame,
     top_bowlers: pd.DataFrame,
     validation_report: Dict[str, Any],
-    output_dir: str,
-) -> Tuple[str, str]:
-    """Exports exact Rank 1-10 dropdown selections to JSON and CSV formats.
+    output_dir: Path,
+) -> Tuple[Path, Path]:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    json_path = output_dir / "unstop_dropdown_rankings.json"
+    csv_path = output_dir / "unstop_dropdown_rankings.csv"
 
-    Parameters
-    ----------
-    top_batters : pd.DataFrame
-        Ranked Top 10 Batters.
-    top_bowlers : pd.DataFrame
-        Ranked Top 10 Bowlers.
-    validation_report : Dict[str, Any]
-        Unstop compliance validation report containing dropdown_selections.
-    output_dir : str
-        Directory to save exported files.
-
-    Returns
-    -------
-    Tuple[str, str]
-        File paths for generated (csv_path, json_path).
-    """
-    os.makedirs(output_dir, exist_ok=True)
-    json_path = os.path.join(output_dir, "unstop_dropdown_rankings.json")
-    csv_path = os.path.join(output_dir, "unstop_dropdown_rankings.csv")
-
-    # 1. Format JSON payload
     dropdown_raw = validation_report.get("dropdown_selections", {})
+
     json_payload = {
         "metadata": {
-            "title": "Rajasthan Royals SupeRR Selector Season 2 - Dropdown Selections",
+            "competition": "Rajasthan Royals SupeRR Selector Season 2",
+            "model_architecture": "4-Stage GBDT Expectations + Leverage Spread + Hierarchical Bayes (Q0.10 Conservative)",
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%SZ", time.gmtime()),
             "status": "VERIFIED_COMPLIANT" if validation_report.get("valid", False) else "UNVERIFIED",
         },
-        "batters": {
-            str(rank): {
-                "rank": int(rank),
-                "player_id": int(item["id"]) if item.get("id") is not None else None,
-                "player_name": str(item.get("name", "")),
-                "composite_score": round(
-                    float(
-                        top_batters.loc[top_batters["rank"] == rank, "composite_score"].values[0]
-                    ),
-                    4,
-                )
-                if not top_batters.empty and "rank" in top_batters.columns and (top_batters["rank"] == rank).any()
-                else 0.0,
-            }
-            for rank, item in dropdown_raw.get("batters", {}).items()
-        },
-        "bowlers": {
-            str(rank): {
-                "rank": int(rank),
-                "player_id": int(item["id"]) if item.get("id") is not None else None,
-                "player_name": str(item.get("name", "")),
-                "composite_score": round(
-                    float(
-                        top_bowlers.loc[top_bowlers["rank"] == rank, "composite_score"].values[0]
-                    ),
-                    4,
-                )
-                if not top_bowlers.empty and "rank" in top_bowlers.columns and (top_bowlers["rank"] == rank).any()
-                else 0.0,
-            }
-            for rank, item in dropdown_raw.get("bowlers", {}).items()
-        },
+        "batters": {},
+        "bowlers": {},
     }
 
-    with open(json_path, "w", encoding="utf-8") as f:
-        json.dump(json_payload, f, indent=2)
+    csv_rows = []
 
-    # 2. Format CSV payload
-    records = []
     for _, row in top_batters.iterrows():
-        rank = int(row["rank"]) if "rank" in row and pd.notna(row["rank"]) else len(records) + 1
-        pid = int(row["player_id"]) if "player_id" in row and pd.notna(row["player_id"]) else None
+        rank = int(row["rank"])
+        pid = int(row["player_id"])
         c_name = dropdown_raw.get("batters", {}).get(rank, {}).get("name", str(row.get("player_name", "")))
-        tsr_p = float(row.get("tsr_pressure", 0.0)) if pd.notna(row.get("tsr_pressure")) else 0.0
-        tsr_o = float(row.get("tsr_overall", 0.0)) if pd.notna(row.get("tsr_overall")) else 0.0
-        d_tsr = float(row["delta_tsr"]) if "delta_tsr" in row and pd.notna(row["delta_tsr"]) else (tsr_p - tsr_o)
-        records.append({
+        team = str(row.get("team_name", "Unknown"))
+        cons = round(float(row.get("conservative_score", 0.0)), 4)
+        p_mean = round(float(row.get("pressure_ability_mean", 0.0)), 4)
+        n_mean = round(float(row.get("normal_ability_mean", 0.0)), 4)
+        uplift = round(float(row.get("pressure_uplift_mean", 0.0)), 4)
+        prob = round(float(row.get("prob_positive_uplift", 0.0)), 3)
+        balls = int(row.get("pressure_balls", 0))
+        matches = int(row.get("pressure_matches", 0))
+
+        json_payload["batters"][str(rank)] = {
+            "rank": rank,
+            "player_id": pid,
+            "player_name": c_name,
+            "team_name": team,
+            "conservative_score": cons,
+            "pressure_ability_mean": p_mean,
+            "normal_ability_mean": n_mean,
+            "pressure_uplift_mean": uplift,
+            "prob_positive_uplift": prob,
+            "pressure_balls": balls,
+            "pressure_matches": matches,
+        }
+
+        csv_rows.append({
             "discipline": "Batter",
             "rank": rank,
             "player_id": pid,
             "player_name": c_name,
-            "composite_score": round(float(row.get("composite_score", 0.0)), 4),
-            "raw_score": round(float(row.get("raw_score", 0.0)), 4) if "raw_score" in row else None,
-            "n_eff_pressure": round(float(row.get("n_eff_pressure", 0.0)), 1) if "n_eff_pressure" in row else None,
-            "tsr_pressure": round(tsr_p, 2),
-            "tsr_overall": round(tsr_o, 2),
-            "delta_tsr": round(d_tsr, 2),
-            "wpa_per_100_pressure": round(float(row.get("wpa_per_100_pressure", 0.0)), 4) if "wpa_per_100_pressure" in row else None,
-            "dot_avoidance_pressure": round(float(row.get("dot_avoidance_pressure", 0.0)), 4) if "dot_avoidance_pressure" in row else None,
+            "team_name": team,
+            "conservative_score": cons,
+            "pressure_ability_mean": p_mean,
+            "normal_ability_mean": n_mean,
+            "pressure_uplift_mean": uplift,
+            "prob_positive_uplift": prob,
+            "pressure_balls": balls,
+            "pressure_matches": matches,
         })
 
     for _, row in top_bowlers.iterrows():
-        rank = int(row["rank"]) if "rank" in row and pd.notna(row["rank"]) else len(records) + 1
-        pid = int(row["player_id"]) if "player_id" in row and pd.notna(row["player_id"]) else None
+        rank = int(row["rank"])
+        pid = int(row["player_id"])
         c_name = dropdown_raw.get("bowlers", {}).get(rank, {}).get("name", str(row.get("player_name", "")))
-        ter_p = float(row.get("ter_pressure", 0.0)) if pd.notna(row.get("ter_pressure")) else 0.0
-        ter_o = float(row.get("ter_overall", 0.0)) if pd.notna(row.get("ter_overall")) else 0.0
-        d_ter = float(row["delta_ter"]) if "delta_ter" in row and pd.notna(row["delta_ter"]) else (ter_p - ter_o)
-        records.append({
+        team = str(row.get("team_name", "Unknown"))
+        cons = round(float(row.get("conservative_score", 0.0)), 4)
+        p_mean = round(float(row.get("pressure_ability_mean", 0.0)), 4)
+        n_mean = round(float(row.get("normal_ability_mean", 0.0)), 4)
+        uplift = round(float(row.get("pressure_uplift_mean", 0.0)), 4)
+        prob = round(float(row.get("prob_positive_uplift", 0.0)), 3)
+        balls = int(row.get("pressure_balls", 0))
+        matches = int(row.get("pressure_matches", 0))
+
+        json_payload["bowlers"][str(rank)] = {
+            "rank": rank,
+            "player_id": pid,
+            "player_name": c_name,
+            "team_name": team,
+            "conservative_score": cons,
+            "pressure_ability_mean": p_mean,
+            "normal_ability_mean": n_mean,
+            "pressure_uplift_mean": uplift,
+            "prob_positive_uplift": prob,
+            "pressure_balls": balls,
+            "pressure_matches": matches,
+        }
+
+        csv_rows.append({
             "discipline": "Bowler",
             "rank": rank,
             "player_id": pid,
             "player_name": c_name,
-            "composite_score": round(float(row.get("composite_score", 0.0)), 4),
-            "raw_score": round(float(row.get("raw_score", 0.0)), 4) if "raw_score" in row else None,
-            "n_eff_pressure": round(float(row.get("n_eff_pressure", 0.0)), 1) if "n_eff_pressure" in row else None,
-            "ter_pressure": round(ter_p, 2),
-            "ter_overall": round(ter_o, 2),
-            "delta_ter": round(d_ter, 2),
-            "hl_wickets_pressure": round(float(row.get("hl_wickets_pressure", 0.0)), 2) if "hl_wickets_pressure" in row else None,
-            "dot_pct_pressure": round(float(row.get("dot_pct_pressure", 0.0)), 4) if "dot_pct_pressure" in row else None,
+            "team_name": team,
+            "conservative_score": cons,
+            "pressure_ability_mean": p_mean,
+            "normal_ability_mean": n_mean,
+            "pressure_uplift_mean": uplift,
+            "prob_positive_uplift": prob,
+            "pressure_balls": balls,
+            "pressure_matches": matches,
         })
 
-    df_csv = pd.DataFrame(records)
-    df_csv.to_csv(csv_path, index=False)
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(json_payload, f, indent=2)
 
+    cols = [
+        "discipline", "rank", "player_id", "player_name", "team_name",
+        "conservative_score", "pressure_ability_mean", "normal_ability_mean",
+        "pressure_uplift_mean", "prob_positive_uplift", "pressure_balls", "pressure_matches"
+    ]
+    df_csv = pd.DataFrame(csv_rows, columns=cols)
+    df_csv.to_csv(csv_path, index=False)
     return csv_path, json_path
 
 
-def print_terminal_summary(
+def print_executive_summary(
     top_batters: pd.DataFrame,
     top_bowlers: pd.DataFrame,
     validation_report: Dict[str, Any],
-    artifacts: Dict[str, str],
+    eval_metrics: Dict[str, Any],
+    artifacts: Dict[str, Any],
     total_deliveries: int,
     total_matches: int,
-    high_pressure_balls: int,
+    pressure_deliveries: int,
     elapsed_time: float,
 ) -> None:
-    """Prints a styled franchise presentation summary table to the terminal."""
-    sep = "=" * 98
-    sub_sep = "-" * 98
+    sep = "=" * 105
+    sub_sep = "-" * 105
 
     print("\n" + sep)
-    print("   RAJASTHAN ROYALS | SUPERR SELECTOR SEASON 2 - PRESSURE RANKING ENGINE")
+    print("   RAJASTHAN ROYALS | SUPERR SELECTOR SEASON 2 - ELITE PRESSURE RANKING ENGINE")
     print(sep)
-    print(f" [DATA] Deliveries Ingested: {total_deliveries:,} across {total_matches:,} matches | Run Time: {elapsed_time:.2f}s")
-    pct_hp = (high_pressure_balls / total_deliveries * 100.0) if total_deliveries > 0 else 0.0
-    print(f" [WIN PROB] High-Pressure Deliveries (LI >= 1.50): {high_pressure_balls:,} ({pct_hp:.1f}% of tournament balls)")
+    print(f" [DATA] Deliveries Ingested: {total_deliveries:,} across {total_matches:,} matches | Runtime: {elapsed_time:.2f}s")
+    pct_hp = (pressure_deliveries / total_deliveries * 100.0) if total_deliveries > 0 else 0.0
+    print(f" [PRESSURE] High-Pressure Deliveries (Leverage L >= Q0.80): {pressure_deliveries:,} ({pct_hp:.1f}% of match balls)")
+    rmse_c = eval_metrics.get("model_c_rmse", 0.0)
+    rmse_b = eval_metrics.get("normal_baseline_rmse", 0.0)
+    corr = eval_metrics.get("correlation", 0.0)
+    improvement = ((rmse_b - rmse_c) / rmse_b * 100.0) if rmse_b > 0 else 0.0
+    print(f" [EVALUATION] Predictive Holdout RMSE: {rmse_c:.4f} vs Baseline: {rmse_b:.4f} ({improvement:.1f}% error reduction, r = {corr:.4f})")
     print(sub_sep)
 
     # 1. Top 10 Batters Table
-    print(" TOP 10 BATTERS UNDER PRESSURE (Dual-Axis Clutch Score S_final)")
+    print(" TOP 10 BATTERS UNDER PRESSURE (Conservative Q0.10 Hierarchical Score)")
     print(sub_sep)
-    print(f"{'Rank':<5} {'Player Name':<24} {'ID':<8} {'S_final':<8} {'S_raw':<8} {'N_eff':<7} {'TSR(HP)':<9} {'TSR(All)':<9} {'Δ TSR':<8}")
+    print(f"{'Rank':<5} {'Player Name':<22} {'ID':<8} {'Score(Q10)':<11} {'Pressure':<10} {'Normal':<9} {'Uplift(Δ)':<10} {'P(Δ>0)':<8} {'Balls':<7} {'Matches':<8}")
     print(sub_sep)
     for _, r in top_batters.iterrows():
         rank = int(r.get("rank", 0))
-        name = str(r.get("player_name", ""))[:22]
+        name = str(r.get("player_name", ""))[:20]
         pid = int(r.get("player_id", 0))
-        s_fin = float(r.get("composite_score", 0.0))
-        s_raw = float(r.get("raw_score", s_fin))
-        n_eff = float(r.get("n_eff_pressure", 0.0))
-        tsr_p = float(r.get("tsr_pressure", 0.0))
-        tsr_o = float(r.get("tsr_overall", 0.0))
-        d_tsr = float(r.get("delta_tsr", tsr_p - tsr_o))
-        print(f" #{rank:<3} {name:<24} {pid:<8} {s_fin:>+7.3f} {s_raw:>+7.3f} {n_eff:>6.1f} {tsr_p:>+8.2f} {tsr_o:>+8.2f} {d_tsr:>+7.2f}")
+        cons = float(r.get("conservative_score", 0.0))
+        p_mean = float(r.get("pressure_ability_mean", 0.0))
+        n_mean = float(r.get("normal_ability_mean", 0.0))
+        uplift = float(r.get("pressure_uplift_mean", 0.0))
+        prob = float(r.get("prob_positive_uplift", 0.0))
+        p_balls = int(r.get("pressure_balls", 0))
+        p_mat = int(r.get("pressure_matches", 0))
+        print(f" #{rank:<3} {name:<22} {pid:<8} {cons:>+8.3f}    {p_mean:>+7.3f}   {n_mean:>+7.3f}   {uplift:>+7.3f}   {prob*100:>5.1f}%  {p_balls:>5}   {p_mat:>5}")
 
     print("\n" + sub_sep)
     # 2. Top 10 Bowlers Table
-    print(" TOP 10 BOWLERS UNDER PRESSURE (Dual-Axis Clutch Score S_final)")
+    print(" TOP 10 BOWLERS UNDER PRESSURE (Conservative Q0.10 Hierarchical Score)")
     print(sub_sep)
-    print(f"{'Rank':<5} {'Player Name':<24} {'ID':<8} {'S_final':<8} {'S_raw':<8} {'N_eff':<7} {'TER(HP)':<9} {'TER(All)':<9} {'Δ TER':<8}")
+    print(f"{'Rank':<5} {'Player Name':<22} {'ID':<8} {'Score(Q10)':<11} {'Pressure':<10} {'Normal':<9} {'Uplift(Δ)':<10} {'P(Δ>0)':<8} {'Balls':<7} {'Matches':<8}")
     print(sub_sep)
     for _, r in top_bowlers.iterrows():
         rank = int(r.get("rank", 0))
-        name = str(r.get("player_name", ""))[:22]
+        name = str(r.get("player_name", ""))[:20]
         pid = int(r.get("player_id", 0))
-        s_fin = float(r.get("composite_score", 0.0))
-        s_raw = float(r.get("raw_score", s_fin))
-        n_eff = float(r.get("n_eff_pressure", 0.0))
-        ter_p = float(r.get("ter_pressure", 0.0))
-        ter_o = float(r.get("ter_overall", 0.0))
-        d_ter = float(r.get("delta_ter", ter_p - ter_o))
-        print(f" #{rank:<3} {name:<24} {pid:<8} {s_fin:>+7.3f} {s_raw:>+7.3f} {n_eff:>6.1f} {ter_p:>+8.2f} {ter_o:>+8.2f} {d_ter:>+7.2f}")
+        cons = float(r.get("conservative_score", 0.0))
+        p_mean = float(r.get("pressure_ability_mean", 0.0))
+        n_mean = float(r.get("normal_ability_mean", 0.0))
+        uplift = float(r.get("pressure_uplift_mean", 0.0))
+        prob = float(r.get("prob_positive_uplift", 0.0))
+        p_balls = int(r.get("pressure_balls", 0))
+        p_mat = int(r.get("pressure_matches", 0))
+        print(f" #{rank:<3} {name:<22} {pid:<8} {cons:>+8.3f}    {p_mean:>+7.3f}   {n_mean:>+7.3f}   {uplift:>+7.3f}   {prob*100:>5.1f}%  {p_balls:>5}   {p_mat:>5}")
 
     print("\n" + sub_sep)
-    # 3. Validation Report Summary
+    # 3. Unstop Validation Summary
     is_valid = validation_report.get("valid", False)
     status_str = "VERIFIED COMPLIANT (100% Pass)" if is_valid else "VALIDATION FAILED"
     b_dups = validation_report.get("batter_duplicates", 0)
     bw_dups = validation_report.get("bowler_duplicates", 0)
     missing = len(validation_report.get("missing_ids", []))
     print(f" UNSTOP COMPLIANCE STATUS: {status_str}")
-    print(f" - Duplicate Check : Batters: {b_dups} duplicate(s) | Bowlers: {bw_dups} duplicate(s)")
-    print(f" - ID Verification : Official Roster ID Matches: {20 - missing} / 20 Verified")
-    print(f" - Dropdown Ready  : 10 Batters & 10 Bowlers Formatted")
+    print(f" - Duplicate Enforce : Batters: {b_dups} duplicate(s) | Bowlers: {bw_dups} duplicate(s)")
+    print(f" - ID Verification   : Official Roster Matches: {20 - missing} / 20 Verified")
+    print(f" - Dropdown Formats  : CSV & JSON Ready for Unstop Submission")
     print(sub_sep)
 
     # 4. Artifact Manifest
-    print(" GENERATED REPORT ARTIFACTS:")
-    print(f" - 16-Slide PDF Executive Deck : {artifacts.get('pdf', '')}")
-    print(f" - Dropdown Selections (CSV)   : {artifacts.get('csv', '')}")
-    print(f" - Dropdown Selections (JSON)  : {artifacts.get('json', '')}")
-    print(f" - High-Resolution Figures     : {artifacts.get('figures_dir', '')}")
+    print(" GENERATED ARTIFACTS:")
+    print(f" - Methodology Report (MD)   : {artifacts.get('methodology_report', '')}")
+    print(f" - Dropdown Selections (CSV) : {artifacts.get('dropdown_csv', '')}")
+    print(f" - Dropdown Selections (JSON): {artifacts.get('dropdown_json', '')}")
+    print(f" - Top 10 Batters (CSV)      : {artifacts.get('batters_csv', '')}")
+    print(f" - Top 10 Bowlers (CSV)      : {artifacts.get('bowlers_csv', '')}")
     print(sep + "\n")
 
 
 def main() -> int:
-    """Executes the full pipeline and generates all report artifacts."""
     start_time = time.time()
     args = parse_arguments()
 
-    data_dir = os.path.abspath(args.data_dir)
-    output_dir = os.path.abspath(args.output_dir)
-    os.makedirs(output_dir, exist_ok=True)
+    cfg = load_config(args.config)
+    if args.data_dir:
+        cfg.raw_data_dir = Path(args.data_dir)
+    if args.output_dir:
+        cfg.reports_dir = Path(args.output_dir)
 
-    print(f"[Pipeline] Starting Rajasthan Royals SupeRR Selector Pipeline...")
-    print(f"[Pipeline] Data directory : {data_dir}")
-    print(f"[Pipeline] Output directory: {output_dir}")
-    if args.sample:
-        print(f"[Pipeline] Running in sample mode (matches limit: {args.sample})")
+    cfg.processed_data_dir.mkdir(parents=True, exist_ok=True)
+    cfg.artifacts_dir.mkdir(parents=True, exist_ok=True)
+    cfg.reports_dir.mkdir(parents=True, exist_ok=True)
 
-    # Step 1: Load and process deliveries
-    t0 = time.time()
-    df_deliveries = load_and_process_deliveries(data_dir, sample_matches=args.sample)
-    total_deliveries = len(df_deliveries)
-    total_matches = df_deliveries["match_id"].nunique() if not df_deliveries.empty else 0
-    print(f"[Pipeline] Step 1 Complete: {total_deliveries:,} deliveries across {total_matches} matches loaded ({time.time() - t0:.2f}s)")
+    logger.info("Initializing Rajasthan Royals SupeRR Selector Pipeline...")
+    logger.info(f"Raw data directory: {cfg.raw_data_dir.resolve()}")
 
-    # Step 2: Train Win Probability Models & Compute Win Probability + Leverage
-    from src.win_prob import compute_win_probability_and_leverage, train_win_prob_models
-
-    t0 = time.time()
-    models = train_win_prob_models(df_deliveries)
-    df_state = compute_win_probability_and_leverage(df_deliveries, models)
-    high_pressure_balls = int(df_state["is_high_pressure"].sum()) if "is_high_pressure" in df_state.columns else 0
-    print(f"[Pipeline] Step 2 Complete: Win prob & Leverage Index calculated ({time.time() - t0:.2f}s)")
-    print(f"[Pipeline] High-pressure deliveries identified: {high_pressure_balls:,}")
-
-    # Step 3: Compute Phase Par Rates & Player Raw Metrics
-    t0 = time.time()
-    phase_pars = compute_phase_par_rates(df_state)
-    df_batters_raw, df_bowlers_raw = calculate_player_raw_metrics(df_state, phase_pars)
-    print(f"[Pipeline] Step 3 Complete: Metrics computed for {len(df_batters_raw)} batters and {len(df_bowlers_raw)} bowlers ({time.time() - t0:.2f}s)")
-
-    # Step 4: Determine volume threshold and compute rankings
-    if args.min_pressure_balls is not None:
-        min_balls = args.min_pressure_balls
-    elif args.sample is not None and args.sample < 100:
-        # Dynamically scale qualification volume for sample/test runs
-        min_balls = max(1, min(10, int(args.sample * 0.5)))
+    # 1. Canonical State Reconstruction
+    canonical_parquet = cfg.processed_data_dir / "canonical_deliveries.parquet"
+    if canonical_parquet.exists():
+        logger.info(f"Loading existing canonical deliveries from {canonical_parquet}...")
+        df = pd.read_parquet(canonical_parquet)
     else:
-        min_balls = 60
+        logger.info(f"Reconstructing canonical delivery state from {cfg.raw_data_dir}...")
+        df = reconstruct_canonical_deliveries(cfg.raw_data_dir)
+        df.to_parquet(canonical_parquet, index=False)
+        logger.info(f"Saved canonical table ({len(df):,} deliveries) to {canonical_parquet}.")
 
-    t0 = time.time()
-    top_batters, top_bowlers = compute_rankings(
-        df_batters_raw,
-        df_bowlers_raw,
-        min_pressure_balls=min_balls,
-        prior_m=args.prior_m,
-        top_n=10,
+    if 0.0 < args.sample_fraction < 1.0:
+        sample_matches = df["match_id"].drop_duplicates().sample(frac=args.sample_fraction, random_state=42)
+        df = df[df["match_id"].isin(sample_matches)].copy()
+        logger.info(f"Subsampled to {len(sample_matches)} matches ({len(df):,} deliveries).")
+
+    total_deliveries = len(df)
+    total_matches = df["match_id"].nunique()
+
+    # 2. Scorecard Reconciliation
+    if not args.skip_validation:
+        matches_csv = cfg.raw_data_dir / "matches.csv"
+        if matches_csv.exists():
+            matches_df = pd.read_csv(matches_csv)
+            report = run_data_validation(df, matches_df)
+            report.save(cfg.artifacts_dir / "data_validation_report.json")
+            logger.info(f"Validation complete: {report.reconciled_match_count} reconciled matches, {len(report.quarantined_matches)} quarantined.")
+
+    # 3. Chronological Splits
+    logger.info("Generating chronological match-level splits and expanding folds...")
+    splits = generate_chronological_splits(
+        df,
+        train_ratio=cfg.split_ratios["train"],
+        val_ratio=cfg.split_ratios["val"],
+        n_folds=cfg.n_folds,
     )
-    print(f"[Pipeline] Step 4 Complete: Top {len(top_batters)} Batters & Top {len(top_bowlers)} Bowlers ranked (min_balls={min_balls}) ({time.time() - t0:.2f}s)")
+    logger.info(f"Splits generated: {len(splits.train_matches)} train, {len(splits.val_matches)} val, {len(splits.test_matches)} test matches.")
 
-    # Step 5: Unstop Schema Validation & Bootstrap Sensitivity Analysis
-    t0 = time.time()
-    validation_report = validate_unstop_compliance(top_batters, top_bowlers, data_dir, strict_ten=False)
-    
-    # Configure bootstrap iterations
-    if args.sample is not None and args.sample <= 50 and args.bootstrap_iterations == 100:
-        n_boot = 30  # Swift bootstrap for sample/integration test runs
+    # 4. Out-of-Sample Contributions
+    logger.info("Computing out-of-sample delivery expectations (Model A), leverage spread (Model B), and run-equivalent values...")
+    contrib_df = generate_out_of_sample_contributions(
+        df,
+        splits,
+        pressure_percentile=cfg.ranking["pressure_percentile"],
+    )
+    pressure_deliveries = int(contrib_df["is_pressure"].sum()) if "is_pressure" in contrib_df.columns else 0
+
+    # 5. Model C: Hierarchical Player Ratings
+    logger.info("Fitting Model C hierarchical Bayesian partial pooling model for Batters...")
+    player_model = HierarchicalPlayerModel(
+        n_samples=500,
+        conservative_quantile=cfg.ranking["conservative_quantile"],
+    )
+    batters_ratings = player_model.fit(
+        contrib_df,
+        target_col="v_bat",
+        player_col="striker_id",
+        pressure_col="is_pressure",
+    )
+
+    logger.info("Fitting Model C hierarchical Bayesian partial pooling model for Bowlers...")
+    bowlers_ratings = player_model.fit(
+        contrib_df,
+        target_col="v_bowl",
+        player_col="bowler_id",
+        pressure_col="is_pressure",
+    )
+
+    # 6. Player Metadata and Match Counts
+    logger.info("Aggregating pressure match counts and joining official player mappings...")
+    player_map_path = cfg.raw_data_dir / "competition_team_player_mapping.csv"
+    if player_map_path.exists():
+        player_meta = pd.read_csv(player_map_path)
     else:
-        n_boot = args.bootstrap_iterations
+        player_meta = pd.DataFrame()
 
-    print(f"[Pipeline] Step 5: Running sensitivity analysis ({n_boot} bootstrap iterations)...")
-    bootstrap_report = compute_bootstrap_sensitivity(
-        df_state,
-        top_batters,
-        top_bowlers,
-        n_iterations=n_boot,
-        min_pressure_balls=min_balls if args.sample is not None else None,
-        random_state=42,
+    press_bat_matches = contrib_df[contrib_df["is_pressure"]].groupby("striker_id")["match_id"].nunique().reset_index()
+    press_bat_matches.columns = ["player_id", "pressure_matches"]
+
+    press_bowl_matches = contrib_df[contrib_df["is_pressure"]].groupby("bowler_id")["match_id"].nunique().reset_index()
+    press_bowl_matches.columns = ["player_id", "pressure_matches"]
+
+    # 7. Ranking Engine
+    logger.info("Applying eligibility criteria and computing conservative Q0.10 rankings...")
+    eligibility_to_use = dict(cfg.eligibility)
+    if 0.0 < args.sample_fraction < 1.0:
+        eligibility_to_use["min_total_balls"] = max(10, int(eligibility_to_use["min_total_balls"] * args.sample_fraction))
+        eligibility_to_use["min_pressure_balls"] = max(2, int(eligibility_to_use["min_pressure_balls"] * args.sample_fraction))
+        eligibility_to_use["min_pressure_matches"] = max(1, int(eligibility_to_use["min_pressure_matches"] * args.sample_fraction))
+
+    ranker = RankingEngine(eligibility=eligibility_to_use)
+    batters_leaderboard = ranker.generate_leaderboard(batters_ratings, press_bat_matches, player_meta)
+    bowlers_leaderboard = ranker.generate_leaderboard(bowlers_ratings, press_bowl_matches, player_meta)
+
+    top10_batters = ranker.get_top_10(batters_leaderboard)
+    top10_bowlers = ranker.get_top_10(bowlers_leaderboard)
+
+    # 8. Evaluation & Sensitivity
+    logger.info("Evaluating predictive holdout performance on untouched test matches...")
+    test_deliveries = splits.get_split_deliveries(contrib_df, "test")
+    eval_metrics = evaluate_predictive_validity(
+        batters_ratings, test_deliveries, target_col="v_bat", player_col="striker_id"
     )
-    print(f"[Pipeline] Step 5 Complete: Validation & Bootstrap finished ({time.time() - t0:.2f}s)")
+    logger.info(f"Predictive validity: Model C RMSE = {eval_metrics.get('model_c_rmse', 0):.4f}, Correlation = {eval_metrics.get('correlation', 0):.4f}")
 
-    # Step 6: Generate High-Resolution Visualizations
-    t0 = time.time()
-    figures_dir = os.path.join(output_dir, "figures")
-    figures = generate_all_figures(df_state, top_batters, top_bowlers, figures_dir)
-    print(f"[Pipeline] Step 6 Complete: 5 high-res figures generated at {figures_dir} ({time.time() - t0:.2f}s)")
-
-    # Step 7: Build Executive Presentation Deck (16-Page Landscape PDF)
-    t0 = time.time()
-    pdf_path = os.path.join(output_dir, "Methodology_Report_SupeRR_Selector_Season_2.pdf")
-    build_executive_deck(
-        top_batters,
-        top_bowlers,
-        figures=figures,
-        output_path=pdf_path,
-        validation_report=validation_report,
-        bootstrap_report=bootstrap_report,
+    sensitivity_metrics = run_sensitivity_analysis(
+        contrib_df, role="batting", base_top10_ids=top10_batters["player_id"].tolist()
     )
-    print(f"[Pipeline] Step 7 Complete: Executive PDF compiled at {pdf_path} ({time.time() - t0:.2f}s)")
 
-    # Step 8: Export Dropdown Selections
-    t0 = time.time()
+    # 9. Methodology Report (Markdown)
+    logger.info(f"Generating methodology report and submission tables in {cfg.reports_dir}...")
+    report_path = generate_methodology_report(
+        batters_df=top10_batters,
+        bowlers_df=top10_bowlers,
+        eval_metrics=eval_metrics,
+        sensitivity_metrics=sensitivity_metrics,
+        output_dir=cfg.reports_dir,
+    )
+    top10_batters.to_csv(cfg.artifacts_dir / "top10_batters.csv", index=False)
+    top10_bowlers.to_csv(cfg.artifacts_dir / "top10_bowlers.csv", index=False)
+
+    # 10. Unstop Compliance Validation & Dropdown Export
+    logger.info("Validating Unstop schema compliance and exporting dropdown files...")
+    validation_report = validate_unstop_compliance(top10_batters, top10_bowlers, str(cfg.raw_data_dir), strict_ten=True)
+
     csv_path, json_path = export_dropdown_rankings(
-        top_batters, top_bowlers, validation_report, output_dir
+        top10_batters, top10_bowlers, validation_report, cfg.reports_dir
     )
-    print(f"[Pipeline] Step 8 Complete: Dropdown selections exported to CSV and JSON ({time.time() - t0:.2f}s)")
 
-    # Step 9: Print Formatted Terminal Summary
     artifacts = {
-        "pdf": pdf_path,
-        "csv": csv_path,
-        "json": json_path,
-        "figures_dir": figures_dir,
+        "methodology_report": str(report_path),
+        "dropdown_csv": str(csv_path),
+        "dropdown_json": str(json_path),
+        "batters_csv": str(cfg.reports_dir / "top10_batters.csv"),
+        "bowlers_csv": str(cfg.reports_dir / "top10_bowlers.csv"),
     }
+
     elapsed_total = time.time() - start_time
-    print_terminal_summary(
-        top_batters=top_batters,
-        top_bowlers=top_bowlers,
+    print_executive_summary(
+        top_batters=top10_batters,
+        top_bowlers=top10_bowlers,
         validation_report=validation_report,
+        eval_metrics=eval_metrics,
         artifacts=artifacts,
         total_deliveries=total_deliveries,
         total_matches=total_matches,
-        high_pressure_balls=high_pressure_balls,
+        pressure_deliveries=pressure_deliveries,
         elapsed_time=elapsed_total,
     )
 
