@@ -6,12 +6,26 @@ from src.models.pressure import PressureEngine
 from src.make_splits import MatchSplits
 
 def compute_wicket_run_value(df: pd.DataFrame, base_wicket_value: float = 9.0) -> np.ndarray:
-    balls_rem = pd.to_numeric(df["legal_balls_remaining"], errors="coerce").fillna(60.0).values
-    wkts_rem = pd.to_numeric(df["wickets_remaining"], errors="coerce").fillna(5.0).values
+    if "legal_balls_remaining" in df.columns:
+        balls_rem = pd.to_numeric(df["legal_balls_remaining"], errors="coerce").fillna(60.0).values
+    else:
+        balls_rem = np.full(len(df), 60.0)
+        
+    if "wickets_remaining" in df.columns:
+        wkts_rem = pd.to_numeric(df["wickets_remaining"], errors="coerce").fillna(5.0).values
+    else:
+        wkts_rem = np.full(len(df), 5.0)
+        
+    if "batting_order" in df.columns:
+        order = pd.to_numeric(df["batting_order"], errors="coerce").fillna(4.0).clip(1, 11).values
+    else:
+        order = np.full(len(df), 4.0)
     
-    # Dynamic run value: higher with more overs & wickets left
+    # Dynamic resource factor: higher with more overs & wickets left
     factor = 0.6 + 0.25 * (balls_rem / 120.0) + 0.25 * (wkts_rem / 10.0)
-    return base_wicket_value * np.clip(factor, 0.5, 1.4)
+    # Batting order multiplier: dismissing top-order batters is worth more than tailenders
+    order_mult = np.clip(1.35 - 0.08 * order, 0.50, 1.35)
+    return base_wicket_value * np.clip(factor * order_mult, 0.45, 1.50)
 
 def compute_run_equivalent_contributions(
     df: pd.DataFrame,

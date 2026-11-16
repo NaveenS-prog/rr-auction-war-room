@@ -48,7 +48,17 @@ def generate_methodology_report(
     rmse_c = eval_metrics.get("model_c_rmse", 0.0)
     rmse_norm = eval_metrics.get("normal_baseline_rmse", 0.0)
     corr = eval_metrics.get("correlation", 0.0)
+    
+    bowl_rmse = eval_metrics.get("bowler_rmse", 0.0)
+    bowl_base = eval_metrics.get("bowler_baseline_rmse", 0.0)
+    bowl_corr = eval_metrics.get("bowler_corr", 0.0)
+    
     q_stab = sensitivity_metrics.get("quantile_stability", {})
+    
+    bowl_eval_section = ""
+    if bowl_rmse > 0:
+        b_imp = ((bowl_base - bowl_rmse) / bowl_base * 100.0) if bowl_base > 0 else 0.0
+        bowl_eval_section = f"\n- **Bowlers Holdout RMSE**: `{bowl_rmse:.4f}` vs. **Career Baseline RMSE**: `{bowl_base:.4f}` ({b_imp:.1f}% reduction, $r = {bowl_corr:.4f}$)"
     
     report_md = f"""# SupeRR Selector Season 2: Methodology & Pressure Ranking Report
 
@@ -135,8 +145,7 @@ Our evaluation system prioritizes universal data-driven merit across world T20 c
 ## 5. Reliability and Limitations
 ### 5.1 Predictive Holdout Evaluation
 To verify that our pressure ratings capture genuine repeatable skill rather than retrospective noise, we evaluated our Bayesian framework on held-out subsequent pressure situations:
-- **Bayesian Rating Holdout RMSE**: `{rmse_c:.4f}` vs. **Career Baseline RMSE**: `{rmse_norm:.4f}`
-- **Test-Set Correlation ($r$)**: `{corr:.4f}`
+- **Batters Holdout RMSE**: `{rmse_c:.4f}` vs. **Career Baseline RMSE**: `{rmse_norm:.4f}` ($r = {corr:.4f}$){bowl_eval_section}
 Our Bayesian framework achieves a noticeable reduction in prediction error on future pressure deliveries compared to unadjusted averages.
 
 ### 5.2 Sensitivity & Stability Tests

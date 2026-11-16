@@ -283,7 +283,7 @@ Speaker Notes:
 </div>
 
 <div style="margin-top: 16px; padding: 12px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 4px; font-size: 14px;">
-  <strong>Global Roster Impact:</strong> With pure merit enforced, <strong>Andre Russell</strong> (#7) anchors the Top 10 Batters, while elite wicket-takers <strong>Abrar Ahmed</strong> (#4), <strong>Haris Rauf</strong> (#5), and <strong>Abbas Afridi</strong> (#7) claim Top 10 Bowler honors.
+  <strong>Global Roster Impact:</strong> With pure merit enforced, <strong>Andre Russell</strong> (#6) and <strong>Tristan Stubbs</strong> (#10) anchor the Top 10 Batters, while elite international match-winners <strong>Nathan Ellis</strong> (#2), <strong>Haris Rauf</strong> (#3), and <strong>Sunil Narine</strong> (#4) claim Top 10 Bowler honors.
 </div>
 
 <!--
@@ -371,122 +371,122 @@ Speaker Notes:
   <tbody>
     <tr class="highlight-row">
       <td>#1</td>
-      <td><strong>Ruturaj Gaikwad</strong></td>
+      <td><strong>Shubman Gill</strong></td>
       <td>India</td>
-      <td><strong>+0.221</strong></td>
-      <td>+0.465</td>
-      <td>+0.038</td>
-      <td>+0.428</td>
-      <td>99.4%</td>
-      <td>250</td>
+      <td><strong>+0.140</strong></td>
+      <td>+0.404</td>
+      <td>+0.134</td>
+      <td>+0.269</td>
+      <td>92.6%</td>
+      <td>204</td>
     </tr>
     <tr>
       <td>#2</td>
-      <td><strong>Suryakumar Yadav</strong></td>
+      <td><strong>Ruturaj Gaikwad</strong></td>
       <td>India</td>
-      <td><strong>+0.190</strong></td>
-      <td>+0.366</td>
-      <td>+0.259</td>
-      <td>+0.107</td>
-      <td>79.8%</td>
-      <td>533</td>
+      <td><strong>+0.139</strong></td>
+      <td>+0.392</td>
+      <td>+0.017</td>
+      <td>+0.375</td>
+      <td>98.6%</td>
+      <td>250</td>
     </tr>
     <tr>
       <td>#3</td>
-      <td><strong>Shubman Gill</strong></td>
+      <td><strong>Suryakumar Yadav</strong></td>
       <td>India</td>
-      <td><strong>+0.153</strong></td>
-      <td>+0.408</td>
-      <td>+0.137</td>
-      <td>+0.272</td>
-      <td>93.8%</td>
-      <td>204</td>
+      <td><strong>+0.132</strong></td>
+      <td>+0.314</td>
+      <td>+0.238</td>
+      <td>+0.076</td>
+      <td>72.6%</td>
+      <td>533</td>
     </tr>
     <tr>
       <td>#4</td>
       <td><strong>Tim David</strong></td>
       <td>Australia</td>
-      <td><strong>+0.093</strong></td>
-      <td>+0.307</td>
-      <td>+0.306</td>
-      <td>+0.001</td>
-      <td>50.8%</td>
+      <td><strong>+0.074</strong></td>
+      <td>+0.295</td>
+      <td>+0.280</td>
+      <td>+0.015</td>
+      <td>56.0%</td>
       <td>439</td>
     </tr>
     <tr>
       <td>#5</td>
-      <td><strong>Ishan Kishan</strong></td>
-      <td>India</td>
-      <td><strong>+0.081</strong></td>
-      <td>+0.291</td>
-      <td>+0.006</td>
-      <td>+0.286</td>
-      <td>95.4%</td>
-      <td>245</td>
-    </tr>
-    <tr>
-      <td>#6</td>
       <td><strong>Rajat Patidar</strong></td>
       <td>India</td>
-      <td><strong>+0.063</strong></td>
-      <td>+0.314</td>
-      <td>+0.192</td>
-      <td>+0.122</td>
-      <td>78.0%</td>
+      <td><strong>+0.031</strong></td>
+      <td>+0.290</td>
+      <td>+0.189</td>
+      <td>+0.101</td>
+      <td>73.6%</td>
       <td>249</td>
     </tr>
     <tr>
-      <td>#7</td>
+      <td>#6</td>
       <td><strong>Andre Russell</strong></td>
       <td>West Indies</td>
-      <td><strong>+0.058</strong></td>
-      <td>+0.299</td>
-      <td>+0.150</td>
-      <td>+0.149</td>
-      <td>86.6%</td>
+      <td><strong>+0.017</strong></td>
+      <td>+0.266</td>
+      <td>+0.087</td>
+      <td>+0.179</td>
+      <td>90.0%</td>
       <td>363</td>
+    </tr>
+    <tr>
+      <td>#7</td>
+      <td><strong>Ishan Kishan</strong></td>
+      <td>India</td>
+      <td><strong>-0.000</strong></td>
+      <td>+0.216</td>
+      <td>+0.007</td>
+      <td>+0.209</td>
+      <td>88.4%</td>
+      <td>245</td>
     </tr>
     <tr>
       <td>#8</td>
       <td><strong>Tilak Varma</strong></td>
       <td>India</td>
-      <td><strong>+0.028</strong></td>
-      <td>+0.173</td>
-      <td>+0.109</td>
-      <td>+0.064</td>
-      <td>75.4%</td>
+      <td><strong>-0.004</strong></td>
+      <td>+0.145</td>
+      <td>+0.057</td>
+      <td>+0.089</td>
+      <td>81.8%</td>
       <td>745</td>
     </tr>
     <tr>
       <td>#9</td>
       <td><strong>Marcus Stoinis</strong></td>
       <td>Australia</td>
-      <td><strong>+0.020</strong></td>
-      <td>+0.243</td>
-      <td>+0.042</td>
-      <td>+0.201</td>
-      <td>94.8%</td>
+      <td><strong>-0.008</strong></td>
+      <td>+0.222</td>
+      <td>+0.025</td>
+      <td>+0.198</td>
+      <td>94.0%</td>
       <td>448</td>
     </tr>
     <tr>
       <td>#10</td>
-      <td><strong>Heinrich Klaasen</strong></td>
+      <td><strong>Tristan Stubbs</strong></td>
       <td>South Africa</td>
-      <td><strong>+0.009</strong></td>
-      <td>+0.207</td>
-      <td>+0.243</td>
-      <td>-0.036</td>
-      <td>41.6%</td>
-      <td>438</td>
+      <td><strong>-0.034</strong></td>
+      <td>+0.189</td>
+      <td>+0.100</td>
+      <td>+0.089</td>
+      <td>72.4%</td>
+      <td>347</td>
     </tr>
   </tbody>
 </table>
 
 <!--
 Speaker Notes:
-- Ruturaj Gaikwad ranks #1 because of an extraordinary +0.428 run-equivalent uplift across 250 pressure balls.
-- Suryakumar Yadav absorbs the heaviest volume (533 balls) with a world-class normal baseline (+0.259) and still finds positive uplift.
-- Tilak Varma absorbed an astounding 745 pressure balls (54 matches), cementing his reputation as an elite young anchor under pressure.
+- Shubman Gill and Ruturaj Gaikwad rank #1 and #2 because of extraordinary run-equivalent uplifts (+0.269 and +0.375) across 200+ pressure balls.
+- Suryakumar Yadav absorbs the heaviest volume (533 balls) with a world-class normal baseline (+0.238) and consistent clutch performance.
+- Tilak Varma absorbed an astounding 745 pressure balls (54 matches), cementing his reputation as an elite young savior under pressure.
 -->
 
 ---
@@ -497,9 +497,9 @@ Speaker Notes:
 <div class="grid-2">
   <div class="feature-box" style="border-left-color: var(--color-rr-pink);">
     <h3>The Anchor-Elevators (Top Order Chasers)</h3>
-    <p style="font-size: 14.5px;"><strong>Ruturaj Gaikwad (#1), Shubman Gill (#3), Ishan Kishan (#5)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Shubman Gill (#1), Ruturaj Gaikwad (#2), Ishan Kishan (#7)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
-      <li>Exhibit massive personal clutch uplifts ($+0.27$ to $+0.43$ runs/ball).</li>
+      <li>Exhibit massive personal clutch uplifts ($+0.21$ to $+0.38$ runs/ball).</li>
       <li>Control run-chases by accelerating precisely when required run rates spike.</li>
       <li>Very low dismissal hazard in high-leverage powerplays and middle overs.</li>
     </ul>
@@ -508,11 +508,11 @@ Speaker Notes:
 
   <div class="feature-box" style="border-left-color: var(--color-rr-blue);">
     <h3>The Death Finishers & Power Enforcers</h3>
-    <p style="font-size: 14.5px;"><strong>Tim David (#4), Andre Russell (#7), Heinrich Klaasen (#10)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Suryakumar Yadav (#3), Tim David (#4), Andre Russell (#6), Tristan Stubbs (#10)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
       <li>Operate against the highest bowling pressure (death overs 16–20 and high-leverage chases).</li>
-      <li>Elite normal baselines ($+0.15$ to $+0.31$ above par) mean they score at blistering strike rates naturally.</li>
-      <li>Andre Russell (+0.149 uplift, 86.6% certainty across 363 pressure balls) remains the gold standard for pure boundary striking under extreme leverage.</li>
+      <li>Elite normal baselines ($+0.10$ to $+0.28$ above par) mean they score at blistering strike rates naturally.</li>
+      <li>Andre Russell (+0.179 uplift, 90.0% certainty across 363 pressure balls) and Tristan Stubbs (+0.089 uplift across 347 balls) remain premier boundary strikers under extreme leverage.</li>
     </ul>
     <span class="tag tag-blue">War Room Target: High-ceiling match-closers</span>
   </div>
@@ -556,110 +556,110 @@ Speaker Notes:
       <td>#1</td>
       <td><strong>Jasprit Bumrah</strong></td>
       <td>India</td>
-      <td><strong>+0.361</strong></td>
-      <td>+0.557</td>
-      <td>+0.120</td>
-      <td>+0.437</td>
+      <td><strong>+0.351</strong></td>
+      <td>+0.554</td>
+      <td>+0.130</td>
+      <td>+0.423</td>
       <td>100.0%</td>
       <td>404</td>
     </tr>
     <tr>
       <td>#2</td>
-      <td><strong>Haris Rauf</strong></td>
-      <td>Pakistan</td>
-      <td><strong>+0.213</strong></td>
-      <td>+0.449</td>
-      <td>+0.059</td>
-      <td>+0.390</td>
-      <td>99.2%</td>
-      <td>276</td>
+      <td><strong>Nathan Ellis</strong></td>
+      <td>Australia</td>
+      <td><strong>+0.136</strong></td>
+      <td>+0.399</td>
+      <td>+0.178</td>
+      <td>+0.221</td>
+      <td>88.4%</td>
+      <td>223</td>
     </tr>
     <tr>
       <td>#3</td>
-      <td><strong>Nathan Ellis</strong></td>
-      <td>Australia</td>
-      <td><strong>+0.147</strong></td>
-      <td>+0.403</td>
-      <td>+0.071</td>
-      <td>+0.332</td>
-      <td>96.2%</td>
-      <td>223</td>
+      <td><strong>Haris Rauf</strong></td>
+      <td>Pakistan</td>
+      <td><strong>+0.124</strong></td>
+      <td>+0.368</td>
+      <td>+0.077</td>
+      <td>+0.291</td>
+      <td>95.2%</td>
+      <td>276</td>
     </tr>
     <tr>
       <td>#4</td>
       <td><strong>Sunil Narine</strong></td>
       <td>West Indies</td>
-      <td><strong>+0.139</strong></td>
-      <td>+0.377</td>
-      <td>+0.162</td>
-      <td>+0.215</td>
-      <td>89.8%</td>
+      <td><strong>+0.100</strong></td>
+      <td>+0.345</td>
+      <td>+0.165</td>
+      <td>+0.180</td>
+      <td>84.6%</td>
       <td>273</td>
     </tr>
     <tr>
       <td>#5</td>
-      <td><strong>Wanindu Hasaranga</strong></td>
-      <td>Sri Lanka</td>
-      <td><strong>+0.137</strong></td>
-      <td>+0.324</td>
-      <td>+0.110</td>
-      <td>+0.215</td>
-      <td>94.0%</td>
-      <td>429</td>
+      <td><strong>Harshal Patel</strong></td>
+      <td>India</td>
+      <td><strong>+0.092</strong></td>
+      <td>+0.304</td>
+      <td>-0.048</td>
+      <td>+0.352</td>
+      <td>99.0%</td>
+      <td>433</td>
     </tr>
     <tr>
       <td>#6</td>
-      <td><strong>Kuldeep Yadav</strong></td>
-      <td>India</td>
-      <td><strong>+0.082</strong></td>
-      <td>+0.283</td>
-      <td>+0.094</td>
-      <td>+0.189</td>
-      <td>89.8%</td>
-      <td>404</td>
+      <td><strong>Wanindu Hasaranga</strong></td>
+      <td>Sri Lanka</td>
+      <td><strong>+0.080</strong></td>
+      <td>+0.273</td>
+      <td>+0.019</td>
+      <td>+0.254</td>
+      <td>96.8%</td>
+      <td>429</td>
     </tr>
     <tr>
       <td>#7</td>
       <td><strong>Matheesha Pathirana</strong></td>
       <td>Sri Lanka</td>
-      <td><strong>+0.043</strong></td>
-      <td>+0.255</td>
-      <td>+0.102</td>
-      <td>+0.153</td>
-      <td>86.6%</td>
+      <td><strong>+0.056</strong></td>
+      <td>+0.275</td>
+      <td>+0.135</td>
+      <td>+0.140</td>
+      <td>82.2%</td>
       <td>400</td>
     </tr>
     <tr>
       <td>#8</td>
-      <td><strong>Harshal Patel</strong></td>
+      <td><strong>Kuldeep Yadav</strong></td>
       <td>India</td>
-      <td><strong>+0.024</strong></td>
-      <td>+0.230</td>
-      <td>-0.105</td>
-      <td>+0.335</td>
-      <td>99.0%</td>
-      <td>433</td>
+      <td><strong>+0.013</strong></td>
+      <td>+0.220</td>
+      <td>+0.044</td>
+      <td>+0.175</td>
+      <td>89.0%</td>
+      <td>404</td>
     </tr>
     <tr>
       <td>#9</td>
-      <td><strong>Ravi Bishnoi</strong></td>
+      <td><strong>Bhuvneshwar Kumar</strong></td>
       <td>India</td>
-      <td><strong>+0.016</strong></td>
-      <td>+0.200</td>
-      <td>+0.021</td>
-      <td>+0.179</td>
-      <td>91.0%</td>
-      <td>369</td>
+      <td><strong>+0.012</strong></td>
+      <td>+0.206</td>
+      <td>+0.047</td>
+      <td>+0.159</td>
+      <td>87.6%</td>
+      <td>374</td>
     </tr>
     <tr>
       <td>#10</td>
       <td><strong>Mustafizur Rahman</strong></td>
       <td>Bangladesh</td>
-      <td><strong>+0.013</strong></td>
-      <td>+0.220</td>
-      <td>+0.066</td>
-      <td>+0.154</td>
-      <td>90.2%</td>
+      <td><strong>-0.007</strong></td>
+      <td>+0.207</td>
+      <td>+0.071</td>
+      <td>+0.136</td>
+      <td>85.8%</td>
       <td>499</td>
     </tr>
   </tbody>
@@ -667,9 +667,9 @@ Speaker Notes:
 
 <!--
 Speaker Notes:
-- Jasprit Bumrah is the undisputed #1 pressure bowler on the planet (+0.361 score, 100% positive uplift certainty over 404 pressure balls).
-- Sean Abbott (+0.239) and Mitchell Starc (+0.231) deliver elite strike power.
-- Global evaluation restores premier express pace and mystery spin: Abrar Ahmed (#4), Haris Rauf (#5), and Abbas Afridi (#7).
+- Jasprit Bumrah is the undisputed #1 pressure bowler on the planet (+0.351 score, 100% positive uplift certainty over 404 pressure balls).
+- Nathan Ellis (+0.136) and Haris Rauf (+0.124) provide world-class death execution and express strike impact.
+- Global evaluation restores premier express pace and mystery spin: Sunil Narine (#4), Harshal Patel (#5), and Wanindu Hasaranga (#6).
 -->
 
 ---
@@ -683,18 +683,18 @@ Speaker Notes:
 <div class="grid-2">
   <div class="feature-box" style="border-left-color: var(--color-rr-pink);">
     <h3>Cluster 1: Death Yorker & Angle Disruptors</h3>
-    <p style="font-size: 14.5px;"><strong>Jasprit Bumrah (#1), Nathan Ellis (#3), Matheesha Pathirana (#7)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Jasprit Bumrah (#1), Nathan Ellis (#2), Matheesha Pathirana (#7)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
       <li>Low release angles, sling mechanics, and pinpoint trajectory disruption.</li>
       <li>Execute toe-crushing yorkers and wide line discipline under pressure.</li>
-      <li>Concede 2.4 runs/over below phase par in overs 18–20 across 1,000+ combined pressure balls.</li>
+      <li>Concede 2.4 runs/over below phase par in overs 18–20 across 1,027 combined pressure balls.</li>
     </ul>
     <span class="tag tag-pink">Role: Primary Match Defending Closers</span>
   </div>
 
   <div class="feature-box" style="border-left-color: var(--color-rr-blue);">
     <h3>Cluster 2: Express Strike & Death Velocity</h3>
-    <p style="font-size: 14.5px;"><strong>Haris Rauf (#2), Mustafizur Rahman (#10)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Haris Rauf (#3), Mustafizur Rahman (#10)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
       <li>145+ kph express pace paired with deceptive off-cutters and heavy bouncers.</li>
       <li>High-volume strike execution (276 & 499 pressure balls).</li>
@@ -705,22 +705,22 @@ Speaker Notes:
 
   <div class="feature-box" style="border-left-color: #6366F1;">
     <h3>Cluster 3: Mystery Spin & Middle Clamps</h3>
-    <p style="font-size: 14.5px;"><strong>Sunil Narine (#4), Wanindu Hasaranga (#5), Kuldeep Yadav (#6), Ravi Bishnoi (#9)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Sunil Narine (#4), Wanindu Hasaranga (#6), Kuldeep Yadav (#8)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
       <li>Concealed wrist/finger spin revolutions with minimal trajectory deviation.</li>
       <li>Suppress boundary flow during critical middle overs 7–15.</li>
-      <li>Over 1,400 combined pressure balls with sustained sub-par economy.</li>
+      <li>Over 1,100 combined pressure balls with sustained sub-par economy.</li>
     </ul>
     <span class="tag" style="background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE;">Role: Middle Squeeze & Choke</span>
   </div>
 
   <div class="feature-box" style="border-left-color: #F59E0B;">
     <h3>Cluster 4: Deceptive Changeup Cutters</h3>
-    <p style="font-size: 14.5px;"><strong>Harshal Patel (#8)</strong></p>
+    <p style="font-size: 14.5px;"><strong>Harshal Patel (#5), Bhuvneshwar Kumar (#9)</strong></p>
     <ul style="font-size: 14px; padding-left: 18px; margin: 6px 0;">
       <li>Wide-line slower-ball dippers and off-cutter variations.</li>
       <li>Forces mistimed aerial shots at the boundary.</li>
-      <li>433 pressure balls, +0.335 uplift, Purple Cap winning pedigree.</li>
+      <li>807 combined pressure balls, Purple Cap pedigree, and masterclass penultimate over containment.</li>
     </ul>
     <span class="tag" style="background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A;">Role: Death Wicket Aggregator</span>
   </div>
@@ -729,7 +729,7 @@ Speaker Notes:
 <!--
 Speaker Notes:
 - Giles and Kumar will love this high-volume clustering: Every single bowler has proven sample depth (200+ to 500+ pressure balls).
-- Pair Bumrah/Ellis/Pathirana at the death with a middle-overs clamp (Narine/Kuldeep/Hasaranga/Bishnoi) and high pace (Rauf).
+- Pair Bumrah/Ellis/Pathirana at the death with a middle-overs clamp (Narine/Kuldeep/Hasaranga) and high pace (Rauf).
 -->
 
 ---
@@ -744,10 +744,10 @@ Speaker Notes:
       Our Bayesian reliability framework was evaluated on held-out subsequent pressure deliveries with zero data leakage:
     </p>
     <ul style="font-size: 15px; padding-left: 20px;">
-      <li><strong>Holdout Test RMSE</strong>: <code>1.3635</code></li>
-      <li><strong>Career Baseline RMSE</strong>: <code>1.7622</code></li>
-      <li><strong>Forecasting Error Reduction</strong>: <span style="color: #059669; font-weight: bold;">-22.6%</span></li>
-      <li><strong>Test-Set Pearson Correlation ($r$)</strong>: <code>0.6579</code></li>
+      <li><strong>Batters Holdout RMSE</strong>: <code>1.3688</code> vs Base <code>1.6965</code> (<span style="color: #059669; font-weight: bold;">-19.3%</span>, $r = 0.6400$)</li>
+      <li><strong>Bowlers Holdout RMSE</strong>: <code>0.9131</code> vs Base <code>1.0757</code> (<span style="color: #059669; font-weight: bold;">-15.1%</span>, $r = 0.6426$)</li>
+      <li><strong>Test Player Sample</strong>: 517 untouched test players across 174 held-out matches</li>
+      <li><strong>Validation Proof</strong>: Opponent-adjusted trees deliver superior calibration</li>
     </ul>
     <p style="font-size: 13.5px; color: var(--color-text-muted);">
       Confirms that our pressure scores measure genuine repeatable ability rather than noise.
@@ -766,16 +766,16 @@ Speaker Notes:
 
 <div class="kpi-container" style="margin-top: 20px;">
   <div class="kpi-card" style="border-top-color: #10B981;">
-    <div class="kpi-value" style="color: #059669;">22.6%</div>
-    <div class="kpi-label">Lower Prediction Error</div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-value">0.658</div>
-    <div class="kpi-label">Holdout Correlation</div>
+    <div class="kpi-value" style="color: #059669;">19.3%</div>
+    <div class="kpi-label">Batters Error Drop</div>
   </div>
   <div class="kpi-card" style="border-top-color: var(--color-rr-blue);">
-    <div class="kpi-value">≥80%</div>
-    <div class="kpi-label">Jackknife Stability</div>
+    <div class="kpi-value" style="color: #001D48;">15.1%</div>
+    <div class="kpi-label">Bowlers Error Drop</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">0.641</div>
+    <div class="kpi-label">Holdout Correlation</div>
   </div>
   <div class="kpi-card" style="border-top-color: var(--color-rr-pink);">
     <div class="kpi-value">20 / 20</div>

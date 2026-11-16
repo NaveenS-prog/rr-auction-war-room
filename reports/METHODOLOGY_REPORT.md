@@ -75,43 +75,43 @@ Our evaluation system prioritizes universal data-driven merit across world T20 c
 ### 4.1 Top 10 Batters Under Pressure
 | rank | player_id | player_name | nationality | conservative_score | pressure_ability_mean | normal_ability_mean | pressure_uplift_mean | prob_positive_uplift | pressure_balls | pressure_matches |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 6059 | Ruturaj Gaikwad | India | 0.22 | 0.47 | 0.04 | 0.43 | 0.99 | 250 | 16 |
-| 2 | 1699 | Suryakumar Yadav | India | 0.19 | 0.37 | 0.26 | 0.11 | 0.80 | 533 | 46 |
-| 3 | 6288 | Shubman Gill | India | 0.15 | 0.41 | 0.14 | 0.27 | 0.94 | 204 | 18 |
-| 4 | 6396 | Tim David | Australia | 0.09 | 0.31 | 0.31 | 0.00 | 0.51 | 439 | 44 |
-| 5 | 4117 | Ishan Kishan | India | 0.08 | 0.29 | 0.01 | 0.29 | 0.95 | 245 | 22 |
-| 6 | 5039 | Rajat Patidar | India | 0.06 | 0.31 | 0.19 | 0.12 | 0.78 | 249 | 20 |
-| 7 | 1318 | Andre Russell | West Indies | 0.06 | 0.30 | 0.15 | 0.15 | 0.87 | 363 | 30 |
-| 8 | 7897 | Namboori Tilak Varma | India | 0.03 | 0.17 | 0.11 | 0.06 | 0.75 | 745 | 54 |
-| 9 | 2639 | Marcus Stoinis | Australia | 0.02 | 0.24 | 0.04 | 0.20 | 0.95 | 448 | 38 |
-| 10 | 4260 | Heinrich Klaasen | South Africa | 0.01 | 0.21 | 0.24 | -0.04 | 0.42 | 438 | 29 |
+| 1 | 6288 | Shubman Gill | India | 0.14 | 0.40 | 0.13 | 0.27 | 0.93 | 204 | 18 |
+| 2 | 6059 | Ruturaj Gaikwad | India | 0.14 | 0.39 | 0.02 | 0.37 | 0.99 | 250 | 16 |
+| 3 | 1699 | Suryakumar Yadav | India | 0.13 | 0.31 | 0.24 | 0.08 | 0.73 | 533 | 46 |
+| 4 | 6396 | Tim David | Australia | 0.07 | 0.29 | 0.28 | 0.01 | 0.56 | 439 | 44 |
+| 5 | 5039 | Rajat Patidar | India | 0.03 | 0.29 | 0.19 | 0.10 | 0.74 | 249 | 20 |
+| 6 | 1318 | Andre Russell | West Indies | 0.02 | 0.27 | 0.09 | 0.18 | 0.90 | 363 | 30 |
+| 7 | 4117 | Ishan Kishan | India | -0.00 | 0.22 | 0.01 | 0.21 | 0.88 | 245 | 22 |
+| 8 | 7897 | Namboori Tilak Varma | India | -0.00 | 0.15 | 0.06 | 0.09 | 0.82 | 745 | 54 |
+| 9 | 2639 | Marcus Stoinis | Australia | -0.01 | 0.22 | 0.02 | 0.20 | 0.94 | 448 | 38 |
+| 10 | 20702 | Tristan Stubbs | South Africa | -0.03 | 0.19 | 0.10 | 0.09 | 0.72 | 347 | 29 |
 
 ### 4.2 Top 10 Bowlers Under Pressure
 | rank | player_id | player_name | nationality | conservative_score | pressure_ability_mean | normal_ability_mean | pressure_uplift_mean | prob_positive_uplift | pressure_balls | pressure_matches |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 2933 | Jasprit Bumrah | India | 0.36 | 0.56 | 0.12 | 0.44 | 1.00 | 404 | 35 |
-| 2 | 7364 | Haris Rauf | Pakistan | 0.21 | 0.45 | 0.06 | 0.39 | 0.99 | 276 | 23 |
-| 3 | 7920 | Nathan Ellis | Australia | 0.15 | 0.40 | 0.07 | 0.33 | 0.96 | 223 | 21 |
-| 4 | 781 | Sunil Narine | West Indies | 0.14 | 0.38 | 0.16 | 0.21 | 0.90 | 273 | 26 |
-| 5 | 4900 | Wanindu Hasaranga | Sri Lanka | 0.14 | 0.32 | 0.11 | 0.21 | 0.94 | 429 | 39 |
-| 6 | 3644 | Kuldeep Yadav | India | 0.08 | 0.28 | 0.09 | 0.19 | 0.90 | 404 | 40 |
-| 7 | 8661 | Matheesha Pathirana | Sri Lanka | 0.04 | 0.25 | 0.10 | 0.15 | 0.87 | 400 | 24 |
-| 8 | 2261 | Harshal Patel | India | 0.02 | 0.23 | -0.11 | 0.34 | 0.99 | 433 | 35 |
-| 9 | 7503 | Ravi Bishnoi | India | 0.02 | 0.20 | 0.02 | 0.18 | 0.91 | 369 | 34 |
-| 10 | 4373 | Mustafizur Rahman | Bangladesh | 0.01 | 0.22 | 0.07 | 0.15 | 0.90 | 499 | 41 |
+| 1 | 2933 | Jasprit Bumrah | India | 0.35 | 0.55 | 0.13 | 0.42 | 1.00 | 404 | 35 |
+| 2 | 7920 | Nathan Ellis | Australia | 0.14 | 0.40 | 0.18 | 0.22 | 0.88 | 223 | 21 |
+| 3 | 7364 | Haris Rauf | Pakistan | 0.12 | 0.37 | 0.08 | 0.29 | 0.95 | 276 | 23 |
+| 4 | 781 | Sunil Narine | West Indies | 0.10 | 0.35 | 0.17 | 0.18 | 0.85 | 273 | 26 |
+| 5 | 2261 | Harshal Patel | India | 0.09 | 0.30 | -0.05 | 0.35 | 0.99 | 433 | 35 |
+| 6 | 4900 | Wanindu Hasaranga | Sri Lanka | 0.08 | 0.27 | 0.02 | 0.25 | 0.97 | 429 | 39 |
+| 7 | 8661 | Matheesha Pathirana | Sri Lanka | 0.06 | 0.27 | 0.14 | 0.14 | 0.82 | 400 | 24 |
+| 8 | 3644 | Kuldeep Yadav | India | 0.01 | 0.22 | 0.04 | 0.18 | 0.89 | 404 | 40 |
+| 9 | 360 | Bhuvneshwar Kumar | India | 0.01 | 0.21 | 0.05 | 0.16 | 0.88 | 374 | 40 |
+| 10 | 4373 | Mustafizur Rahman | Bangladesh | -0.01 | 0.21 | 0.07 | 0.14 | 0.86 | 499 | 41 |
 
 ---
 
 ## 5. Reliability and Limitations
 ### 5.1 Predictive Holdout Evaluation
 To verify that our pressure ratings capture genuine repeatable skill rather than retrospective noise, we evaluated our Bayesian framework on held-out subsequent pressure situations:
-- **Bayesian Rating Holdout RMSE**: `1.3635` vs. **Career Baseline RMSE**: `1.7622`
-- **Test-Set Correlation ($r$)**: `0.6579`
+- **Batters Holdout RMSE**: `1.3688` vs. **Career Baseline RMSE**: `1.6965` ($r = 0.6400$)
+- **Bowlers Holdout RMSE**: `0.9131` vs. **Career Baseline RMSE**: `1.0757` (15.1% reduction, $r = 0.6426$)
 Our Bayesian framework achieves a noticeable reduction in prediction error on future pressure deliveries compared to unadjusted averages.
 
 ### 5.2 Sensitivity & Stability Tests
 Top-10 selection stability was tested across parameter variations:
-- **Quantile Cutoffs**: Jaccard similarity across $Q_{0.05}$, $Q_{0.10}$, and $Q_{0.20}$: `{'Q_0.05': 0.25, 'Q_0.10': 0.25, 'Q_0.20': 0.05263157894736842}`
+- **Quantile Cutoffs**: Jaccard similarity across $Q_{0.05}$, $Q_{0.10}$, and $Q_{0.20}$: `{'Q_0.05': 0.3333333333333333, 'Q_0.10': 0.25, 'Q_0.20': 0.1111111111111111}`
 - **Jackknife Match Test**: Dropping each player's single best match resulted in $\ge 80\%$ top-10 preservation, confirming that rankings are not driven by single-innings flukes.
 
 ### 5.3 Limitations

@@ -232,7 +232,16 @@ def print_executive_summary(
     rmse_b = eval_metrics.get("normal_baseline_rmse", 0.0)
     corr = eval_metrics.get("correlation", 0.0)
     improvement = ((rmse_b - rmse_c) / rmse_b * 100.0) if rmse_b > 0 else 0.0
-    print(f" [EVALUATION] Predictive Holdout RMSE: {rmse_c:.4f} vs Baseline: {rmse_b:.4f} ({improvement:.1f}% error reduction, r = {corr:.4f})")
+    
+    b_rmse = eval_metrics.get("bowler_rmse", 0.0)
+    b_base = eval_metrics.get("bowler_baseline_rmse", 0.0)
+    b_corr = eval_metrics.get("bowler_corr", 0.0)
+    b_imp = ((b_base - b_rmse) / b_base * 100.0) if b_base > 0 else 0.0
+    
+    print(f" [EVALUATION] Out-of-Sample Holdout Validity (Untouched Chronological Test Matches):")
+    print(f"  - Batters Holdout RMSE: {rmse_c:.4f} vs Baseline: {rmse_b:.4f} ({improvement:.1f}% error reduction, r = {corr:.4f})")
+    if b_rmse > 0:
+        print(f"  - Bowlers Holdout RMSE: {b_rmse:.4f} vs Baseline: {b_base:.4f} ({b_imp:.1f}% error reduction, r = {b_corr:.4f})")
     print(sub_sep)
 
     # 1. Top 10 Batters Table
@@ -406,18 +415,36 @@ def main() -> int:
 
     ranker = RankingEngine(eligibility=eligibility_to_use)
     batters_leaderboard = ranker.generate_leaderboard(batters_ratings, press_bat_matches, player_meta)
-    bowlers_leaderboard = ranker.generate_leaderboard(bowlers_ratings, press_bowl_matches, player_meta)
-
     top10_batters = ranker.get_top_10(batters_leaderboard)
-    top10_bowlers = ranker.get_top_10(bowlers_leaderboard)
+
+    # Exclude players already selected in Top 10 Batters to ensure 20 distinct superstars across both disciplines
+    selected_batter_ids = top10_batters["player_id"].tolist()
+    bowl_eligibility = dict(eligibility_to_use)
+    bowl_eligibility["exclude_player_ids"] = list(set(bowl_eligibility.get("exclude_player_ids", []) + selected_batter_ids))
+    bowl_ranker = RankingEngine(eligibility=bowl_eligibility)
+    bowlers_leaderboard = bowl_ranker.generate_leaderboard(bowlers_ratings, press_bowl_matches, player_meta)
+    top10_bowlers = bowl_ranker.get_top_10(bowlers_leaderboard)
 
     # 8. Evaluation & Sensitivity
     logger.info("Evaluating predictive holdout performance on untouched test matches...")
     test_deliveries = splits.get_split_deliveries(contrib_df, "test")
-    eval_metrics = evaluate_predictive_validity(
+    eval_bat = evaluate_predictive_validity(
         batters_ratings, test_deliveries, target_col="v_bat", player_col="striker_id"
     )
-    logger.info(f"Predictive validity: Model C RMSE = {eval_metrics.get('model_c_rmse', 0):.4f}, Correlation = {eval_metrics.get('correlation', 0):.4f}")
+    eval_bowl = evaluate_predictive_validity(
+        bowlers_ratings, test_deliveries, target_col="v_bowl", player_col="bowler_id"
+    )
+    eval_metrics = {
+        **eval_bat,
+        "batter_rmse": eval_bat.get("model_c_rmse", 0.0),
+        "batter_baseline_rmse": eval_bat.get("normal_baseline_rmse", 0.0),
+        "batter_corr": eval_bat.get("correlation", 0.0),
+        "bowler_rmse": eval_bowl.get("model_c_rmse", 0.0),
+        "bowler_baseline_rmse": eval_bowl.get("normal_baseline_rmse", 0.0),
+        "bowler_corr": eval_bowl.get("correlation", 0.0),
+    }
+    logger.info(f"Predictive validity (Batters): RMSE = {eval_bat.get('model_c_rmse', 0):.4f}, Correlation = {eval_bat.get('correlation', 0):.4f}")
+    logger.info(f"Predictive validity (Bowlers): RMSE = {eval_bowl.get('model_c_rmse', 0):.4f}, Correlation = {eval_bowl.get('correlation', 0):.4f}")
 
     sensitivity_metrics = run_sensitivity_analysis(
         contrib_df, role="batting", base_top10_ids=top10_batters["player_id"].tolist()

@@ -36,3 +36,42 @@ def test_expectation_models_fit_and_predict():
     assert len(bowl_exp.expected_conceded) == n
     assert (bowl_exp.expected_conceded >= 0).all()
     assert (bowl_exp.wicket_prob >= 0).all() and (bowl_exp.wicket_prob <= 1).all()
+
+def test_opponent_adjusted_features_and_priors():
+    """Verify that player IDs, batting order, and pace/spin features are properly extracted and prior-adjusted."""
+    n = 100
+    df = pd.DataFrame({
+        "innings": [1] * n,
+        "legal_balls_remaining": [60] * n,
+        "wickets_remaining": [5] * n,
+        "runs_before": [80] * n,
+        "required_run_rate": [0.0] * n,
+        "current_run_rate": [8.0] * n,
+        "is_legal_delivery": [True] * n,
+        "runs_off_bat": [1] * n,
+        "wides": [0] * n,
+        "no_balls": [0] * n,
+        "striker_dismissed": [0] * n,
+        "bowler_credited_wicket": [0] * n,
+        "total_runs": [1] * n,
+        "striker_id": [101] * (n // 2) + [102] * (n // 2),
+        "bowler_id": [201] * (n // 2) + [202] * (n // 2),
+        "batting_order": [1] * (n // 2) + [9] * (n // 2),
+        "pace_or_spin": ["Pace"] * (n // 2) + ["Spin"] * (n // 2),
+    })
+    
+    pipeline = ExpectationModelPipeline()
+    pipeline.fit(df)
+    assert pipeline.is_fitted
+    assert len(pipeline.bowler_priors) == 2
+    assert len(pipeline.batter_priors) == 2
+    
+    bat_features = pipeline._extract_batting_features(df)
+    assert "opp_bowler_econ" in bat_features.columns
+    assert "opp_bowler_wkt" in bat_features.columns
+    assert "batting_order" in bat_features.columns
+    assert "is_spin" in bat_features.columns
+    
+    bowl_features = pipeline._extract_bowling_features(df)
+    assert "opp_batter_sr" in bowl_features.columns
+    assert "opp_batter_dis" in bowl_features.columns

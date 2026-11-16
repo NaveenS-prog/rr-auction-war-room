@@ -114,10 +114,10 @@ class RankingEngine:
         min_tot = self.eligibility.get("min_total_balls", 100)
         min_press = self.eligibility.get("min_pressure_balls", 40)
         min_matches = self.eligibility.get("min_pressure_matches", 8)
-        exclude_teams = self.eligibility.get("exclude_teams", ["Pakistan", "Pakistan A"])
+        exclude_teams = self.eligibility.get("exclude_teams", [])
         exclusion_reason = self.eligibility.get(
             "exclusion_reason",
-            "IPL Auction Ineligibility: BCCI regulatory policy restrictions"
+            "Ineligibility: Tournament roster restrictions"
         )
 
         # Identify players who have represented excluded teams/nations or retired players

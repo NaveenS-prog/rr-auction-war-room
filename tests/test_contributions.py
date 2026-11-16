@@ -26,6 +26,19 @@ def test_compute_run_equivalent_contributions():
     # v_bat must be greater than r_runs due to survival bonus
     assert result.iloc[0]["v_bat"] > result.iloc[0]["r_runs"]
 
+def test_compute_wicket_run_value_order_scaling():
+    """Verify that dismissing a top-order batter is priced higher than a tailender."""
+    from src.contributions import compute_wicket_run_value
+    df_top = pd.DataFrame([{"legal_balls_remaining": 60, "wickets_remaining": 5, "batting_order": 1}])
+    df_tail = pd.DataFrame([{"legal_balls_remaining": 60, "wickets_remaining": 5, "batting_order": 10}])
+    
+    val_top = compute_wicket_run_value(df_top, base_wicket_value=9.0)[0]
+    val_tail = compute_wicket_run_value(df_tail, base_wicket_value=9.0)[0]
+    
+    assert val_top > val_tail
+    assert val_top > 9.0
+    assert val_tail < 9.0
+
 def test_generate_out_of_sample_contributions_pipeline():
     # Synthetic mini-match dataset with 4 matches
     data = []
