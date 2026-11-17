@@ -9,8 +9,7 @@ const playersData = [
     id: 6288,
     name: 'Shubman Gill',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: 0.1401,
     pressureAbility: 0.4035,
@@ -23,8 +22,8 @@ const playersData = [
     archetype: 'Anchor-Elevator',
     cluster: 'Top Order Chasers',
     auctionPrice: 16.5,
-    radar: [88, 92, 85, 93, 76, 82], // Floor, Peak, Uplift, Certainty, Sample, Baseline
-    scouting: 'Masterful anchor who elevates precisely when required rate spikes. Exceptionally low dismissal hazard in high-leverage chases, controlling tempo through field placements.',
+    radar: [88, 92, 85, 93, 76, 82],
+    scouting: 'Masterful anchor who elevates precisely when required run rate spikes. Exhibits exceptionally low dismissal hazard in high-leverage chases, controlling tempo through precise field manipulation.',
     phaseSplit: { powerplay: '+0.12', middle: '+0.18', death: '+0.27' },
     status: 'Retained Franchise Core'
   },
@@ -34,8 +33,7 @@ const playersData = [
     id: 6059,
     name: 'Ruturaj Gaikwad',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: 0.1394,
     pressureAbility: 0.3920,
@@ -59,8 +57,7 @@ const playersData = [
     id: 1699,
     name: 'Suryakumar Yadav',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: 0.1318,
     pressureAbility: 0.3140,
@@ -84,8 +81,7 @@ const playersData = [
     id: 6396,
     name: 'Tim David',
     team: 'Australia',
-    nationality: 'Australia',
-    flag: '🇦🇺',
+    countryCode: 'AUS',
     isOverseas: true,
     score: 0.0738,
     pressureAbility: 0.2946,
@@ -99,7 +95,7 @@ const playersData = [
     cluster: 'Death Finishers',
     auctionPrice: 9.5,
     radar: [72, 85, 55, 56, 88, 97],
-    scouting: 'Elite normal baseline (+0.280) allows him to clear boundaries against frontline pacers at death without sight balls. Pure terminal power weapon for overs 17–20.',
+    scouting: 'Elite normal baseline (+0.280) allows him to clear boundaries against frontline pacers at death without warmup balls. Pure terminal power weapon for overs 17–20.',
     phaseSplit: { powerplay: '+0.00', middle: '+0.12', death: '+0.32' },
     status: 'Overseas Power Weapon'
   },
@@ -109,8 +105,7 @@ const playersData = [
     id: 5039,
     name: 'Rajat Patidar',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: 0.0312,
     pressureAbility: 0.2900,
@@ -134,8 +129,7 @@ const playersData = [
     id: 1318,
     name: 'Andre Russell',
     team: 'West Indies',
-    nationality: 'West Indies',
-    flag: '🌴',
+    countryCode: 'WI',
     isOverseas: true,
     score: 0.0172,
     pressureAbility: 0.2660,
@@ -159,8 +153,7 @@ const playersData = [
     id: 4117,
     name: 'Ishan Kishan',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: -0.0005,
     pressureAbility: 0.2160,
@@ -184,8 +177,7 @@ const playersData = [
     id: 7897,
     name: 'Namboori Tilak Varma',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: -0.0044,
     pressureAbility: 0.1452,
@@ -209,8 +201,7 @@ const playersData = [
     id: 2639,
     name: 'Marcus Stoinis',
     team: 'Australia',
-    nationality: 'Australia',
-    flag: '🇦🇺',
+    countryCode: 'AUS',
     isOverseas: true,
     score: -0.0082,
     pressureAbility: 0.2224,
@@ -234,8 +225,7 @@ const playersData = [
     id: 20702,
     name: 'Tristan Stubbs',
     team: 'South Africa',
-    nationality: 'South Africa',
-    flag: '🇿🇦',
+    countryCode: 'SA',
     isOverseas: true,
     score: -0.0344,
     pressureAbility: 0.1894,
@@ -261,8 +251,7 @@ const playersData = [
     id: 2933,
     name: 'Jasprit Bumrah',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: 0.3510,
     pressureAbility: 0.5539,
@@ -286,8 +275,7 @@ const playersData = [
     id: 7920,
     name: 'Nathan Ellis',
     team: 'Australia',
-    nationality: 'Australia',
-    flag: '🇦🇺',
+    countryCode: 'AUS',
     isOverseas: true,
     score: 0.1363,
     pressureAbility: 0.3994,
@@ -311,8 +299,7 @@ const playersData = [
     id: 7364,
     name: 'Haris Rauf',
     team: 'Pakistan',
-    nationality: 'Pakistan',
-    flag: '🇵🇰',
+    countryCode: 'PAK',
     isOverseas: true,
     score: 0.1240,
     pressureAbility: 0.3675,
@@ -336,8 +323,7 @@ const playersData = [
     id: 781,
     name: 'Sunil Narine',
     team: 'West Indies',
-    nationality: 'West Indies',
-    flag: '🌴',
+    countryCode: 'WI',
     isOverseas: true,
     score: 0.0998,
     pressureAbility: 0.3452,
@@ -361,8 +347,7 @@ const playersData = [
     id: 2261,
     name: 'Harshal Patel',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: 0.0916,
     pressureAbility: 0.3039,
@@ -386,8 +371,7 @@ const playersData = [
     id: 4900,
     name: 'Wanindu Hasaranga',
     team: 'Sri Lanka',
-    nationality: 'Sri Lanka',
-    flag: '🇱🇰',
+    countryCode: 'SL',
     isOverseas: true,
     score: 0.0797,
     pressureAbility: 0.2731,
@@ -411,8 +395,7 @@ const playersData = [
     id: 8661,
     name: 'Matheesha Pathirana',
     team: 'Sri Lanka',
-    nationality: 'Sri Lanka',
-    flag: '🇱🇰',
+    countryCode: 'SL',
     isOverseas: true,
     score: 0.0557,
     pressureAbility: 0.2745,
@@ -436,8 +419,7 @@ const playersData = [
     id: 3644,
     name: 'Kuldeep Yadav',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: 0.0128,
     pressureAbility: 0.2198,
@@ -461,8 +443,7 @@ const playersData = [
     id: 360,
     name: 'Bhuvneshwar Kumar',
     team: 'India',
-    nationality: 'India',
-    flag: '🇮🇳',
+    countryCode: 'IND',
     isOverseas: false,
     score: 0.0121,
     pressureAbility: 0.2061,
@@ -486,8 +467,7 @@ const playersData = [
     id: 4373,
     name: 'Mustafizur Rahman',
     team: 'Bangladesh',
-    nationality: 'Bangladesh',
-    flag: '🇧🇩',
+    countryCode: 'BAN',
     isOverseas: true,
     score: -0.0069,
     pressureAbility: 0.2067,
@@ -508,900 +488,1063 @@ const playersData = [
 ];
 
 const dashboardHtml = `<!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rajasthan Royals Analytics | SupeRR Selector Executive Command Console</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <title>Rajasthan Royals | SupeRR Selector Season 2 — Executive Pressure Analytics</title>
   
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            rr: {
-              pink: '#E00070',
-              'pink-light': '#FDF2F8',
-              'pink-dark': '#BE005F',
-              navy: '#001D48',
-              'navy-light': '#0B172B',
-              'navy-dark': '#060D1A',
-              royal: '#004B8C',
-              gold: '#FFC72C',
-              border: '#1E3A5F',
-              card: '#0B172B'
-            }
-          },
-          fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-            mono: ['Consolas', 'Monaco', 'Courier New', 'monospace']
-          }
-        }
-      }
-    }
-  </script>
-
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  
   <style>
-    /* Custom scrollbars */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.25); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(224, 0, 112, 0.4); }
-
-    /* Print Styles */
-    @media print {
-      body { background: white !important; color: black !important; }
-      .no-print { display: none !important; }
-      .print-break { page-break-after: always; }
-      .dark { background: white !important; color: black !important; }
+    /* Design Tokens: Restrained Institutional Palette */
+    :root {
+      --rr-navy: #001D48;
+      --rr-navy-deep: #00122E;
+      --rr-navy-subtle: #EBF1F7;
+      --rr-pink: #C2005B;
+      --rr-pink-subtle: #FDF2F7;
+      --ink-primary: #111827;
+      --ink-secondary: #374151;
+      --ink-muted: #6B7280;
+      --surface-canvas: #F8F9FA;
+      --surface-panel: #FFFFFF;
+      --border-light: #E5E7EB;
+      --border-strong: #D1D5DB;
+      --signal-green: #047857;
+      --signal-green-bg: #ECFDF5;
+      --signal-red: #B91C1C;
+      --signal-red-bg: #FEF2F2;
+      --signal-amber: #B45309;
+      --signal-amber-bg: #FFFBEB;
     }
 
-    /* Table sticky headers */
-    .table-container { max-height: calc(100vh - 360px); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ink-secondary);
+      background-color: var(--surface-canvas);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Type Scale: Obvious steps >= 1.25x ratio */
+    h1 {
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--rr-navy);
+      letter-spacing: -0.025em;
+    }
+
+    h2 {
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 600;
+      color: var(--ink-primary);
+      letter-spacing: -0.015em;
+      margin-bottom: 4px;
+    }
+
+    h3 {
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 600;
+      color: var(--ink-primary);
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+    }
+
+    /* Top Masthead */
+    .masthead {
+      background: var(--surface-panel);
+      border-bottom: 1px solid var(--border-light);
+      padding: 16px 32px;
+    }
+
+    .masthead-inner {
+      max-width: 1520px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .org-identity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .org-badge {
+      width: 44px;
+      height: 44px;
+      background: var(--rr-navy);
+      color: #FFFFFF;
+      font-weight: 900;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      flex-shrink: 0;
+      letter-spacing: -0.05em;
+    }
+
+    .org-meta {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    .masthead-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      text-decoration: none;
+      border: 1px solid var(--border-strong);
+      background: var(--surface-panel);
+      color: var(--ink-secondary);
+    }
+
+    .btn:hover {
+      background: var(--surface-canvas);
+      border-color: var(--ink-secondary);
+      color: var(--ink-primary);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--rr-pink);
+      outline-offset: 1px;
+    }
+
+    .btn-primary {
+      background: var(--rr-navy);
+      border-color: var(--rr-navy);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      background: var(--rr-navy-deep);
+      border-color: var(--rr-navy-deep);
+      color: #FFFFFF;
+    }
+
+    /* Flat Metric Ribbon (Ticker) */
+    .metric-strip {
+      background: var(--surface-panel);
+      border-bottom: 1px solid var(--border-light);
+      padding: 14px 0;
+    }
+
+    .metric-strip-inner {
+      max-width: 1520px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 0 32px;
+    }
+
+    .strip-item {
+      padding: 12px 16px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .strip-item:first-child {
+      padding-left: 0;
+    }
+
+    .strip-item:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .strip-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .strip-value {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin-top: 2px;
+    }
+
+    .strip-sub {
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    /* Navigation Tabs */
+    .nav-bar {
+      background: var(--surface-panel);
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    .nav-inner {
+      max-width: 1520px;
+      margin: 0 auto;
+      display: flex;
+      gap: 24px;
+      padding: 0 32px;
+      overflow-x: auto;
+    }
+
+    .nav-tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 12px 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .nav-tab:hover {
+      color: var(--ink-primary);
+    }
+
+    .nav-tab.active {
+      color: var(--rr-navy);
+      font-weight: 600;
+      border-bottom-color: var(--rr-pink);
+    }
+
+    .nav-tab:focus-visible {
+      outline: 2px solid var(--rr-pink);
+      outline-offset: -2px;
+    }
+
+    /* Main Content Layout */
+    .app-main {
+      max-width: 1520px;
+      margin: 0 auto;
+      padding: 24px 32px;
+      width: 100%;
+    }
+
+    /* Filter Toolbar (Flat Row) */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 260px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 6px 12px 6px 30px;
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--ink-primary);
+      background: var(--surface-panel);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--rr-navy);
+      box-shadow: 0 0 0 1px var(--rr-navy);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 13px;
+      height: 13px;
+      stroke: var(--ink-muted);
+    }
+
+    .segmented-control {
+      display: inline-flex;
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      background: var(--surface-panel);
+      padding: 2px;
+    }
+
+    .segment-btn {
+      background: none;
+      border: none;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .segment-btn.active {
+      background: var(--rr-navy);
+      color: #FFFFFF;
+    }
+
+    /* Data Tables: Professional, Dense, High-Contrast */
+    .data-table-wrapper {
+      background: transparent;
+      border: none;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      text-align: left;
+      background: var(--surface-panel);
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+    }
+
+    .data-table th {
+      padding: 12px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+      background: var(--surface-canvas);
+      border-bottom: 1px solid var(--border-strong);
+      white-space: nowrap;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .data-table th:hover {
+      color: var(--ink-primary);
+    }
+
+    .data-table td {
+      padding: 12px 16px;
+      font-size: 13px;
+      color: var(--ink-secondary);
+      border-bottom: 1px solid var(--border-light);
+      white-space: nowrap;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table tr:hover td {
+      background-color: #F8FAFC;
+    }
+
+    .data-table tr.active-row td {
+      background-color: var(--rr-navy-subtle);
+    }
+
+    .country-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid var(--border-strong);
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      background: var(--surface-canvas);
+      letter-spacing: 0.04em;
+    }
+
+    .rank-number {
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .rank-number.top-rank {
+      color: var(--rr-pink);
+    }
+
+    .player-name {
+      font-weight: 600;
+      color: var(--ink-primary);
+    }
+
+    .stat-positive {
+      color: var(--signal-green);
+      font-weight: 600;
+    }
+
+    .stat-negative {
+      color: var(--signal-red);
+      font-weight: 600;
+    }
+
+    /* Master-Detail Split Screen Layout */
+    .workbench-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .workbench-layout.detail-hidden {
+      grid-template-columns: 1fr;
+    }
+
+    /* Detail Dossier Panel */
+    .dossier-panel {
+      background: var(--surface-panel);
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      padding: 20px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .dossier-header {
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .dossier-stat-box {
+      border: 1px solid var(--border-light);
+      padding: 8px 12px;
+      border-radius: 4px;
+      background: var(--surface-canvas);
+    }
+
+    .dossier-stat-label {
+      font-size: 12px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .dossier-stat-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin-top: 2px;
+    }
+
+    /* Chart Containers */
+    .chart-panel {
+      background: var(--surface-panel);
+      border: 1px solid var(--border-strong);
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .chart-header {
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 10px;
+    }
+
+    .chart-canvas-container {
+      position: relative;
+      height: 400px;
+      width: 100%;
+    }
+
+    /* Two Column Comparative Layout */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    /* Tabular Form / Input Sheet */
+    .sheet-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 13px;
+    }
+
+    .sheet-row:last-child {
+      border-bottom: none;
+    }
+
+    /* Toast Notification (Honest, Unobtrusive) */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--rr-navy);
+      color: #FFFFFF;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1180px) {
+      .metric-strip-inner { grid-template-columns: repeat(2, 1fr); }
+      .strip-item:nth-child(2) { border-right: none; }
+      .workbench-layout { grid-template-columns: 1fr; }
+      .dossier-panel { position: static; }
+    }
+
+    @media (max-width: 768px) {
+      .masthead, .app-main, .nav-inner, .metric-strip-inner { padding-left: 16px; padding-right: 16px; }
+      .metric-strip-inner { grid-template-columns: 1fr; }
+      .strip-item { border-right: none; border-bottom: 1px solid var(--border-light); padding: 8px 0; }
+      .compare-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
-<body class="bg-[#060D1A] text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200 antialiased selection:bg-rr-pink selection:text-white">
+<body>
 
-  <!-- TOP EXECUTIVE BANNER & GLOBAL HEADER -->
-  <header class="border-b border-rr-border/80 bg-[#0B172B]/95 backdrop-blur-md sticky top-0 z-40 px-4 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
-    <!-- Brand & Identity -->
-    <div class="flex items-center gap-3.5">
-      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-rr-pink to-rr-navy flex items-center justify-center font-black text-white text-xl shadow-lg shadow-rr-pink/20 border border-rr-pink/30 flex-shrink-0">
-        RR
-      </div>
-      <div>
-        <div class="flex items-center gap-2">
-          <h1 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            Rajasthan Royals <span class="text-xs px-2 py-0.5 rounded font-mono font-bold bg-rr-pink/20 text-rr-pink border border-rr-pink/40">SUPERR SELECTOR S2</span>
-          </h1>
-          <span class="hidden md:inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 100% UNSTOP VERIFIED
-          </span>
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="org-identity">
+        <div class="org-badge">RR</div>
+        <div>
+          <h1>Rajasthan Royals Analytics & Strategy Group</h1>
+          <h2 class="org-meta" style="font-size: 13px; font-weight: 500; color: var(--ink-muted); margin-top: 2px;">
+            SupeRR Selector Season 2 • High-Leverage Pressure Reliability Platform • Prepared for Kumar Sangakkara & Giles Lindsay
+          </h2>
         </div>
-        <p class="text-xs text-slate-400 hidden sm:block">
-          Executive Decision Console & Pressure Intelligence Engine • Prepared for Kumar Sangakkara & Giles Lindsay
-        </p>
       </div>
-    </div>
 
-    <!-- Quick Metric Ticker -->
-    <div class="hidden xl:flex items-center gap-6 text-xs bg-[#060D1A]/70 px-4 py-2 rounded-lg border border-rr-border/50">
-      <div>
-        <div class="text-slate-400 uppercase text-[10px] tracking-wider font-semibold">Deliveries Ingested</div>
-        <div class="font-mono font-bold text-white text-sm">200,999 <span class="text-slate-400 font-normal text-xs">(867 Matches)</span></div>
-      </div>
-      <div class="h-6 w-px bg-slate-800"></div>
-      <div>
-        <div class="text-slate-400 uppercase text-[10px] tracking-wider font-semibold">High-Pressure Balls</div>
-        <div class="font-mono font-bold text-rr-pink text-sm">39,747 <span class="text-slate-400 font-normal text-xs">(19.8%)</span></div>
-      </div>
-      <div class="h-6 w-px bg-slate-800"></div>
-      <div>
-        <div class="text-slate-400 uppercase text-[10px] tracking-wider font-semibold">Holdout RMSE Drop</div>
-        <div class="font-mono font-bold text-emerald-400 text-sm">-19.3% <span class="text-slate-400 font-normal text-xs">Bat</span> / -15.1% <span class="text-slate-400 font-normal text-xs">Bowl</span></div>
-      </div>
-    </div>
-
-    <!-- Actions & Global Controls -->
-    <div class="flex items-center gap-2.5">
-      <!-- Theme Switcher -->
-      <button id="themeToggleBtn" aria-label="Toggle Color Theme" class="p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700/60 text-slate-300 transition-all">
-        <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
-        <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-rr-navy"></i>
-      </button>
-
-      <!-- Keyboard Shortcuts -->
-      <button id="shortcutsBtn" aria-label="Keyboard Shortcuts" class="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700/60 text-slate-300 text-xs font-mono transition-all">
-        <i data-lucide="keyboard" class="w-3.5 h-3.5"></i>
-        <span>?</span>
-      </button>
-
-      <!-- Export Menu Dropdown -->
-      <div class="relative">
-        <button id="exportDropdownBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-rr-pink to-rr-pink-dark text-white text-xs font-semibold shadow-md shadow-rr-pink/20 hover:brightness-110 transition-all">
-          <i data-lucide="download" class="w-3.5 h-3.5"></i>
-          <span>Export</span>
-          <i data-lucide="chevron-down" class="w-3.5 h-3.5 ml-0.5"></i>
+      <div class="masthead-actions">
+        <button onclick="exportCSV()" class="btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export CSV
         </button>
-        <div id="exportMenu" class="hidden absolute right-0 mt-2 w-48 rounded-lg bg-[#0B172B] border border-rr-border shadow-2xl py-1 z-50 text-xs">
-          <button onclick="exportCSV()" class="w-full text-left px-3.5 py-2 hover:bg-slate-800/60 text-slate-200 flex items-center gap-2">
-            <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-400"></i> Export Dropdown CSV
-          </button>
-          <button onclick="exportJSON()" class="w-full text-left px-3.5 py-2 hover:bg-slate-800/60 text-slate-200 flex items-center gap-2">
-            <i data-lucide="file-code" class="w-4 h-4 text-amber-400"></i> Export Dropdown JSON
-          </button>
-          <button onclick="window.print()" class="w-full text-left px-3.5 py-2 hover:bg-slate-800/60 text-slate-200 flex items-center gap-2 border-t border-slate-800">
-            <i data-lucide="printer" class="w-4 h-4 text-sky-400"></i> Print Executive Sheet
-          </button>
-        </div>
+        <button onclick="exportJSON()" class="btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Export JSON
+        </button>
+        <button onclick="window.print()" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print Briefing
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- NAVIGATION TABS -->
-  <nav class="bg-[#0B172B]/70 border-b border-rr-border px-4 lg:px-8 flex items-center gap-1 overflow-x-auto no-scrollbar" role="tablist">
-    <button onclick="switchTab('leaderboard')" id="tab-leaderboard" role="tab" aria-selected="true" class="tab-btn px-4 py-3 text-xs md:text-sm font-semibold border-b-2 border-rr-pink text-rr-pink flex items-center gap-2 whitespace-nowrap transition-all">
-      <i data-lucide="trophy" class="w-4 h-4"></i> Leaderboard & Roster Matrix
-    </button>
-    <button onclick="switchTab('quadrant')" id="tab-quadrant" role="tab" aria-selected="false" class="tab-btn px-4 py-3 text-xs md:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap transition-all">
-      <i data-lucide="compass" class="w-4 h-4"></i> Tactical Quadrant & Phase Simulator
-    </button>
-    <button onclick="switchTab('comparator')" id="tab-comparator" role="tab" aria-selected="false" class="tab-btn px-4 py-3 text-xs md:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap transition-all">
-      <i data-lucide="swords" class="w-4 h-4"></i> Head-to-Head Comparator
-    </button>
-    <button onclick="switchTab('warroom')" id="tab-warroom" role="tab" aria-selected="false" class="tab-btn px-4 py-3 text-xs md:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap transition-all">
-      <i data-lucide="gavel" class="w-4 h-4"></i> Auction War Room & Squad Builder
-      <span id="squadCountBadge" class="bg-rr-pink text-white text-[10px] px-1.5 py-0.2 rounded-full font-mono font-bold">0</span>
-    </button>
-    <button onclick="switchTab('diagnostics')" id="tab-diagnostics" role="tab" aria-selected="false" class="tab-btn px-4 py-3 text-xs md:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap transition-all">
-      <i data-lucide="activity" class="w-4 h-4"></i> Model Proof & Architecture
-    </button>
+  <!-- Metric Strip (Audited Financial Style) -->
+  <div class="metric-strip">
+    <div class="metric-strip-inner tabular-nums">
+      <div class="strip-item">
+        <div class="strip-label">Canonical Dataset</div>
+        <div class="strip-value">200,999 Deliveries</div>
+        <div class="strip-sub">867 IPL & T20I Matches (2022–2026)</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-label">High-Leverage Cutoff (L &ge; Q0.80)</div>
+        <div class="strip-value">39,747 Deliveries</div>
+        <div class="strip-sub">Top 20% Outcome Urgency & Swing</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-label">Batters Holdout Validity</div>
+        <div class="strip-value stat-positive">1.3688 RMSE (-19.3%)</div>
+        <div class="strip-sub">Vs Base 1.6965 &bull; Pearson r = 0.640</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-label">Bowlers Holdout Validity</div>
+        <div class="strip-value stat-positive">0.9131 RMSE (-15.1%)</div>
+        <div class="strip-sub">Vs Base 1.0757 &bull; Pearson r = 0.643</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-label">Unstop Platform Audit</div>
+        <div class="strip-value">20 / 20 Verified</div>
+        <div class="strip-sub">0 Duplicates &bull; Exact Dropdown Match</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Operational Navigation Tabs -->
+  <nav class="nav-bar" role="tablist">
+    <div class="nav-inner">
+      <button onclick="switchTab('roster')" id="tab-roster" role="tab" aria-selected="true" class="nav-tab active">
+        Roster Evaluation Matrix
+      </button>
+      <button onclick="switchTab('quadrant')" id="tab-quadrant" role="tab" aria-selected="false" class="nav-tab">
+        Bivariate Performance Map
+      </button>
+      <button onclick="switchTab('comparator')" id="tab-comparator" role="tab" aria-selected="false" class="nav-tab">
+        Pairwise Scouting Dossier
+      </button>
+      <button onclick="switchTab('ledger')" id="tab-ledger" role="tab" aria-selected="false" class="nav-tab">
+        Auction Allocation Ledger
+      </button>
+      <button onclick="switchTab('proof')" id="tab-proof" role="tab" aria-selected="false" class="nav-tab">
+        Methodology & Empirical Proof
+      </button>
+    </div>
   </nav>
 
-  <!-- MAIN VIEW CONTAINER -->
-  <main class="flex-1 p-4 lg:p-8 max-w-[1680px] w-full mx-auto space-y-6">
+  <!-- Main Content Area -->
+  <main class="app-main">
 
     <!-- ======================================================== -->
-    <!-- TAB 1: LEADERBOARD & ROSTER MATRIX -->
+    <!-- TAB 1: ROSTER EVALUATION MATRIX -->
     <!-- ======================================================== -->
-    <div id="view-leaderboard" class="space-y-6">
-      
-      <!-- Filter Bar -->
-      <section aria-label="Filter Controls" class="bg-rr-card p-4 rounded-xl border border-rr-border shadow-lg flex flex-wrap items-center justify-between gap-4">
-        <div class="flex flex-wrap items-center gap-3 flex-1 min-w-[280px]">
-          <!-- Search Input -->
-          <div class="relative flex-1 min-w-[220px]">
-            <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
-            <input type="text" id="searchInput" placeholder="Search player, nationality, or archetype... (Press '/' to focus)" 
-              class="w-full bg-[#060D1A] border border-slate-700/80 rounded-lg pl-9 pr-8 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-rr-pink focus:ring-1 focus:ring-rr-pink transition-all">
-            <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
-              <i data-lucide="x" class="w-3.5 h-3.5"></i>
-            </button>
+    <div id="view-roster">
+      <h2 style="font-size: 18px; font-weight: 600; color: var(--ink-primary); margin-bottom: 16px;">Roster Evaluation Matrix & Player Dossier</h2>
+      <div class="toolbar">
+        <div class="filter-group">
+          <!-- Search -->
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Filter by player, team, or role..." class="search-input" oninput="applyFilters()">
           </div>
 
-          <!-- Discipline Filter -->
-          <div class="inline-flex rounded-lg bg-[#060D1A] p-0.5 border border-slate-700/80 text-xs">
-            <button onclick="setFilter('discipline', 'all')" id="filter-disc-all" class="filter-disc-btn px-3 py-1.5 rounded-md font-semibold bg-rr-pink text-white shadow-sm transition-all">All (20)</button>
-            <button onclick="setFilter('discipline', 'Batter')" id="filter-disc-batter" class="filter-disc-btn px-3 py-1.5 rounded-md font-semibold text-slate-400 hover:text-white transition-all">Batters (10)</button>
-            <button onclick="setFilter('discipline', 'Bowler')" id="filter-disc-bowler" class="filter-disc-btn px-3 py-1.5 rounded-md font-semibold text-slate-400 hover:text-white transition-all">Bowlers (10)</button>
+          <!-- Discipline -->
+          <div class="segmented-control" role="group" aria-label="Discipline Filter">
+            <button onclick="setDiscipline('all')" id="btn-disc-all" class="segment-btn active">All Players (20)</button>
+            <button onclick="setDiscipline('Batter')" id="btn-disc-bat" class="segment-btn">Batters (10)</button>
+            <button onclick="setDiscipline('Bowler')" id="btn-disc-bowl" class="segment-btn">Bowlers (10)</button>
           </div>
 
-          <!-- Nationality Filter -->
-          <div class="inline-flex rounded-lg bg-[#060D1A] p-0.5 border border-slate-700/80 text-xs">
-            <button onclick="setFilter('nationality', 'all')" id="filter-nat-all" class="filter-nat-btn px-3 py-1.5 rounded-md font-semibold bg-slate-800 text-white transition-all">Global</button>
-            <button onclick="setFilter('nationality', 'india')" id="filter-nat-india" class="filter-nat-btn px-3 py-1.5 rounded-md font-semibold text-slate-400 hover:text-white transition-all">India 🇮🇳</button>
-            <button onclick="setFilter('nationality', 'overseas')" id="filter-nat-overseas" class="filter-nat-btn px-3 py-1.5 rounded-md font-semibold text-slate-400 hover:text-white transition-all">Overseas 🌍</button>
+          <!-- Nationality -->
+          <div class="segmented-control" role="group" aria-label="Nationality Filter">
+            <button onclick="setNationality('all')" id="btn-nat-all" class="segment-btn active">Global</button>
+            <button onclick="setNationality('domestic')" id="btn-nat-dom" class="segment-btn">India</button>
+            <button onclick="setNationality('overseas')" id="btn-nat-ovs" class="segment-btn">Overseas</button>
           </div>
         </div>
 
-        <!-- View Controls & Quick Metrics -->
-        <div class="flex items-center gap-3">
-          <span class="text-xs text-slate-400 font-mono">Showing <strong id="playerCount" class="text-white">20</strong> players</span>
-          <div class="h-4 w-px bg-slate-800"></div>
-          <button onclick="toggleViewMode('table')" id="viewModeTableBtn" class="p-1.5 rounded bg-rr-pink text-white shadow-sm">
-            <i data-lucide="table" class="w-4 h-4"></i>
-          </button>
-          <button onclick="toggleViewMode('grid')" id="viewModeGridBtn" class="p-1.5 rounded bg-[#060D1A] text-slate-400 hover:text-white">
-            <i data-lucide="layout-grid" class="w-4 h-4"></i>
-          </button>
+        <div style="font-size: 12px; color: var(--ink-muted);" class="tabular-nums">
+          Showing <strong id="recordCount" style="color: var(--ink-primary);">20</strong> verified players
         </div>
-      </section>
+      </div>
 
-      <!-- Executive Highlight Cards -->
-      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-rr-card p-4 rounded-xl border border-rr-border hover:border-rr-pink/60 transition-all group">
-          <div class="flex items-center justify-between">
-            <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">#1 Pressure Batter</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-rr-pink/20 text-rr-pink border border-rr-pink/30">TOP ORDER</span>
-          </div>
-          <div class="mt-2 flex items-baseline justify-between">
-            <div class="text-xl font-bold text-white group-hover:text-rr-pink transition-colors">Shubman Gill</div>
-            <div class="font-mono text-base font-bold text-rr-pink">+0.140 <span class="text-[10px] font-normal text-slate-400">Q0.10</span></div>
-          </div>
-          <div class="mt-2 text-xs text-slate-400 flex items-center justify-between pt-2 border-t border-slate-800/80">
-            <span>Uplift: <strong class="text-emerald-400">+0.269</strong></span>
-            <span>Certainty: <strong class="text-slate-200">92.6%</strong></span>
-            <span>204 Balls</span>
-          </div>
-        </div>
-
-        <div class="bg-rr-card p-4 rounded-xl border border-rr-border hover:border-rr-royal/60 transition-all group">
-          <div class="flex items-center justify-between">
-            <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">#1 Pressure Bowler</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-sky-950 text-sky-400 border border-sky-800/50">DEATH CLOSER</span>
-          </div>
-          <div class="mt-2 flex items-baseline justify-between">
-            <div class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">Jasprit Bumrah</div>
-            <div class="font-mono text-base font-bold text-sky-400">+0.351 <span class="text-[10px] font-normal text-slate-400">Q0.10</span></div>
-          </div>
-          <div class="mt-2 text-xs text-slate-400 flex items-center justify-between pt-2 border-t border-slate-800/80">
-            <span>Uplift: <strong class="text-emerald-400">+0.423</strong></span>
-            <span>Certainty: <strong class="text-emerald-400 font-bold">100.0%</strong></span>
-            <span>404 Balls</span>
-          </div>
-        </div>
-
-        <div class="bg-rr-card p-4 rounded-xl border border-rr-border hover:border-emerald-500/60 transition-all group">
-          <div class="flex items-center justify-between">
-            <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Peak Personal Uplift (Δ)</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-950 text-emerald-400 border border-emerald-800/50">CLUTCH SPIKE</span>
-          </div>
-          <div class="mt-2 flex items-baseline justify-between">
-            <div class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">Ruturaj Gaikwad</div>
-            <div class="font-mono text-base font-bold text-emerald-400">+0.375 <span class="text-[10px] font-normal text-slate-400">runs/ball</span></div>
-          </div>
-          <div class="mt-2 text-xs text-slate-400 flex items-center justify-between pt-2 border-t border-slate-800/80">
-            <span>Base: +0.017</span>
-            <span>Pressure: +0.392</span>
-            <span>98.6% Cert.</span>
-          </div>
-        </div>
-
-        <div class="bg-rr-card p-4 rounded-xl border border-rr-border hover:border-amber-500/60 transition-all group">
-          <div class="flex items-center justify-between">
-            <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Highest Volume Absorption</span>
-            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-950 text-amber-400 border border-amber-800/50">RESILIENCE</span>
-          </div>
-          <div class="mt-2 flex items-baseline justify-between">
-            <div class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">Tilak Varma</div>
-            <div class="font-mono text-base font-bold text-amber-400">745 <span class="text-[10px] font-normal text-slate-400">Balls</span></div>
-          </div>
-          <div class="mt-2 text-xs text-slate-400 flex items-center justify-between pt-2 border-t border-slate-800/80">
-            <span>Matches: 54</span>
-            <span>Score: -0.004</span>
-            <span>81.8% Cert.</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Table View Container -->
-      <section id="tableViewSection" class="bg-rr-card rounded-xl border border-rr-border shadow-xl overflow-hidden">
-        <div class="overflow-x-auto table-container">
-          <table class="w-full text-left text-xs border-collapse">
-            <thead class="bg-[#060D1A]/90 sticky top-0 z-20 text-[11px] uppercase tracking-wider text-slate-400 font-semibold border-b border-rr-border">
+      <!-- Master-Detail Layout -->
+      <div id="workbenchContainer" class="workbench-layout">
+        <!-- Table (Master) -->
+        <div class="data-table-wrapper">
+          <table class="data-table tabular-nums">
+            <thead>
               <tr>
-                <th scope="col" class="py-3.5 px-4 cursor-pointer hover:text-white" onclick="sortTable('rank')">
-                  Rank <span id="sort-rank" class="ml-1 text-[10px]">▼</span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 cursor-pointer hover:text-white" onclick="sortTable('name')">
-                  Player & Role <span id="sort-name" class="ml-1 text-[10px]"></span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 cursor-pointer hover:text-white" onclick="sortTable('nationality')">
-                  Nationality <span id="sort-nationality" class="ml-1 text-[10px]"></span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 text-right cursor-pointer hover:text-white" onclick="sortTable('score')">
-                  Score (Q0.10) <span id="sort-score" class="ml-1 text-[10px]"></span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 text-right cursor-pointer hover:text-white" onclick="sortTable('pressureAbility')">
-                  Pressure Ability <span id="sort-pressureAbility" class="ml-1 text-[10px]"></span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 text-right cursor-pointer hover:text-white" onclick="sortTable('normalAbility')">
-                  Normal Base <span id="sort-normalAbility" class="ml-1 text-[10px]"></span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 text-right cursor-pointer hover:text-white" onclick="sortTable('uplift')">
-                  Uplift (Δ) <span id="sort-uplift" class="ml-1 text-[10px]"></span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 text-right cursor-pointer hover:text-white" onclick="sortTable('certainty')">
-                  P(Δ > 0) <span id="sort-certainty" class="ml-1 text-[10px]"></span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 text-right cursor-pointer hover:text-white" onclick="sortTable('balls')">
-                  Balls <span id="sort-balls" class="ml-1 text-[10px]"></span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 text-right cursor-pointer hover:text-white" onclick="sortTable('matches')">
-                  Matches <span id="sort-matches" class="ml-1 text-[10px]"></span>
-                </th>
-                <th scope="col" class="py-3.5 px-4 text-center">Actions</th>
+                <th onclick="sortTable('rank')">Rank</th>
+                <th onclick="sortTable('name')">Player</th>
+                <th onclick="sortTable('role')">Role</th>
+                <th onclick="sortTable('team')">Nation</th>
+                <th onclick="sortTable('score')" style="text-align: right;">Score (Q0.10)</th>
+                <th onclick="sortTable('pressureAbility')" style="text-align: right;">Pressure &mu;</th>
+                <th onclick="sortTable('normalAbility')" style="text-align: right;">Normal Par &mu;</th>
+                <th onclick="sortTable('uplift')" style="text-align: right;">Uplift &Delta;</th>
+                <th onclick="sortTable('certainty')" style="text-align: right;">P(&Delta; &gt; 0)</th>
+                <th onclick="sortTable('balls')" style="text-align: right;">Balls</th>
+                <th onclick="sortTable('matches')" style="text-align: right;">Matches</th>
               </tr>
             </thead>
-            <tbody id="playerTableBody" class="divide-y divide-slate-800/60 font-sans">
-              <!-- Dynamically populated -->
+            <tbody id="rosterTableBody">
+              <!-- Dynamically populated rows -->
             </tbody>
           </table>
         </div>
-      </section>
 
-      <!-- Card Grid View Container -->
-      <section id="gridViewSection" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        <!-- Dynamically populated -->
-      </section>
-    </div>
-
-    <!-- ======================================================== -->
-    <!-- TAB 2: TACTICAL QUADRANT & PHASE SIMULATOR -->
-    <!-- ======================================================== -->
-    <div id="view-quadrant" class="hidden space-y-6">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        <!-- Left: Scatter Matrix Plot (2 cols) -->
-        <div class="lg:col-span-2 bg-rr-card p-5 rounded-xl border border-rr-border shadow-xl space-y-4">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+        <!-- Detail Dossier Panel -->
+        <aside id="dossierPanel" class="dossier-panel">
+          <div class="dossier-header">
             <div>
-              <h2 class="text-base font-bold text-white flex items-center gap-2">
-                <i data-lucide="compass" class="w-4 h-4 text-rr-pink"></i> Pressure Ability vs. Normal Baseline Matrix
-              </h2>
-              <p class="text-xs text-slate-400">
-                Quadrants isolate true match-winners from system-dependent volume aggregators.
-              </p>
+              <div id="dossierRole" style="font-size: 12px; text-transform: uppercase; font-weight: 600; color: var(--ink-muted);">Role</div>
+              <h3 id="dossierName" style="font-size: 18px; margin-top: 2px;">Player Name</h3>
+              <div id="dossierTeam" style="font-size: 12px; color: var(--ink-muted); margin-top: 2px;">Nation &bull; ID: 0000</div>
             </div>
-            <div class="flex items-center gap-3 text-xs font-semibold">
-              <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-rr-pink"></span> Batters</span>
-              <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-sky-400"></span> Bowlers</span>
+            <button onclick="closeDossier()" class="btn" style="padding: 4px 10px; font-size: 12px;">Close</button>
+          </div>
+
+          <div class="dossier-grid tabular-nums">
+            <div class="dossier-stat-box">
+              <div class="dossier-stat-label">Conservative Q0.10</div>
+              <div id="dossierScore" class="dossier-stat-value" style="color: var(--rr-pink);">+0.000</div>
+            </div>
+            <div class="dossier-stat-box">
+              <div class="dossier-stat-label">Clutch Uplift &Delta;</div>
+              <div id="dossierUplift" class="dossier-stat-value stat-positive">+0.000</div>
+            </div>
+            <div class="dossier-stat-box">
+              <div class="dossier-stat-label">Pressure Ability</div>
+              <div id="dossierPress" class="dossier-stat-value">+0.000</div>
+            </div>
+            <div class="dossier-stat-box">
+              <div class="dossier-stat-label">Posterior Certainty</div>
+              <div id="dossierCertainty" class="dossier-stat-value">0.0%</div>
             </div>
           </div>
 
-          <!-- Scatter Chart Container -->
-          <div class="relative h-[440px] w-full">
-            <canvas id="quadrantScatterChart"></canvas>
-          </div>
-
-          <!-- Quadrant Explanatory Grid -->
-          <div class="grid grid-cols-2 gap-3 text-xs pt-2">
-            <div class="p-2.5 rounded-lg bg-emerald-950/30 border border-emerald-800/40">
-              <div class="font-bold text-emerald-400 uppercase text-[10px]">Top-Right: Elite Clutch Superstars</div>
-              <p class="text-slate-300 text-[11px] mt-0.5">High baseline skill + positive clutch uplift. (Bumrah, Suryakumar, Gill, Ellis)</p>
+          <!-- Mathematical Distribution Curve -->
+          <div style="margin-bottom: 16px;">
+            <div style="font-size: 12px; text-transform: uppercase; font-weight: 600; color: var(--ink-muted); margin-bottom: 6px;">
+              Empirical Bayes Posterior Distribution
             </div>
-            <div class="p-2.5 rounded-lg bg-amber-950/30 border border-amber-800/40">
-              <div class="font-bold text-amber-400 uppercase text-[10px]">Top-Left: Pure Pressure Elevators</div>
-              <p class="text-slate-300 text-[11px] mt-0.5">Moderate regular average, but transforms into lethal executioner under fire. (Harshal, Rauf, Gaikwad)</p>
+            <div style="border: 1px solid var(--border-light); border-radius: 4px; padding: 10px; background: var(--surface-canvas);">
+              <canvas id="posteriorCanvas" width="360" height="120" style="width: 100%; height: 120px;"></canvas>
             </div>
-            <div class="p-2.5 rounded-lg bg-sky-950/30 border border-sky-800/40">
-              <div class="font-bold text-sky-400 uppercase text-[10px]">Bottom-Right: High Baseline Powerhouses</div>
-              <p class="text-slate-300 text-[11px] mt-0.5">Blistering baseline strike rate maintains floor even if clutch delta is muted. (Tim David, Stubbs)</p>
-            </div>
-            <div class="p-2.5 rounded-lg bg-rose-950/30 border border-rose-800/40">
-              <div class="font-bold text-rose-400 uppercase text-[10px]">Bottom-Left: Negative Clutch Distortion</div>
-              <p class="text-slate-300 text-[11px] mt-0.5">Performance drops significantly under high leverage. Avoid in death finishes.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Real-Time Situational Leverage Simulator (1 col) -->
-        <div class="bg-rr-card p-5 rounded-xl border border-rr-border shadow-xl space-y-4 flex flex-col justify-between">
-          <div>
-            <div class="border-b border-slate-800 pb-3">
-              <h2 class="text-base font-bold text-white flex items-center gap-2">
-                <i data-lucide="sliders" class="w-4 h-4 text-rr-gold"></i> Live Situation Simulator
-              </h2>
-              <p class="text-xs text-slate-400">
-                Simulate match states to calculate Dynamic Leverage L(s) and Wicket Cost c(s).
-              </p>
-            </div>
-
-            <!-- Interactive Sliders -->
-            <div class="mt-4 space-y-4 text-xs">
-              <div>
-                <div class="flex justify-between font-semibold mb-1">
-                  <span>Balls Remaining:</span>
-                  <span id="simBallsVal" class="font-mono text-rr-pink font-bold">24 balls (Overs 16.0)</span>
-                </div>
-                <input type="range" id="simBalls" min="1" max="120" value="24" class="w-full accent-rr-pink cursor-pointer" oninput="updateSim()">
-              </div>
-
-              <div>
-                <div class="flex justify-between font-semibold mb-1">
-                  <span>Wickets in Hand:</span>
-                  <span id="simWktsVal" class="font-mono text-sky-400 font-bold">5 wickets</span>
-                </div>
-                <input type="range" id="simWkts" min="1" max="10" value="5" class="w-full accent-sky-400 cursor-pointer" oninput="updateSim()">
-              </div>
-
-              <div>
-                <div class="flex justify-between font-semibold mb-1">
-                  <span>Runs Needed:</span>
-                  <span id="simRunsVal" class="font-mono text-amber-400 font-bold">48 runs</span>
-                </div>
-                <input type="range" id="simRuns" min="1" max="150" value="48" class="w-full accent-amber-400 cursor-pointer" oninput="updateSim()">
-              </div>
-            </div>
-
-            <!-- Dynamic Outputs -->
-            <div class="mt-5 p-4 rounded-xl bg-[#060D1A] border border-slate-800 space-y-3">
-              <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-400">Required Run Rate (RRR):</span>
-                <span id="simRRR" class="font-mono font-bold text-white text-sm">12.00 RPO</span>
-              </div>
-              <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-400">Dynamic Leverage L(s):</span>
-                <span id="simLeverage" class="font-mono font-bold text-rr-pink text-sm">0.865 (CRITICAL)</span>
-              </div>
-              <div class="flex justify-between items-center text-xs">
-                <span class="text-slate-400">Wicket Value c(s):</span>
-                <span id="simWicketVal" class="font-mono font-bold text-emerald-400 text-sm">11.8 runs</span>
-              </div>
-              <div class="pt-2 border-t border-slate-800">
-                <div class="text-[10px] uppercase text-slate-400 font-semibold mb-1">Recommended Deployment</div>
-                <div id="simRecommendation" class="text-xs font-semibold text-white">
-                  Deploy death yorker specialist (Ellis/Bumrah). Wicket priority: MAXIMUM.
-                </div>
-              </div>
+            <div style="font-size: 12px; color: var(--ink-muted); margin-top: 4px;">
+              Dashed line marks conservative 10th percentile cutoff (<span style="color: var(--rr-pink); font-weight: 600;">Q0.10</span>).
             </div>
           </div>
 
-          <!-- Phase Par Reference Table -->
-          <div class="p-3 bg-slate-900/60 rounded-lg border border-slate-800 text-[11px] space-y-1.5">
-            <div class="font-bold text-slate-300">Phase Baseline Par Values:</div>
-            <div class="flex justify-between text-slate-400"><span>Powerplay (1–6):</span> <strong>7.50 RPO • Dot: 40%</strong></div>
-            <div class="flex justify-between text-slate-400"><span>Middle (7–15):</span> <strong>7.80 RPO • Dot: 35%</strong></div>
-            <div class="flex justify-between text-slate-400"><span>Death (16–20):</span> <strong>9.90 RPO • Dot: 28%</strong></div>
+          <!-- Tactical Scouting Note -->
+          <div style="margin-bottom: 16px;">
+            <div style="font-size: 12px; text-transform: uppercase; font-weight: 600; color: var(--ink-muted); margin-bottom: 6px;">
+              War Room Technical Evaluation
+            </div>
+            <p id="dossierScouting" style="font-size: 12px; line-height: 1.55; color: var(--ink-secondary);">
+              Scouting profile text.
+            </p>
           </div>
-        </div>
 
+          <button id="dossierDraftBtn" onclick="togglePlayerFromDossier()" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            Add to Auction Allocation Ledger
+          </button>
+        </aside>
       </div>
     </div>
 
     <!-- ======================================================== -->
-    <!-- TAB 3: HEAD-TO-HEAD COMPARATOR -->
+    <!-- TAB 2: BIVARIATE PERFORMANCE MAP -->
     <!-- ======================================================== -->
-    <div id="view-comparator" class="hidden space-y-6">
-      
-      <!-- Selectors Bar -->
-      <section class="bg-rr-card p-4 rounded-xl border border-rr-border shadow-lg flex flex-wrap items-center justify-between gap-4">
-        <div class="flex flex-wrap items-center gap-4 flex-1">
-          <!-- Player A Selector -->
-          <div class="flex-1 min-w-[220px]">
-            <label for="compPlayerA" class="block text-xs uppercase tracking-wider text-rr-pink font-bold mb-1">Select Player A (Blue / Left)</label>
-            <select id="compPlayerA" onchange="renderComparison()" class="w-full bg-[#060D1A] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-rr-pink font-semibold">
-              <!-- populated -->
-            </select>
-          </div>
-
-          <div class="text-center font-bold text-slate-500 font-mono text-sm pt-4">VS</div>
-
-          <!-- Player B Selector -->
-          <div class="flex-1 min-w-[220px]">
-            <label for="compPlayerB" class="block text-xs uppercase tracking-wider text-sky-400 font-bold mb-1">Select Player B (Pink / Right)</label>
-            <select id="compPlayerB" onchange="renderComparison()" class="w-full bg-[#060D1A] border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-sky-400 font-semibold">
-              <!-- populated -->
-            </select>
-          </div>
-        </div>
-
-        <button onclick="loadPresetComparison('gill_gaikwad')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold transition-all">
-          Gill vs. Gaikwad
-        </button>
-        <button onclick="loadPresetComparison('bumrah_ellis')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold transition-all">
-          Bumrah vs. Ellis
-        </button>
-      </section>
-
-      <!-- Comparison Battle Display -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        <!-- Player A Detail Card -->
-        <div id="compCardA" class="bg-rr-card p-5 rounded-xl border-t-4 border-rr-pink border-x border-b border-rr-border shadow-xl space-y-4">
-          <!-- dynamically rendered -->
-        </div>
-
-        <!-- Center Radar Comparison Chart -->
-        <div class="bg-rr-card p-5 rounded-xl border border-rr-border shadow-xl flex flex-col justify-between space-y-4">
+    <div id="view-quadrant" style="display: none;">
+      <div class="chart-panel">
+        <div class="chart-header">
           <div>
-            <h3 class="text-sm font-bold text-white text-center border-b border-slate-800 pb-2">Multi-Axis Trait Polygon</h3>
-            <div class="relative h-[280px] w-full mt-2">
-              <canvas id="compRadarChart"></canvas>
-            </div>
+            <h2>Bivariate Performance Map: Pressure Ability vs. Normal Baseline</h2>
+            <p style="font-size: 12px; color: var(--ink-muted); margin-top: 2px;">
+              Bubble diameter proportional to high-leverage deliveries. Coordinates isolate repeatable executioners from unadjusted volume aggregators.
+            </p>
           </div>
-
-          <!-- Tactical Comparison Verdict -->
-          <div id="compVerdictBox" class="p-3.5 rounded-xl bg-[#060D1A] border border-slate-800 text-xs space-y-1">
-            <!-- dynamic text -->
+          <div style="font-size: 12px; color: var(--ink-muted); display: flex; gap: 16px;">
+            <span style="display: inline-flex; align-items: center; gap: 6px;">
+              <span style="width: 10px; height: 10px; background: var(--rr-pink); border-radius: 50%;"></span> Batters
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 6px;">
+              <span style="width: 10px; height: 10px; background: var(--rr-navy); border-radius: 50%;"></span> Bowlers
+            </span>
           </div>
         </div>
 
-        <!-- Player B Detail Card -->
-        <div id="compCardB" class="bg-rr-card p-5 rounded-xl border-t-4 border-sky-400 border-x border-b border-rr-border shadow-xl space-y-4">
-          <!-- dynamically rendered -->
+        <div class="chart-canvas-container">
+          <canvas id="bivariateChart"></canvas>
         </div>
       </div>
 
+      <!-- Quadrant Breakdown Table -->
+      <div class="data-table-wrapper" style="margin-top: 24px;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Quadrant Classification</th>
+              <th>Mathematical Boundary</th>
+              <th>Primary Exemplars</th>
+              <th>Tactical Deployment Directive</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 600; color: var(--signal-green);">Elite Clutch Match-Winners</td>
+              <td class="tabular-nums">&mu;_press &gt; 0.25, &mu;_norm &gt; 0.10</td>
+              <td>Jasprit Bumrah, Shubman Gill, Suryakumar Yadav, Nathan Ellis</td>
+              <td>Lock down as primary match closers and high-leverage run-chase anchors.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 600; color: var(--rr-pink);">Pure Clutch Elevators</td>
+              <td class="tabular-nums">&mu;_press &gt; 0.25, &mu;_norm &le; 0.10</td>
+              <td>Ruturaj Gaikwad, Harshal Patel, Haris Rauf</td>
+              <td>Deploy specifically when required run rate spikes or during death overs defense.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 600; color: var(--ink-secondary);">High Baseline Enforcers</td>
+              <td class="tabular-nums">&mu;_press &le; 0.25, &mu;_norm &gt; 0.10</td>
+              <td>Tim David, Tristan Stubbs, Rajat Patidar</td>
+              <td>Maintain high ceiling through sheer boundary hitting power; manage dismissal exposure.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 600; color: var(--signal-red);">High-Variance Volume Anchors</td>
+              <td class="tabular-nums">&mu;_press &le; 0.25, &mu;_norm &le; 0.10</td>
+              <td>Namboori Tilak Varma, Mustafizur Rahman</td>
+              <td>Absorb volume during middle-overs resource preservation; avoid paying marquee auction premiums.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- ======================================================== -->
-    <!-- TAB 4: AUCTION WAR ROOM & SQUAD BUILDER -->
+    <!-- TAB 3: PAIRWISE SCOUTING DOSSIER -->
     <!-- ======================================================== -->
-    <div id="view-warroom" class="hidden space-y-6">
-      
-      <!-- Top Strategy Banner -->
-      <section class="bg-gradient-to-r from-[#001D48] via-[#0B172B] to-[#001D48] p-5 rounded-xl border border-rr-border shadow-2xl flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <span class="text-xs uppercase tracking-wider font-bold text-rr-gold">Rajasthan Royals War Room • IPL 2027 Strategy Console</span>
-          <h2 class="text-xl font-bold text-white mt-1">Pressure-Tested Core XI Simulator</h2>
-          <p class="text-xs text-slate-300 mt-0.5">
-            Assemble the optimal clutch spine while adhering to BCCI / IPL Overseas quota (Max 4 Overseas) and budget allocations.
-          </p>
-        </div>
-
-        <!-- Quick Presets -->
-        <div class="flex flex-wrap items-center gap-2">
-          <button onclick="loadSquadPreset('fortress')" class="px-3 py-1.5 rounded-lg bg-sky-950/80 hover:bg-sky-900 text-sky-300 border border-sky-800 text-xs font-semibold transition-all">
-            Preset: Fortress Defense
-          </button>
-          <button onclick="loadSquadPreset('power')" class="px-3 py-1.5 rounded-lg bg-rr-pink/20 hover:bg-rr-pink/30 text-rr-pink border border-rr-pink/50 text-xs font-semibold transition-all">
-            Preset: Max Power Chase
-          </button>
-          <button onclick="loadSquadPreset('domestic')" class="px-3 py-1.5 rounded-lg bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800 text-xs font-semibold transition-all">
-            Preset: Indian Spine
-          </button>
-          <button onclick="clearSquad()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all">
-            Reset
-          </button>
-        </div>
-      </section>
-
-      <!-- Live War Room Telemetry -->
-      <section class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-rr-card p-4 rounded-xl border border-rr-border">
-          <div class="text-[11px] font-semibold text-slate-400 uppercase">Selected Players</div>
-          <div class="text-2xl font-bold font-mono text-white mt-1"><span id="squadCountDisplay">0</span> / 6 <span class="text-xs text-slate-400 font-normal">Core Slots</span></div>
-          <div class="text-[10px] text-slate-400 mt-1">Recommended target unit</div>
-        </div>
-
-        <div class="bg-rr-card p-4 rounded-xl border border-rr-border">
-          <div class="text-[11px] font-semibold text-slate-400 uppercase">Overseas In XI</div>
-          <div class="text-2xl font-bold font-mono mt-1" id="squadOverseasDisplay">0 / 4</div>
-          <div id="overseasStatusText" class="text-[10px] text-emerald-400 font-semibold mt-1">✓ Within IPL Quota</div>
-        </div>
-
-        <div class="bg-rr-card p-4 rounded-xl border border-rr-border">
-          <div class="text-[11px] font-semibold text-slate-400 uppercase">Total Estimated Cap</div>
-          <div class="text-2xl font-bold font-mono text-rr-gold mt-1">₹<span id="squadBudgetDisplay">0.0</span> Cr</div>
-          <div class="text-[10px] text-slate-400 mt-1">Across selected clutch core</div>
-        </div>
-
-        <div class="bg-rr-card p-4 rounded-xl border border-rr-border">
-          <div class="text-[11px] font-semibold text-slate-400 uppercase">Cumulative Reliability (Σ Q0.10)</div>
-          <div class="text-2xl font-bold font-mono text-emerald-400 mt-1" id="squadScoreDisplay">+0.000</div>
-          <div class="text-[10px] text-slate-400 mt-1">Combined clutch floor score</div>
-        </div>
-      </section>
-
-      <!-- War Room Core Slots & Selection Palette -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        <!-- Left: Drafted Squad Slots (2 cols) -->
-        <div class="lg:col-span-2 space-y-4">
-          <div class="bg-rr-card p-5 rounded-xl border border-rr-border shadow-xl space-y-3">
-            <h3 class="text-sm font-bold text-white flex items-center justify-between border-b border-slate-800 pb-2">
-              <span>Rajasthan Royals Pressure Spine (6 Strategic Slots)</span>
-              <span class="text-xs font-normal text-slate-400">Click slot or palette below to assign</span>
-            </h3>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="squadSlotsContainer">
-              <!-- Dynamically populated 6 slots -->
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: War Room Strategic Directives & Roster Recommendations (1 col) -->
-        <div class="bg-rr-card p-5 rounded-xl border border-rr-border shadow-xl space-y-4">
-          <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2">Giles Lindsay's War Room Directives</h3>
+    <div id="view-comparator" style="display: none;">
+      <h2 style="font-size: 18px; font-weight: 600; color: var(--ink-primary); margin-bottom: 16px;">Pairwise Scouting Comparison Dossier</h2>
+      <div class="toolbar" style="margin-bottom: 24px;">
+        <div class="filter-group">
+          <label for="compareSelectA" style="font-size: 12px; font-weight: 600; color: var(--ink-primary);">Player A:</label>
+          <select id="compareSelectA" class="btn" style="padding: 6px 10px;" onchange="renderComparison()"></select>
           
-          <div class="space-y-3 text-xs">
-            <div class="p-3 rounded-lg bg-[#060D1A] border-l-4 border-rr-pink border-y border-r border-slate-800">
-              <div class="font-bold text-white">Directive 1: Death Yorker Depth</div>
-              <p class="text-slate-300 text-[11px] mt-1">Target Nathan Ellis (#2) or Matheesha Pathirana (#7) to partner with domestic seamers. Both deliver sub-par death ERs under maximum leverage.</p>
-            </div>
+          <span style="font-size: 12px; color: var(--ink-muted); margin: 0 8px;">vs.</span>
 
-            <div class="p-3 rounded-lg bg-[#060D1A] border-l-4 border-sky-400 border-y border-r border-slate-800">
-              <div class="font-bold text-white">Directive 2: International Strike Spin</div>
-              <p class="text-slate-300 text-[11px] mt-1">Acquire Wanindu Hasaranga (+0.254 uplift, 96.8% cert) for middle spin strangulation or Sunil Narine to strangle boundary flow.</p>
-            </div>
+          <label for="compareSelectB" style="font-size: 12px; font-weight: 600; color: var(--ink-primary);">Player B:</label>
+          <select id="compareSelectB" class="btn" style="padding: 6px 10px;" onchange="renderComparison()"></select>
+        </div>
 
-            <div class="p-3 rounded-lg bg-[#060D1A] border-l-4 border-emerald-400 border-y border-r border-slate-800">
-              <div class="font-bold text-white">Directive 3: Domestic Middle Anchor</div>
-              <p class="text-slate-300 text-[11px] mt-1">Lock down Tilak Varma (745 balls) or Rajat Patidar (#5) to protect explosive late finishers from early collapses.</p>
+        <div style="display: flex; gap: 8px;">
+          <button onclick="loadComparisonPreset(6288, 6059)" class="btn">Gill vs. Gaikwad</button>
+          <button onclick="loadComparisonPreset(2933, 7920)" class="btn">Bumrah vs. Ellis</button>
+          <button onclick="loadComparisonPreset(1318, 6396)" class="btn">Russell vs. David</button>
+        </div>
+      </div>
+
+      <div class="compare-grid tabular-nums">
+        <!-- Player A Column -->
+        <div id="compareCardA" class="chart-panel" style="margin-bottom: 0;">
+          <!-- Populated dynamically -->
+        </div>
+
+        <!-- Player B Column -->
+        <div id="compareCardB" class="chart-panel" style="margin-bottom: 0;">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 4: AUCTION ALLOCATION LEDGER -->
+    <!-- ======================================================== -->
+    <div id="view-ledger" style="display: none;">
+      <div class="chart-panel">
+        <div class="chart-header">
+          <div>
+            <h2>Rajasthan Royals Clutch Spine (6 Core Roles)</h2>
+            <p style="font-size: 12px; color: var(--ink-muted); margin-top: 2px;">
+              Simulate auction target allocations adhering strictly to BCCI regulations (Max 4 Overseas in Playing XI).
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button onclick="loadLedgerPreset('fortress')" class="btn">Preset: Fortress Defense</button>
+            <button onclick="loadLedgerPreset('power')" class="btn">Preset: Power Chase</button>
+            <button onclick="loadLedgerPreset('domestic')" class="btn">Preset: Indian Core</button>
+            <button onclick="clearLedger()" class="btn">Reset</button>
+          </div>
+        </div>
+
+        <!-- Ledger Summary Strip -->
+        <div class="metric-strip" style="border: 1px solid var(--border-light); border-radius: 4px; margin-bottom: 20px; padding: 14px 0;">
+          <div class="metric-strip-inner tabular-nums" style="grid-template-columns: repeat(4, 1fr); padding: 0 16px;">
+            <div class="strip-item">
+              <div class="strip-label">Slots Filled</div>
+              <div id="ledgerFilledCount" class="strip-value">0 / 6</div>
+            </div>
+            <div class="strip-item">
+              <div class="strip-label">Overseas Quota Status</div>
+              <div id="ledgerOverseasCount" class="strip-value">0 / 4 Overseas</div>
+            </div>
+            <div class="strip-item">
+              <div class="strip-label">Committed Cap Allocation</div>
+              <div id="ledgerBudgetSum" class="strip-value">&pound; 0.0 Cr</div>
+            </div>
+            <div class="strip-item">
+              <div class="strip-label">Cumulative Reliability Floor</div>
+              <div id="ledgerScoreSum" class="strip-value stat-positive">+0.000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Allocation Table -->
+        <div class="data-table-wrapper">
+          <table class="data-table tabular-nums">
+            <thead>
+              <tr>
+                <th>Tactical Role Slot</th>
+                <th>Target Player</th>
+                <th>Nation</th>
+                <th>Discipline</th>
+                <th style="text-align: right;">Floor (Q0.10)</th>
+                <th style="text-align: right;">Uplift &Delta;</th>
+                <th style="text-align: right;">Estimated Cap</th>
+                <th style="text-align: center;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerTableBody">
+              <!-- Dynamically rendered slots -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- TAB 5: METHODOLOGY & EMPIRICAL PROOF -->
+    <!-- ======================================================== -->
+    <div id="view-proof" style="display: none;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        
+        <!-- Out-of-sample chart -->
+        <div class="chart-panel">
+          <div class="chart-header">
+            <div>
+              <h2>Out-of-Sample Holdout Verification</h2>
+              <p style="font-size: 12px; color: var(--ink-muted); margin-top: 2px;">
+                Tested on 174 untouched matches across 517 held-out test players with zero data leakage.
+              </p>
+            </div>
+          </div>
+          <div class="chart-canvas-container" style="height: 300px;">
+            <canvas id="holdoutChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Jackknife & Bayesian Rigor -->
+        <div class="chart-panel">
+          <div class="chart-header">
+            <div>
+              <h3 style="font-size: 15px; font-weight: 600; color: var(--ink-primary);">Sensitivity & Quantile Regularization</h3>
+              <p style="font-size: 12px; color: var(--ink-muted); margin-top: 2px;">
+                Guarantees rankings cannot be distorted by single-innings heroics or small-sample noise.
+              </p>
             </div>
           </div>
 
-          <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800 text-[11px] text-slate-300">
-            <strong class="text-rr-gold">Decision Rule:</strong> Never bid solely on unadjusted T20 strike rates. Demand positive Q0.10 scores to avoid marquee premiums on noise.
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 12px;">
+            <div class="sheet-row">
+              <div>
+                <strong>Jackknife Match Exclusion Test</strong>
+                <div style="font-size: 12px; color: var(--ink-muted);">Dropping each player's highest scoring match preserves &ge; 80% of leaderboard.</div>
+              </div>
+              <span class="country-pill" style="color: var(--signal-green); font-weight: 700;">&ge; 80.0% STABLE</span>
+            </div>
+
+            <div class="sheet-row">
+              <div>
+                <strong>Conservative Quantile Ranking (Q0.10)</strong>
+                <div style="font-size: 12px; color: var(--ink-muted);">Score = &mu; - 1.282&sigma; penalizes limited sample size and high posterior variance.</div>
+              </div>
+              <span class="country-pill" style="color: var(--rr-navy); font-weight: 700;">90% CREDIBLE</span>
+            </div>
+
+            <div class="sheet-row">
+              <div>
+                <strong>Unstop Dropdown Integrity Verification</strong>
+                <div style="font-size: 12px; color: var(--ink-muted);">Zero duplicate IDs. Exact 1-to-1 match against official tournament rosters.</div>
+              </div>
+              <span class="country-pill" style="color: var(--signal-green); font-weight: 700;">20 / 20 PASS</span>
+            </div>
           </div>
         </div>
 
       </div>
 
-    </div>
-
-    <!-- ======================================================== -->
-    <!-- TAB 5: MODEL PROOF & DIAGNOSTICS -->
-    <!-- ======================================================== -->
-    <div id="view-diagnostics" class="hidden space-y-6">
-      
-      <!-- Holdout Performance Comparison Bar Chart -->
-      <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="bg-rr-card p-5 rounded-xl border border-rr-border shadow-xl space-y-4">
-          <div class="border-b border-slate-800 pb-3">
-            <h2 class="text-base font-bold text-white flex items-center gap-2">
-              <i data-lucide="bar-chart-3" class="w-4 h-4 text-emerald-400"></i> Out-of-Sample Holdout Verification
-            </h2>
-            <p class="text-xs text-slate-400">
-              Evaluated on 174 held-out subsequent matches across 517 untouched test players.
-            </p>
-          </div>
-
-          <div class="relative h-[280px] w-full">
-            <canvas id="holdoutBarChart"></canvas>
-          </div>
-
-          <div class="grid grid-cols-2 gap-3 text-xs">
-            <div class="p-3 rounded-lg bg-[#060D1A] border border-slate-800 text-center">
-              <div class="text-slate-400 font-semibold uppercase text-[10px]">Batters Holdout RMSE</div>
-              <div class="font-mono text-lg font-bold text-emerald-400 mt-1">1.3688 <span class="text-xs text-slate-400 font-normal">vs 1.6965</span></div>
-              <div class="text-[10px] text-emerald-400 mt-0.5 font-bold">-19.3% Error Drop (r = 0.640)</div>
-            </div>
-            <div class="p-3 rounded-lg bg-[#060D1A] border border-slate-800 text-center">
-              <div class="text-slate-400 font-semibold uppercase text-[10px]">Bowlers Holdout RMSE</div>
-              <div class="font-mono text-lg font-bold text-sky-400 mt-1">0.9131 <span class="text-xs text-slate-400 font-normal">vs 1.0757</span></div>
-              <div class="text-[10px] text-sky-400 mt-0.5 font-bold">-15.1% Error Drop (r = 0.643)</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Jackknife & Bayesian Regularization Proof -->
-        <div class="bg-rr-card p-5 rounded-xl border border-rr-border shadow-xl space-y-4">
-          <div class="border-b border-slate-800 pb-3">
-            <h2 class="text-base font-bold text-white flex items-center gap-2">
-              <i data-lucide="shield-check" class="w-4 h-4 text-rr-pink"></i> Jackknife & Quantile Sensitivity Proof
-            </h2>
-            <p class="text-xs text-slate-400">
-              Guarantees rankings are resilient against single-match flukes and sample artifacts.
-            </p>
-          </div>
-
-          <div class="space-y-3 text-xs">
-            <div class="p-3.5 rounded-lg bg-[#060D1A] border border-slate-800 space-y-1">
-              <div class="font-bold text-white flex items-center justify-between">
-                <span>Jackknife Match Exclusion Stability</span>
-                <span class="text-emerald-400 font-mono font-bold">≥ 80.0% Preserved</span>
-              </div>
-              <p class="text-slate-400 text-[11px]">
-                Dropping each player's single highest scoring match preserved at least 80% of the Top 10 roster, proving that no player ranks solely due to one heroic 20th-over finish.
-              </p>
-            </div>
-
-            <div class="p-3.5 rounded-lg bg-[#060D1A] border border-slate-800 space-y-1">
-              <div class="font-bold text-white flex items-center justify-between">
-                <span>Bayesian Uncertainty Penalty</span>
-                <span class="text-rr-pink font-mono font-bold">Score = Q0.10</span>
-              </div>
-              <p class="text-slate-400 text-[11px]">
-                Score = μ - 1.282σ penalizes high posterior standard deviation from limited samples. Ensures only high-volume, reliable executors make the final Rajasthan Royals board.
-              </p>
-            </div>
-
-            <div class="p-3.5 rounded-lg bg-[#060D1A] border border-slate-800 space-y-1">
-              <div class="font-bold text-white flex items-center justify-between">
-                <span>Official Unstop Integrity Check</span>
-                <span class="text-emerald-400 font-mono font-bold">20 / 20 Verified</span>
-              </div>
-              <p class="text-slate-400 text-[11px]">
-                0 duplicate players in Batters, 0 in Bowlers. Full checksum validation against Unstop platform dropdown roster requirements.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4-Stage Mathematical Formulas -->
-      <section class="bg-rr-card p-5 rounded-xl border border-rr-border shadow-xl space-y-4">
-        <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2">Mathematical Formulation Hierarchy</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-          <div class="p-3.5 rounded-lg bg-[#060D1A] border-t-2 border-rr-pink border-x border-b border-slate-800 space-y-1.5">
-            <span class="text-[10px] font-bold text-rr-pink uppercase">Stage 1</span>
-            <div class="font-bold text-white">Context Baseline</div>
-            <div class="font-mono text-[11px] text-slate-300 bg-slate-900 p-2 rounded border border-slate-800">
-              E[Runs | Balls, Wkts, RRR, Phase]
-            </div>
-            <p class="text-slate-400 text-[11px]">Conditions par dynamically on continuous state.</p>
-          </div>
-
-          <div class="p-3.5 rounded-lg bg-[#060D1A] border-t-2 border-sky-400 border-x border-b border-slate-800 space-y-1.5">
-            <span class="text-[10px] font-bold text-sky-400 uppercase">Stage 2</span>
-            <div class="font-bold text-white">Leverage Volatility</div>
-            <div class="font-mono text-[11px] text-slate-300 bg-slate-900 p-2 rounded border border-slate-800">
-              L(s) = sqrt(Σ P(o)[p_o - p_bar]^2)
-            </div>
-            <p class="text-slate-400 text-[11px]">Top 20% quantile (L ≥ Q0.80) defines pure match pressure.</p>
-          </div>
-
-          <div class="p-3.5 rounded-lg bg-[#060D1A] border-t-2 border-emerald-400 border-x border-b border-slate-800 space-y-1.5">
-            <span class="text-[10px] font-bold text-emerald-400 uppercase">Stage 3</span>
-            <div class="font-bold text-white">Run-Equivalent V</div>
-            <div class="font-mono text-[11px] text-slate-300 bg-slate-900 p-2 rounded border border-slate-800">
-              V_bat = r_runs + c(s) · r_surv
-            </div>
-            <p class="text-slate-400 text-[11px]">Dynamic wicket pricing c(s) scales from 6.0 to 12.0 runs.</p>
-          </div>
-
-          <div class="p-3.5 rounded-lg bg-[#060D1A] border-t-2 border-amber-400 border-x border-b border-slate-800 space-y-1.5">
-            <span class="text-[10px] font-bold text-amber-400 uppercase">Stage 4</span>
-            <div class="font-bold text-white">Conservative Q0.10</div>
-            <div class="font-mono text-[11px] text-slate-300 bg-slate-900 p-2 rounded border border-slate-800">
-              Score = μ_i - 1.282 · σ_i
-            </div>
-            <p class="text-slate-400 text-[11px]">Guarantees 90% statistical lower bound performance.</p>
-          </div>
-        </div>
-      </section>
-
+      <!-- Formal Mathematical Architecture -->
+      <div class="data-table-wrapper" style="margin-top: 24px;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Pipeline Stage</th>
+              <th>Mathematical Formulation</th>
+              <th>Statistical Mechanism</th>
+              <th>Operational Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 600; color: var(--rr-navy);">1. Match Context Baselines</td>
+              <td style="font-family: ui-monospace, monospace; font-size: 12px;">E[Runs | BallsRem, WktsRem, CRR, RRR, Phase, Venue]</td>
+              <td>Gradient-boosted situation trees with out-of-fold cross-validation.</td>
+              <td>Conditions par continuously on game state rather than static phase averages.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 600; color: var(--rr-navy);">2. Leverage Volatility Spread</td>
+              <td style="font-family: ui-monospace, monospace; font-size: 12px;">L(s) = sqrt(&Sigma; P(o)[p(s_o) - p_bar(s)]^2) &times; urgency</td>
+              <td>Dynamic outcome win probability variance across legal transitions.</td>
+              <td>Top 20% quantile (L &ge; Q0.80) strictly isolates genuine high-pressure deliveries.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 600; color: var(--rr-navy);">3. Run-Equivalent Valuation</td>
+              <td style="font-family: ui-monospace, monospace; font-size: 12px;">V_bat = r_runs + c(s)&middot;r_surv &bull; V_bowl = r_econ + c(s)&middot;r_wkts</td>
+              <td>Dynamic wicket pricing c(s) scaled from 6.0 runs (PP) to 12.0 runs (Death).</td>
+              <td>Synthesizes boundary hitting, dot suppression, and wickets into unified currency.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 600; color: var(--rr-navy);">4. Empirical Bayes Calibration</td>
+              <td style="font-family: ui-monospace, monospace; font-size: 12px;">Score = Q0.10(Posterior) = &mu;_i - 1.282&middot;&sigma;_i</td>
+              <td>Hierarchical partial pooling decomposes player skill into baseline &amp; clutch shift.</td>
+              <td>Enforces conservative 90% statistical lower bound to eliminate sample variance.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </main>
 
-  <!-- ======================================================== -->
-  <!-- PLAYER DEEP-DIVE SLIDE-OVER DRAWER -->
-  <!-- ======================================================== -->
-  <div id="playerDrawerOverlay" onclick="closePlayerDrawer()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 transition-opacity"></div>
-  <aside id="playerDrawer" class="fixed top-0 right-0 h-full w-full max-w-lg bg-[#0B172B] border-l border-rr-border shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col overflow-hidden" role="dialog" aria-modal="true" aria-labelledby="drawerPlayerName">
-    <!-- Drawer Header -->
-    <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-[#060D1A]/80">
-      <div class="flex items-center gap-3">
-        <div id="drawerAvatar" class="w-11 h-11 rounded-lg bg-rr-pink text-white flex items-center justify-center font-bold text-lg shadow-md">
-          --
-        </div>
-        <div>
-          <h3 id="drawerPlayerName" class="text-base font-bold text-white flex items-center gap-2">
-            Loading...
-          </h3>
-          <p id="drawerPlayerMeta" class="text-xs text-slate-400 font-mono">
-            Role • ID: 0000
-          </p>
-        </div>
-      </div>
-      <button onclick="closePlayerDrawer()" aria-label="Close Drawer" class="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition-all">
-        <i data-lucide="x" class="w-4 h-4"></i>
-      </button>
-    </div>
-
-    <!-- Drawer Body -->
-    <div class="flex-1 p-5 overflow-y-auto space-y-5 text-xs">
-      
-      <!-- Score Metric Header -->
-      <div class="grid grid-cols-3 gap-2 text-center">
-        <div class="p-3 bg-[#060D1A] rounded-xl border border-slate-800">
-          <div class="text-[10px] text-slate-400 uppercase font-semibold">Conservative Score</div>
-          <div id="drawerScore" class="font-mono text-base font-bold text-rr-pink mt-1">+0.000</div>
-          <div class="text-[9px] text-slate-500 font-mono">10th percentile</div>
-        </div>
-        <div class="p-3 bg-[#060D1A] rounded-xl border border-slate-800">
-          <div class="text-[10px] text-slate-400 uppercase font-semibold">Clutch Uplift (Δ)</div>
-          <div id="drawerUplift" class="font-mono text-base font-bold text-emerald-400 mt-1">+0.000</div>
-          <div id="drawerCertainty" class="text-[9px] text-slate-400 font-mono">0.0% Cert.</div>
-        </div>
-        <div class="p-3 bg-[#060D1A] rounded-xl border border-slate-800">
-          <div class="text-[10px] text-slate-400 uppercase font-semibold">Pressure Balls</div>
-          <div id="drawerBalls" class="font-mono text-base font-bold text-sky-400 mt-1">0</div>
-          <div id="drawerMatches" class="text-[9px] text-slate-400 font-mono">0 matches</div>
-        </div>
-      </div>
-
-      <!-- Bayesian Gaussian Bell Curve Visualizer -->
-      <div class="p-4 bg-[#060D1A] rounded-xl border border-slate-800 space-y-2">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-white flex items-center gap-1.5">
-            <i data-lucide="activity" class="w-3.5 h-3.5 text-rr-pink"></i> Posterior Ability Distribution
-          </span>
-          <span class="text-[10px] font-mono text-slate-400">Normal Posterior Curve</span>
-        </div>
-        <div class="relative h-36 w-full">
-          <canvas id="bellCurveCanvas" width="440" height="144" class="w-full h-full"></canvas>
-        </div>
-        <p class="text-[11px] text-slate-400">
-          Pink vertical bar marks the <strong>Q0.10 Conservative Score</strong>. The shaded region denotes 90% credible certainty against sample variance.
-        </p>
-      </div>
-
-      <!-- Phase Breakdown -->
-      <div class="p-4 bg-[#060D1A] rounded-xl border border-slate-800 space-y-2.5">
-        <h4 class="font-bold text-white">Estimated Phase-by-Phase Impact</h4>
-        <div class="grid grid-cols-3 gap-2 text-center text-xs">
-          <div class="p-2 rounded bg-slate-900 border border-slate-800">
-            <div class="text-[10px] text-slate-400">Powerplay (1–6)</div>
-            <div id="drawerPP" class="font-mono font-bold text-white mt-0.5">+0.00</div>
-          </div>
-          <div class="p-2 rounded bg-slate-900 border border-slate-800">
-            <div class="text-[10px] text-slate-400">Middle (7–15)</div>
-            <div id="drawerMid" class="font-mono font-bold text-white mt-0.5">+0.00</div>
-          </div>
-          <div class="p-2 rounded bg-slate-900 border border-slate-800">
-            <div class="text-[10px] text-slate-400">Death (16–20)</div>
-            <div id="drawerDeath" class="font-mono font-bold text-rr-pink mt-0.5">+0.00</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tactical Scouting Notes -->
-      <div class="p-4 bg-[#060D1A] rounded-xl border border-slate-800 space-y-2">
-        <h4 class="font-bold text-white flex items-center gap-1.5">
-          <i data-lucide="file-text" class="w-3.5 h-3.5 text-rr-gold"></i> RR War Room Scouting Note
-        </h4>
-        <p id="drawerScouting" class="text-slate-300 text-xs leading-relaxed">
-          Loading scouting profile...
-        </p>
-      </div>
-
-      <!-- Action Button -->
-      <div class="pt-2">
-        <button id="drawerAddSquadBtn" onclick="togglePlayerInSquadFromDrawer()" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-rr-pink to-rr-pink-dark text-white font-semibold flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-rr-pink/20 transition-all">
-          <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Rajasthan Royals Target Core
-        </button>
-      </div>
-
-    </div>
-  </aside>
-
-  <!-- KEYBOARD SHORTCUTS MODAL -->
-  <dialog id="shortcutsModal" class="rounded-xl bg-[#0B172B] text-slate-200 border border-rr-border p-6 shadow-2xl max-w-md w-full backdrop:bg-black/70">
-    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-      <h3 class="font-bold text-white flex items-center gap-2">
-        <i data-lucide="keyboard" class="w-4 h-4 text-rr-pink"></i> Keyboard Shortcuts
-      </h3>
-      <button onclick="document.getElementById('shortcutsModal').close()" class="p-1 rounded text-slate-400 hover:text-white">
-        <i data-lucide="x" class="w-4 h-4"></i>
-      </button>
-    </div>
-    <div class="mt-4 space-y-2.5 text-xs">
-      <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
-        <span>Focus Search Bar</span> <kbd class="px-2 py-0.5 bg-slate-800 rounded font-mono font-bold text-rr-pink">/</kbd>
-      </div>
-      <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
-        <span>Switch Tabs</span> <kbd class="px-2 py-0.5 bg-slate-800 rounded font-mono font-bold text-white">1 - 5</kbd>
-      </div>
-      <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
-        <span>Toggle Dark / Light Theme</span> <kbd class="px-2 py-0.5 bg-slate-800 rounded font-mono font-bold text-white">T</kbd>
-      </div>
-      <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
-        <span>Close Modal / Drawer</span> <kbd class="px-2 py-0.5 bg-slate-800 rounded font-mono font-bold text-white">Esc</kbd>
-      </div>
-      <div class="flex justify-between items-center py-1">
-        <span>Show This Cheat Sheet</span> <kbd class="px-2 py-0.5 bg-slate-800 rounded font-mono font-bold text-white">?</kbd>
-      </div>
-    </div>
-  </dialog>
-
-  <!-- TOAST NOTIFICATION CONTAINER -->
-  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 space-y-2 pointer-events-none"></div>
-
-  <!-- APPLICATION SCRIPT LOGIC -->
+  <!-- Application Logic -->
   <script>
-    // Injected Dataset
     const PLAYERS = ${JSON.stringify(playersData, null, 2)};
 
-    // State Variables
-    let currentTab = 'leaderboard';
-    let currentFilter = { discipline: 'all', nationality: 'all', search: '' };
-    let currentSort = { column: 'rank', direction: 'asc' };
-    let activePlayerDrawer = null;
-    let viewMode = 'table'; // 'table' or 'grid'
+    let currentTab = 'roster';
+    let currentDiscipline = 'all';
+    let currentNationality = 'all';
+    let searchQuery = '';
+    let sortColumn = 'rank';
+    let sortDirection = 'asc';
+    let selectedPlayerId = 6288; // Default: Shubman Gill
 
-    // Squad State
-    let squadSlots = {
+    let ledgerSlots = {
       1: { role: 'Top-Order Anchor', player: null },
       2: { role: 'Anchor-Elevator', player: null },
       3: { role: 'Middle Spin Demolisher', player: null },
@@ -1410,355 +1553,273 @@ const dashboardHtml = `<!DOCTYPE html>
       6: { role: 'Death Yorker Closer', player: null }
     };
 
-    // Chart instances
-    let scatterChart = null;
-    let radarChart = null;
+    let bivariateChart = null;
     let holdoutChart = null;
 
-    // Initialize on DOM load
     document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
-      initTheme();
       renderTable();
-      populateComparatorSelectors();
-      renderSquadSlots();
-      setupKeyboardShortcuts();
-      initHoldoutChart();
+      populateComparatorOptions();
+      renderComparison();
+      renderLedger();
+      openDossier(6288);
+      setupKeyboardNavigation();
     });
 
-    // Theme Switcher
-    function initTheme() {
-      const savedTheme = localStorage.getItem('rr_theme') || 'dark';
-      if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-        document.body.classList.add('bg-slate-50', 'text-slate-900');
-        document.body.classList.remove('bg-[#060D1A]', 'text-slate-100');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
-
-      document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
-    }
-
-    function toggleTheme() {
-      const isDark = document.documentElement.classList.contains('dark');
-      if (isDark) {
-        document.documentElement.classList.remove('dark');
-        document.body.classList.add('bg-slate-50', 'text-slate-900');
-        document.body.classList.remove('bg-[#060D1A]', 'text-slate-100');
-        localStorage.setItem('rr_theme', 'light');
-        showToast('Switched to Royal Stadium Light Theme');
-      } else {
-        document.documentElement.classList.add('dark');
-        document.body.classList.remove('bg-slate-50', 'text-slate-900');
-        document.body.classList.add('bg-[#060D1A]', 'text-slate-100');
-        localStorage.setItem('rr_theme', 'dark');
-        showToast('Switched to Midnight Navy Theme');
-      }
-      lucide.createIcons();
-      if (scatterChart) scatterChart.update();
-      if (radarChart) radarChart.update();
-      if (holdoutChart) holdoutChart.update();
-    }
-
-    // Tab Switching
     function switchTab(tabId) {
       currentTab = tabId;
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.setAttribute('aria-selected', 'false');
-        btn.classList.remove('border-rr-pink', 'text-rr-pink');
-        btn.classList.add('border-transparent', 'text-slate-400');
+      document.querySelectorAll('.nav-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
       });
-
       const activeBtn = document.getElementById('tab-' + tabId);
       if (activeBtn) {
+        activeBtn.classList.add('active');
         activeBtn.setAttribute('aria-selected', 'true');
-        activeBtn.classList.add('border-rr-pink', 'text-rr-pink');
-        activeBtn.classList.remove('border-transparent', 'text-slate-400');
       }
 
-      const tabs = ['leaderboard', 'quadrant', 'comparator', 'warroom', 'diagnostics'];
-      tabs.forEach(t => {
-        const el = document.getElementById('view-' + t);
-        if (el) el.classList.toggle('hidden', t !== tabId);
+      ['roster', 'quadrant', 'comparator', 'ledger', 'proof'].forEach(id => {
+        const view = document.getElementById('view-' + id);
+        if (view) view.style.display = (id === tabId) ? 'block' : 'none';
       });
 
-      // Trigger charts resize/render when tabs become visible
-      if (tabId === 'quadrant') initScatterChart();
-      if (tabId === 'comparator') renderComparison();
-      if (tabId === 'diagnostics') initHoldoutChart();
-
-      lucide.createIcons();
+      if (tabId === 'quadrant') renderBivariateChart();
+      if (tabId === 'proof') renderHoldoutChart();
     }
 
-    // Filtering
-    function setFilter(type, value) {
-      currentFilter[type] = value;
-      
-      // Update UI buttons
-      if (type === 'discipline') {
-        document.querySelectorAll('.filter-disc-btn').forEach(b => {
-          b.classList.remove('bg-rr-pink', 'text-white', 'shadow-sm');
-          b.classList.add('text-slate-400');
-        });
-        const active = document.getElementById('filter-disc-' + value.toLowerCase());
-        if (active) {
-          active.classList.add('bg-rr-pink', 'text-white', 'shadow-sm');
-          active.classList.remove('text-slate-400');
-        }
-      }
-
-      if (type === 'nationality') {
-        document.querySelectorAll('.filter-nat-btn').forEach(b => {
-          b.classList.remove('bg-slate-800', 'text-white');
-          b.classList.add('text-slate-400');
-        });
-        const active = document.getElementById('filter-nat-' + value.toLowerCase());
-        if (active) {
-          active.classList.add('bg-slate-800', 'text-white');
-          active.classList.remove('text-slate-400');
-        }
-      }
-
+    function setDiscipline(val) {
+      currentDiscipline = val;
+      document.querySelectorAll('.segmented-control button[id^="btn-disc-"]').forEach(b => b.classList.remove('active'));
+      const btnMap = { 'all': 'btn-disc-all', 'Batter': 'btn-disc-bat', 'Bowler': 'btn-disc-bowl' };
+      if (btnMap[val]) document.getElementById(btnMap[val]).classList.add('active');
       renderTable();
     }
 
-    // Search input handler
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-      currentFilter.search = e.target.value.toLowerCase().trim();
-      document.getElementById('clearSearchBtn').classList.toggle('hidden', currentFilter.search.length === 0);
-      renderTable();
-    });
-
-    function clearSearch() {
-      document.getElementById('searchInput').value = '';
-      currentFilter.search = '';
-      document.getElementById('clearSearchBtn').classList.add('hidden');
+    function setNationality(val) {
+      currentNationality = val;
+      document.querySelectorAll('.segmented-control button[id^="btn-nat-"]').forEach(b => b.classList.remove('active'));
+      const btnMap = { 'all': 'btn-nat-all', 'domestic': 'btn-nat-dom', 'overseas': 'btn-nat-ovs' };
+      if (btnMap[val]) document.getElementById(btnMap[val]).classList.add('active');
       renderTable();
     }
 
-    // Filter Logic
-    function getFilteredPlayers() {
+    function applyFilters() {
+      searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+      renderTable();
+    }
+
+    function getFilteredList() {
       return PLAYERS.filter(p => {
-        if (currentFilter.discipline !== 'all' && p.role !== currentFilter.discipline) return false;
-        if (currentFilter.nationality === 'india' && p.isOverseas) return false;
-        if (currentFilter.nationality === 'overseas' && !p.isOverseas) return false;
-        if (currentFilter.search) {
-          const matchName = p.name.toLowerCase().includes(currentFilter.search);
-          const matchTeam = p.team.toLowerCase().includes(currentFilter.search);
-          const matchArch = p.archetype.toLowerCase().includes(currentFilter.search);
+        if (currentDiscipline !== 'all' && p.role !== currentDiscipline) return false;
+        if (currentNationality === 'domestic' && p.isOverseas) return false;
+        if (currentNationality === 'overseas' && !p.isOverseas) return false;
+        if (searchQuery) {
+          const matchName = p.name.toLowerCase().includes(searchQuery);
+          const matchTeam = p.team.toLowerCase().includes(searchQuery);
+          const matchArch = p.archetype.toLowerCase().includes(searchQuery);
           if (!matchName && !matchTeam && !matchArch) return false;
         }
         return true;
       });
     }
 
-    // Sort Logic
     function sortTable(column) {
-      if (currentSort.column === column) {
-        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+      if (sortColumn === column) {
+        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
       } else {
-        currentSort.column = column;
-        currentSort.direction = (column === 'score' || column === 'pressureAbility' || column === 'uplift' || column === 'certainty' || column === 'balls') ? 'desc' : 'asc';
-      }
-
-      // Update indicator arrows
-      ['rank', 'name', 'nationality', 'score', 'pressureAbility', 'normalAbility', 'uplift', 'certainty', 'balls', 'matches'].forEach(col => {
-        const span = document.getElementById('sort-' + col);
-        if (span) span.textContent = (col === column) ? (currentSort.direction === 'asc' ? '▲' : '▼') : '';
-      });
-
-      renderTable();
-    }
-
-    function toggleViewMode(mode) {
-      viewMode = mode;
-      document.getElementById('tableViewSection').classList.toggle('hidden', mode !== 'table');
-      document.getElementById('gridViewSection').classList.toggle('hidden', mode !== 'grid');
-      
-      const tableBtn = document.getElementById('viewModeTableBtn');
-      const gridBtn = document.getElementById('viewModeGridBtn');
-      if (mode === 'table') {
-        tableBtn.classList.add('bg-rr-pink', 'text-white');
-        tableBtn.classList.remove('bg-[#060D1A]', 'text-slate-400');
-        gridBtn.classList.remove('bg-rr-pink', 'text-white');
-        gridBtn.classList.add('bg-[#060D1A]', 'text-slate-400');
-      } else {
-        gridBtn.classList.add('bg-rr-pink', 'text-white');
-        gridBtn.classList.remove('bg-[#060D1A]', 'text-slate-400');
-        tableBtn.classList.remove('bg-rr-pink', 'text-white');
-        tableBtn.classList.add('bg-[#060D1A]', 'text-slate-400');
+        sortColumn = column;
+        sortDirection = ['score', 'pressureAbility', 'normalAbility', 'uplift', 'certainty', 'balls'].includes(column) ? 'desc' : 'asc';
       }
       renderTable();
     }
 
-    // Render Table
     function renderTable() {
-      let list = getFilteredPlayers();
+      let list = getFilteredList();
 
-      // Sort
       list.sort((a, b) => {
-        let valA = a[currentSort.column];
-        let valB = b[currentSort.column];
-        if (typeof valA === 'string') {
-          return currentSort.direction === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
+        let vA = a[sortColumn];
+        let vB = b[sortColumn];
+        if (typeof vA === 'string') {
+          return sortDirection === 'asc' ? vA.localeCompare(vB) : vB.localeCompare(vA);
         }
-        return currentSort.direction === 'asc' ? valA - valB : valB - valA;
+        return sortDirection === 'asc' ? vA - vB : vB - vA;
       });
 
-      document.getElementById('playerCount').textContent = list.length;
-
-      // Table body
-      const tbody = document.getElementById('playerTableBody');
+      document.getElementById('recordCount').textContent = list.length;
+      const tbody = document.getElementById('rosterTableBody');
       tbody.innerHTML = '';
 
-      // Grid container
-      const grid = document.getElementById('gridViewSection');
-      grid.innerHTML = '';
-
       if (list.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="11" class="py-12 text-center text-slate-400">No players match the selected filters.</td></tr>';
-        grid.innerHTML = '<div class="col-span-4 py-12 text-center text-slate-400">No players match the selected filters.</div>';
+        tbody.innerHTML = '<tr><td colspan="11" style="text-align: center; padding: 32px; color: var(--ink-muted);">No records match criteria.</td></tr>';
         return;
       }
 
       list.forEach(p => {
-        const isBatter = p.role === 'Batter';
-        const scoreColor = p.score >= 0.1 ? 'text-rr-pink font-bold' : (p.score >= 0 ? 'text-white font-semibold' : 'text-slate-400 font-normal');
-        const upliftColor = p.uplift > 0.15 ? 'text-emerald-400 font-bold' : (p.uplift > 0 ? 'text-emerald-300' : 'text-rose-400');
+        const tr = document.createElement('tr');
+        if (p.id === selectedPlayerId) tr.classList.add('active-row');
+        tr.style.cursor = 'pointer';
+        tr.onclick = () => openDossier(p.id);
+
         const scoreFormatted = (p.score >= 0 ? '+' : '') + p.score.toFixed(3);
-        const upliftFormatted = (p.uplift >= 0 ? '+' : '') + p.uplift.toFixed(3);
         const pressFormatted = (p.pressureAbility >= 0 ? '+' : '') + p.pressureAbility.toFixed(3);
         const normFormatted = (p.normalAbility >= 0 ? '+' : '') + p.normalAbility.toFixed(3);
-
-        const inSquad = Object.values(squadSlots).some(s => s.player && s.player.id === p.id);
-
-        // TABLE ROW
-        const tr = document.createElement('tr');
-        tr.className = 'hover:bg-slate-800/40 transition-colors group cursor-pointer';
-        tr.onclick = (e) => {
-          if (!e.target.closest('button')) openPlayerDrawer(p.id);
-        };
+        const upliftFormatted = (p.uplift >= 0 ? '+' : '') + p.uplift.toFixed(3);
 
         tr.innerHTML = \`
-          <td class="py-3.5 px-4 font-mono font-bold \${p.rank === 1 ? 'text-rr-pink' : (p.rank <= 3 ? 'text-white' : 'text-slate-400')}">
-            #\${p.rank}
-          </td>
-          <td class="py-3.5 px-4">
-            <div class="flex items-center gap-2.5">
-              <span class="text-base">\${p.flag}</span>
+          <td class="rank-number \${p.rank === 1 ? 'top-rank' : ''}">#\${p.rank}</td>
+          <td>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="country-pill">\${p.countryCode}</span>
               <div>
-                <div class="font-bold text-white group-hover:text-rr-pink transition-colors flex items-center gap-1.5">
-                  \${p.name}
-                  <span class="text-[9px] px-1.5 py-0.2 rounded font-mono font-semibold \${isBatter ? 'bg-rr-pink/20 text-rr-pink border border-rr-pink/30' : 'bg-sky-950 text-sky-400 border border-sky-800/50'}">
-                    \${p.role.toUpperCase()}
-                  </span>
-                </div>
-                <div class="text-[11px] text-slate-400">\${p.archetype}</div>
+                <div class="player-name">\${p.name}</div>
+                <div style="font-size: 11px; color: var(--ink-muted);">\${p.archetype}</div>
               </div>
             </div>
           </td>
-          <td class="py-3.5 px-4 text-slate-300">
-            \${p.nationality}
-          </td>
-          <td class="py-3.5 px-4 text-right font-mono \${scoreColor}">
-            \${scoreFormatted}
-          </td>
-          <td class="py-3.5 px-4 text-right font-mono text-slate-200">
-            \${pressFormatted}
-          </td>
-          <td class="py-3.5 px-4 text-right font-mono text-slate-400">
-            \${normFormatted}
-          </td>
-          <td class="py-3.5 px-4 text-right font-mono \${upliftColor}">
-            \${upliftFormatted}
-          </td>
-          <td class="py-3.5 px-4 text-right font-mono text-slate-200">
-            \${p.certainty.toFixed(1)}%
-          </td>
-          <td class="py-3.5 px-4 text-right font-mono text-slate-300">
-            \${p.balls}
-          </td>
-          <td class="py-3.5 px-4 text-right font-mono text-slate-400">
-            \${p.matches}
-          </td>
-          <td class="py-3.5 px-4 text-center">
-            <div class="inline-flex items-center gap-1">
-              <button onclick="openPlayerDrawer(\${p.id})" title="View Deep Dive" class="p-1.5 rounded hover:bg-slate-700/60 text-slate-400 hover:text-white transition-all">
-                <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-              </button>
-              <button onclick="togglePlayerInSquad(\${p.id})" title="\${inSquad ? 'Remove from Squad' : 'Draft into RR Squad'}" class="p-1.5 rounded \${inSquad ? 'bg-rr-pink text-white' : 'hover:bg-slate-700/60 text-slate-400 hover:text-rr-pink'} transition-all">
-                <i data-lucide="\${inSquad ? 'check' : 'plus'}" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </td>
+          <td>\${p.role}</td>
+          <td>\${p.team}</td>
+          <td style="text-align: right; font-weight: 600; color: \${p.score >= 0.1 ? 'var(--rr-pink)' : 'var(--ink-primary)'};">\${scoreFormatted}</td>
+          <td style="text-align: right;">\${pressFormatted}</td>
+          <td style="text-align: right; color: var(--ink-muted);">\${normFormatted}</td>
+          <td style="text-align: right;" class="\${p.uplift >= 0 ? 'stat-positive' : 'stat-negative'}">\${upliftFormatted}</td>
+          <td style="text-align: right;">\${p.certainty.toFixed(1)}%</td>
+          <td style="text-align: right;">\${p.balls}</td>
+          <td style="text-align: right; color: var(--ink-muted);">\${p.matches}</td>
         \`;
         tbody.appendChild(tr);
-
-        // GRID CARD
-        const card = document.createElement('div');
-        card.className = 'bg-[#060D1A] rounded-xl border border-slate-800/80 p-4 hover:border-rr-pink/60 transition-all flex flex-col justify-between space-y-3 cursor-pointer group shadow-lg';
-        card.onclick = (e) => {
-          if (!e.target.closest('button')) openPlayerDrawer(p.id);
-        };
-
-        card.innerHTML = \`
-          <div>
-            <div class="flex items-start justify-between">
-              <div class="flex items-center gap-2">
-                <span class="text-xl">\${p.flag}</span>
-                <div>
-                  <h4 class="font-bold text-white group-hover:text-rr-pink transition-colors flex items-center gap-1.5">
-                    \${p.name}
-                  </h4>
-                  <span class="text-[10px] text-slate-400">\${p.archetype}</span>
-                </div>
-              </div>
-              <span class="font-mono font-bold text-xs px-2 py-0.5 rounded \${p.rank === 1 ? 'bg-rr-pink text-white' : 'bg-slate-800 text-slate-300'}">
-                #\${p.rank}
-              </span>
-            </div>
-
-            <div class="mt-3 grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/60">
-              <div class="p-2 rounded bg-slate-900/60">
-                <span class="text-[9px] uppercase tracking-wider text-slate-400">Score (Q0.10)</span>
-                <div class="font-mono text-sm font-bold \${scoreColor}">\${scoreFormatted}</div>
-              </div>
-              <div class="p-2 rounded bg-slate-900/60">
-                <span class="text-[9px] uppercase tracking-wider text-slate-400">Clutch Uplift</span>
-                <div class="font-mono text-sm font-bold \${upliftColor}">\${upliftFormatted}</div>
-              </div>
-            </div>
-
-            <div class="mt-2 text-[11px] text-slate-400 flex justify-between">
-              <span>Certainty: <strong class="text-slate-200">\${p.certainty.toFixed(1)}%</strong></span>
-              <span>Sample: <strong class="text-slate-200">\${p.balls}b</strong> (\${p.matches}m)</span>
-            </div>
-          </div>
-
-          <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
-            <button onclick="openPlayerDrawer(\${p.id})" class="text-xs text-slate-400 hover:text-white font-semibold flex items-center gap-1">
-              <i data-lucide="eye" class="w-3.5 h-3.5"></i> Deep Dive
-            </button>
-            <button onclick="togglePlayerInSquad(\${p.id})" class="px-2.5 py-1 rounded text-xs font-semibold \${inSquad ? 'bg-rr-pink text-white' : 'bg-slate-800 hover:bg-slate-700 text-slate-200'} transition-all flex items-center gap-1">
-              <i data-lucide="\${inSquad ? 'check' : 'plus'}" class="w-3.5 h-3.5"></i> \${inSquad ? 'Drafted' : 'Draft'}
-            </button>
-          </div>
-        \`;
-        grid.appendChild(card);
       });
-
-      lucide.createIcons();
     }
 
-    // ==========================================
-    // TAB 2: SCATTER PLOT & SIMULATOR LOGIC
-    // ==========================================
-    function initScatterChart() {
-      const ctx = document.getElementById('quadrantScatterChart');
-      if (!ctx) return;
+    function openDossier(playerId) {
+      selectedPlayerId = playerId;
+      const p = PLAYERS.find(x => x.id === playerId);
+      if (!p) return;
 
-      if (scatterChart) scatterChart.destroy();
+      document.getElementById('workbenchContainer').classList.remove('detail-hidden');
+      document.getElementById('dossierPanel').style.display = 'block';
+
+      document.getElementById('dossierRole').textContent = \`#\${p.rank} \${p.role} &bull; \${p.archetype}\`;
+      document.getElementById('dossierName').textContent = p.name;
+      document.getElementById('dossierTeam').textContent = \`\${p.team} (\${p.countryCode}) &bull; ID: \${p.id} &bull; Valuation: &pound; \${p.auctionPrice} Cr\`;
+
+      document.getElementById('dossierScore').textContent = (p.score >= 0 ? '+' : '') + p.score.toFixed(3);
+      document.getElementById('dossierUplift').textContent = (p.uplift >= 0 ? '+' : '') + p.uplift.toFixed(3);
+      document.getElementById('dossierPress').textContent = '+' + p.pressureAbility.toFixed(3);
+      document.getElementById('dossierCertainty').textContent = p.certainty.toFixed(1) + '%';
+      document.getElementById('dossierScouting').textContent = p.scouting;
+
+      const inSquad = Object.values(ledgerSlots).some(s => s.player && s.player.id === p.id);
+      const draftBtn = document.getElementById('dossierDraftBtn');
+      draftBtn.textContent = inSquad ? 'Remove from Auction Allocation Ledger' : 'Add to Auction Allocation Ledger';
+
+      renderPosteriorCurve(p);
+      renderTable();
+    }
+
+    function closeDossier() {
+      document.getElementById('workbenchContainer').classList.add('detail-hidden');
+      document.getElementById('dossierPanel').style.display = 'none';
+      selectedPlayerId = null;
+      renderTable();
+    }
+
+    function togglePlayerFromDossier() {
+      if (!selectedPlayerId) return;
+      const p = PLAYERS.find(x => x.id === selectedPlayerId);
+      if (!p) return;
+
+      const existingSlotKey = Object.keys(ledgerSlots).find(k => ledgerSlots[k].player && ledgerSlots[k].player.id === p.id);
+      if (existingSlotKey) {
+        ledgerSlots[existingSlotKey].player = null;
+        showToast(\`Removed \${p.name} from ledger.\`);
+      } else {
+        const emptyKey = Object.keys(ledgerSlots).find(k => !ledgerSlots[k].player);
+        if (emptyKey) {
+          ledgerSlots[emptyKey].player = p;
+          showToast(\`Allocated \${p.name} to Slot \${emptyKey} (\${ledgerSlots[emptyKey].role})\`);
+        } else {
+          showToast('Allocation ledger full. Remove a slot first.');
+        }
+      }
+
+      openDossier(p.id);
+      renderLedger();
+    }
+
+    // Mathematical Gaussian Bell Curve Renderer
+    function renderPosteriorCurve(p) {
+      const canvas = document.getElementById('posteriorCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const mu = p.pressureAbility;
+      const q10 = p.score;
+      const sigma = (mu - q10) / 1.282;
+
+      const xMin = mu - 3.2 * sigma;
+      const xMax = mu + 3.2 * sigma;
+
+      function toX(xVal) { return ((xVal - xMin) / (xMax - xMin)) * (w - 30) + 15; }
+      function normalPdf(x) { return (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2)); }
+      const maxPdf = normalPdf(mu);
+      function toY(pdfVal) { return h - 20 - (pdfVal / maxPdf) * (h - 40); }
+
+      // Shaded credible region
+      ctx.beginPath();
+      ctx.moveTo(toX(q10), toY(0));
+      for (let x = q10; x <= xMax; x += (xMax - q10) / 40) {
+        ctx.lineTo(toX(x), toY(normalPdf(x)));
+      }
+      ctx.lineTo(toX(xMax), toY(0));
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(194, 0, 91, 0.08)';
+      ctx.fill();
+
+      // Normal curve stroke
+      ctx.beginPath();
+      for (let x = xMin; x <= xMax; x += (xMax - xMin) / 60) {
+        const px = toX(x);
+        const py = toY(normalPdf(x));
+        if (x === xMin) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.strokeStyle = '#001D48';
+      ctx.lineWidth = 1.75;
+      ctx.stroke();
+
+      // Q0.10 vertical line
+      const qX = toX(q10);
+      ctx.beginPath();
+      ctx.moveTo(qX, 10);
+      ctx.lineTo(qX, h - 20);
+      ctx.strokeStyle = '#C2005B';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 3]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Baseline
+      ctx.beginPath();
+      ctx.moveTo(10, h - 20);
+      ctx.lineTo(w - 10, h - 20);
+      ctx.strokeStyle = '#D1D5DB';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Text markers
+      ctx.fillStyle = '#C2005B';
+      ctx.font = '600 10px monospace';
+      ctx.fillText(\`Q0.10: \${(q10 >= 0 ? '+' : '')}\${q10.toFixed(3)}\`, Math.max(12, qX - 35), 18);
+    }
+
+    // Bivariate Performance Map
+    function renderBivariateChart() {
+      const ctx = document.getElementById('bivariateChart');
+      if (!ctx) return;
+      if (bivariateChart) bivariateChart.destroy();
 
       const batters = PLAYERS.filter(p => p.role === 'Batter').map(p => ({
         x: p.normalAbility,
@@ -1772,33 +1833,25 @@ const dashboardHtml = `<!DOCTYPE html>
         player: p
       }));
 
-      scatterChart = new Chart(ctx, {
+      bivariateChart = new Chart(ctx, {
         type: 'scatter',
         data: {
           datasets: [
             {
               label: 'Batters',
               data: batters,
-              backgroundColor: '#E00070',
+              backgroundColor: '#C2005B',
               borderColor: '#FFFFFF',
               borderWidth: 1.5,
-              pointRadius: (ctx) => {
-                const b = ctx.raw?.player?.balls || 300;
-                return Math.max(6, Math.min(14, b / 45));
-              },
-              pointHoverRadius: 16
+              pointRadius: (ctx) => Math.max(5, Math.min(12, (ctx.raw?.player?.balls || 300) / 45))
             },
             {
               label: 'Bowlers',
               data: bowlers,
-              backgroundColor: '#38BDF8',
+              backgroundColor: '#001D48',
               borderColor: '#FFFFFF',
               borderWidth: 1.5,
-              pointRadius: (ctx) => {
-                const b = ctx.raw?.player?.balls || 300;
-                return Math.max(6, Math.min(14, b / 45));
-              },
-              pointHoverRadius: 16
+              pointRadius: (ctx) => Math.max(5, Math.min(12, (ctx.raw?.player?.balls || 300) / 45))
             }
           ]
         },
@@ -1808,22 +1861,23 @@ const dashboardHtml = `<!DOCTYPE html>
           plugins: {
             legend: { display: false },
             tooltip: {
-              backgroundColor: '#0B172B',
-              borderColor: '#1E3A5F',
+              backgroundColor: '#FFFFFF',
+              titleColor: '#111827',
+              bodyColor: '#374151',
+              borderColor: '#D1D5DB',
               borderWidth: 1,
-              titleColor: '#FFFFFF',
-              bodyColor: '#E2E8F0',
               padding: 10,
+              displayColors: false,
               callbacks: {
                 label: (ctx) => {
                   const p = ctx.raw.player;
                   return [
-                    \`\${p.flag} \${p.name} (#\${p.rank} \${p.role})\`,
-                    \`Score: \${p.score >= 0 ? '+' : ''}\${p.score.toFixed(3)} (Q0.10)\`,
+                    \`\${p.name} (\${p.countryCode} &bull; \${p.role} #\${p.rank})\`,
+                    \`Conservative Score: \${p.score >= 0 ? '+' : ''}\${p.score.toFixed(3)} Q0.10\`,
                     \`Pressure Ability: +\${p.pressureAbility.toFixed(3)}\`,
                     \`Normal Baseline: \${p.normalAbility >= 0 ? '+' : ''}\${p.normalAbility.toFixed(3)}\`,
-                    \`Uplift: +\${p.uplift.toFixed(3)} (Cert: \${p.certainty}%)\`,
-                    \`Volume: \${p.balls} balls in \${p.matches} matches\`
+                    \`Empirical Bayes Uplift: +\${p.uplift.toFixed(3)} (Cert: \${p.certainty}%)\`,
+                    \`Volume: \${p.balls} legal deliveries across \${p.matches} matches\`
                   ];
                 }
               }
@@ -1831,83 +1885,33 @@ const dashboardHtml = `<!DOCTYPE html>
           },
           scales: {
             x: {
-              title: {
-                display: true,
-                text: 'Normal Baseline Ability μ_norm (Unadjusted Game Par)',
-                color: '#94A3B8',
-                font: { size: 11, weight: 'bold' }
-              },
-              grid: { color: 'rgba(148, 163, 184, 0.1)' },
-              ticks: { color: '#94A3B8' }
+              title: { display: true, text: 'Normal Game Baseline (\u03BC_norm)', color: '#4B5563', font: { weight: '600' } },
+              grid: { color: '#E5E7EB' },
+              ticks: { color: '#6B7280' }
             },
             y: {
-              title: {
-                display: true,
-                text: 'Pressure Ability μ_press (High Leverage L ≥ Q0.80)',
-                color: '#94A3B8',
-                font: { size: 11, weight: 'bold' }
-              },
-              grid: { color: 'rgba(148, 163, 184, 0.1)' },
-              ticks: { color: '#94A3B8' }
+              title: { display: true, text: 'Pressure Ability (\u03BC_press)', color: '#4B5563', font: { weight: '600' } },
+              grid: { color: '#E5E7EB' },
+              ticks: { color: '#6B7280' }
             }
           },
           onClick: (evt, elements) => {
             if (elements && elements.length > 0) {
               const datasetIdx = elements[0].datasetIndex;
               const dataIdx = elements[0].index;
-              const dataset = scatterChart.data.datasets[datasetIdx];
-              const player = dataset.data[dataIdx].player;
-              openPlayerDrawer(player.id);
+              const player = bivariateChart.data.datasets[datasetIdx].data[dataIdx].player;
+              switchTab('roster');
+              openDossier(player.id);
             }
           }
         }
       });
     }
 
-    // Situation Simulator logic
-    function updateSim() {
-      const balls = parseInt(document.getElementById('simBalls').value);
-      const wkts = parseInt(document.getElementById('simWkts').value);
-      const runs = parseInt(document.getElementById('simRuns').value);
-
-      document.getElementById('simBallsVal').textContent = \`\${balls} balls (Over \${(20 - balls/6).toFixed(1)})\`;
-      document.getElementById('simWktsVal').textContent = \`\${wkts} wickets\`;
-      document.getElementById('simRunsVal').textContent = \`\${runs} runs\`;
-
-      const rrr = ((runs / balls) * 6).toFixed(2);
-      document.getElementById('simRRR').textContent = \`\${rrr} RPO\`;
-
-      // Leverage approximation formula
-      let leverageScore = 0.5 + (runs / balls) * 0.05 + (10 - wkts) * 0.03;
-      if (balls <= 18) leverageScore *= 1.35;
-      const leverageFixed = Math.min(0.99, Math.max(0.15, leverageScore)).toFixed(3);
-      
-      const isCritical = leverageFixed >= 0.80;
-      document.getElementById('simLeverage').innerHTML = \`\${leverageFixed} <span class="\${isCritical ? 'text-rr-pink font-bold' : 'text-slate-400'}">(\${isCritical ? 'CRITICAL LEVERAGE' : 'MODERATE'})</span>\`;
-
-      // Wicket value calculation
-      let wVal = 6.0 + (20 - balls/6) * 0.35 + (10 - wkts) * 0.3;
-      wVal = Math.min(14.5, Math.max(5.5, wVal)).toFixed(1);
-      document.getElementById('simWicketVal').textContent = \`\${wVal} runs\`;
-
-      // Recommendation
-      let rec = '';
-      if (balls <= 18 && runs >= 30) {
-        rec = 'Deploy primary yorker weapon (Bumrah/Ellis) or power finisher (Russell/David). Win swing is >12% per ball.';
-      } else if (balls > 36 && rrr > 9.5) {
-        rec = 'Deploy spin neutralizer (Rajat Patidar) or wrist spin clamp (Hasaranga/Narine). Strike rotation critical.';
-      } else {
-        rec = 'Standard phase baseline deployment. Protect wickets while maintaining 8.0+ RPO.';
-      }
-      document.getElementById('simRecommendation').textContent = rec;
-    }
-
-    // ==========================================
-    // TAB 3: COMPARATOR LOGIC
-    // ==========================================
-    function populateComparatorSelectors() {
-      const selectA = document.getElementById('compPlayerA');
-      const selectB = document.getElementById('compPlayerB');
+    // Pairwise Comparator Logic
+    function populateComparatorOptions() {
+      const selectA = document.getElementById('compareSelectA');
+      const selectB = document.getElementById('compareSelectB');
       if (!selectA || !selectB) return;
 
       selectA.innerHTML = '';
@@ -1916,336 +1920,214 @@ const dashboardHtml = `<!DOCTYPE html>
       PLAYERS.forEach(p => {
         const optA = document.createElement('option');
         optA.value = p.id;
-        optA.textContent = \`\${p.flag} \${p.name} (#\${p.rank} \${p.role}) - \${p.score >= 0 ? '+' : ''}\${p.score.toFixed(3)}\`;
+        optA.textContent = \`\${p.name} (\${p.countryCode} &bull; \${p.role})\`;
         selectA.appendChild(optA);
 
         const optB = document.createElement('option');
         optB.value = p.id;
-        optB.textContent = \`\${p.flag} \${p.name} (#\${p.rank} \${p.role}) - \${p.score >= 0 ? '+' : ''}\${p.score.toFixed(3)}\`;
+        optB.textContent = \`\${p.name} (\${p.countryCode} &bull; \${p.role})\`;
         selectB.appendChild(optB);
       });
 
-      // Default pair: Gill vs Gaikwad
-      selectA.value = 6288;
-      selectB.value = 6059;
+      selectA.value = 6288; // Gill
+      selectB.value = 6059; // Gaikwad
     }
 
-    function loadPresetComparison(preset) {
-      if (preset === 'gill_gaikwad') {
-        document.getElementById('compPlayerA').value = 6288;
-        document.getElementById('compPlayerB').value = 6059;
-      } else if (preset === 'bumrah_ellis') {
-        document.getElementById('compPlayerA').value = 2933;
-        document.getElementById('compPlayerB').value = 7920;
-      }
+    function loadComparisonPreset(idA, idB) {
+      document.getElementById('compareSelectA').value = idA;
+      document.getElementById('compareSelectB').value = idB;
       renderComparison();
     }
 
     function renderComparison() {
-      const idA = parseInt(document.getElementById('compPlayerA').value);
-      const idB = parseInt(document.getElementById('compPlayerB').value);
-      const pA = PLAYERS.find(p => p.id === idA) || PLAYERS[0];
-      const pB = PLAYERS.find(p => p.id === idB) || PLAYERS[1];
+      const idA = parseInt(document.getElementById('compareSelectA').value);
+      const idB = parseInt(document.getElementById('compareSelectB').value);
+      const pA = PLAYERS.find(x => x.id === idA) || PLAYERS[0];
+      const pB = PLAYERS.find(x => x.id === idB) || PLAYERS[1];
 
-      renderCompCard('compCardA', pA, pB, '#E00070');
-      renderCompCard('compCardB', pB, pA, '#38BDF8');
-      renderRadarChart(pA, pB);
-
-      // Render Verdict
-      const scoreDiff = (pA.score - pB.score).toFixed(3);
-      const verdictBox = document.getElementById('compVerdictBox');
-      const higherFloor = pA.score >= pB.score ? pA : pB;
-      const higherPeak = pA.pressureAbility >= pB.pressureAbility ? pA : pB;
-      const higherUplift = pA.uplift >= pB.uplift ? pA : pB;
-
-      verdictBox.innerHTML = \`
-        <div class="font-bold text-white flex items-center justify-between">
-          <span>Executive War Room Verdict</span>
-          <span class="text-rr-gold font-mono font-bold">Δ Score: \${Math.abs(scoreDiff)}</span>
-        </div>
-        <p class="text-slate-300 text-[11px] mt-1">
-          <strong>\${higherFloor.name}</strong> offers the superior statistical reliability floor (\${higherFloor.score >= 0 ? '+' : ''}\${higherFloor.score.toFixed(3)} Q0.10).
-          <strong>\${higherUplift.name}</strong> provides higher clutch acceleration spike (+ \${higherUplift.uplift.toFixed(3)} uplift).
-        </p>
-      \`;
+      renderCompareColumn('compareCardA', pA, pB);
+      renderCompareColumn('compareCardB', pB, pA);
     }
 
-    function renderCompCard(containerId, player, opponent, accent) {
-      const el = document.getElementById(containerId);
-      if (!el) return;
+    function renderCompareColumn(containerId, player, opponent) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
 
       const diffScore = (player.score - opponent.score).toFixed(3);
       const diffUplift = (player.uplift - opponent.uplift).toFixed(3);
-      const diffBalls = player.balls - opponent.balls;
 
-      el.innerHTML = \`
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <span class="text-2xl">\${player.flag}</span>
-            <div>
-              <h3 class="font-bold text-base text-white">\${player.name}</h3>
-              <span class="text-xs text-slate-400 font-mono">#\${player.rank} \${player.role} • \${player.team}</span>
-            </div>
+      container.innerHTML = \`
+        <div style="border-bottom: 1px solid var(--border-light); padding-bottom: 12px; margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <h3 style="font-size: 18px;">\${player.name}</h3>
+            <span class="country-pill">\${player.countryCode}</span>
           </div>
-          <span class="px-2.5 py-1 rounded-md font-mono font-bold text-xs bg-slate-800 text-white">₹\${player.auctionPrice} Cr</span>
+          <div style="font-size: 12px; color: var(--ink-muted); margin-top: 2px;">
+            #\${player.rank} \${player.role} &bull; \${player.team} &bull; Est. Cap: &pound; \${player.auctionPrice} Cr
+          </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-2 text-xs pt-2">
-          <div class="p-2.5 rounded-lg bg-[#060D1A] border border-slate-800">
-            <span class="text-[10px] text-slate-400 uppercase font-semibold">Q0.10 Score</span>
-            <div class="font-mono text-base font-bold text-white mt-0.5">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div class="sheet-row">
+            <span>Conservative Reliability (Q0.10)</span>
+            <span style="font-weight: 700; color: \${player.score >= opponent.score ? 'var(--signal-green)' : 'var(--ink-secondary)'};">
               \${player.score >= 0 ? '+' : ''}\${player.score.toFixed(3)}
-              <span class="text-[10px] \${diffScore >= 0 ? 'text-emerald-400' : 'text-rose-400'}">
-                (\${diffScore >= 0 ? '+' : ''}\${diffScore})
-              </span>
-            </div>
+              <small style="color: var(--ink-muted); font-weight: normal;">(\${diffScore >= 0 ? '+' : ''}\${diffScore})</small>
+            </span>
           </div>
 
-          <div class="p-2.5 rounded-lg bg-[#060D1A] border border-slate-800">
-            <span class="text-[10px] text-slate-400 uppercase font-semibold">Clutch Uplift (Δ)</span>
-            <div class="font-mono text-base font-bold text-emerald-400 mt-0.5">
+          <div class="sheet-row">
+            <span>Clutch Uplift Delta (&Delta;)</span>
+            <span style="font-weight: 700; color: \${player.uplift >= opponent.uplift ? 'var(--signal-green)' : 'var(--ink-secondary)'};">
               +\${player.uplift.toFixed(3)}
-              <span class="text-[10px] \${diffUplift >= 0 ? 'text-emerald-400' : 'text-rose-400'}">
-                (\${diffUplift >= 0 ? '+' : ''}\${diffUplift})
-              </span>
-            </div>
+              <small style="color: var(--ink-muted); font-weight: normal;">(\${diffUplift >= 0 ? '+' : ''}\${diffUplift})</small>
+            </span>
           </div>
 
-          <div class="p-2.5 rounded-lg bg-[#060D1A] border border-slate-800">
-            <span class="text-[10px] text-slate-400 uppercase font-semibold">Pressure Ability</span>
-            <div class="font-mono text-sm font-bold text-white mt-0.5">+\${player.pressureAbility.toFixed(3)}</div>
+          <div class="sheet-row">
+            <span>Pressure Ability Mean</span>
+            <span style="font-weight: 600;">+\${player.pressureAbility.toFixed(3)}</span>
           </div>
 
-          <div class="p-2.5 rounded-lg bg-[#060D1A] border border-slate-800">
-            <span class="text-[10px] text-slate-400 uppercase font-semibold">P(Δ > 0) Certainty</span>
-            <div class="font-mono text-sm font-bold text-slate-200 mt-0.5">\${player.certainty.toFixed(1)}%</div>
+          <div class="sheet-row">
+            <span>Game Normal Par Baseline</span>
+            <span style="font-weight: 600; color: var(--ink-muted);">\${player.normalAbility >= 0 ? '+' : ''}\${player.normalAbility.toFixed(3)}</span>
+          </div>
+
+          <div class="sheet-row">
+            <span>Posterior Probability P(&Delta; &gt; 0)</span>
+            <span style="font-weight: 600;">\${player.certainty.toFixed(1)}%</span>
+          </div>
+
+          <div class="sheet-row">
+            <span>Sample Volume</span>
+            <span>\${player.balls} deliveries (\${player.matches} matches)</span>
           </div>
         </div>
 
-        <div class="p-3 rounded-lg bg-[#060D1A] border border-slate-800 text-xs space-y-1">
-          <div class="text-[10px] uppercase font-semibold text-slate-400">Scouting Verdict</div>
-          <p class="text-slate-300 text-[11px] leading-relaxed">\${player.scouting}</p>
+        <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-light); font-size: 12px; line-height: 1.5; color: var(--ink-secondary);">
+          <strong>Tactical Assessment:</strong> \${player.scouting}
         </div>
       \`;
     }
 
-    function renderRadarChart(pA, pB) {
-      const ctx = document.getElementById('compRadarChart');
-      if (!ctx) return;
+    // Ledger Logic
+    function renderLedger() {
+      const tbody = document.getElementById('ledgerTableBody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
 
-      if (radarChart) radarChart.destroy();
-
-      radarChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: ['Reliability Floor', 'Peak Ability', 'Clutch Uplift', 'Certainty', 'Sample Depth', 'Baseline Quality'],
-          datasets: [
-            {
-              label: pA.name,
-              data: pA.radar,
-              backgroundColor: 'rgba(224, 0, 112, 0.25)',
-              borderColor: '#E00070',
-              borderWidth: 2,
-              pointBackgroundColor: '#E00070',
-              pointRadius: 3
-            },
-            {
-              label: pB.name,
-              data: pB.radar,
-              backgroundColor: 'rgba(56, 189, 248, 0.25)',
-              borderColor: '#38BDF8',
-              borderWidth: 2,
-              pointBackgroundColor: '#38BDF8',
-              pointRadius: 3
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              labels: { color: '#E2E8F0', font: { size: 11 } }
-            }
-          },
-          scales: {
-            r: {
-              angleLines: { color: 'rgba(148, 163, 184, 0.15)' },
-              grid: { color: 'rgba(148, 163, 184, 0.15)' },
-              pointLabels: { color: '#94A3B8', font: { size: 10, weight: 'bold' } },
-              ticks: { display: false, min: 0, max: 100 }
-            }
-          }
-        }
-      });
-    }
-
-    // ==========================================
-    // TAB 4: AUCTION WAR ROOM LOGIC
-    // ==========================================
-    function renderSquadSlots() {
-      const container = document.getElementById('squadSlotsContainer');
-      if (!container) return;
-
-      container.innerHTML = '';
-      let totalBudget = 0;
-      let totalScore = 0;
-      let overseasCount = 0;
       let filledCount = 0;
+      let overseasCount = 0;
+      let budgetSum = 0;
+      let scoreSum = 0;
 
-      Object.entries(squadSlots).forEach(([slotId, slot]) => {
+      Object.entries(ledgerSlots).forEach(([slotId, slot]) => {
         const p = slot.player;
         if (p) {
-          totalBudget += p.auctionPrice;
-          totalScore += p.score;
-          if (p.isOverseas) overseasCount++;
           filledCount++;
+          if (p.isOverseas) overseasCount++;
+          budgetSum += p.auctionPrice;
+          scoreSum += p.score;
         }
 
-        const slotEl = document.createElement('div');
-        slotEl.className = 'p-3.5 rounded-xl border border-slate-800 bg-[#060D1A] flex items-center justify-between gap-3 text-xs';
-
+        const tr = document.createElement('tr');
         if (p) {
-          slotEl.innerHTML = \`
-            <div class="flex items-center gap-2.5">
-              <span class="text-xl">\${p.flag}</span>
-              <div>
-                <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">\${slot.role}</span>
-                <div class="font-bold text-white">\${p.name}</div>
-                <div class="text-[10px] text-slate-400 font-mono">Q0.10: \${p.score >= 0 ? '+' : ''}\${p.score.toFixed(3)} • ₹\${p.auctionPrice} Cr</div>
-              </div>
-            </div>
-            <button onclick="removeSquadSlot(\${slotId})" class="p-1.5 rounded hover:bg-slate-800 text-slate-400 hover:text-rose-400 transition-all">
-              <i data-lucide="x" class="w-4 h-4"></i>
-            </button>
+          tr.innerHTML = \`
+            <td style="font-weight: 600; color: var(--rr-navy);">Slot \${slotId}: \${slot.role}</td>
+            <td style="font-weight: 600;">\${p.name}</td>
+            <td><span class="country-pill">\${p.countryCode}</span></td>
+            <td>\${p.role}</td>
+            <td style="text-align: right; font-weight: 600; color: var(--rr-pink);">\${p.score >= 0 ? '+' : ''}\${p.score.toFixed(3)}</td>
+            <td style="text-align: right;" class="stat-positive">+\${p.uplift.toFixed(3)}</td>
+            <td style="text-align: right; font-weight: 600;">&pound; \${p.auctionPrice.toFixed(1)} Cr</td>
+            <td style="text-align: center;">
+              <button onclick="removeLedgerSlot(\${slotId})" class="btn" style="padding: 2px 8px; font-size: 11px;">Remove</button>
+            </td>
           \`;
         } else {
-          slotEl.innerHTML = \`
-            <div>
-              <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Slot \${slotId}: \${slot.role}</span>
-              <div class="font-semibold text-slate-500 italic mt-0.5">Unassigned Core Slot</div>
-            </div>
-            <button onclick="quickAssignSlot(\${slotId})" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded font-semibold text-[11px] transition-all">
-              + Assign
-            </button>
+          tr.innerHTML = \`
+            <td style="color: var(--ink-muted); font-weight: 500;">Slot \${slotId}: \${slot.role}</td>
+            <td style="color: var(--ink-muted); font-style: italic;">Unallocated</td>
+            <td>-</td>
+            <td>-</td>
+            <td style="text-align: right; color: var(--ink-muted);">-</td>
+            <td style="text-align: right; color: var(--ink-muted);">-</td>
+            <td style="text-align: right; color: var(--ink-muted);">-</td>
+            <td style="text-align: center;">
+              <button onclick="quickAssignLedgerSlot(\${slotId})" class="btn" style="padding: 2px 8px; font-size: 11px;">+ Allocate</button>
+            </td>
           \`;
         }
-
-        container.appendChild(slotEl);
+        tbody.appendChild(tr);
       });
 
-      // Update Telemetry
-      document.getElementById('squadCountDisplay').textContent = filledCount;
-      document.getElementById('squadCountBadge').textContent = filledCount;
-      document.getElementById('squadBudgetDisplay').textContent = totalBudget.toFixed(1);
-      document.getElementById('squadScoreDisplay').textContent = (totalScore >= 0 ? '+' : '') + totalScore.toFixed(3);
-      
-      const ovEl = document.getElementById('squadOverseasDisplay');
-      const ovStat = document.getElementById('overseasStatusText');
-      ovEl.textContent = \`\${overseasCount} / 4\`;
-      if (overseasCount > 4) {
-        ovEl.className = 'text-2xl font-bold font-mono text-rose-500 mt-1';
-        ovStat.textContent = '✗ Exceeds 4 Overseas IPL Limit!';
-        ovStat.className = 'text-[10px] text-rose-400 font-bold mt-1';
-      } else {
-        ovEl.className = 'text-2xl font-bold font-mono text-emerald-400 mt-1';
-        ovStat.textContent = '✓ Within IPL Quota';
-        ovStat.className = 'text-[10px] text-emerald-400 font-semibold mt-1';
-      }
+      document.getElementById('ledgerFilledCount').textContent = \`\${filledCount} / 6\`;
+      const ovEl = document.getElementById('ledgerOverseasCount');
+      ovEl.textContent = \`\${overseasCount} / 4 Overseas\`;
+      ovEl.style.color = (overseasCount > 4) ? 'var(--signal-red)' : 'var(--ink-primary)';
 
-      lucide.createIcons();
+      document.getElementById('ledgerBudgetSum').textContent = \`&pound; \${budgetSum.toFixed(1)} Cr\`;
+      document.getElementById('ledgerScoreSum').textContent = (scoreSum >= 0 ? '+' : '') + scoreSum.toFixed(3);
     }
 
-    function togglePlayerInSquad(playerId) {
-      const p = PLAYERS.find(x => x.id === playerId);
-      if (!p) return;
-
-      const existingSlotKey = Object.keys(squadSlots).find(k => squadSlots[k].player && squadSlots[k].player.id === playerId);
-      if (existingSlotKey) {
-        squadSlots[existingSlotKey].player = null;
-        showToast(\`Removed \${p.name} from squad.\`);
-      } else {
-        // Find empty slot
-        const emptyKey = Object.keys(squadSlots).find(k => !squadSlots[k].player);
-        if (emptyKey) {
-          squadSlots[emptyKey].player = p;
-          showToast(\`Drafted \${p.name} into Slot \${emptyKey} (\${squadSlots[emptyKey].role})\`);
-        } else {
-          showToast('Squad is full! Remove a player first.', true);
-        }
-      }
-
-      renderSquadSlots();
-      renderTable();
-    }
-
-    function removeSquadSlot(slotId) {
-      if (squadSlots[slotId]) {
-        squadSlots[slotId].player = null;
-        renderSquadSlots();
-        renderTable();
+    function removeLedgerSlot(slotId) {
+      if (ledgerSlots[slotId]) {
+        ledgerSlots[slotId].player = null;
+        renderLedger();
+        if (selectedPlayerId) openDossier(selectedPlayerId);
       }
     }
 
-    function quickAssignSlot(slotId) {
-      // Pick best unassigned matching player
-      const assignedIds = Object.values(squadSlots).filter(s => s.player).map(s => s.player.id);
+    function quickAssignLedgerSlot(slotId) {
+      const assignedIds = Object.values(ledgerSlots).filter(s => s.player).map(s => s.player.id);
       const candidate = PLAYERS.find(p => !assignedIds.includes(p.id));
       if (candidate) {
-        squadSlots[slotId].player = candidate;
-        renderSquadSlots();
-        renderTable();
-        showToast(\`Assigned \${candidate.name} to Slot \${slotId}\`);
+        ledgerSlots[slotId].player = candidate;
+        renderLedger();
+        if (selectedPlayerId) openDossier(selectedPlayerId);
       }
     }
 
-    function loadSquadPreset(type) {
-      clearSquad();
+    function loadLedgerPreset(type) {
+      clearLedger();
       if (type === 'fortress') {
-        // Bumrah, Ellis, Narine, Gill, Patidar, Russell
-        squadSlots[1].player = PLAYERS.find(p => p.id === 6288); // Gill
-        squadSlots[2].player = PLAYERS.find(p => p.id === 5039); // Patidar
-        squadSlots[3].player = PLAYERS.find(p => p.id === 1318); // Russell
-        squadSlots[4].player = PLAYERS.find(p => p.id === 781);  // Narine
-        squadSlots[5].player = PLAYERS.find(p => p.id === 7920); // Ellis
-        squadSlots[6].player = PLAYERS.find(p => p.id === 2933); // Bumrah
-        showToast('Loaded Preset: Fortress Defense');
+        ledgerSlots[1].player = PLAYERS.find(p => p.id === 6288); // Gill
+        ledgerSlots[2].player = PLAYERS.find(p => p.id === 5039); // Patidar
+        ledgerSlots[3].player = PLAYERS.find(p => p.id === 1318); // Russell
+        ledgerSlots[4].player = PLAYERS.find(p => p.id === 781);  // Narine
+        ledgerSlots[5].player = PLAYERS.find(p => p.id === 7920); // Ellis
+        ledgerSlots[6].player = PLAYERS.find(p => p.id === 2933); // Bumrah
       } else if (type === 'power') {
-        // Gaikwad, Surya, David, Rauf, Hasaranga, Pathirana
-        squadSlots[1].player = PLAYERS.find(p => p.id === 6059); // Gaikwad
-        squadSlots[2].player = PLAYERS.find(p => p.id === 1699); // Surya
-        squadSlots[3].player = PLAYERS.find(p => p.id === 6396); // David
-        squadSlots[4].player = PLAYERS.find(p => p.id === 7364); // Rauf
-        squadSlots[5].player = PLAYERS.find(p => p.id === 4900); // Hasaranga
-        squadSlots[6].player = PLAYERS.find(p => p.id === 8661); // Pathirana
-        showToast('Loaded Preset: Max Power Chase');
+        ledgerSlots[1].player = PLAYERS.find(p => p.id === 6059); // Gaikwad
+        ledgerSlots[2].player = PLAYERS.find(p => p.id === 1699); // Surya
+        ledgerSlots[3].player = PLAYERS.find(p => p.id === 6396); // David
+        ledgerSlots[4].player = PLAYERS.find(p => p.id === 7364); // Rauf
+        ledgerSlots[5].player = PLAYERS.find(p => p.id === 4900); // Hasaranga
+        ledgerSlots[6].player = PLAYERS.find(p => p.id === 8661); // Pathirana
       } else if (type === 'domestic') {
-        // Gill, Gaikwad, Patidar, Tilak, Harshal, Bumrah
-        squadSlots[1].player = PLAYERS.find(p => p.id === 6288); // Gill
-        squadSlots[2].player = PLAYERS.find(p => p.id === 6059); // Gaikwad
-        squadSlots[3].player = PLAYERS.find(p => p.id === 5039); // Patidar
-        squadSlots[4].player = PLAYERS.find(p => p.id === 7897); // Tilak
-        squadSlots[5].player = PLAYERS.find(p => p.id === 2261); // Harshal
-        squadSlots[6].player = PLAYERS.find(p => p.id === 2933); // Bumrah
-        showToast('Loaded Preset: Indian Spine');
+        ledgerSlots[1].player = PLAYERS.find(p => p.id === 6288); // Gill
+        ledgerSlots[2].player = PLAYERS.find(p => p.id === 6059); // Gaikwad
+        ledgerSlots[3].player = PLAYERS.find(p => p.id === 5039); // Patidar
+        ledgerSlots[4].player = PLAYERS.find(p => p.id === 7897); // Tilak
+        ledgerSlots[5].player = PLAYERS.find(p => p.id === 2261); // Harshal
+        ledgerSlots[6].player = PLAYERS.find(p => p.id === 2933); // Bumrah
       }
-      renderSquadSlots();
-      renderTable();
+      renderLedger();
+      if (selectedPlayerId) openDossier(selectedPlayerId);
+      showToast(\`Loaded preset: \${type}\`);
     }
 
-    function clearSquad() {
-      Object.keys(squadSlots).forEach(k => squadSlots[k].player = null);
-      renderSquadSlots();
-      renderTable();
+    function clearLedger() {
+      Object.keys(ledgerSlots).forEach(k => ledgerSlots[k].player = null);
+      renderLedger();
+      if (selectedPlayerId) openDossier(selectedPlayerId);
     }
 
-    // ==========================================
-    // TAB 5: HOLDOUT EVALUATION CHART
-    // ==========================================
-    function initHoldoutChart() {
-      const ctx = document.getElementById('holdoutBarChart');
+    // Holdout Validation Chart
+    function renderHoldoutChart() {
+      const ctx = document.getElementById('holdoutChart');
       if (!ctx) return;
-
       if (holdoutChart) holdoutChart.destroy();
 
       holdoutChart = new Chart(ctx, {
@@ -2256,14 +2138,12 @@ const dashboardHtml = `<!DOCTYPE html>
             {
               label: 'Standard Baselines',
               data: [1.6965, 1.0757],
-              backgroundColor: '#64748B',
-              borderRadius: 6
+              backgroundColor: '#9CA3AF'
             },
             {
               label: 'RR Model A+ (GBDT + Bayes)',
               data: [1.3688, 0.9131],
-              backgroundColor: '#E00070',
-              borderRadius: 6
+              backgroundColor: '#001D48'
             }
           ]
         },
@@ -2271,256 +2151,57 @@ const dashboardHtml = `<!DOCTYPE html>
           responsive: true,
           maintainAspectRatio: false,
           plugins: {
-            legend: {
-              labels: { color: '#E2E8F0', font: { size: 11, weight: 'bold' } }
-            },
-            tooltip: {
-              callbacks: {
-                afterLabel: (ctx) => {
-                  if (ctx.datasetIndex === 1) {
-                    return ctx.dataIndex === 0 ? '-19.3% Prediction Error' : '-15.1% Prediction Error';
-                  }
-                  return '';
-                }
-              }
-            }
+            legend: { position: 'top', labels: { font: { size: 11, weight: '600' } } }
           },
           scales: {
             y: {
-              title: { display: true, text: 'Root Mean Squared Error (Lower is Better)', color: '#94A3B8' },
-              grid: { color: 'rgba(148, 163, 184, 0.1)' },
-              ticks: { color: '#94A3B8' },
-              min: 0.5
+              title: { display: true, text: 'Prediction Error (Lower is Better)', color: '#4B5563' },
+              grid: { color: '#E5E7EB' }
             },
-            x: {
-              grid: { display: false },
-              ticks: { color: '#E2E8F0', font: { weight: 'bold' } }
-            }
+            x: { grid: { display: false } }
           }
         }
       });
     }
 
-    // ==========================================
-    // PLAYER DEEP-DIVE SLIDE-OVER DRAWER
-    // ==========================================
-    function openPlayerDrawer(playerId) {
-      const p = PLAYERS.find(x => x.id === playerId);
-      if (!p) return;
-
-      activePlayerDrawer = p;
-
-      document.getElementById('drawerPlayerName').innerHTML = \`\${p.flag} \${p.name}\`;
-      document.getElementById('drawerPlayerMeta').textContent = \`#\${p.rank} \${p.role} • \${p.team} • ID: \${p.id}\`;
-      document.getElementById('drawerAvatar').textContent = p.name.split(' ').map(n=>n[0]).join('').slice(0,2);
-      document.getElementById('drawerAvatar').className = \`w-11 h-11 rounded-lg flex items-center justify-center font-bold text-lg shadow-md \${p.role === 'Batter' ? 'bg-rr-pink text-white' : 'bg-sky-500 text-white'}\`;
-
-      document.getElementById('drawerScore').textContent = (p.score >= 0 ? '+' : '') + p.score.toFixed(3);
-      document.getElementById('drawerUplift').textContent = (p.uplift >= 0 ? '+' : '') + p.uplift.toFixed(3);
-      document.getElementById('drawerCertainty').textContent = \`\${p.certainty.toFixed(1)}% Cert.\`;
-      document.getElementById('drawerBalls').textContent = p.balls;
-      document.getElementById('drawerMatches').textContent = \`\${p.matches} matches\`;
-
-      document.getElementById('drawerPP').textContent = p.phaseSplit.powerplay;
-      document.getElementById('drawerMid').textContent = p.phaseSplit.middle;
-      document.getElementById('drawerDeath').textContent = p.phaseSplit.death;
-
-      document.getElementById('drawerScouting').textContent = p.scouting;
-
-      const inSquad = Object.values(squadSlots).some(s => s.player && s.player.id === p.id);
-      const squadBtn = document.getElementById('drawerAddSquadBtn');
-      squadBtn.innerHTML = inSquad ? 
-        '<i data-lucide="check" class="w-4 h-4"></i> Remove from Rajasthan Royals Target Core' : 
-        '<i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Rajasthan Royals Target Core';
-
-      // Draw Bell Curve
-      drawBellCurve(p);
-
-      // Open drawer
-      document.getElementById('playerDrawerOverlay').classList.remove('hidden');
-      document.getElementById('playerDrawer').classList.remove('translate-x-full');
-
-      lucide.createIcons();
-    }
-
-    function closePlayerDrawer() {
-      document.getElementById('playerDrawerOverlay').classList.add('hidden');
-      document.getElementById('playerDrawer').classList.add('translate-x-full');
-      activePlayerDrawer = null;
-    }
-
-    function togglePlayerInSquadFromDrawer() {
-      if (activePlayerDrawer) {
-        togglePlayerInSquad(activePlayerDrawer.id);
-        const inSquad = Object.values(squadSlots).some(s => s.player && s.player.id === activePlayerDrawer.id);
-        const squadBtn = document.getElementById('drawerAddSquadBtn');
-        squadBtn.innerHTML = inSquad ? 
-          '<i data-lucide="check" class="w-4 h-4"></i> Remove from Rajasthan Royals Target Core' : 
-          '<i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Rajasthan Royals Target Core';
-        lucide.createIcons();
-      }
-    }
-
-    // HTML5 Canvas Bayesian Normal Distribution Curve
-    function drawBellCurve(player) {
-      const canvas = document.getElementById('bellCurveCanvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const w = canvas.width;
-      const h = canvas.height;
-
-      ctx.clearRect(0, 0, w, h);
-
-      // Parameters
-      const mu = player.pressureAbility;
-      const q10 = player.score;
-      const sigma = (mu - q10) / 1.282;
-
-      // Range for x: mu - 3.5 sigma to mu + 3.5 sigma
-      const xMin = mu - 3.2 * sigma;
-      const xMax = mu + 3.2 * sigma;
-
-      function toX(xVal) {
-        return ((xVal - xMin) / (xMax - xMin)) * (w - 40) + 20;
-      }
-
-      function normalPdf(x) {
-        return (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2));
-      }
-
-      const maxPdf = normalPdf(mu);
-      function toY(pdfVal) {
-        return h - 25 - (pdfVal / maxPdf) * (h - 45);
-      }
-
-      // Draw 90% shaded credible region (from q10 to xMax)
-      ctx.beginPath();
-      ctx.moveTo(toX(q10), toY(0));
-      for (let x = q10; x <= xMax; x += (xMax - q10) / 40) {
-        ctx.lineTo(toX(x), toY(normalPdf(x)));
-      }
-      ctx.lineTo(toX(xMax), toY(0));
-      ctx.closePath();
-      ctx.fillStyle = 'rgba(224, 0, 112, 0.18)';
-      ctx.fill();
-
-      // Draw full normal curve line
-      ctx.beginPath();
-      for (let x = xMin; x <= xMax; x += (xMax - xMin) / 80) {
-        const px = toX(x);
-        const py = toY(normalPdf(x));
-        if (x === xMin) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
-      }
-      ctx.strokeStyle = '#38BDF8';
-      ctx.lineWidth = 2.5;
-      ctx.stroke();
-
-      // Draw Q0.10 vertical marker
-      const qX = toX(q10);
-      ctx.beginPath();
-      ctx.moveTo(qX, 10);
-      ctx.lineTo(qX, h - 20);
-      ctx.strokeStyle = '#E00070';
-      ctx.lineWidth = 2;
-      ctx.setLineDash([4, 4]);
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      // Draw Mean vertical marker
-      const muX = toX(mu);
-      ctx.beginPath();
-      ctx.moveTo(muX, 15);
-      ctx.lineTo(muX, h - 20);
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      // Labels
-      ctx.fillStyle = '#E00070';
-      ctx.font = 'bold 10px Consolas, monospace';
-      ctx.fillText(\`Q0.10: \${q10 >= 0 ? '+' : ''}\${q10.toFixed(3)}\`, Math.max(10, qX - 45), 18);
-
-      ctx.fillStyle = '#94A3B8';
-      ctx.font = '10px Consolas, monospace';
-      ctx.fillText(\`Mean: +\${mu.toFixed(3)}\`, Math.min(w - 75, muX + 6), 30);
-
-      // Baseline line
-      ctx.beginPath();
-      ctx.moveTo(10, h - 20);
-      ctx.lineTo(w - 10, h - 20);
-      ctx.strokeStyle = 'rgba(148, 163, 184, 0.3)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    }
-
-    // ==========================================
-    // TOAST & SHORTCUTS HELPERS
-    // ==========================================
-    function showToast(message, isError = false) {
-      const container = document.getElementById('toastContainer');
-      const toast = document.createElement('div');
-      toast.className = \`px-4 py-2.5 rounded-lg text-xs font-semibold text-white shadow-2xl flex items-center gap-2 transform transition-all duration-300 pointer-events-auto \${isError ? 'bg-rose-600' : 'bg-slate-900 border border-slate-700'}\`;
-      toast.innerHTML = \`<i data-lucide="\${isError ? 'alert-triangle' : 'check-circle'}" class="w-4 h-4 text-emerald-400"></i> \${message}\`;
-      
-      container.appendChild(toast);
-      lucide.createIcons();
-
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(10px)';
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-
-    function setupKeyboardShortcuts() {
-      // Shortcuts modal
-      document.getElementById('shortcutsBtn').addEventListener('click', () => {
-        document.getElementById('shortcutsModal').showModal();
-      });
-
-      // Export menu toggle
-      const exportBtn = document.getElementById('exportDropdownBtn');
-      const exportMenu = document.getElementById('exportMenu');
-      exportBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        exportMenu.classList.toggle('hidden');
-      });
-      document.addEventListener('click', () => exportMenu.classList.add('hidden'));
-
-      // Keyboard events
+    // Keyboard Navigation
+    function setupKeyboardNavigation() {
       document.addEventListener('keydown', (e) => {
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') {
-          if (e.key === 'Escape') {
-            e.target.blur();
-            closePlayerDrawer();
-          }
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') {
+          if (e.key === 'Escape') e.target.blur();
           return;
         }
 
         if (e.key === '/') {
           e.preventDefault();
           document.getElementById('searchInput').focus();
-        } else if (e.key === 'Escape') {
-          closePlayerDrawer();
-          const modal = document.getElementById('shortcutsModal');
-          if (modal.open) modal.close();
-        } else if (e.key === 't' || e.key === 'T') {
-          toggleTheme();
-        } else if (e.key === '?') {
-          document.getElementById('shortcutsModal').showModal();
         } else if (e.key >= '1' && e.key <= '5') {
-          const tabMap = { '1': 'leaderboard', '2': 'quadrant', '3': 'comparator', '4': 'warroom', '5': 'diagnostics' };
-          switchTab(tabMap[e.key]);
+          const map = { '1': 'roster', '2': 'quadrant', '3': 'comparator', '4': 'ledger', '5': 'proof' };
+          switchTab(map[e.key]);
         }
       });
     }
 
-    // Export CSV
+    function showToast(msg) {
+      const existing = document.querySelector('.toast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = msg;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(8px)';
+        setTimeout(() => toast.remove(), 250);
+      }, 2500);
+    }
+
     function exportCSV() {
-      let csv = 'rank,role,player_name,nationality,conservative_score,pressure_ability,normal_ability,uplift,prob_positive_uplift,pressure_balls,pressure_matches\\n';
+      let csv = 'rank,role,player_name,country,conservative_score,pressure_ability,normal_ability,uplift,prob_positive_uplift,pressure_balls,pressure_matches\\n';
       PLAYERS.forEach(p => {
-        csv += \`\${p.rank},\${p.role},"\${p.name}",\${p.nationality},\${p.score},\${p.pressureAbility},\${p.normalAbility},\${p.uplift},\${p.certainty}%,\${p.balls},\${p.matches}\\n\`;
+        csv += \`\${p.rank},\${p.role},"\${p.name}",\${p.countryCode},\${p.score},\${p.pressureAbility},\${p.normalAbility},\${p.uplift},\${p.certainty}%,\${p.balls},\${p.matches}\\n\`;
       });
 
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -2530,17 +2211,16 @@ const dashboardHtml = `<!DOCTYPE html>
       a.download = 'rajasthan_royals_superr_selector_rankings.csv';
       a.click();
       URL.revokeObjectURL(url);
-      showToast('Exported rankings to CSV');
+      showToast('Exported verified rankings to CSV');
     }
 
-    // Export JSON
     function exportJSON() {
       const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(PLAYERS, null, 2));
       const a = document.createElement('a');
       a.href = dataStr;
       a.download = 'rajasthan_royals_superr_selector_rankings.json';
       a.click();
-      showToast('Exported rankings to JSON');
+      showToast('Exported verified rankings to JSON');
     }
   </script>
 </body>
